@@ -37,12 +37,6 @@ connect-mongo, dotenv, ejs, express, express-session, mongodb, mongoose, morgan,
 - Create a `.env` file and add the following as `key: value` 
   - PORT: 2121 (can be any port example: 3000) 
   - DB_STRING: `your database URI` 
-  
-- Setup your `config.js` file with the following:
-  - client Id
-  - client secret
-  - redirectUrl
- 
  ---
  
  Have fun testing and improving it! 😎
