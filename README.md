@@ -38,8 +38,6 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
     - "passport-local": "^1.0.0",
     - "validator": "^13.6.0"
 
-connect-mongo, dotenv, ejs, express, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local
-
 ---
 
 ## Install all the dependencies or node packages used for development via Terminal
