@@ -1,10 +1,95 @@
-h1{
-    color: red;
-}
+
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
-    text-decoration: underline;
+    
+    color: white;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #0e0b16;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+}
+h1{
+    color: white;
+    height: 33.33%;
+    font-size: 3.5em;
+    font-weight: 400;
+    text-align: center;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1%;
+    min-width: 33.33%;
+    border: 1px solid #4717f6;
+}
+
+a {
+    margin: 0.5%;
+    padding: 30px;
+
+    font-size: 3em;
+    font-weight: 100;
+    border: 2px solid white;
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+
+    color: white;
+    background: #0e0b16;
+    transition-property: background;
+    transition-duration: 1.5s;
+    transition-timing-function: linear;
+}
+
+a:hover {
+    background-color: #4717f6;
+    font-weight: 800;
+    /* background: radial-gradient(#4717f6, #0e0b16); */
+    /* color: black; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: white;
+    font-size: 2em;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+input:focus {
+    border: 3px solid #4717f6;
+}
+
+input[type=submit] {
+    background-color: #4717f6;
+    color: white;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+li {
+    font-size: 3em;
+    text-decoration: dotted;
+    text-decoration-color: white;
 }
