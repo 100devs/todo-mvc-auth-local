@@ -32,13 +32,30 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 ---
 
+### Wait, did you run `npm audit fix` or `npm audit fix--force` ?
+- Go to config > `database.js`
+- remove `mongoose.connect()` options: 
+  - `useFindAndModify: false,`
+  - `useCreateIndex: true`
+
+### Why?
+`useFindAndModify` and `useCreateIndex` are no longer supported in the latest version of Mongoose. Running `npm audit fix` updates Mongoose to the latest version, and will no longer support these `mongoose.connect()` options. Alternatively, you can also downgrading Mongoose back to v5. 
+
+Ref: [https://stackoverflow.com/questions/59560091/the-options-usefindandmodify-is-not-supported](https://stackoverflow.com/questions/59560091/the-options-usefindandmodify-is-not-supported)
+
+---
+
 # Things to add
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
+- Create a `.env` file in the config folder, and add the following as `key= value` 
+  - PORT= 2121 (can be any port example: 3000) 
+  - DB_STRING= `your database URI` (replace `<password>` with your created password)
+---
+ 
+ # How to run app
+
+- `npm run start`
+- `node server.js`
+---
  
  Have fun testing and improving it! 😎
-
-
