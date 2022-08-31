@@ -42,5 +42,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 ## Things to add
 
-
+- Weekly assignment tracker to look at current/upcoming assignments.
+- Teacher can have the ability to add, edit, and delete assignments while student users can only mark whether it was completed.
+- Student users can make private, threaded comments under each assignment for the teacher to read, like if they have a question.
 
