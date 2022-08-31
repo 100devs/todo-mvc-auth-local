@@ -29,6 +29,7 @@
     "mongodb": "^4.9.0",
     "mongoose": "^6.5.4",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "validator": "^13.7.0"
