@@ -31,7 +31,7 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/todos')
+        res.redirect(req.session.returnTo || '/cards')
       })
     })(req, res, next)
   }
@@ -49,7 +49,7 @@ const User = require('../models/User')
   
   exports.getSignup = (req, res) => {
     if (req.user) {
-      return res.redirect('/todos')
+      return res.redirect('/cards')
     }
     res.render('signup', {
       title: 'Create Account'
@@ -68,6 +68,7 @@ const User = require('../models/User')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
   
+    //Creates New User Object
     const user = new User({
       userName: req.body.userName,
       email: req.body.email,
@@ -83,13 +84,14 @@ const User = require('../models/User')
         req.flash('errors', { msg: 'Account with that email address or username already exists.' })
         return res.redirect('../signup')
       }
+      // Creates and Save New User to database
       user.save((err) => {
         if (err) { return next(err) }
         req.logIn(user, (err) => {
           if (err) {
             return next(err)
           }
-          res.redirect('/todos')
+          res.redirect('/cards')
         })
       })
     })

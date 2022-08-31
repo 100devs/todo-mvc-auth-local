@@ -1,3 +1,17 @@
+/* Authors:
+Nataliejhong: https://github.com/nataliejhong
+MichaelTheLearner: https://github.com/MichaelTheLearner
+MarcHurst: https://github.com/MarcHurst
+Code4Dopamine: https://github.com/Code4Dopamine
+kevinp8: https://github.com/kevinp8
+shaylalewis: https://github.com/shaylalewis
+*/
+
+/* Test login info:
+Username: admin
+Email: admin@gmail.com
+Password: adminadmin
+*/
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -9,6 +23,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const cardRoutes = require('./routes/cardRoutes')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -37,10 +52,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-  
+
+// Routes
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
+app.use('/todos', todoRoutes) //Goes to --> Routes/Main.js
+app.use('/cards', cardRoutes)
  
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log(`Server is running on port ${process.env.PORT}, you better catch it!`)
 })    
