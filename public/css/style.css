@@ -9,10 +9,57 @@ h1 {
   text-decoration: underline;
 }
 
-.urgent {
+/* .urgent {
   color: red;
-}
+} */
 
 .fine {
   color: blue;
+}
+
+
+/* to make it look like post-it */
+
+ul,li{
+  list-style:none;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ul li{
+  text-decoration:none;
+  color:#000;
+  /* background:#ffc; */
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  margin: 1.2em;
+}
+
+.notUrgent{
+  background:#ffc;
+}
+
+.urgent{
+  background:rgb(248, 67, 173);
+}
+
+ul li:nth-child(even){
+  transform:rotate(4deg);
+  position:relative;
+  top:5px;
+}
+ul li:nth-child(3n){
+  transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+ul li:nth-child(5n){
+  transform:rotate(5deg);
+  position:relative;
+  top:-10px;
 }

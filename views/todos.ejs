@@ -11,10 +11,10 @@
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+            <li class='todoItem <%= el.urgent === true ? 'urgent' : 'notUrgent' %>'' data-id='<%=el._id%>' >
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span><%= el.dueDate.getMonth() + " / " + el.dueDate.getDate() %></span>
-                <span><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
+                <span ><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
                 <span class='del' style="border: 1px solid black"> Delete </span>
             </li>
     <% }) %>    
