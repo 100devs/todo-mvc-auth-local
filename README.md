@@ -41,4 +41,9 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+git add .
+git commit -m"changes"
+git push -u origin <branch>
+git push --set-upstream origin nameTest
+
 
