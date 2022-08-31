@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const passport = require('passport') // referenced in line 16
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 const logger = require('morgan') 
 // libraries that are external
@@ -31,7 +31,7 @@ app.use(
       secret: 'keyboard cat',
       resave: false,
       saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      store: new MongoStore({ mongoUrl: process.env.DB_STRING}),
     })
   )
   
