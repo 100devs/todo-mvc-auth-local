@@ -15,7 +15,7 @@
     <% budget.forEach( el=> { %>
       <li class='todoItem' data-id='<%=el._id%>'>
         <p>
-          <%= el.amount %>
+          <%= (el.amount / 100).toFixed(2) %>
             <%= el.currency %>
         </p>
         <p>

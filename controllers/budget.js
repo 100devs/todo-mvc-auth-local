@@ -12,7 +12,7 @@ const getBudget = async (req, res) => {
 const createBudget = async (req, res) => {
   try {
     await Budget.create({
-      amount: req.body.amount,
+      amount: Number(req.body.amount) * 100,
       currency: req.body.currency,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
