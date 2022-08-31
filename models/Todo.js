@@ -9,6 +9,14 @@ const TodoSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  dueDate:{
+    type: Date,
+    required: true,
+  },
+  urgent: {
+    type: Boolean,
+    required: true,
+  },
   userId: {
     type: String,
     required: true
