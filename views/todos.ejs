@@ -13,15 +13,28 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                <span><%= el.dueDate.getMonth() + " / " + el.dueDate.getDate() %></span>
+                <span><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
+                <span class='del' style="border: 1px solid black"> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
+    
+    <!-- Added due date and urgent yes/no radio to form - binthroot - 8/31 -->
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <!-- This dates the date, name - dueDate is what sends this during post request, label identifies it on the html -->
+        <input type="date" id="date" name="dueDate"><label for="date">Due Date</label>
+        <!-- Here's the two radio buttons -->
+        <div>
+            <input type="radio" name="urgent" id="" value="true">
+            <label for="urgent">Yes</label>
+            <input type="radio" name="urgent" value="false">
+            <label for="urgent">No</label>
+        </div>
+
         <input type="submit">
     </form>
 
