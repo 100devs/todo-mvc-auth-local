@@ -1,12 +1,12 @@
 # Introduction
 
-A simple flash card generator with CRUD capabilities for Decks, Cards, 
+A simple flash card generator with CRUD capabilities for Decks and Cards.
 
 ---
 
 # Objectives
 
-- It's a beginner level project created to expand our exsiting login functionality on our MVC, practice working on new codebase together, and  
+- It's a beginner level project created to expand our exsiting login functionality on our MVC class and practice working on a new codebase together.
 
 ---
 
