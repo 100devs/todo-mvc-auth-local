@@ -43,6 +43,10 @@ app.use("/", mainRoutes);
 app.use("/budget", budgetRoutes);
 app.use("/expenses", expensesRoutes);
 
+app.use((req, res) => {
+  res.status(404).render("404", { user: req.user });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });
