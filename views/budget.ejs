@@ -61,7 +61,15 @@
         <label for="">Amount<input type="number" placeholder="Amount" name='amount'></label>
         <label for="">Currency<input type="text" placeholder="Currency" name='currency'></label>
         <label for="">Date<input type="date" placeholder="date" name='date'></label>
-        <label for="">Category<input type="text" placeholder="Category" name='category'></label>
+        <label for="">Category
+          <select name="category" id="">
+            <% for (let category of categories) { %>
+              <option value="<%= category %>">
+                <%= category %>
+              </option>
+              <% } %>
+          </select>
+        </label>
         <input type="submit">
       </form>
     </div>

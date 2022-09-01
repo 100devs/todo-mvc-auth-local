@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    categories: {
+      type: [String], // array of strings
+      default: ["Food", "Transportation", "Clothing"],
+    },
   },
   { versionKey: false, timestamps: true }
 );
