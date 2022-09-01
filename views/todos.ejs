@@ -15,7 +15,9 @@
     <% todos.forEach( el => { %>
             <li class='todoItem <%= el.urgent === true ? 'urgent' : 'notUrgent' %> <%= el.completed === true ? 'completed' : 'not'%>'' data-id='<%=el._id%>' >
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span><%= el.dueDate.getMonth() + " / " + el.dueDate.getDate() %></span>
+                <span><%= 
+                    `${el.dueDate.getMonth()+1}/${el.dueDate.getDate()}/${el.dueDate.getFullYear()}` 
+                    %></span>
                 <span ><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
                 <span class='del' style="border: 1px solid black"> Delete </span>
                 <span class = '<%= el.completed === true ? 'fa fa-check' : 'not'%>'></span>
