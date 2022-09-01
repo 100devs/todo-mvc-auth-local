@@ -12,6 +12,7 @@ const getBudget = async (req, res, next) => {
       user: req.user,
     });
   } catch (err) {
+    // next(err) sends the error to the error handler
     next(err);
   }
 };
