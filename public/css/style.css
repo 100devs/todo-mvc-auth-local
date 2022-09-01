@@ -17,3 +17,8 @@ h1 {
 .expenses {
   width: 50%;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
