@@ -73,3 +73,18 @@ git branch -D tix-#
 WARNING DO NOT DELETE MAIN
 ONLY DELETE THE BRANCH YOU CREATED which will be the ticket number etc.
 
+<br>
+Git Resolve Conflict
+<br>
+git pull origin main
+<br>
+choose which change to keep
+<br>
+git add .
+<br>
+git commit -m"dfasdd"
+<br>
+git push
+<br>
+pull request conflict will be resolved and can now merge
+<br>
