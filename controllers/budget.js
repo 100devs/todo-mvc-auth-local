@@ -39,7 +39,8 @@ const createBudget = async (req, res, next) => {
 
     // Create a new budget
     await Budget.create({
-      amount: Number(req.body.amount) * 100 - totalExpenses, // Subtract the expenses in this period
+      initialAmount: Number(req.body.initialAmount) * 100,
+      remainingAmount: Number(req.body.initialAmount) * 100 - totalExpenses, // Subtract the expenses in this period
       currency: req.body.currency,
       startDate: req.body.startDate,
       endDate: req.body.endDate,

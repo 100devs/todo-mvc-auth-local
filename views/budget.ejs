@@ -21,8 +21,10 @@
       <ul>
         <% budget.forEach( el=> { %>
           <li class='todoItem' data-id='<%=el._id%>'>
-            <p>
-              <%= (el.amount / 100).toFixed(2) %>
+            <p>Remaining: <%= (el.remainingAmount / 100).toFixed(2) %>
+                <%= el.currency %>
+            </p>
+            <p>Initial: <%= (el.initialAmount / 100).toFixed(2) %>
                 <%= el.currency %>
             </p>
             <p>
@@ -34,7 +36,7 @@
       </ul>
 
       <form action="/budget/create" method='POST'>
-        <label>Amount<input type="number" step="0.01" placeholder="Enter budget" name='amount'></label>
+        <label>Amount<input type="number" step="0.01" placeholder="Enter budget" name='initialAmount'></label>
         <label>Currency
           <select name="currency">
             <% for (let currency of currencies) { %>
