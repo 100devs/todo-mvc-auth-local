@@ -42,3 +42,34 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  Have fun testing and improving it! 😎
 
 
+Git Flow
+<br>
+Find a ticket number
+<br>
+git checkout -b tix-#
+<br>
+Make changes
+<br>
+git add .
+<br>
+git commit -m"ticket# changes made"
+<br>
+git pull origin main
+<br>
+git push -u origin <branch>
+<br>
+Now we need to delete branch locally since it is completed
+<br> 
+git checkout main
+<br>
+We need to get all changes from the repository and not from local
+<br>
+git pull to update main
+<br>
+Now Delete branch from local
+<br>
+git branch -D <branch>
+<br>
+WARNING DO NOT DELETE MAIN
+ONLY DELETE THE BRANCH YOU CREATED which will be the ticket number etc.
+
