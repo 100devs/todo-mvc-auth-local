@@ -1,4 +1,4 @@
-/* Box Model Hack */
+/* Box Model Hack
 *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -6,7 +6,7 @@
 }
 
 /* Layout */
-@-ms-viewport {
+/* @-ms-viewport {
     width: device-width;
 }
 
@@ -19,5 +19,4 @@ h1{
 }
 .not{
     text-decoration: underline;
-}
-
+} */
