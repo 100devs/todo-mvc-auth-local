@@ -1,3 +1,15 @@
+/* Box Model Hack */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Layout */
+@-ms-viewport {
+    width: device-width;
+}
+
 h1{
     color: red;
 }
@@ -8,3 +20,4 @@ h1{
 .not{
     text-decoration: underline;
 }
+
