@@ -1,6 +1,6 @@
 # Introduction
 
-An app created to rival the hitlist posted by Leon. Were calling this creating..... HitList2.0. Cause it will be BETTER. 
+An app created to rival the hitlist posted by Leon. Were calling this creation..... HitList2.0. Cause it will be BETTER. 
 
 ---
 
