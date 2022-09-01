@@ -7,6 +7,10 @@ router.get("/", ensureAuth, budgetController.getBudget);
 
 router.post("/create", budgetController.createBudget);
 
+router.put("/edit", budgetController.editBudget); // this may need to be a post request as well...
+
+router.delete("/delete", budgetController.deleteBudget); //add trash can icon next to budget entries
+
 // router.put("/markComplete", todosController.markComplete);
 
 // router.put("/markIncomplete", todosController.markIncomplete);
