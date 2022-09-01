@@ -28,7 +28,7 @@
                 <%= el.currency %>
             </p>
             <p>
-              Period: <%= el.startDate.toDateString() %> - <%= el.endDate.toDateString() %>
+              Period: <%= el.startDate.toLocaleString() %> - <%= el.endDate.toLocaleString() %>
             </p>
             <span class='del'> Delete </span>
           </li>
@@ -60,7 +60,7 @@
             <p>
               <%= (el.amount / 100).toFixed(2) %>
                 <%= el.currency %>
-                  <%= el.date.toDateString() %>
+                  <%= el.date.toLocaleString() %>
                     <%= el.category %>
             </p>
             <span class='del'> Delete </span>
