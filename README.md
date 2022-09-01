@@ -56,7 +56,7 @@ git commit -m"ticket# changes made"
 <br>
 git pull origin main
 <br>
-git push -u origin <branch>
+git push -u origin tix-#
 <br>
 Now we need to delete branch locally since it is completed
 <br> 
@@ -68,7 +68,7 @@ git pull to update main
 <br>
 Now Delete branch from local
 <br>
-git branch -D <branch>
+git branch -D tix-#
 <br>
 WARNING DO NOT DELETE MAIN
 ONLY DELETE THE BRANCH YOU CREATED which will be the ticket number etc.
