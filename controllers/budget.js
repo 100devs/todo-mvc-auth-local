@@ -7,13 +7,15 @@ const getBudget = async (req, res, next) => {
     const expenses = await Expense.find({ user: req.user.id });
 
     const categories = req.user.categories;
-    console.log(categories);
+    const currencies = req.user.currencies;
+    console.log(req.user.currencies);
 
     res.render("budget.ejs", {
       budget: budget,
       expenses: expenses,
       user: req.user,
       categories,
+      currencies,
     });
   } catch (err) {
     // next(err) sends the error to the error handler
