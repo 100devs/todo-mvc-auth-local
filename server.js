@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
+const expressLayouts = require("express-ejs-layouts");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 const logger = require("morgan");
@@ -19,6 +20,8 @@ require("./config/passport")(passport);
 
 connectDB();
 
+app.use(expressLayouts);
+app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
