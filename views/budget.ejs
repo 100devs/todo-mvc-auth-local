@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <p>
+    <%= user.userName %> <a href="/logout">Logout</a>
+  </p>
+
+
+  <div class="container">
+    <div class="budget">
+      <h1>Budget</h1>
+      <ul>
+        <% budget.forEach( el=> { %>
+          <li class='todoItem' data-id='<%=el._id%>'>
+            <p>
+              <%= (el.amount / 100).toFixed(2) %>
+                <%= el.currency %>
+            </p>
+            <p>
+              Period: <%= el.startDate.toDateString() %> - <%= el.endDate.toDateString() %>
+            </p>
+            <span class='del'> Delete </span>
+          </li>
+          <% }) %>
+      </ul>
+
+      <form action="/budget/create" method='POST'>
+        <label for="">Amount<input type="number" placeholder="Enter budget" name='amount'></label>
+        <label for="">Currency<input type="text" placeholder="Currency" name='currenty'></label>
+        <label for="">Start Date<input type="date" placeholder="startDate" name='startDate'></label>
+        <label for="">End Date<input type="date" placeholder="endDate" name='endDate'></label>
+        <input type="submit">
+      </form>
+    </div>
+
+    <div class="expenses">
+      <h1>Expenses</h1>
+      <ul>
+        <% expenses.forEach( el=> { %>
+          <li class='todoItem' data-id='<%=el._id%>'>
+            <p>
+              <%= (el.amount / 100).toFixed(2) %>
+                <%= el.currency %>
+                  <%= el.date.toDateString() %>
+            </p>
+            <span class='del'> Delete </span>
+          </li>
+          <% }) %>
+      </ul>
+
+      <form action="/expenses/create" method='POST'>
+        <label for="">Amount<input type="number" placeholder="Amount" name='amount'></label>
+        <label for="">Currency<input type="text" placeholder="Currency" name='currency'></label>
+        <label for="">Date<input type="date" placeholder="date" name='date'></label>
+        <label for="">Category<input type="text" placeholder="Category" name='category'></label>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
