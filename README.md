@@ -41,4 +41,6 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+# Team Members
 
+- Leandro 🤠 (greenwindbreaker#5819 on discord)
