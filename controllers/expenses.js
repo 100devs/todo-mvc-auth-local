@@ -14,6 +14,7 @@ const createExpense = async (req, res, next) => {
     // Change the budget for the respective time period
     const budget = await Budget.findOne({
       $and: [
+        { user: req.user.id },
         { startDate: { $lte: req.body.date } },
         { endDate: { $gte: req.body.date } },
       ],
