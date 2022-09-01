@@ -1,10 +1,19 @@
-h1{
-    color: red;
+h1 {
+  color: red;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
-.not{
-    text-decoration: underline;
+.not {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  gap: 5rem;
+}
+.budget,
+.expenses {
+  width: 50%;
 }
