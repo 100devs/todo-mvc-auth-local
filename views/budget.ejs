@@ -59,10 +59,10 @@
       </ul>
 
       <form action="/expenses/create" method='POST'>
-        <label for="">Amount<input type="number" placeholder="Amount" name='amount'></label>
-        <label for="">Currency<input type="text" placeholder="Currency" name='currency'></label>
-        <label for="">Date<input type="date" placeholder="date" name='date'></label>
-        <label for="">Category
+        <label>Amount<input type="number" step="0.01" placeholder="Amount" name='amount'></label>
+        <label>Currency<input type="text" placeholder="Currency" name='currency'></label>
+        <label>Date<input type="date" placeholder="date" name='date'></label>
+        <label>Category
           <select name="category" id="">
             <% for (let category of categories) { %>
               <option value="<%= category %>">
