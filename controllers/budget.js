@@ -1,9 +1,16 @@
 const Budget = require("../models/Budget");
+const Expense = require("../models/Expenses");
 
 const getBudget = async (req, res) => {
   try {
     const budget = await Budget.find({ user: req.user.id });
-    res.render("budget.ejs", { budget: budget, user: req.user });
+    const expenses = await Expense.find({ user: req.user.id });
+
+    res.render("budget.ejs", {
+      budget: budget,
+      expenses: expenses,
+      user: req.user,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -18,7 +25,7 @@ const createBudget = async (req, res) => {
       endDate: req.body.endDate,
       user: req.user.id,
     });
-    console.log("Todo has been added!");
+    console.log("Budget has been added!");
     res.redirect("/budget");
   } catch (err) {
     console.log(err);
