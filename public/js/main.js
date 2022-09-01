@@ -1,69 +1,75 @@
-const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const createBtn = document.querySelector('#create');
 
-Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
-})
+createBtn.addEventListener('click', sendData);
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
-})
+async function sendData() {
+  // Grab input values from form
+  const date = document.querySelector('#date').value;
+  const mealType = document.querySelector('#mealType').value;
+  const foodItems = document.getElementById('foodItems').value;
+  console.log(date, mealType, foodItems);
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
-})
+  const existingEntries = document.querySelectorAll('.entry');
+  const existingDays = Array.from(existingEntries);
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/deleteTodo', {
-            method: 'delete',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+  // Check if date exists - if so, make a PUT request to update, and if not, make a POST request to create
+  let httpRequest;
+  if (existingDays.some((day) => day.dataset.date === date)) {
+    httpRequest = 'put';
+  } else {
+    httpRequest = 'post';
+  }
+
+  try {
+    const response = await fetch('/dates', {
+      method: httpRequest,
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        date: date,
+        mealType: mealType,
+        foodItems: foodItems,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    location.reload();
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markComplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
-}
+// Code from Todo project that can be reused
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markIncomplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+const deleteBtn = document.querySelectorAll('.del');
+const todoItem = document.querySelectorAll('span.not');
+const todoComplete = document.querySelectorAll('span.completed');
+
+Array.from(deleteBtn).forEach((el) => {
+  el.addEventListener('click', deleteTodo);
+});
+
+Array.from(todoItem).forEach((el) => {
+  el.addEventListener('click', markComplete);
+});
+
+Array.from(todoComplete).forEach((el) => {
+  el.addEventListener('click', markIncomplete);
+});
+
+async function deleteTodo() {
+  const todoId = this.parentNode.dataset.id;
+  try {
+    const response = await fetch('todos/deleteTodo', {
+      method: 'delete',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        todoIdFromJSFile: todoId,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    location.reload();
+  } catch (err) {
+    console.log(err);
+  }
 }
