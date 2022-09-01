@@ -5,6 +5,10 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  giftFor: {
+    type: String,
+    required: false,
+  },
   completed: {
     type: Boolean,
     required: true,
