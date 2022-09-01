@@ -2,4 +2,3 @@ node_modules
 .vscode/*
 .env
 node_modules
-/config/.env
