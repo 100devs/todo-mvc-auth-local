@@ -1,27 +1,28 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const passport = require('passport')
-const session = require('express-session')
+const passport = require('passport') // handles authentication for us
+const session = require('express-session') // has to deal with saving something about our session
 const MongoStore = require('connect-mongo')(session)
-const flash = require('express-flash')
-const logger = require('morgan')
+const flash = require('express-flash') // lets us render messages without refreshing page
+const logger = require('morgan') // logs requests to the console
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
 require('dotenv').config({path: './config/.env'})
-//test
+
 // Passport config
 require('./config/passport')(passport)
 
 connectDB()
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs') 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+
 // Sessions
 app.use(
     session({

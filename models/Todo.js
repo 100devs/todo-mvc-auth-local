@@ -15,4 +15,4 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Todo', TodoSchema) // if you don't specifiy a third name, it will be pluralized automatically. (todos) will become the collection name.
