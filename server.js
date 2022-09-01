@@ -55,7 +55,7 @@ app.use(flash())
 
 // Routes
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes) //Goes to --> Routes/Main.js
+app.use('/cards/todos', todoRoutes) //Goes to --> Routes/Main.js
 app.use('/cards', cardRoutes)
  
 app.listen(process.env.PORT, ()=>{

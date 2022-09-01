@@ -12,6 +12,10 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  card: {
+    type: String,
+    required: [true,'todo has to be associated with a card']
   }
 })
 

@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kanban</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Kanban Board</h1>
-    <ul>
-        <% cards.forEach( element => { %>
-            <li class='cardItem' data-id='<%=element._id%>'>
-        })
-    </ul>
-    
-    
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <h1>Cards</h1>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+    <form action="/cards/createCard" method='POST'>
+        <input type="text" placeholder="Enter Card Name" name='cardName'>
+        <input type="submit" value="Create Card">
     </form>
+    <main>
+
+    <% cards.forEach( aCard => { %>
+        <div class='cardItem' data-id='<%=aCard._id%>'>
+            <h2><%= aCard.cardName %></h2>
+            <ul>
+                <% todos.filter(tod => tod.card == aCard._id).forEach( el => { %>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <button class='del'> Delete </button>
+                    </li>
+                <% }) %>
+            </ul>
+            <h3><%= user.userName %> has <%= left.filter(one => one.card == aCard._id).length %> things left to do.</h3>
+            <form action="cards/todos/createTodo" method='POST'>
+                <input type="text" name="card" value="<%= aCard._id %>" readonly="readonly" style='display:none;'/>
+                <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
+    <% }) %> 
+    </main>
 
     <a href="/logout">Logout</a>
 

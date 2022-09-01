@@ -1,4 +1,5 @@
 const Card = require('../models/Card')
+const Todo = require('../models/Todo')
 
 /**
  * route:   /cards
@@ -6,9 +7,16 @@ const Card = require('../models/Card')
 
  const getCards = async (req, res) => {
     try{
+        const todoItems = await Todo.find({userId:req.user.id})
+        console.log(todoItems)
+            // Only adds Todo Data according to User_ID
+        const itemsLeft = await Todo.find({userId:req.user.id,completed: false})
+
         const cards = await Card.find({userId: req.user.id})
         console.log('cards found')
-        res.render('cards.ejs', {cards: cards, user: req.user})
+
+        res.render('cards.ejs', {cards: cards, todos: todoItems, left: itemsLeft, user: req.user})
+
     }catch(err){
         console.log(err)
     }
