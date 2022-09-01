@@ -41,9 +41,16 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+
+Git Flow
+
+Find a ticket number
+git checkout -b tix-#
+(can do "git branch" to make sure you are on correct branch)
+Make changes
 git add .
-git commit -m"changes"
+git commit -m"ticket# changes made"
+git pull origin main
 git push -u origin <branch>
-git push --set-upstream origin nameTest
 
 
