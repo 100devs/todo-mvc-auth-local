@@ -17,6 +17,15 @@ h1 {
 ul,li{
   list-style:none;
 }
+
+li span {
+  display: block;
+  padding: 1px;
+  font-family: "Bradley Hand", ariel, 'Times New Roman';
+}
+.del{
+  font-family:'Times New Roman', Times, serif;
+}
 ul{
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +82,6 @@ li .completed{
 }
 
 .fa-check {
-  font-size: 8em;
+  font-size: 6em;
   color: gray;
 }
