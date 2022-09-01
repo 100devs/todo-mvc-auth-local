@@ -21,12 +21,14 @@ const createExpense = async (req, res, next) => {
     });
     console.log(budget);
 
-    await Budget.findOneAndUpdate(
-      { _id: budget._id },
-      {
-        amount: Number(budget.amount) - Number(req.body.amount) * 100,
-      }
-    );
+    if (budget) {
+      await Budget.findOneAndUpdate(
+        { _id: budget._id },
+        {
+          amount: Number(budget.amount) - Number(req.body.amount) * 100,
+        }
+      );
+    }
 
     console.log("Expense has been added!");
     res.redirect("/budget");
