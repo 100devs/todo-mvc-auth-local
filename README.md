@@ -1,22 +1,25 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+An app created to rival the hitlist posted by Leon. Were calling this creating..... HitList2.0. Cause it will be BETTER. 
 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+> This App is brought to you these brilliant minds => jbmarsha11, kismetj, choir27, DavidCao4626, and of course myself.
+
+
+
 
 ---
 
 # Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+- It's a beginner level app created to add potential prospects to a hitlist in hopes of getting the JOB.
 
 ---
 
 # Who is this for? 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- Anyone who is networking their way in to get a job. It will help you keep track of who your high value targets are.
 
 ---
 
