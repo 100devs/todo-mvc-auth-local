@@ -1,13 +1,7 @@
 h1 {
   color: red;
 }
-.completed {
-  text-decoration: line-through;
-  color: gray;
-}
-.not {
-  text-decoration: underline;
-}
+
 
 /* .urgent {
   color: red;
@@ -62,4 +56,23 @@ ul li:nth-child(5n){
   transform:rotate(5deg);
   position:relative;
   top:-10px;
+}
+
+/* other styling moved here because cascade */
+
+.completed {
+  background: lightgrey;
+}
+li .completed{
+  text-decoration: line-through;
+  color: gray;
+}
+
+.not {
+  text-decoration: underline;
+}
+
+.fa-check {
+  font-size: 8em;
+  color: gray;
 }
