@@ -43,14 +43,22 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 
 Git Flow
-
+<br>
 Find a ticket number
+<br>
 git checkout -b tix-#
+<br>
 (can do "git branch" to make sure you are on correct branch)
+<br>
 Make changes
+<br>
 git add .
+<br>
 git commit -m"ticket# changes made"
+<br>
 git pull origin main
+<br>
 git push -u origin <branch>
+<br>
 
 
