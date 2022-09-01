@@ -21,7 +21,7 @@ const getBudget = async (req, res, next) => {
   }
 };
 
-const createBudget = async (req, res) => {
+const createBudget = async (req, res, next) => {
   try {
     await Budget.create({
       amount: Number(req.body.amount) * 100,

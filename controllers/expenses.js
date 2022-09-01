@@ -1,7 +1,7 @@
 const Expense = require("../models/Expenses");
 const Budget = require("../models/Budget");
 
-const createExpense = async (req, res) => {
+const createExpense = async (req, res, next) => {
   try {
     await Expense.create({
       amount: Number(req.body.amount) * 100,
