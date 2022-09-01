@@ -51,6 +51,7 @@ const editBudget = async (req, res) => {
   }
 };
 
+//would it make more sense here to make all expenses over the same range net to a negative tally?
 const deleteBudget = async (req, res) => {
   try {
     await Budget.findOneAndDelete(
