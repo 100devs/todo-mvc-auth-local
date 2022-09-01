@@ -30,7 +30,7 @@ const createExpense = async (req, res) => {
     console.log("Expense has been added!");
     res.redirect("/budget");
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 };
 

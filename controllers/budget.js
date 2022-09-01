@@ -1,7 +1,7 @@
 const Budget = require("../models/Budget");
 const Expense = require("../models/Expenses");
 
-const getBudget = async (req, res) => {
+const getBudget = async (req, res, next) => {
   try {
     const budget = await Budget.find({ user: req.user.id });
     const expenses = await Expense.find({ user: req.user.id });
@@ -12,7 +12,7 @@ const getBudget = async (req, res) => {
       user: req.user,
     });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 };
 
@@ -28,7 +28,7 @@ const createBudget = async (req, res) => {
     console.log("Budget has been added!");
     res.redirect("/budget");
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 };
 

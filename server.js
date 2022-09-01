@@ -47,6 +47,12 @@ app.use((req, res) => {
   res.status(404).render("404", { user: req.user });
 });
 
+app.use((err, req, res, _) => {
+  console.log(err);
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).render("error", { user: req.user, status, message });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });
