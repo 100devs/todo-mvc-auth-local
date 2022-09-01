@@ -6,7 +6,8 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
-      useCreateIndex: true
+      useCreateIndex: true,
+      dbName: "todolist",
     })
 
     console.log(`MongoDB Connected: ${conn.connection.host}`)
