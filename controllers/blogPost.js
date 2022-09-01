@@ -36,9 +36,6 @@ module.exports = {
         }
     },
     deleteTodo: async (req, res)=>{
-        console.log('@@@')
-        
-        console.log(req)
         try{
             await BlogPost.findOneAndDelete({_id:req.body.todoIdFromJSFile})
             console.log('Deleted Todo')
