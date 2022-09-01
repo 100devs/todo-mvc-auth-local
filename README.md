@@ -42,3 +42,23 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  Have fun testing and improving it! 😎
 
 
+Ideas for project:
+
+To Start:
+- To do column
+- Doing column
+- Finished / completed column
+- Title
+- fancy home page
+- fancy login page
+- fancy sign up page
+- fancy todos page
+- checkbox with todos (replace bullet point)
+- delete word to trashcan icon
+- archive to showoff completed todos
+- 
+
+Later on:
+- change todos to books
+- include a page with all books (similar to library)
+- search bar
