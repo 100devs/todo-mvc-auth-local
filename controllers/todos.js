@@ -29,6 +29,7 @@ module.exports = {
         userId: req.user.id,
       });
       console.log('Todo has been added!');
+      console.log(req.body);
       res.redirect('/todos');
     } catch (err) {
       console.log(err);
