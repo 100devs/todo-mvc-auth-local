@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Todos</h1>
+    <h2><%= "Welcome back, " + user.userName + "."%></h2>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem <%= el.urgent === true ? 'urgent' : 'notUrgent' %>'' data-id='<%=el._id%>' >
