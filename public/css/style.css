@@ -8,3 +8,15 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.entry {
+    border: 1px solid black;
+    text-align: center  ;
+}
+.entry-container {
+    display: flex;
+    justify-content: space-around;
+}
+.meal {
+    width: 33.333%;
+}

@@ -21,20 +21,38 @@
       <input id="create" type="submit" />
     </form>
 
-    <section>
-      <% dates.forEach(date => { %>
-      <div class="entry" data-date="<%=date.date%>" data-date="<%=date._id%>">
-        <h2><%=date.date%></h2>
-        <section>
-          <h3>Breakfast</h3>
-          <p><%= date.breakfast ? date.breakfast : 'No breakfast' %></p>
-        </section>
-        <span class="del">Trash Can</span>
-      </div>
-      <% }) %>
-
-      <!-- Hello World -->
       <!-- Dates will render here - each date needs a data-id attribute for delete to work -->
+      <section>
+        <% for(let date of dates) { %> <!-- loop through dates -->
+          <div class="entry" data-date="<%=date.date%>" data-date="<%=date._id%>"> <!-- one entry for each date -->
+            <h2><%= date.date %></h2>
+
+            <div class="entry-container"> <!-- flexbox container -->
+              <!-- meal items -->
+              <div class="meal">
+                <h3>Breakfast</h3>
+                <p class="meal-item">
+                  <%= date.breakfast ? date.breakfast : "Looks like you didn't have breakfast on this day" %>
+                </p>
+              </div>
+
+              <div class="meal">
+                <h3>Lunch</h3>
+                <p class="meal-item">
+                  <%= date.lunch ? date.lunch : "Looks like you didn't have lunch on this day" %> 
+                </p>
+              </div>
+
+            <div class="meal">
+              <h3>Dinner</h3>
+              <p class="meal-item">
+                <%= date.dinner ? date.dinner : "Looks like you didn't have dinner on this day" %> 
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        <% } %>
     </section>
 
     <a href="/logout">Logout</a>
