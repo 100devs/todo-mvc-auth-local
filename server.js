@@ -32,6 +32,7 @@ app.use(
 	})
 );
 
+<<<<<<< HEAD
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -44,3 +45,16 @@ app.use('/todos', todoRoutes);
 app.listen(process.env.PORT, () => {
 	console.log('Server is running, you better catch it!');
 });
+=======
+app.use(flash())
+  
+app.use('/', mainRoutes)
+app.use('/todos', todoRoutes)
+ 
+app.listen(process.env.PORT, ()=>{
+    console.log('Server is running, you better catch it!')
+})    
+
+
+//comment added by nick
+>>>>>>> f447e853fc0a45fa255cb623d98e5ee87d1b803c
