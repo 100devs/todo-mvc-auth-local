@@ -32,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/M-S-Davis/todo-mvc-auth-local/issues"
   },
-  "homepage": "https://github.com/M-S-Davis/todo-mvc-auth-local#readme"
+  "homepage": "https://github.com/M-S-Davis/todo-mvc-auth-local#readme",
+  "devDependencies": {}
 }
