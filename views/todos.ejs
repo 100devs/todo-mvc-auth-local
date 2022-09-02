@@ -18,6 +18,8 @@
 
         <form action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="date" placeholeer="Enter date" name ='date'> 
+            <input type="time" placeholder="Enter time" name="time">
             <input type="submit">
         </form>
 
@@ -25,6 +27,8 @@
         <% todos.forEach( el => { %>
                 <li class='todoItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <span><%=el.date%></span>
+                    <span><%=el.time%></span>
                     <button class="del">Delete</button>
                 </li>
         <% }) %>    
