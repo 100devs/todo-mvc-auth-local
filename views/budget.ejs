@@ -1,0 +1,84 @@
+
+  <p>
+    <%= user.userName %> <a href="/logout">Logout</a>
+  </p>
+
+
+  <div class="container">
+    <div class="budget">
+      <h1>Budget</h1>
+      <ul>
+        <% budget.forEach( el=> { %>
+          <li class='todoItem' data-id='<%=el._id%>'>
+            <p>Remaining: <%= (el.remainingAmount / 100).toFixed(2) %>
+                <%= el.currency %>
+            </p>
+            <p>Initial: <%= (el.initialAmount / 100).toFixed(2) %>
+                <%= el.currency %>
+            </p>
+            <p>
+              Period: <%= el.startDate.toLocaleString() %> - <%= el.endDate.toLocaleString() %>
+            </p>
+            <span class='del'> Delete </span>
+          </li>
+          <% }) %>
+      </ul>
+
+      <form action="/budget/create" method='POST'>
+        <label>Amount<input type="number" step="0.01" placeholder="Enter budget" name='initialAmount'></label>
+        <label>Currency
+          <select name="currency">
+            <% for (let currency of currencies) { %>
+              <option value="<%= currency %>">
+                <%= currency %>
+              </option>
+              <% } %>
+          </select>
+        </label>
+        <label>Start Date<input type="date" placeholder="startDate" name='startDate'></label>
+        <label>End Date<input type="date" placeholder="endDate" name='endDate'></label>
+        <input type="submit">
+      </form>
+    </div>
+
+    <div class="expenses">
+      <h1>Expenses</h1>
+      <ul>
+        <% expenses.forEach( el=> { %>
+          <li class='todoItem' data-id='<%=el._id%>'>
+            <p>
+              <%= (el.amount / 100).toFixed(2) %>
+                <%= el.currency %>
+                  <%= el.date.toLocaleString() %>
+                    <%= el.category %>
+            </p>
+            <span class='del'> Delete </span>
+          </li>
+          <% }) %>
+      </ul>
+
+      <form action="/expenses/create" method='POST'>
+        <label>Amount<input type="number" step="0.01" placeholder="Amount" name='amount'></label>
+        <label>Currency
+          <select name="currency">
+            <% for (let currency of currencies) { %>
+              <option value="<%= currency %>">
+                <%= currency %>
+              </option>
+              <% } %>
+          </select>
+        </label>
+        <label>Date<input type="datetime-local" name='date'></label>
+        <label>Category
+          <select name="category" id="">
+            <% for (let category of categories) { %>
+              <option value="<%= category %>">
+                <%= category %>
+              </option>
+              <% } %>
+          </select>
+        </label>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
