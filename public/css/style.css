@@ -1,10 +1,28 @@
-h1{
-    color: red;
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+.not {
+  text-decoration: underline;
 }
-.not{
-    text-decoration: underline;
+
+.login-screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/ian-dooley-DJ7bWa-Gwks-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: ;
 }
