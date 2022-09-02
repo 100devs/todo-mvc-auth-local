@@ -12,7 +12,7 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class="dueDate"><%= moment(el.dueDate).format( 'MMMM DD, YYYY') %></span>
+                <span class="dueDate"><%= moment.utc(el.dueDate).format( 'MMMM DD, YYYY') %></span>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>
