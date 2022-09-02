@@ -13,7 +13,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, giftFor: req.body.giftFor, completed: false, userId: req.user.id})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -51,5 +51,18 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    sortAToB: async (req, res)=> {
+        try{
+            const christmasGifts = await Todo.find({userId:req.user.id})//find the user
+//sort the users "for:" alphabetically sort(arg: string | any): this;
+            res.render('todos.ejs', {})//render alphabetical for seciton 
+            await Todo.sort({})//this'll be waiting a long time
+        }catch(err){
+            console.log(err)
+            console.log("you got hella errs brah!")
+        }
     }
 }    
+
+

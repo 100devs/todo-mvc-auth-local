@@ -14,6 +14,8 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
+document.querySelector('.sort').addEventListener('click', sortAToB)
+
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{
@@ -67,3 +69,14 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+// async function sortAToB(){
+//     try{
+//         const response = await fetch('todos/sortAToB')
+///oops, got a little too drunk, now its not making sense...
+//     }catch(err){
+//         console.log(err)
+//     }
+    
+    
+// }
