@@ -12,6 +12,7 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
+                <span class="dueDate"><%= moment(el.dueDate).format( 'MMMM DD, YYYY') %></span>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>
@@ -22,6 +23,8 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <label for="dueDate">Due date:</label>
+        <input type="date" id="dueDate" name="dueDate">
         <input type="submit">
     </form>
 
