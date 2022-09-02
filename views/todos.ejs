@@ -38,10 +38,14 @@
     </style>
 </head>
 <body class="px-4 py-5 my-3 mx-3 text-center">
+
+    <!-- users name -->
     <div>
-        <h1 class="display-5 fw-bold mb-3"><%= user.userName %>'s to-do list</h1>
+        <h1 class="display-5 fw-bold mb-3"><%= user.userName %>'s Pet Helper list</h1>
         <p class="lead mb-4">Click on an item to mark it as completed or incomplete.</p>
     </div>
+
+    <!-- todo list -->
     <div class="row mb-5">
         <div class="col-md-6 mb-4">
             <img class="mb-3" src="https://www.svgrepo.com/show/177662/clipboard-list.svg" alt="Clipboard with list" width="72" height="57">
@@ -51,6 +55,7 @@
                     <li class='todoItem list-group-item d-flex justify-content-between align-items-center' data-id='<%=el._id%>'>
                         <span class='pet badge bg-success disabled rounded-pill'><%= el.petName %></span>
                         <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <span class="pet badge bg-success disabled rounded-pill"><%= el.date %></span>
                         <span class='del badge bg-danger disabled rounded-pill'> Delete </span>
                     </li>
             <% }) %>    
