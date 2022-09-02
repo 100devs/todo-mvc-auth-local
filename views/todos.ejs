@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contactr</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1><%= user.userName %>'s Contactr</h1>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
@@ -18,33 +18,65 @@
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2>Add A Company</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Company Name" name='companyName'>
-        <input type="date" placeholder="Date Added" name = "dateAdded">
-        <input type="text" placeholder="Url" name = "url">
-        <input type="text" placeholder="Role URL" name = "roleURL">
-        <input type="text" placeholder="Position" name = "posiiton">
-        <input type="text" placeholder="Source" name = "source">
-        <h2>Point of Contact</h2>
-        <input type="text" placeholder="Name of Contact" name = "pocName">
-        <input type="text" placeholder="Position of Contact" name = "pocPosition">
-        <input type="text" placeholder="Email of Contact" name = "pocEmail">
-        <h2>Application</h2>
-        <label name = "Applied?">Applied?</label>
-        <input type="checkbox" placeholder="Applied?" name = "applied">
-        <input type="date" placeholder="Date you applied" name = "applyDate">
-        <label name = "CoffeeChat">Coffee Chat?</label>
-        <input type="checkbox" name = "coffeeChat">
-        <input type="date" name = "coffeeChatDate">
-        <label name = "saidThanks">Said Thanks?</label>
-        <input type="checkbox" name = "saidThanks">
-        <label name = "interviewDate">Interview Date?</label>
-        <input type="date" name = "interviewDate">
-        <label name = "followUpDate">Interview Date?</label>
-        <input type="date" name = "followUpDate">
-        <input type="text" placeholder="Comments" name = "comment">
+        <h3>Job Description</h3>
+
+        <label for="companyName">Company Name:</label>
+        <input type="text" placeholder="Company Name" id="companyName">
+
+        <label for="dateAdded">Date Added:</label>
+        <input type="date" placeholder="Date Added" id="dateAdded">
+
+        <label for="url">URL</label>
+        <input type="text" placeholder="URL" id="url">
+
+        <label for="roleURL">Role URL:</label>
+        <input type="text" placeholder="Role/Position URL" id="roleURL">
+
+        <label for="position">Position:</label>
+        <input type="text" placeholder="Type of Position" id="posiiton">
+
+        <label for="source">Source:</label>
+        <input type="text" placeholder="Source" id="source">
+
+        <h3>Point of Contact</h3>
+
+        <label for="pocName">Name of Contact:</label>
+        <input type="text" placeholder="Name of Contact" id="pocName">
+
+        <label for="pocPosition">Position of Contact:</label>
+        <input type="text" placeholder="Position of Contact" id="pocPosition">
+
+        <label for="pocEmail">Email of Contact:</label>
+        <input type="email" placeholder="Email of Contact" id="pocEmail">
+
+        <h3>Application</h3>
+
+        <input type="checkbox" placeholder="Applied?" id="applied">
+        <label for="Applied?">Applied?</label>
+        
+        <label for="applyDate">Application Date:</label>
+        <input type="date" placeholder="Date you applied" id="applyDate">
+
+        <input type="checkbox" id="coffeeChat">
+        <label for="CoffeeChat">Coffee Chat?</label>
+
+        <label for="coffeeChatDate">Coffee Chat Date:</label>
+        <input type="date" id="coffeeChatDate">
+
+        <input type="checkbox" id="saidThanks">
+        <label for="saidThanks">Said Thanks?</label>
+
+        <label for="interviewDate">Interview Date:</label>
+        <input type="date" id="interviewDate">
+
+        <label for="followUpDate">Follow-Up Date:</label>
+        <input type="date" id="followUpDate">
+
+        <label for="comments">Comments:</label>
+        <input type="text" placeholder="Comments" id="comments">
 
 
 
