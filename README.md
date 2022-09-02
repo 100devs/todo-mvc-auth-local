@@ -1,6 +1,6 @@
-# Introduction
+## Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+A Simple Budget App built using the MVC Architecture and implementing "authorization" so folks can sign up, customize & personalize the app
 
 ---
 
@@ -8,37 +8,41 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
 
 ---
 
-# Objectives
+## Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+-   It's a beginner level app created to understand how MVC concepts and logins are added
 
 ---
 
-# Packages/Dependencies used 
+## Who is this for?
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
+-   It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
 
 ---
 
-# Things to add
+## Packages/Dependencies used
 
-- Create a `.env` file from the example in config and add/edit the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
+bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, express-ejs-layouts
 
+---
 
+## To Run a Local Copy
+
+Clone the repo
+Run `npm install` to install the dependencies
+
+-   Create a `.env` file in the config directory and add/edit the following as `key: value`
+    -   PORT: 2121 (can be any port example: 3000)
+    -   DB_STRING: `your mongoDB URI`
+
+---
+
+## Potential Optimizations and Improvements
+
+-   Ideas for Improvement
+
+    -   Add catagories for expenses
+    -   Convert budget to monthly
+
+-   Stretch Goals
+    -   Rewrite frontend in react 😎
