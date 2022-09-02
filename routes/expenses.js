@@ -7,7 +7,7 @@ const { ensureAuth } = require("../middleware/auth");
 
 router.post("/create", expenseController.createExpense);
 
-router.post("/delete", expenseController.deleteExpense);
+router.delete("/delete", expenseController.deleteExpense);
 
 // router.put("/markComplete", todosController.markComplete);
 

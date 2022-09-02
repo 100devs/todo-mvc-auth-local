@@ -1,4 +1,6 @@
 
+  
+  
   <p>
     <%= user.userName %> <a href="/logout">Logout</a>
   </p>
@@ -14,7 +16,7 @@
             </p>
             <p>Initial: <%= (el.initialAmount / 100).toFixed(2) %>
             </p>
-            <span class='del'> Delete </span>
+            <span class='del'> <i class="fa fa-trash"></i> </span>
           </li>
           <% }) %>
       </ul>
@@ -32,25 +34,14 @@
           <li class='todoItem' data-id='<%=el._id%>'>
             <p>
               <%= (el.amount / 100).toFixed(2) %>
-                    <%= el.category %>
             </p>
-            <span class='del'> Delete </span>
+            <span class='del'> <i class="fa fa-trash"></i> </span>
           </li>
           <% }) %>
       </ul>
 
       <form action="/expenses/create" method='POST'>
         <label>Amount<input type="number" step="0.01" placeholder="Amount" name='amount'></label>
-       
-        <label>Category
-          <select name="category" id="">
-            <% for (let category of categories) { %>
-              <option value="<%= category %>">
-                <%= category %>
-              </option>
-              <% } %>
-          </select>
-        </label>
         <input type="submit">
       </form>
     </div>

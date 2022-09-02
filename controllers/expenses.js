@@ -4,12 +4,12 @@ const Budget = require("../models/Budget");
 const createExpense = async (req, res, next) => {
   try {
     // Parse the data submitted in the form
-    let { amount, category } = req.body;
+    let { amount } = req.body;
     amount = Number(amount) * 100;
-    console.log({ amount, category });
+    console.log({ amount});
     const user = req.user;
     // Create a document in 'expenses' collection
-    await Expense.create({ amount, category, user: user.id });
+    await Expense.create({ amount, user: user.id });
 
     // Change the budget for the respective time period
     const budget = await Budget.findOne({ user: user.id });
@@ -38,16 +38,20 @@ const createExpense = async (req, res, next) => {
 };
 
 const deleteExpense = async (req, res) => { //add trash can next to each expense in budget page.
+  console.log(req.user)
   try {
     const expense = await Expense.findOne({ _id: req.body.idFromJSFile });
+    // console.log(expense);
+    const budget = await Budget.findOne({ user: req.user._id });
 
-    const budget = await Budget.findOne({ user: user.id });
-    console.log(budget);
+    console.log(expense);
+    // console.log(budget);
+
 
     await Budget.findOneAndUpdate(
       { _id: budget._id },
       {
-        amount: Number(budget.amount) + Number(expense.amount) * 100,
+        remainingAmount: Number(budget.remainingAmount) + Number(expense.amount),
       }
     );
 
@@ -56,6 +60,7 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
     });
 
     console.log("Expense has been deleted and budget adjusted!");
+    res.json('deleted')
     res.redirect("/budget");
   } catch (err) {
     console.log(err);
