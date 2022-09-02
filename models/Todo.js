@@ -5,9 +5,9 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: String,
-    required: true,
+  date: { 
+    type: String, // Re-adding date/time
+    required: true, 
   },
   time: {
     type: String,
