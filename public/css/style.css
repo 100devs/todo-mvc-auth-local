@@ -1,10 +1,14 @@
-h1{
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
     color: red;
 }
-.completed{
+.completed {
     text-decoration: line-through;
     color: gray;
 }
-.not{
+.not {
     text-decoration: underline;
 }
