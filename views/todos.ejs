@@ -26,6 +26,7 @@
                 <li class='todoItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                     <button class="del">Delete</button>
+                    <button class="update">Update</button>
                 </li>
         <% }) %>    
         </ul>
