@@ -5,22 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+    <style>
+        body {display: flex; align-items: center; padding-top: 40px; padding-bottom: 40px;}
+        .alertdiv {position: absolute; top: 1rem; left: 1rem;}
+        .infodiv {position: absolute; top: 1rem; right: 1rem;}
+        main {max-width: 330px; padding: 15px;}
+        form label {visibility: hidden}
+    </style>
 </head>
-<body>
+<body class="text-center">
     <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+        <div class="alertdiv" role="alert">
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger">
+                    <%= el.msg %>
+                </div>
+            <% }) %>    
+        </div>
     <% } %>
+
     <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+        <div role="alert" class="infodiv">
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-danger">
+                    <%= el.msg %>
+                </div>
+            <% }) %>    
+        </div>
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+
+    <main class="w-100 m-auto">
+        <form action="/login" method="POST" class="mb-4">
+            <img class="mb-3" src="https://www.svgrepo.com/show/177658/clipboard-list.svg" alt="Clipboard with a lock" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Log in</h1>
+            <div>
+                <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email">
+                <label for="floatingEmail"class="mb-0">Email</label>
+            </div>
+            <div>
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                <label for="floatingPassword" class="mb-0">Password</label>
+            <input type="submit" class="w-100 btn btn-lg btn-primary">
+            </div>
+        </form>
+        <a href="/signup" class="btn btn-outline-primary g-2 px-4">Or Sign Up</a>
+    </main>
 </body>
 </html>
