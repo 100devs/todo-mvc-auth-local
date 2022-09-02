@@ -5,9 +5,17 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dueDate:{
+    type: Date,
+    default: Date.now()
+  },
   completed: {
     type: Boolean,
     required: true,
+  },
+  important: {
+    type: Boolean,
+    default: false
   },
   userId: {
     type: String,
