@@ -12,7 +12,10 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-  }
+  },
+  categories: {
+    type: Array
+  },
 })
 
 module.exports = mongoose.model('Todo', TodoSchema)
