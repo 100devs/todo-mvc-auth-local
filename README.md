@@ -1,44 +1,33 @@
 # Introduction
 
-A Simple Instrument exchange/sales app built using the MVC Architecture.
+A simple music related wishlist for the professional or aspiring musician. App built using the MVC Architecture.
 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+Save information about your favorite musical gear so you can aquire it "when I get paid for that gig".
 
 ---
 
 # Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+- Testing MVC concepts and authenticated logins with an MVP containing a stylized wishlist of music related gear.
 
 ---
 
-# Who is this for? 
+# Who is this for?
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- Musicians, technobabies, and cool cats who want some fresh sounds.
 
 ---
 
-# Packages/Dependencies used 
+# Packages/Dependencies used
 
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
 ---
 
-# Install all the dependencies or node packages used for development via Terminal
+# Things to add after MVP
 
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
-
+- Sales/trades for users. Include a list of "owned" gear, which can be toggeled to display for other users looking to buy/trade gear.
+- Dark mode toggle.
+- Reputation, 5 star trade ranking.
