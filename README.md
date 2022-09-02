@@ -40,5 +40,22 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  ---
  
  Have fun testing and improving it! 😎
+ 
+ # Tasks
+- implement password recovery functionality (Alex)
+- add a task history page/functionality (Tal)
+- ability to change color theme?(Joe)
+- CSS styling (John)
+- Spruce up HTML (John)
+- Add Alerts - email alerts, a way of tracking time. (Jazj)
+- Try adding another source of authentication. Maybe https://www.passportjs.org/packages/passport-cookie/(Xavier https://www.passportjs.org/packages/)
+
+# Member Information
+
+Jasmine (Jaz): https://github.com/jasmine-9000
+Tal: https://github.com/TalThatcher
+Alex : https://github.com/aapaine07 // discord: Zacarino#7503 // aapaine@gmail.com
+John: https://github.com/johnmal-dev // discord: johnmal#1773 // johncmalapit@gmail.com
+Joe: https://github.com/joetraunero // discord: shmoe#3902 // joetraunero@gmail.com
 
 
