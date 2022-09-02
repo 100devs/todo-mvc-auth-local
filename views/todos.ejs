@@ -8,15 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <h1>Search for a TV Show!</h1>
+    <form action="" method="get">
+        <input type="text" placeholder="Type the name of the show">
+        <input type="submit" value="Search">
+    </form>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
