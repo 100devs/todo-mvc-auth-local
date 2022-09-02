@@ -7,7 +7,11 @@ router.get('/', ensureAuth, blogPostController.getTodos)
 
 router.get('/createBlogPost', blogPostController.getCreatePostPage)
 
+router.get('/edit/:id', blogPostController.getEditPostPage)
+router.post('/edit/:id', blogPostController.editBlogPost)
+
 router.post('/createBlogPost', blogPostController.createBlogPost)
+
 
 // router.put('/markComplete', blogPostController.markComplete)
 

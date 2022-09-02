@@ -3,12 +3,9 @@ const validator = require('validator')
 const User = require('../models/User')
 
 
-// TODO - Change ALL redirects to the viewPosts page once created!
-// set to createBlogPost for testing purposes only.
-
  exports.getLogin = (req, res) => {
     if (req.user) {
-      return res.redirect('/blogPost/createBlogPost')
+      return res.redirect('/blogPost')
     }
     res.render('login', {
       title: 'Login'
@@ -35,7 +32,7 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/blogPost/createBlogPost')
+        res.redirect(req.session.returnTo || '/blogPost')
       })
     })(req, res, next)
   }
@@ -53,7 +50,7 @@ const User = require('../models/User')
   
   exports.getSignup = (req, res) => {
     if (req.user) {
-      return res.redirect('/blogPost/createBlogPost')
+      return res.redirect('/blogPost')
     }
     res.render('signup', {
       title: 'Create Account'

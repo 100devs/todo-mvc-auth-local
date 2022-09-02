@@ -24,6 +24,45 @@ textarea {
     color: goldenrod;
  }
 
+ /* account header */
+ #account {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: end;
+ }
+
+ #backButton {
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin: 1em .5em;
+    font-size: 2em;
+ }
+
+ #actionsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+ }
+
+ #actionsContainer input {
+    max-width: 50%;
+    width: 20em;
+ }
+
+ #actionsContainer #del {
+    right: 0;
+    position: absolute;
+    background-color: gray;
+    width: 6em;
+
+ }
+ #actionsContainer #del:hover {
+    background-color: red;
+ }
+
  input, textarea {
     background-color: rgb(92,92,92);
     color: white;
@@ -31,6 +70,10 @@ textarea {
     width: 100%;
     box-sizing: border-box;
     border-radius: 20px;
+    padding: .2em;
+ }
+ textarea {
+    padding: .6em;
  }
  #buttons {
     margin-top: 1em;
@@ -38,10 +81,70 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
  }
- #buttons * {
-    width: 25%;
-    
+
+ #loginContainer {
+    border: 2px solid rgb(46, 46, 46);
+    border-radius: 5%;
  }
+ #loginPane {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ #loginTitle {
+    text-align: center;
+ }
+
+ body {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vw;
+ }
+#loginPane * {
+    margin: .4em auto;
+    font-size: 1em;
+    padding: .4em;
+    width: 80%;
+    display: table;
+} 
+#loginButton {
+    display: table;
+    margin: 0 auto;
+    width: 50%;
+}
+#loginPane form {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+}
+ #loginPane button {
+    font-size: .75em;
+    padding: .5em;
+ }
+ 
+#loginLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+ #loginLinks a {
+    display: inline;
+    margin: 0 .5em;
+    text-align: center;
+ }
+
+ .blogPost input {
+    width: 10%;
+ }
+
+ /* #buttons * {
+    width: 25%;
+    background-color: rgb(110,220,200);
+    color: white;
+ } */
  #clear {
     background-color: rgb(92,92,92);
  }
@@ -51,7 +154,7 @@ textarea {
     text-shadow: 0 0 5px rgba(255,255,255,0.5);
  }
 
-/* CSS */
+/* button base */
 .button-18 {
   align-items: center;
   background-color: rgb(110,220,200);
@@ -101,6 +204,77 @@ label {
   color: rgba(0, 0, 0, .3);
 }
 
+/*  post titles */
+h4 {
+    font-size: 1.2em;
+    margin: .5em;
+}
+#logo, #biglogo {
+   mix-blend-mode: lighten;
+   transition: all .3s ease-in-out;
+}
+#logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 1em;
+}
+#biglogo {
+    width: 300px;
+    height: 300px;
+}
+/* each post */
+li {
+    list-style: none;
+    background-color: rgb(22,27,34)	;
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: .5em;
+    margin: 1em 0;
+    position: relative;
+}
+/* posts container */
+ul {
+    margin: 0;
+    padding: 1em;
+    width: 90vw;
+}
+
+li > .title {
+    color: white;
+    margin: 2em .2em 0;
+}
+
+li .body {
+    margin: 1em .1em 0;
+    font-size: .8em;
+    color: slategray;
+}
+li .gitHub {
+    margin: 1em 0;
+    font-size: .6em;
+}
+
+li .date {
+    top: 5px;
+    right: 10px;
+    position: absolute;
+    font-size: .5em;
+}
+
+li .mood {
+    top: 3.5em;
+    right: 10px;
+    position: absolute;
+    font-size: .5em;
+}
+li .dueDate {
+    top: 1em;
+    right: 10px;
+    position: absolute;
+    font-size: .8em;
+}
+
+
 ::placeholder {
     color: rgba(255,255,255.7)
 }
@@ -122,6 +296,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    width: 90vw;
 }
 #account * {
     font-size: .5rem;
@@ -144,12 +319,19 @@ header {
     text-decoration: underline;
 }
 
-
-#login {
+#login, #signup {
    display: flex;
    justify-content: center;
 }
-#signup {
-   display: flex;
-   justify-content: center;
+
+#signupContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    width: 80vw;
+    align-items: center;
+}
+#signupContainer input {
+    font-size: 1em;
 }
