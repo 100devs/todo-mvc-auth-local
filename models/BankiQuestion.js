@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
 
 const BankiQuestionSchema = new mongoose.Schema({
-  question: {
+  Question: {
     type: String, 
     required: true, 
   },
-  answer: {
+  Answer: {
     type: String,
     required: true,
   },
-  completed: {
-    type: Boolean,
+  Completed: {
+    type: String,
     required: true
   }
 })

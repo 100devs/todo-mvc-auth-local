@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const QuestionSchema = new mongoose.Schema({
-  question: {
+  Question: {
     type: String, 
     required: true, 
   },
-  answer: {
+  Answer: {
     type: String,
     required: true,
   },
@@ -13,8 +13,8 @@ const QuestionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  completed: {
-    type: Boolean,
+  Completed: {
+    type: String,
     required: true
   }
 })
