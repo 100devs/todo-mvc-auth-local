@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap');
+
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
 }
+
+
 
 h1 {
     color: red;

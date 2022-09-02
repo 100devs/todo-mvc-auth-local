@@ -16,18 +16,21 @@
     
     <form action="/blogPost/createBlogPost" method="POST">
     <section>
-        <input id="titleField" name="title" placeholder="Post Title">
-        <h3 id="date" name="date"></h3>
-        <textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
-        <div>
-        <input id="gitHub" name="gitHub" placeholder="GitHub Link">
-        <label for="mood">Mood:</label><select id="mood" name="mood">
-            <option>Great</option>
-            <option>Good</option>
-            <option>Spicy</option>
-        </select>
+        <div id="mainInput">
+            <input id="titleField" name="title" placeholder="Post Title">
+            <h3 id="date" name="date"></h3>
+            <textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
         </div>
-        <input id="dueDate" name="dueDate" placeholder="Due Date">
+        <div>
+            <input id="gitHub" name="gitHub" placeholder="GitHub Link">
+            <label for="mood">Mood:</label><select id="mood" name="mood">
+                <option>Great</option>
+                <option>Good</option>
+                <option>Spicy</option>
+            </select>
+            <input id="dueDate" name="dueDate" placeholder="Due Date">
+        </div>
+        
         <div>
         <button id="clear">Clear</button>
         <button id="saveDraft">Save as Draft</button>
