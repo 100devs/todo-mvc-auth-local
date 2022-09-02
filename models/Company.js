@@ -1,4 +1,5 @@
 // Company.js
+// Test
 const mongoose = require('mongoose')
 
 const CompanySchema = new mongoose.Schema({
