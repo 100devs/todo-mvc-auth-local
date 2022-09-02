@@ -34,9 +34,9 @@
             </div>
           </div>
         </div>
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <div class="d-flex justify-content-center">
+        <h1 class="h3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only mt-2">Email address</label>
+        <div class="d-flex justify-content-center m-2">
           <div class="row">
             <div class="col">
               <input
@@ -51,8 +51,8 @@
             </div>
           </div>
         </div>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <div class="d-flex justify-content-center">
+        <label for="inputPassword" class="sr-only mt-2">Password</label>
+        <div class="d-flex justify-content-center m-2">
           <div class="row">
             <div class="col">
               <input
@@ -66,18 +66,15 @@
             </div>
           </div>
         </div>
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
+
+        <button class="btn btn-lg btn-primary btn-block m-2" type="submit">
           Sign in
         </button>
-        <p class="mt-5 mb-3 text-muted">© 2022</p>
+        <a class="btn btn-lg btn-success btn-block m-2" href="/signup" role="button"> Signup</a>
+        <p class="m-4 text-muted">© 2022</p>
       </div>
     </form>
-    <hr class="w-50 mx-auto">
+    <hr class="w-50 mx-auto" />
     <form class="form-signin text-center" action="/login" method="POST">
       <input
         type="hidden"
@@ -98,7 +95,7 @@
         required=""
         value="admin1234"
       />
-      <button class="btn btn-lg btn-secondary btn-block" type="submit">
+      <button class="btn btn-lg btn-secondary btn-block m-2" type="submit">
         Demo Sign in
       </button>
     </form>
