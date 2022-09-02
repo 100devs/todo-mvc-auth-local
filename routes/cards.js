@@ -48,3 +48,5 @@ router.delete('/deleteCard', ensureAuth, cardsController.deleteCard)
 // @description     Delete entire deck
 // @route           DELETE /cards/:deck
 //router.delete('/deleteDeck:deck', ensureAuth)
+
+module.exports = router
