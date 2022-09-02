@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Track your bills!</h1>
+  <ul>
+    <% billtrackers.forEach(el => {%>
+        <li class="billtrackerItem" data-id="<%=el._id%>">
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue}` %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span>
+            <span class='del'> Delete </span>
+
+        </li>
+    <% }) %>
+    
+
+  </ul>
+  <h2><%= user.userName %> has <%= left %> bills to pay.</h2>
+      
+  <form action="/billtracker/createBillTracker" method='POST'>
+      <input type="text" placeholder="Company-Name" name='companyName'>
+      <input type="text" placeholder="Description" name='description'>
+      <input type="number" placeholder="Price" name='amountDue'>
+      <input type="date" placeholder="Due-date" name='dueDate'>
+<!--       <input type="text" placeholder="completed" name='completed'> -->
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
