@@ -2,6 +2,10 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+
+// TODO - Change ALL redirects to the viewPosts page once created!
+// set to createBlogPost for testing purposes only.
+
  exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/blogPost/createBlogPost')
