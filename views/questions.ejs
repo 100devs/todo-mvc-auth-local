@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Banki Questions</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+    <% questions.forEach( el => { %>
+            <li class='questionItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.Question %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -20,8 +20,9 @@
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+    <!-- This form post is failing because thhere need to be fields where the name matches the fields we have in the question model -->
+    <form action="/questions/createquestion" method='POST'>
+        <input type="text" placeholder="Enter New Question" name='questionItem'>
         <input type="submit">
     </form>
 

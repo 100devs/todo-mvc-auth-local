@@ -6,9 +6,9 @@ module.exports = {
     getBankiQuestions: async (req,res)=>{
         console.log(req.user)
         try{
-            const questions = await BankiQuestion.find({userId:req.user.id}).aggregate([{$sample: {size: 20}}]) // to do: make it return a random 20 (w/aggregate?)
+            const questions = await BankiQuestion.aggregate([{$sample: {size: 20}}]) // to do: make it return a random 20 (w/aggregate?)
             const completedBanki = await BankiQuestion.countDocuments({userId:req.user.id, completed: false})
-            res.render('questions.ejs', {questions: questions, completedBanki: completedBanki, user: req.user})
+            res.render('questions.ejs', {questions: questions, left: completedBanki, user: req.user})
         } catch(err){
             console.log(err)
         }
