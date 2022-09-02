@@ -8,25 +8,83 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <div class="calendar">
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+        <div class="col leftCol">
+            <div class="content">
+                <h1 class="date">Friday<span>September 12th</span></h1>
+                <div class="notes">
+                   <!-- are they able to add to the list? -->
+                    <p>
+                        <input type="text" value="" placeholder="new note"/>
+                        <a href="#" title="Add note" class="addNote animate">+</a>
+                    </p>
+                    
+                    <!-- add todo list functionaliliy -->
+                    <ul class="noteList">
+                        <li>Headbutt a lion<a href="#" title="Remove note" class="removeNote animate">x</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <a href="/logout">Logout</a>
+        <div class="col rightCol">
+            <div class="content">
+                <h2 class="year">2022</h2>
+                <ul class="months">
+                    <li><a href="#" title="Jan" data-value="1">Jan</a></li>
+                    <li><a href="#" title="Feb" data-value="2">Feb</a></li>
+                    <li><a href="#" title="Mar" data-value="3">Mar</a></li>
+                    <li><a href="#" title="Apr" data-value="4">Apr</a></li>
+                    <li><a href="#" title="May" data-value="5">May</a></li>
+                    <li><a href="#" title="Jun" data-value="6">Jun</a></li>
+                    <li><a href="#" title="Jul" data-value="7">Jul</a></li>
+                    <li><a href="#" title="Aug" data-value="8">Aug</a></li>
+                    <li><a href="#" title="Sep" data-value="9" class="selected">Sep</a></li>
+                    <li><a href="#" title="Oct" data-value="10">Oct</a></li>
+                    <li><a href="#" title="Nov" data-value="11">Nov</a></li>
+                    <li><a href="#" title="Dec" data-value="12">Dec</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <ul class="weekday">
+                    <li><a href="#" title="Mon" data-value="1">Mon</a></li>
+                    <li><a href="#" title="Tue" data-value="2">Tue</a></li>
+                    <li><a href="#" title="Wed" data-value="3">Wed</a></li>
+                    <li><a href="#" title="Thu" data-value="4">Thu</a></li>
+                    <li><a href="#" title="Fri" data-value="5">Fri</a></li>
+                    <li><a href="#" title="Say" data-value="6">Sat</a></li>
+                    <li><a href="#" title="Sun" data-value="7">Sun</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                
+                <!--calendar functionality script -->
+                <ul class="days" id="days">
+                    <script>
+                        for( var _i = 1; _i <= 31; _i += 1 ){
+                            var _addClass = '';
+                            //this highlights the selected day, need to add logic here to get current date and allow for clicking other dates
+                            if( _i === 12 ){ _addClass = ' class="selected"'; }
+                            // changes color of certain dates with 'events' class, don't think we need this
+                            switch( _i ){
+                                case 8:
+                                case 10:
+                                case 27:
+                                    _addClass = ' class="event"';
+                                break;
+                            }
 
+                            document.write( '<li class="day"><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
+                        }
+                    </script>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

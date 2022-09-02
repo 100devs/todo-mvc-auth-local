@@ -1,7 +1,7 @@
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
-
+const dateSelector = document.querySelectorAll('li.day')
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
@@ -13,6 +13,15 @@ Array.from(todoItem).forEach((el)=>{
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
+
+Array.from(dateSelector).forEach((el)=>{
+    el.addEventListener('click', selectDay)
+})
+
+async function selectDay(){
+    console.log(this)
+    this.firstChild.className = 'selected'
+}
 
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
@@ -67,3 +76,5 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+
