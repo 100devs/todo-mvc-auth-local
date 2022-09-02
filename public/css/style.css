@@ -8,3 +8,20 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+h4{
+    padding: none;
+    margin: none;
+}
+
+.logProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
