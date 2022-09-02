@@ -6,7 +6,7 @@ const CompanySchema = new mongoose.Schema({
     required: true,
   },
   phone: {
-    type: Boolean,
+    type: String,
     required: true,
   }
 })
