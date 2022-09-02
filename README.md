@@ -4,7 +4,7 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+> Be sure to add that lovely star 😀 and fork it for your own copy !!
 
 ---
 
@@ -41,4 +41,5 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+--- Eboni Evans was here
 
