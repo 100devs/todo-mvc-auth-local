@@ -10,7 +10,7 @@ const BankiQuestionSchema = new mongoose.Schema({
     required: true,
   },
   Completed: {
-    type: String,
+    type: Boolean,
     required: true
   }
 })
