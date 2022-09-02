@@ -11,6 +11,14 @@ module.exports = {
             console.log(err)
         }
     },
+    getCreatePostPage: async (req,res) => {
+        try {
+            res.render('createPost.ejs', {user: req.user})
+        }
+        catch(err) {
+            console.log(err)
+        }
+    },
     createBlogPost: async (req, res)=>{
         try{
             await BlogPost.create({

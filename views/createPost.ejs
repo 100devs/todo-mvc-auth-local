@@ -8,35 +8,39 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <header>
-    <h2>Hi, <%= user.userName %>!</h2>
+    <div id='account'>
+        <h2 id="username">Hi, <%= user.userName %>!</h2id>
+        <a href="/logout">Logout</a>
+    </div>
 </header>
 <body>
+    <section>
     <h1>Create New Post</h1>
     
     <form action="/blogPost/createBlogPost" method="POST">
-    <section>
-        <input id="titleField" name="title" placeholder="Post Title">
-        <h3 id="date" name="date"></h3>
-        <textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
-        <div>
-        <input id="gitHub" name="gitHub" placeholder="GitHub Link">
-        <label for="mood">Mood:</label><select id="mood" name="mood">
-            <option>Great</option>
-            <option>Good</option>
-            <option>Spicy</option>
-        </select>
+        <div id="mainInput">
+            <label for="title">Title</label><input id="title" name="title" placeholder="Post Title">
+            <label for="title">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link">
+            <label for="title">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date">
+            <h3 id="date" name="date"></h3>
+            <label for="title">Your Thoughts:</label><textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
         </div>
-        <input id="dueDate" name="dueDate" placeholder="Due Date">
         <div>
-        <button id="clear">Clear</button>
-        <button id="saveDraft">Save as Draft</button>
-        <input type="submit" name="Post" value="Post">
+            <label for="mood">Mood: </label><select id="mood" name="mood">
+                <option>Great</option>
+                <option>Good</option>
+                <option>Spicy</option>
+            </select>
+        </div>
+        
+        <div id="buttons">
+        <input type="reset" id="clear" class="button-18" value="Clear">
+        <!-- <button id="saveDraft">Save as Draft</button> -->
+        <input type="submit" name="Post" class="button-18" value="Post">
         </div>
     </form>
     </section>
 
-
-    <a href="/logout">Logout</a>
 
     <script src="../js/main.js"></script>
 </body>

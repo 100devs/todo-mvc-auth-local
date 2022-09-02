@@ -2,9 +2,13 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+
+// TODO - Change ALL redirects to the viewPosts page once created!
+// set to createBlogPost for testing purposes only.
+
  exports.getLogin = (req, res) => {
     if (req.user) {
-      return res.redirect('/todos')
+      return res.redirect('/blogPost/createBlogPost')
     }
     res.render('login', {
       title: 'Login'
@@ -31,7 +35,7 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/todos')
+        res.redirect(req.session.returnTo || '/blogPost/createBlogPost')
       })
     })(req, res, next)
   }
@@ -49,7 +53,7 @@ const User = require('../models/User')
   
   exports.getSignup = (req, res) => {
     if (req.user) {
-      return res.redirect('/todos')
+      return res.redirect('/blogPost/createBlogPost')
     }
     res.render('signup', {
       title: 'Create Account'
@@ -89,7 +93,7 @@ const User = require('../models/User')
           if (err) {
             return next(err)
           }
-          res.redirect('/todos')
+          res.redirect('/blogPost')
         })
       })
     })

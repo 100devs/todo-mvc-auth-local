@@ -5,11 +5,13 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, blogPostController.getTodos)
 
+router.get('/createBlogPost', blogPostController.getCreatePostPage)
+
 router.post('/createBlogPost', blogPostController.createBlogPost)
 
-router.put('/markComplete', blogPostController.markComplete)
+// router.put('/markComplete', blogPostController.markComplete)
 
-router.put('/markIncomplete', blogPostController.markIncomplete)
+// router.put('/markIncomplete', blogPostController.markIncomplete)
 
 router.delete('/deleteTodo', blogPostController.deleteTodo)
 

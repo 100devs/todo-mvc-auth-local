@@ -1,10 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap');
+
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+    background-color: rgb(33	35	38	);
+    color: white;
+    font-size: 1.5em;
+}
+ a {
+    color: gold;
+    text-decoration: none;
+ }
+ body {
+    display: flex;
+    flex-direction: column;
+ }
+textarea {
+    height: 50%;
+}
+ section {
+    align-self: center;
+ }
+ a:hover {
+    color: goldenrod;
+ }
+
+ input, textarea {
+    background-color: slategray;
+    color: white;
+    border-color: none;
+    width: 100%;
+    box-sizing: border-box;
+ }
+ #buttons {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+ #buttons * {
+    width: 25%;
+    
+ }
+ #clear {
+    background-color: gray;
+ }
+ #clear:hover {
+    background-color: rgba(0, 0, 0, .08);
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+ }
+
+/* CSS */
+.button-18 {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
 }
 
-h1 {
-    color: red;
+.button-18:hover,
+.button-18:focus { 
+  background-color: #16437E;
+  color: #ffffff;
 }
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+label {
+    margin: 0;
+}
+
+.button-18:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+::placeholder {
+    color: rgba(255,255,255.7)
+}
+
+ select {
+    background-color: slategrey;
+    color: white;
+ }
+
+ h1 {
+    color: gold;
+    text-align: center;
+ }
+ button {
+    border-radius: 5%;
+ }
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#account * {
+    font-size: .5rem;
+    margin: 0;
+}
+
+#username {
+    display: inline-block;
+}
+
+#title {
+    font-size: 1.5em;
+}
+
 .completed {
     text-decoration: line-through;
     color: gray;
