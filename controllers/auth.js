@@ -1,3 +1,4 @@
+//duplicate and make one for Google Auth
 const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')

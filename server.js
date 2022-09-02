@@ -10,7 +10,10 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: './config/config.env'})
+
+//set port to environment or default to 5000
+const PORT = process.env.PORT || 5000
 
 // Passport config
 require('./config/passport')(passport)
@@ -39,8 +42,9 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
+//= change from todos to tasks and taskRoutes
 app.use('/todos', todoRoutes)
  
-app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+app.listen(PORT, ()=>{
+    console.log(`Server is running ${PORT}, you better catch it!`)
 })    
