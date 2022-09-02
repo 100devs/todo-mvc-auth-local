@@ -16,12 +16,13 @@ Array.from(billTrackerComplete).forEach((el)=>{
 
 async function deleteBillTracker(){
     const billTrackerId = this.parentNode.dataset.id
+    console.log(billTrackerId)
     try{
         const response = await fetch('billtracker/deleteBillTracker', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'billTrackerIdFromJSFile': billTrackerId
+                'billtrackerIdFromJSFile': billTrackerId
             })
         })
         const data = await response.json()

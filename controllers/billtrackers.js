@@ -44,7 +44,7 @@ module.exports = {
         }
    },
     deleteBillTracker: async (req, res)=>{
-        console.log(req.body.billtrackerIdFromJSFile)
+       console.log(req.body.billtrackerIdFromJSFile)
         try{
             await BillTracker.findOneAndDelete({_id:req.body.billtrackerIdFromJSFile})
             console.log('Deleted a bill')
