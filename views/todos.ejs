@@ -8,25 +8,46 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <section class = "todosmain">
+        <h1>Todos</h1>
+        <ul>
+            <!--Edit-Tal. Foreach variables passed in at controller render method.-->
+            <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
+            <% todos.forEach( el => { %>
+                <% if(el.completed == false) {%>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <span class='del'> Delete </span>
+                    </li>
+                <% } %>
+            <% }) %>    
+        </ul>
+     
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+     
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit">
+        </form>
+        <a href="/logout">Logout</a>
+    </section>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+    <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
+    <section class = "todoshistory">
+        <form class = "historyForm">
+            <input type="button" name = "show history" value = "Hide History" class = "showButton">
+        </form>
+        <ul class = "historyList" disabled>
+            <% todos.forEach( el => { %>
+                <%if(el.completed == true) {%>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <span class='del'> Delete </span>
+                    </li>
+                <% }%>
+        <% }) %>  
+        </ul>
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>

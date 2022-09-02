@@ -11,6 +11,14 @@ module.exports = {
             console.log(err)
         }
     },
+    getTodosHistory: async(req,res)=>{
+        try{
+           // const completedItems = await
+        }
+        catch{
+            
+        }
+    },
     createTodo: async (req, res)=>{
         try{
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
