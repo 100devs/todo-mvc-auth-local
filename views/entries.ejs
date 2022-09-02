@@ -8,11 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Entries</h1>
     <ul>
     <% entries.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <li class='entryItem' data-id='<%=el._id%>'>
+                <span><%= el.expense %></span>
+                <span><%= el.company %></span>
+                <span><%= el.amount %></span>
+              <span><%= el.category %></span>
+
+                
+                
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span>
+                
+                
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -20,8 +29,8 @@
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+    <form action="/entries/createEntry" method='POST'>
+        <input type="text" placeholder="Enter Entry Item" name='entryItem'>
         <input type="submit">
     </form>
 
