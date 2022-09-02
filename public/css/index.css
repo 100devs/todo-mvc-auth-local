@@ -21,6 +21,7 @@ h1 {
     font-weight: 600;
     border-bottom: 3px solid black;
     padding-bottom: 20px;
+    text-transform: uppercase;
 }
 #veryOwn {
     font-weight: 900;
