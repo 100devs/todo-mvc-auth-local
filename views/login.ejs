@@ -7,7 +7,8 @@
   <body class="index-screen background-img">
     <div class="login-container card">
       <div class="card-body">
-        <h2 class="card-title text-center">Log In</h2>
+        <%- include('./partials/logo'); %>
+        <h3 class="card-title text-center">Log In</h3>
         <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => {
         %>
         <div class="alert alert-danger"><%= el.msg %></div>
