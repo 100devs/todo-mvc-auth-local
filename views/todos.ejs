@@ -12,7 +12,29 @@
     .not{
         text-decoration: underline; text-underline-offset: 0.2rem;}
     .todoItem {font: 1rem sans-serif;}
-    .del {color: #000;}
+    .del, .pet, .delpet {color: #000;}
+    form label {visibility: hidden}
+    .form-select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 3.3rem 0.5rem 1.1rem;
+    -moz-padding-start: calc(1.1rem - 3px);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #343a40;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1.1rem center;
+    background-size: 16px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    }
     </style>
 </head>
 <body class="px-4 py-5 my-3 mx-3 text-center">
@@ -24,23 +46,53 @@
         <div class="col-md-6 mb-4">
             <img class="mb-3" src="https://www.svgrepo.com/show/177662/clipboard-list.svg" alt="Clipboard with list" width="72" height="57">
             <p class="text-primary mb-3"><%= user.userName %> has <%= left %> thing(s) left to do.</p>
-            <ul class="list-group">
+            <ul class="list-group mb-4">
             <% todos.forEach( el => { %>
                     <li class='todoItem list-group-item d-flex justify-content-between align-items-center' data-id='<%=el._id%>'>
+                        <span class='pet badge bg-success disabled rounded-pill'><%= el.petName %></span>
                         <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                         <span class='del badge bg-danger disabled rounded-pill'> Delete </span>
                     </li>
             <% }) %>    
             </ul>
-        </div>
-        <div class="col-md-6 mx-auto">
+
             <img class="mb-3" src="https://www.svgrepo.com/show/177647/clipboard-list.svg" alt="Clipboard with a pencil" width="72" height="57">
-            <p class="text-primary mb-3">Add one more:</p>
+            <p class="text-primary mb-3">Add a task:</p>
             <form action="/todos/createTodo" method="POST" class="mb-0">
+                <select name="petName" class="form-select mb-3">
+                    <% pets.forEach( el => { %>
+                        <option value="<%= el.petName %>"><%= el.petName %></option>
+                <% }) %>     
+                </select>
                 <input type="text" placeholder="Enter Todo Item" name='todoItem' class="form-control" id="floatingTodo">
-                <label for="floatingTodo" style="visibility: hidden" class="mb-0">Email</label>
+                <label for="floatingTodo" class="mb-0">Email</label>
                 <input type="submit" class="btn btn-lg btn-primary mt-3">
             </form>
+        </div>
+        <div class="col-md-6 mx-auto">
+
+            <img class="mb-3" src="https://www.svgrepo.com/show/163512/pets-hotel-symbol-with-a-dog-and-a-cat-in-a-circle-with-one-star.svg" alt="a dog and a cat in a circle" width="72" height="57">
+            <p class="text-primary mb-3"><%= user.userName %> has <%= petCount %> pet(s).</p>
+            <ul class="list-group mb-4">
+            <% pets.forEach( el => { %>
+                    <li class='petList list-group-item d-flex justify-content-between align-items-center' data-id='<%=el._id%>'>
+                        <span class='pet text-primary'><%= el.petName %></span>
+                        <span class='delpet badge bg-danger disabled rounded-pill'> Delete </span>
+                    </li>
+            <% }) %>    
+            </ul>
+
+            <img class="mb-3" src="https://www.svgrepo.com/show/126218/pet.svg" alt="Pet paw" width="72" height="57">
+            <p class="text-primary mb-3">Add a pet:</p>
+            <form action="/pets/createPet" method="POST" class="mb-0">
+                <input type="text" placeholder="Enter pet name" name='petName' class="form-control" id="floatingPet">
+                <label for="floatingPet" class="mb-0">Pet name</label>
+                <input type="submit" class="btn btn-lg btn-primary mt-3">
+            </form>
+        </div>
+
+        <div class="col-md-6 mx-auto">
+            
         </div>
     </div>
     <a href="/logout" class="btn btn-lg bg-warning mt-5">Logout</a>
