@@ -20,7 +20,6 @@
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
-    "node": "^16.17.0",
     "nodemon": "^2.0.7",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
