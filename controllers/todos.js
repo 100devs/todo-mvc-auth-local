@@ -11,6 +11,18 @@ module.exports = {
             console.log(err)
         }
     },
+    searchShows: async(req,res)=>{
+        console.log(req.user)
+        try{
+            const choice = document.querySelector('input').value
+            const res = await fetch(`https://api.tvmaze.com/search/shows?q=${choice}`)
+            const data = await res.json()
+            res.render('results.ejs',{data: data})
+            console.log(data)
+        } catch(error){
+            console.error(error)
+        }
+    },
     createTodo: async (req, res)=>{
         try{
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
