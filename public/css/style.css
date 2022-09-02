@@ -1,3 +1,5 @@
+/* I don't know if this original code is required.
+
 h1{
     color: red;
 }
@@ -7,4 +9,106 @@ h1{
 }
 .not{
     text-decoration: underline;
+} */
+
+/*************************************************************************************************************************************
+Global code
+*************************************************************************************************************************************/
+
+/* What font-family are we using? */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    /* font-family: ; */
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+:root {
+    --black: #000;
+    --white: #fff;
+}
+
+.btn {
+    border: 2px solid var(--black);
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    color: var(--black);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/*************************************************************************************************************************************
+Home
+*************************************************************************************************************************************/
+.main {
+    /* border: 2px solid gold; */
+    padding: 10rem;
+    width: 100%;
+    height: 70vh;
+    min-width: 320px;
+    min-height: 600px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+}
+
+.container {
+    /* border: 2px solid red; */
+    height: 80%;
+    width: 50rem;
+    margin: 2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(../image/23761052_6857256.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.details {
+    /* border: 2px solid blue; */
+    padding: 2rem;
+    width: 50rem;
+    min-width: 320px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    gap: 3rem;
+}
+
+.details h1 {
+    /* border: 2px solid green; */
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.details p {
+    /* border: 2px solid green; */
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+.content {
+    /* border: 2px solid green; */
+    display: flex;
+    gap: 3.5rem;
 }
