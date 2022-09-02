@@ -40,3 +40,18 @@
 .logo-container img {
   width: 300px;
 }
+<<<<<<< HEAD
+.not{
+    text-decoration: underline;
+}
+.historyForm{
+    /*center the show history button in todos.ejs*/
+    display:flex;
+    justify-content: center;
+}
+body{
+    display:flex;
+    flex-direction:row;
+}
+=======
+>>>>>>> main

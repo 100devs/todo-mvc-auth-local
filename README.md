@@ -54,7 +54,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 Jasmine (Jaz): https://github.com/jasmine-9000
 
-Tal: https://github.com/TalThatcher
+Tal: https://github.com/TalThatcher //discord: Naril#9626 // tal.intech@gmail.com
 
 Alex : https://github.com/aapaine07 // discord: Zacarino#7503 // aapaine@gmail.com
 
