@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,4 +20,73 @@
         <input type="submit">
     </form>
 </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head'); %>
+    <title>LISTIFY | SIGN UP</title>
+  </head>
+  <body class="index-screen background-img">
+    <div class="login-container card">
+      <div class="card-body">
+        <%- include('./partials/logo'); %>
+        <h3 class="card-title text-center">Sign Up</h3>
+        <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => {
+        %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+        messages.info.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %> <% } %>
+        <form
+          action="/signup"
+          method="POST"
+        >
+          <div class="d-flex flex-column">
+            <label for="inputUsername">Username</label>
+            <input
+              id="inputUsername"
+              type="text"
+              name="username"
+              placeholder="Enter username"
+              class="form-control"
+            />
+            <label for="inputEmail">Email address</label>
+            <input
+              id="inputEmail"
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              class="form-control"
+            />
+            <label for="inputPassword">Password</label>
+            <input
+              id="inputPassword"
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              class="form-control"
+            />
+            <label for="inputConfirmPassword">Confirm Password</label>
+            <input
+              id="inputConfirmPassword"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm password"
+              class="form-control"
+            />
+            <input
+              type="submit"
+              class="btn btn-primary mt-2"
+              value="Sign Up"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="card-body text-center border-top">
+        Already have an account? <a href="/login">Log In</a>
+      </div>
+    </div>
+  </body>
 </html>
