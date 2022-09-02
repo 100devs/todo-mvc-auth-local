@@ -22,6 +22,7 @@
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
     "passport": "^0.6.0",
+    "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
   },
