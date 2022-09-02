@@ -9,10 +9,6 @@ h1{
     text-decoration: underline;
 }
 
-/* .userName {
-    display: flex;
-    justify-content: right;
-} */
 h4{
     padding: none;
     margin: none;
@@ -22,4 +18,10 @@ h4{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

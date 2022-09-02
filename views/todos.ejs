@@ -12,22 +12,27 @@
         <h4 class="userName"><%= user.userName %></h4>
         <a href="/logout">Logout</a>
     </section>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <button class="del">Delete</button>
-            </li>
-    <% }) %>    
-    </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <section class="card">
+        <h1>Todos</h1>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit">
+        </form>
+
+        <ul>
+        <% todos.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <button class="del">Delete</button>
+                </li>
+        <% }) %>    
+        </ul>
+
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    </section>
+
 
 
     <script src="js/main.js"></script>
