@@ -29,6 +29,7 @@ module.exports = {
   },
   updateDate: async (req, res) => {
     try {
+      //Daren's part
       // await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
       //     completed: true
       // })
