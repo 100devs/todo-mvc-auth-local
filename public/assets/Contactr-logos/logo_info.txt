@@ -1,5 +1,5 @@
 
-            Fonts used: SourceSansPro-Black,Raleway-Heavy 
+            Fonts used: BebasNeue,SourceSansPro-Black 
 
             Colors used: 15BA46,000000  
 
