@@ -4,19 +4,25 @@ module.exports = {
   getDates: async (req, res) => {
     console.log(req.user);
     try {
-      // const todoItems = await Todo.find({userId:req.user.id})
-      // const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-      res.render('dates.ejs', { user: req.user });
+      const dates = await Date.find({ userId: req.user.id });
+      res.render('dates.ejs', { user: req.user, dates: dates });
     } catch (err) {
       console.log(err);
     }
   },
   createDate: async (req, res) => {
-    console.log(req.body.date, req.body.mealType, req.body.foodItems);
+    const date = req.body.date;
+    const mealType = req.body.mealType;
+    const foodItems = req.body.foodItems;
+
     try {
-      // await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
-      // console.log('Todo has been added!')
-      // res.redirect('/todos')
+      const newDate = await Date.create({
+        userId: req.user.id,
+        [mealType]: foodItems,
+        date: date,
+      });
+      console.log(newDate);
+      res.redirect('/dates');
     } catch (err) {
       console.log(err);
     }

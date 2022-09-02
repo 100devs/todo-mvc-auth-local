@@ -15,6 +15,7 @@ async function sendData() {
   // Check if date exists - if so, make a PUT request to update, and if not, make a POST request to create
   let httpRequest;
   if (existingDays.some((day) => day.dataset.date === date)) {
+    console.log('HEY');
     httpRequest = 'put';
   } else {
     httpRequest = 'post';

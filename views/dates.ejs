@@ -22,6 +22,20 @@
     </form>
 
     <section>
+      <% dates.forEach(date => { %>
+      <div class="entry" data-date="<%=date.date%>">
+        <h2><%=date.date%></h2>
+        <section>
+          <h3>Breakfast</h3>
+          <p><%= date.breakfast ? date.breakfast : 'No breakfast' %></p>
+        </section>
+        <section>
+          <h3>Lunch</h3>
+          <p><%= date.lunch? date.lunch : 'No breakfast' %></p>
+        </section>
+      </div>
+      <% }) %>
+
       <!-- Dates will render here - each date needs a data-id attribute for delete to work -->
     </section>
 
