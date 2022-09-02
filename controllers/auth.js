@@ -70,13 +70,15 @@ const User = require('../models/User')
   
     const user = new User({
       userName: req.body.userName,
+      displayName: req.body.displayName,
       email: req.body.email,
       password: req.body.password
     })
   
     User.findOne({$or: [
       {email: req.body.email},
-      {userName: req.body.userName}
+      {userName: req.body.userName},
+      {displayName: req.body.displayName}
     ]}, (err, existingUser) => {
       if (err) { return next(err) }
       if (existingUser) {

@@ -8,3 +8,16 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+ul{
+    list-style: none;
+}
+
+form i{
+    margin-left: -30px;
+}
+
+form i:hover{
+    cursor: pointer;
+}
+
