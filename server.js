@@ -32,19 +32,6 @@ app.use(
   })
 );
 
-<<<<<<< HEAD
-app.use(flash())
-  
-app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
- 
-app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
-})    
-
-
-//comment added by nick
-=======
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -75,4 +62,5 @@ app.listen(process.env.PORT, () => {
 Turning on the tv to port ${PORT}...
 `);
 });
->>>>>>> RockHero
+
+//comment added by nick
