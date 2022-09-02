@@ -1,0 +1,67 @@
+/* font-family:'Source Sans Pro', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+body {
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight: 400; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-style: inherit;
+}
+
+h1 {
+    font-weight: 600;
+    border-bottom: 3px solid black;
+    padding-bottom: 20px;
+}
+#veryOwn {
+    font-weight: 900;
+    font-size: 40px;
+}
+.main,.container,.linkContainer {
+    display: flex;
+}
+.main {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 220px;
+}
+.linkContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 270px;
+    min-height: 70px;
+}
+.linkContainer a {
+    text-decoration: none;
+    font-size: 20px;
+    width: 70px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid grey;
+}
+.linkContainer a:hover {
+    background-color: teal;
+    color: black;
+    border: 2px solid black;
+}
