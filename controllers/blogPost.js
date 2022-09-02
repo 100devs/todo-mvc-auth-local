@@ -16,9 +16,9 @@ module.exports = {
             await BlogPost.create({
                 title: req.body.title,
                 body: req.body.postBody,
-                github: req.body.github,
+                gitHub: req.body.gitHub,
                 date: new Date(),
-                duedate: req.body.dueDate,
+                dueDate: req.body.dueDate,
                 mood: req.body.mood,
                 userId: req.user.id})
             console.log('Blog has been posted!')
