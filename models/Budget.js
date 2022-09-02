@@ -10,19 +10,19 @@ const BudgetSchema = new mongoose.Schema(
       type: Number, // store in cents to avoid rounding errors
       required: true,
     },
-    currency: {
-      type: String,
-      required: true,
-      default: "USD",
-    },
-    startDate: {
-      type: Date,
-      required: true,
-    },
-    endDate: {
-      type: Date,
-      required: true,
-    },
+    // currency: {
+    //   type: String,
+    //   required: true,
+    //   default: "USD",
+    // },
+    // startDate: {
+    //   type: Date,
+    //   required: true,
+    // },
+    // endDate: {
+    //   type: Date,
+    //   required: true,
+    // },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",

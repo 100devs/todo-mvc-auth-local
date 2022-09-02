@@ -4,21 +4,20 @@ const Budget = require("../models/Budget");
 const createExpense = async (req, res, next) => {
   try {
     // Parse the data submitted in the form
-    let { amount, currency, date, category } = req.body;
+    let { amount, category } = req.body;
     amount = Number(amount) * 100;
-    console.log({ amount, currency, date, category });
+    console.log({ amount, category });
     const user = req.user;
     // Create a document in 'expenses' collection
-    await Expense.create({ amount, currency, date, category, user: user.id });
+    await Expense.create({ amount, category, user: user.id });
 
     // Change the budget for the respective time period
-    const budget = await Budget.findOne({
-      $and: [
-        { user: user.id },
-        { startDate: { $lte: date } },
-        { endDate: { $gte: date } },
-      ],
-    });
+    const budget = await Budget.findOne({ user: user.id });
+      // $and: [
+      //   { user: user.id },
+      //   // { startDate: { $lte: date } },
+      //   // { endDate: { $gte: date } },
+      // ],
     console.log("Budget:");
     console.log(budget);
     // Update remaining budget
@@ -42,12 +41,7 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
   try {
     const expense = await Expense.findOne({ _id: req.body.idFromJSFile });
 
-    const budget = await Budget.findOne({
-      $and: [
-        { startDate: { $lte: req.body.date } },
-        { endDate: { $gte: req.body.date } },
-      ],
-    });
+    const budget = await Budget.findOne({ user: user.id });
     console.log(budget);
 
     await Budget.findOneAndUpdate(
@@ -74,26 +68,24 @@ const editExpense = async (req, res) => { //need to add collapsable form next to
 
     const editedExpense = {
       amount: Number(req.body.amount) * 100,
-      currency: req.body.currency,
-      date: req.body.date,
+      // currency: req.body.currency,
       category: req.body.category,
       user: req.user.id,
     }
 
-    if (editedExpense.date !== initialExpense.date){
-        //fix budgets
-    }
+    // if (editedExpense.date !== initialExpense.date){
+    //     //fix budgets
+    // }
 
-    if (editedExpense.amount !== initialExpense.amount){
-        //fix budgets
-    }
+    // if (editedExpense.amount !== initialExpense.amount){
+    //     //fix budgets
+    // }
 
     await Expense.findOneAndUpdate({
       _id: initialExpense._id
     }, {
       amount: Number(req.body.amount) * 100,
-      currency: req.body.currency,
-      date: req.body.date,
+      // currency: req.body.currency,
       category: req.body.category,
       user: req.user.id,
     });
