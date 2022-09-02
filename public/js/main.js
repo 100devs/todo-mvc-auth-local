@@ -40,7 +40,7 @@ async function markComplete(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'billTrackerIdFromJSFile': billTrackerId
+                'billtrackerIdFromJSFile': billTrackerId
             })
         })
         const data = await response.json()
@@ -58,7 +58,7 @@ async function markIncomplete(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'billTrackerIdFromJSFile': billTrackerId
+                'billtrackerIdFromJSFile': billTrackerId
             })
         })
         const data = await response.json()
