@@ -17,6 +17,21 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    currencies: {
+      type: [
+        {
+          type: String,
+          minLength: 3,
+          maxLength: 3,
+          uppercase: true,
+        },
+      ],
+      default: ["USD"],
+    },
+    categories: {
+      type: [String], // array of strings
+      default: ["Food", "Transportation", "Clothing"],
+    },
   },
   { versionKey: false, timestamps: true }
 );

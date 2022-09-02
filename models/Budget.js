@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const BudgetSchema = new mongoose.Schema(
   {
-    amount: {
+    initialAmount: {
+      type: Number,
+      required: true,
+    },
+    remainingAmount: {
       type: Number, // store in cents to avoid rounding errors
       required: true,
     },
