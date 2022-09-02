@@ -76,3 +76,34 @@ li .completed{
   font-size: 8em;
   color: gray;
 }
+
+/*
+Form styling
+*/
+
+.signUp {
+  margin: 0 auto;
+  max-width: 500px !important;
+  width: 80%;
+  color: white;
+  background: darkblue;
+  border-radius: 10px;
+  font-family: Nunito, Times, serif;
+}
+
+.signUpH1 {
+  color: white;
+  font-weight: 900;
+}
+
+.signUpInput {
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.signUpBtn {
+  margin: 0 0 10px 0;
+  font-family: Nunito;
+  font-weight: 700;
+}
+
