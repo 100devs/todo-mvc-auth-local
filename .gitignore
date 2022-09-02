@@ -30,4 +30,4 @@ jspm_packages/
 .yarn/install-state.gz
 .pnp.*
 
-.pnpm-lock.yaml
+pnpm-lock.yaml
