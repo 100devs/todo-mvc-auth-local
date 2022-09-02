@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Groceries</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+    <% groceries.forEach( el => { %>
+            <li class='groceryItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.grocery %></span>
                 <span class="itemNumber"><%=el.quantity %></span>
                 <span class='del'> Delete </span>
             </li>
@@ -21,9 +21,9 @@
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
+    <form action="/groceries/createGrocery" method='POST'>
         <input type="number" placeholder="# of items" name="itemNumber">
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Grocery Item" name='groceryItem'>
         <input type="submit">
     </form>
 
