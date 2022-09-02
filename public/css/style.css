@@ -6,6 +6,10 @@
   text-decoration: underline;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .historyForm {
   /*center the show history button in todos.ejs*/
   display: flex;
@@ -33,6 +37,12 @@ body {
   align-items: center;
 }
 
+.dashboard-screen {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
 .index-container,
 .login-container,
 .signup-container {
@@ -51,4 +61,8 @@ body {
 
 .logo-container img {
   width: 300px;
+}
+
+.todos-container {
+  background-color: #fff;
 }
