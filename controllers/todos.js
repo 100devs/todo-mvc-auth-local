@@ -54,10 +54,11 @@ module.exports = {
     },
     sortAToB: async (req, res)=> {
         try{
-            const christmasGifts = await Todo.find({userId:req.user.id})//find the user
-//sort the users "for:" alphabetically sort(arg: string | any): this;
+            const christmasGifts = await Todo.find({userId:req.user.id})
+            //find the user
+            //sort the users "for:" alphabetically sort(arg: string | any): this;
             res.render('todos.ejs', {})//render alphabetical for seciton 
-            await Todo.sort({})//this'll be waiting a long time
+            await Todo.sort({ giftFor: 1})//this'll be waiting a long time
         }catch(err){
             console.log(err)
             console.log("you got hella errs brah!")
