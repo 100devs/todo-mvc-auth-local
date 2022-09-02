@@ -1,4 +1,5 @@
 // Copied from todo.js... for now
+// Should now be entry/entries - hopefully I caught them all!
 
 const Entry = require('../models/Entry')
 
@@ -21,8 +22,8 @@ module.exports = {
     createEntry: async (req, res)=>{
         try{
             await Entry.create({entry: req.body.entryItem, userId: req.user.id})
-            console.log('Todo has been added!')
-            res.redirect('/todos')
+            console.log('Entry has been added!')
+            res.redirect('/entries')
         }catch(err){
             console.log(err)
         }
@@ -41,10 +42,10 @@ module.exports = {
     },
     
     deleteTodo: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        console.log(req.body.entryIdFromJSFile)
         try{
             await Entry.findOneAndDelete({_id:req.body.entryIdFromJSFile})
-            console.log('Deleted Todo')
+            console.log('Deleted Entry')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
