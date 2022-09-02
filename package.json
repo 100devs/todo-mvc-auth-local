@@ -1,7 +1,7 @@
 {
   "name": "todo-mvc-auth-local",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Simple ToDo App is built using the MVC Architecture, we have also implemented \"authorization\" so folx can sign up, customize & personalize the app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -16,7 +16,9 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
+    "express-layouts": "^1.0.0",
     "express-session": "^1.17.1",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.3",
@@ -25,5 +27,13 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FitzHawke/budget-mvc-auth-local.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FitzHawke/budget-mvc-auth-local/issues"
+  },
+  "homepage": "https://github.com/FitzHawke/budget-mvc-auth-local#readme"
 }
