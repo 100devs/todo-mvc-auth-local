@@ -14,21 +14,25 @@
         <li class="billtrackerItem" data-id="<%=el._id%>">
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue}` %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString()}` %></span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span>
             <span class='del'> Delete </span>
 
         </li>
     <% }) %>
-    
-
   </ul>
-  <h2><%= user.userName %> has <%= left %> bills to pay.</h2>
-      
+
+  <h2><%= left === 1 ? `${user.userName} has ${left} bill to pay for a total of \$${billSum}` : `${user.userName} has ${left} bills to pay for a total of \$${billSum}` %></h2>
+
+
+
+
+
+
   <form action="/billtracker/createBillTracker" method='POST'>
       <input type="text" placeholder="Company-Name" name='companyName'>
       <input type="text" placeholder="Description" name='description'>
-      <input type="number" placeholder="Price" name='amountDue'>
+      <input type="number" placeholder="Price" name='amountDue' step=".01">
       <input type="date" placeholder="Due-date" name='dueDate'>
 <!--       <input type="text" placeholder="completed" name='completed'> -->
         <input type="submit">

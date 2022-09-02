@@ -5,9 +5,12 @@ module.exports = {
         console.log('this is your username',req.user)
         try{
             const billtrackerItems = await BillTracker.find({userId:req.user.id})
+            let billSum = 0
+                for(let i=0; i< billtrackerItems.length; i++){
+                      billSum += billtrackerItems[i].amountDue }
+                   
             const itemsLeft = await BillTracker.countDocuments({userId:req.user.id,completed: false})
-            res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, user: req.user})
-            console.log('this work',billtrackerItems)
+            res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, billSum: billSum.toLocaleString(), user: req.user})
         }catch(err){
             console.log(err)
         }

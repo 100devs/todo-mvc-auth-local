@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Float = require('mongoose-float').loadType(mongoose)
 
 const BillTrackerSchema = new mongoose.Schema({
   companyName: {
@@ -10,7 +11,7 @@ const BillTrackerSchema = new mongoose.Schema({
     required: true,
   },
   amountDue: {
-    type: Number,
+    type: Float,
     required: true,
   },
   dueDate: {
@@ -25,6 +26,10 @@ const BillTrackerSchema = new mongoose.Schema({
     type: String,
     required: true 
   }
+
+
 })
+
+
 
 module.exports = mongoose.model('BillTracker', BillTrackerSchema)
