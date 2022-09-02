@@ -43,6 +43,18 @@ app.use("/", mainRoutes);
 app.use("/budget", budgetRoutes);
 app.use("/expenses", expensesRoutes);
 
+// 404 response handler, which is not an error (https://expressjs.com/en/starter/faq.html)
+app.use((req, res) => {
+  res.status(404).render("404", { user: req.user });
+});
+
+// Error handler
+app.use((err, req, res, _) => {
+  console.log(err);
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).render("error", { user: req.user, status, message });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });
