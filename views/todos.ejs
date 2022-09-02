@@ -21,7 +21,34 @@
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Company Name" name='companyName'>
+        <input type="date" placeholder="Date Added" name = "dateAdded">
+        <input type="text" placeholder="Url" name = "url">
+        <input type="text" placeholder="Role URL" name = "roleURL">
+        <input type="text" placeholder="Position" name = "posiiton">
+        <input type="text" placeholder="Source" name = "source">
+        <h2>Point of Contact</h2>
+        <input type="text" placeholder="Name of Contact" name = "pocName">
+        <input type="text" placeholder="Position of Contact" name = "pocPosition">
+        <input type="text" placeholder="Email of Contact" name = "pocEmail">
+        <h2>Application</h2>
+        <label name = "Applied?">Applied?</label>
+        <input type="checkbox" placeholder="Applied?" name = "applied">
+        <input type="date" placeholder="Date you applied" name = "applyDate">
+        <label name = "CoffeeChat">Coffee Chat?</label>
+        <input type="checkbox" name = "coffeeChat">
+        <input type="date" name = "coffeeChatDate">
+        <label name = "saidThanks">Said Thanks?</label>
+        <input type="checkbox" name = "saidThanks">
+        <label name = "interviewDate">Interview Date?</label>
+        <input type="date" name = "interviewDate">
+        <label name = "followUpDate">Interview Date?</label>
+        <input type="date" name = "followUpDate">
+        <input type="text" placeholder="Comments" name = "comment">
+
+
+
+
         <input type="submit">
     </form>
 
