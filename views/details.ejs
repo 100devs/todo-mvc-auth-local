@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>HitList</h1>
+    <tbody>
+        <% todos.forEach( el=> { %>
+            <tr>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.name %></span>
+                <span class='del'> Delete </span>
+            </li>
+            </td>
+            <% }) %>
+            
+    </ul>
+    <tbody>
+        <% todos.forEach( el=> { %>
+        <span class='hitListItem' data-id='<%=el._id%>'></span>
+        <tr>
+            <th>Name</th>
+            <th>Company Name</th>
+            <th>Date added to spreadsheet</th>
+            <th>URL</th>	
+        </tr>
+        <tr>
+            <td><%= el.name %></td>
+            <td><%= el.company %></td>
+            <td><%= el.createdAt %></td>
+            <td><%= el.url %></td>
+        </tr>
+        <tr>
+            <th>Role / Position (URL)</th>
+            <th>Type of position</th>
+            <th>Email</th>
+            <th>Date coffee chat</th>		
+        </tr>
+        <tr>
+            <td><%= el.position %></td>
+            <td><%= el.typeOfPosition %></td>
+            <td><%= el.email %></td>
+            <td><%= el.dateOfCoffeeChat %></td>
+        </tr>
+        <tr>
+            <th>Interview date</th>
+            <th>Applied?</th>
+            <th>Date application sent</th>	
+            <th>Coffee chat?</th>
+        </tr>
+        <tr>
+            <td><%= el.interviewDate %></td>
+            <td><%= el.applied %></td>
+            <td><%= el.dateAppSent %></td>
+            <td><%= el.coffeeChat %></td>
+        </tr>
+        <tr>
+            <th>Thank you</th>	
+            <th>Interview date</th>
+            <th>Follow up</th>
+            <th>Comments / Notes</th>
+        </tr>
+        <tr>
+            <td><%= el.thankYou %></td>
+            <td><%= el.interviewDate %></td>
+            <td><%= el.followUp %></td>
+            <td><%= el.comments %></td>
+        </tr>
+
+        <% }) %>
+    </tbody>
+
+    <h2>
+        <%= user.userName %> has
+    </h2>
+
+    <form action="/todos/createTodo" method='POST'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

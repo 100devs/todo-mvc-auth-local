@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>HitList</h1>
+    <ul>
+        <% hitlist.forEach( el=> { %>
+            <li class='hitListItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.HitList %></span>
+                <span class='del'> Delete </span>
+            </li>
+            <% }) %>
+    </ul>
+
+    <h2>
+        <%= user.userName %> has
+    </h2>
+
+    <form action="/hitlist/createhitList" method='POST'>
+        <input type="text" placeholder="Enter Contact's Name" name='name'>
+        <input type="text" placeholder="Enter Company URL" name='url'>
+        <input type="text" placeholder="Enter Position" name='position'>
+        <input type="text" placeholder="Enter Company Name" name='company'> //have this twice in schema
+        <input type="email" placeholder="Enter Contact's email" name='email'>
+        <input type="text" placeholder="Enter Type of Position" name='typeOfPosition'>
+        <!-- <input type="date" placeholder="Date Added" name='createdAt'> --> <!--Don't need this, backend code adds this automatically once it posts to the database-->
+        <input type="text" placeholder="Comments" name='comments'>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
