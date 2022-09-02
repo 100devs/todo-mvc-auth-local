@@ -5,27 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+    <style>
+    .completed{
+        text-decoration: line-through; --bs-text-opacity: 1; color: #868e96;}
+    .not{
+        text-decoration: underline; text-underline-offset: 0.2rem;}
+    .todoItem {font: 1rem sans-serif;}
+    .del {color: #000;}
+    </style>
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
+<body class="px-4 py-5 my-3 mx-3 text-center">
+    <div>
+        <h1 class="display-5 fw-bold mb-3"><%= user.userName %>'s to-do list</h1>
+        <p class="lead mb-4">Click on an item to mark it as completed or incomplete.</p>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6 mb-4">
+            <img class="mb-3" src="https://www.svgrepo.com/show/177662/clipboard-list.svg" alt="Clipboard with list" width="72" height="57">
+            <p class="text-primary mb-3"><%= user.userName %> has <%= left %> thing(s) left to do.</p>
+            <ul class="list-group">
+            <% todos.forEach( el => { %>
+                    <li class='todoItem list-group-item d-flex justify-content-between align-items-center' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <span class='del badge bg-danger disabled rounded-pill'> Delete </span>
+                    </li>
+            <% }) %>    
+            </ul>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <img class="mb-3" src="https://www.svgrepo.com/show/177647/clipboard-list.svg" alt="Clipboard with a pencil" width="72" height="57">
+            <p class="text-primary mb-3">Add one more:</p>
+            <form action="/todos/createTodo" method="POST" class="mb-0">
+                <input type="text" placeholder="Enter Todo Item" name='todoItem' class="form-control" id="floatingTodo">
+                <label for="floatingTodo" style="visibility: hidden" class="mb-0">Email</label>
+                <input type="submit" class="btn btn-lg btn-primary mt-3">
+            </form>
+        </div>
+    </div>
+    <a href="/logout" class="btn btn-lg bg-warning mt-5">Logout</a>
 
     <script src="js/main.js"></script>
 </body>

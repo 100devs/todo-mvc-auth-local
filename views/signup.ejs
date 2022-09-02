@@ -5,19 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+    <style>
+        body {display: flex; align-items: center; padding-top: 40px; padding-bottom: 40px;}
+        .alertdiv {position: absolute; top: 1rem; left: 1rem;}
+        .infodiv {position: absolute; top: 1rem; right: 1rem;}
+        main {max-width: 330px; padding: 15px;}
+        form label {visibility: hidden}
+    </style>
 </head>
-<body>
+<body class="text-center">
     <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+        <div role="alert" class="alertdiv">
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger">
+                    <%= el.msg %>
+                </div>
+            <% }) %>    
+        </div>
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+    <main class="w-100 m-auto">
+        <form action="/signup" method="POST" class="mb-4">
+            <img class="mb-3" src="https://www.svgrepo.com/show/221000/clipboard-list.svg" alt="Clipboard with a user next to it" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+            <div>
+                <input type="text" class="form-control" id="floatingInput" name="userName" placeholder="User Name">
+                <label for="floatingInput" class="mb-0">User name</label>
+            </div>
+            <div>
+                <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email">
+                <label for="floatingEmail" class="mb-0">Email</label>
+            </div>
+            <div>
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                <label for="floatingPassword" class="mb-0">Password</label>
+            </div>
+            <div>
+                <input type="password" class="form-control" id="floatingPasswordConfirm" name="confirmPassword" placeholder="Confirm Password">
+                <label for="floatingPasswordConfirm" class="mb-0">Confirm Password</label>
+            </div>
+            <input type="submit" class="w-100 btn btn-lg btn-primary">
+        </form>
+        <a href="/login" class="btn btn-outline-primary g-2 px-4">Or Log In</a>
+    </main>
 </body>
 </html>
