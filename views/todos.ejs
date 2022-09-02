@@ -8,20 +8,85 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <h1>List of companies</h1>
+    
+    
+        <!-- <ul>
+        <% todos.forEach( el => { %>
+                <li class='todoItem PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> <%= el.PhoneNumber %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul> -->
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        <!-- creating a table for our list -->
+        <table>
+            <tr>
+               <th>Company Name</th><th>Phone Number</th><th>Action </th><th>Edit </th>
+            </tr>
+            <tr >
+               <td>
+                <% todos.forEach( el => { %>
+                    <li style="list-style: none;" class='todoItem' class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> </span>
+                        
+                    </li><% }) %>    
+                </td>   
+                
+                
+               <td><% todos.forEach( el => { %>
+                <li style="list-style: none;"" class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.PhoneNumber %></span>
+                <!-- <span class='del'> Delete </span> -->
+                    
+                </li><% }) %></td>
+
+                <!-- delete button -->
+                <td> 
+                    <% todos.forEach( el => { %> 
+
+                        <li style="list-style: none;">
+                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                                
+                                <span class='del'> Delete </span>
+
+                                </button>
+                        </li>
+
+                    <% }) %>
+                </td>
+
+                <!-- edit button -->
+                <td> 
+                    <% todos.forEach( el => { %> 
+
+                        <li style="list-style: none;">
+                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                                
+                                <span class='edit'> Edit </span>
+
+                                </button>
+                        </li>
+
+                    <% }) %>
+                </td>
+
+
+
+
+            </tr>
+            
+         </table>
+   
+
+    <h2><%= user.userName %> has <%= left %> companies left to contact</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Company Name" name='todoItem'>
+        <input type="text" placeholder="Phone Number" name='PhoneNumber'>
         <input type="submit">
     </form>
 

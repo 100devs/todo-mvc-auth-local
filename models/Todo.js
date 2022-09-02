@@ -5,6 +5,10 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  PhoneNumber: {
+    type: String,
+    required: true,
+  },
   completed: {
     type: Boolean,
     required: true,
