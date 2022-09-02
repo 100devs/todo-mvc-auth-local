@@ -10,7 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: './config/config.env'})
 
 //set port to environment or default to 5000
 const PORT = process.env.PORT || 5000
