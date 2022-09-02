@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- Compiled and minified CSS -->
+    <!-- PS 09.02
+        Compiled and minified CSS 
+    -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 
-    <!-- Linked Google Fonts -->
+    <!-- PS 09.02
+        Linked Google Fonts 
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
@@ -19,6 +23,10 @@
 </head>
 
 <body>
+    <!-- PS 09.02 
+        Added wrapper div.container to center align all content
+        Added h1.signUpH1 for styling purposes on page
+    -->
     <div class="signUp container center-align">
         <h1 class="signUpH1">SIGN UP</h1>
     <% if (locals.messages.errors) { %>
@@ -27,9 +35,10 @@
         <% }) %>    
     <% } %>
     <!-- PS 09.02
-        Added wrapper div for form 
+        Added wrapper div.row for form 
         -> And center-align only centers submit btn
-        Added wrapper div for all inputs with class row
+        Added wrapper div.input-field for all inputs
+        Added class="signUpInput" to each input for font-styling
     -->
     <div class="row">
         <form class="col s12" action="/signup" method="POST">
@@ -40,7 +49,7 @@
                     <input class="signUpInput" type="password" name="confirmPassword" placeholder="Confirm Password">
                 </div>
             <!-- PS 09.02:
-                Added class btn blue to submit
+                Added class signUpBtn btn blue col s12 to submit input
             -->
             <input class="signUpBtn btn blue col s12" type="submit">
         </form>
