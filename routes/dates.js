@@ -9,6 +9,6 @@ router.post('/', datesController.createDate);
 
 router.put('/', datesController.updateDate);
 
-router.delete('/:dateid', datesController.deleteDate);
+router.delete('/', datesController.deleteDate);
 
 module.exports = router;

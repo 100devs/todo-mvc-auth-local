@@ -23,7 +23,7 @@
 
     <section>
       <% dates.forEach(date => { %>
-      <div class="entry" data-date="<%=date.date%>">
+      <div class="entry" data-date="<%=date.date%>" data-date="<%=date._id%>">
         <h2><%=date.date%></h2>
         <section>
           <h3>Breakfast</h3>
@@ -31,8 +31,13 @@
         </section>
         <section>
           <h3>Lunch</h3>
-          <p><%= date.lunch? date.lunch : 'No breakfast' %></p>
+          <p><%= date.lunch? date.lunch : 'No lunch' %></p>
         </section>
+        <section>
+          <h3>Dinner</h3>
+          <p><%= date.dinner ? date.dinner : 'No dinner' %></p>
+        </section>
+        <span class="del">Trash Can</span>
       </div>
       <% }) %>
 
