@@ -48,7 +48,6 @@ To Start:
 - To do column
 - working on column
 - Finished / completed column
-- Title
 - fancy home page https://www.figma.com/community/file/994611219185887302
 - fancy login page https://mui.com/material-ui/getting-started/templates/sign-in-side/
 - fancy sign up page https://mui.com/material-ui/getting-started/templates/sign-up/
@@ -59,7 +58,7 @@ To Start:
 - drop down to change staus (todo, working on, completed)
 - add default for each column (only image for completed; text for to do and working on columns)
 - add date to do
-- add name to sign up
+- add name from sign up into DATABASE
 - boolean for archive and workingOn
 
 Later on:
