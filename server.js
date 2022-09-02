@@ -59,8 +59,7 @@ app.listen(process.env.PORT, () => {
 | '--------------'o|
 | O O  """""""    o|
 '=================='
-Turning on the tv to port ${PORT}...
-`);
+Turning on the tv to port ${process.env.PORT}...`);
 });
 
 //comment added by nick
