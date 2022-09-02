@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
 </head>
 <body>
@@ -13,11 +15,15 @@
         <% }) %>    
     <% } %>
     <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
+        <ul>
+        <li><input type="text" name="userName" placeholder="User Name"></li>
+        <li><input type="text" name="displayName" placeholder="Display Name"></li>
+        <li><input type="email" name="email" placeholder="Email"></li>
+        <li><input type="password" name="password" placeholder="Password" class="password"> <i class="bi bi-eye-slash togglePassword"></i></li>
+        <li><input type="password" name="confirmPassword" placeholder="Confirm Password" class="password"> <i class="bi bi-eye-slash togglePassword"></i></li>
+        <li><input type="submit"></li>
+        </ul>
     </form>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
