@@ -4,23 +4,25 @@
     <%- include('./partials/head'); %>
     <title>LISTIFY</title>
   </head>
-  <body class="login-screen">
-    <div class="login-container card">
+  <body class="index-screen background-img">
+    <div class="index-container card">
       <div class="card-body text-center">
         <h1 class="card-title">LISTIFY</h1>
         <h6 class="card-subtitle mb2 text-muted">
           Create your own personalized to-do list!
         </h6>
-        <a
-          href="/login"
-          class="card-link"
-          >Login</a
-        >
-        <a
-          href="/signup"
-          class="card-link"
-          >Signup</a
-        >
+        <div class="d-flex flex-column">
+          <a
+            href="/login"
+            class="btn btn-primary m-1 mt-2"
+            >Login</a
+          >
+          <a
+            href="/signup"
+            class="btn btn-primary m-1"
+            >Signup</a
+          >
+        </div>
       </div>
     </div>
     <%- include('./partials/bootstrap-script'); %>
