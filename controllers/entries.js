@@ -11,8 +11,8 @@ module.exports = {
             const entryItems = await Entry.find({userId:req.user.id})
             
             
-            const entryItems = await Todo.find({userId:req.user.id})
-            const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
+            const entryItems = await Entry.find({userId:req.user.id})
+            const itemsLeft = await Entry.countDocuments({userId:req.user.id,completed: false})
             
             res.render('entries.ejs', {entries: entryItems, left: itemsLeft, user: req.user})
         }catch(err){
