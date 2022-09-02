@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevDays</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<header>
+    <h2>Hi, <%= user.userName %>!</h2>
+</header>
+<body>
+    <h1>Create New Post</h1>
+    
+    <form action="/todos/createTodo" method="POST">
+    <section>
+        <input id="titleField" placeholder="Post Title">
+        <h3 id="date"></h3>
+        <textarea id="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
+        <div>
+        <input id="gitHub" placeholder="GitHub Link">
+        <label for="mood">Mood:</label><select id="mood">
+            <option>Great</option>
+            <option>Good</option>
+            <option>Spicy</option>
+        </select>
+        </div>
+        <input id="dueDate" placeholder="Due Date">
+        <div>
+        <button id="clear">Clear</button>
+        <button id="saveDraft">Save as Draft</button>
+        <input type="submit" name="Post" value="Post">
+        </div>
+    </form>
+
+
+    <a href="/logout">Logout</a>
+
+    <script src="../js/main.js"></script>
+</body>
