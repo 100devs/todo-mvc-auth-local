@@ -8,3 +8,18 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+/* .userName {
+    display: flex;
+    justify-content: right;
+} */
+h4{
+    padding: none;
+    margin: none;
+}
+
+.logProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

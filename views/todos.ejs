@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section class="logProfile">
+        <h4 class="userName"><%= user.userName %></h4>
+        <a href="/logout">Logout</a>
+    </section>
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
@@ -25,7 +29,6 @@
         <input type="submit">
     </form>
 
-    <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
 </body>
