@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <div class="wrapper">  
+        <section class="resultSection" data-position="shows">
+            <h2>Results</h2>
+
+            <ul class="results">
+                <li class="results list-header">
+                    <span>Name</span>
+                    <span>Genres</span>
+                    <span>Summary</span>
+                </li>
+                <% for(var i = 0; i < data.length; i++) {%>
+                <li class="results" data-id='<%=data[i]._id%>'>
+                    <span><%= data[i].show.name %></a></span>
+                    <span class="genres"><%= plays[i].show.genres[0] %>, <%= plays[i].show.genres[1] %></span> 
+                    <span><%= plays[i].show.summary %></span>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
