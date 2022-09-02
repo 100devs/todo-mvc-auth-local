@@ -9,7 +9,7 @@ const BlogPostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  github: {
+  gitHub: {
     type: String,
     required: false,
   },
@@ -17,7 +17,7 @@ const BlogPostSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  duedate: {
+  dueDate: {
     type: String,
     required: false,
   },
