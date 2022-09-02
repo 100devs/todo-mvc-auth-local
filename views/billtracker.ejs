@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Tracker</title>
+    <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString()}` %></span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span>
-            <span class='del'> Delete </span>
+            <span class='fa-solid fa-trash-can del'>  </span>
 
         </li>
     <% }) %>
@@ -30,9 +31,9 @@
 
 
   <form action="/billtracker/createBillTracker" method='POST'>
-      <input type="text" placeholder="Company-Name" name='companyName'>
+      <input type="text" placeholder="Company Name" name='companyName'>
       <input type="text" placeholder="Description" name='description'>
-      <input type="number" placeholder="Price" name='amountDue' step=".01">
+      <input type="number" placeholder="Amount Due" name='amountDue' step=".01">
       <input type="date" placeholder="Due-date" name='dueDate'>
 <!--       <input type="text" placeholder="completed" name='completed'> -->
         <input type="submit">

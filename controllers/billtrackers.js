@@ -4,12 +4,19 @@ module.exports = {
     getBillTracker: async (req,res)=>{
         console.log('this is your username',req.user)
         try{
+            // Looking for all bills matching specific user id
             const billtrackerItems = await BillTracker.find({userId:req.user.id})
-            let billSum = 0
-                for(let i=0; i< billtrackerItems.length; i++){
-                      billSum += billtrackerItems[i].amountDue }
-                   
+            // Total bill items left for user
             const itemsLeft = await BillTracker.countDocuments({userId:req.user.id,completed: false})
+            // Looking for bills that are incomplete 
+            const billLeft = await BillTracker.find({userId:req.user.id,completed: false})
+            // Loops through outstanding bills to provide total left to pay
+            let billSum = 0
+                for(let i=0; i< billLeft.length; i++){
+                      billSum += billLeft[i].amountDue }
+            
+            console.log(billSum)
+
             res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, billSum: billSum.toLocaleString(), user: req.user})
         }catch(err){
             console.log(err)
