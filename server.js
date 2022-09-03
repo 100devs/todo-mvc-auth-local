@@ -56,7 +56,7 @@ cron.schedule("*/10 * * * * *", () => {
 // https://stackoverflow.com/questions/71477637/nodemailer-and-gmail-after-may-30-2022
 // https://nodemailer.com/smtp/oauth2/
 // changed cron schedule so it will send email at midnight every day.
-cron.schedule("* 0 1 * * *", () => {
+cron.schedule("0 0 1 * * *", () => {
   sendMail();
   console.log("Mail sent.");
 })
