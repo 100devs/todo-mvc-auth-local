@@ -7,24 +7,103 @@
     <% } %>
     <% if (locals.messages.info) { %>
         <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
+            <div class="alert alert-info"><%= el.msg %></div>
         <% }) %>
     <% } %>
+    <!-- don't show this by default -->
+    <div class="alert hidden" id="formInfo"></div>
+
   <section class="loginPage">
-  <form action="/login" method="POST">
+    <form action="/login" method="post">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password"  value="" placeholder="Password" />
   </div>
+  <!--
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input type="checkbox" class="form-check-input" id="remember" name="remember" />
+    <label class="form-check-label" for="remember">Remember me</label>
   </div>
+  -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </section>
+
+
+
+<script type="application/javascript" defer>
+  const formEl = document.querySelector('form');
+  // select by name.If we add a repeat password field, we don't need to take care of input[type="password"] and change the code
+  const formInfo = document.querySelector('#formInfo');
+
+
+  formEl.addEventListener('submit', (event) => {
+
+    // get element here, so we get the value of the element on submit and not an page load
+  const email = document.querySelector('input[name=email]').value.trim();
+  const password = document.querySelector('input[name=password]').value.trim();
+
+
+    /**
+     * Display a message if error append before the form is submitted to the server
+     * @params { string } classInfo : class to use with the error message ( alert-danger, alert-success, alert-info with bootstrap)
+     * @params { string } message : Message to display to inform the user about what append
+     * */
+      const showLoginInformation = (classInfo, message) => {
+
+        // show the message
+        formInfo.classList.add(classInfo)
+         formInfo.classList.remove('hidden')
+         formInfo.textContent = message
+
+         // hide the div 3 sec later and clear the content;
+          setTimeout(function () {
+            formInfo.classList.remove(classInfo);
+            formInfo.classList.add('hidden');
+           formInfo.textContent = ''
+                }, 3000);
+      }
+
+
+      // don't send the form as if;
+      event.preventDefault();
+
+      // if no value for the mail
+      if(!email || !validateEmail(email)) {
+          showLoginInformation('alert-danger','Please enter a valid email address.');
+          return false;
+      }
+
+      // if no passwport
+      if(!password) {
+          showLoginInformation('alert-danger','Password cannot be blank.');
+          return false;
+      }
+
+    // Data to send to the server
+      const  data = {
+          email : email,
+          password : password,
+        }
+
+    // Prepare request Options
+   // ! TODO : Can be put in a global function to write it in only one place createRequestOptions(method,data)
+     const requestOptions = {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify(data),
+     };
+
+     fetch("/login", requestOptions)
+       .then(response => response.json())
+        .catch(error =>  console.log(error) );
+    })
+  </script>
+
+
 <%- include('partials/footer.ejs') %>

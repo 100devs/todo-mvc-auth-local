@@ -3,7 +3,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport');
 const passportLocal = require("passport-local");
-
+const passportLocalMongoose = require("passport-local-mongoose");
+const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const cookieParser = require('cookie-parser');
@@ -34,7 +35,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
-app.use(express.json())
+app.use(bodyParser.json())
 app.use(logger('dev'))
 
 
