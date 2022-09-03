@@ -26,6 +26,7 @@ const TodoSchema = new mongoose.Schema({
   shared: {
     type: Boolean,
     required: true,
+    default: false
   },
   completedBy: {
        type: String,
