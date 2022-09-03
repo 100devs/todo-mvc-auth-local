@@ -10,6 +10,6 @@ router.post("/gear", gearController.createGear);
 
 //  @desc   Render the gear page and pull up wishlist'ed gear for the user
 //  @route  GET /gear
-router.get("/gear", gearController.getGear);
+router.get("/", gearController.getGear);
 
 module.exports = router;
