@@ -1,0 +1,10 @@
+li {
+    outline: thin solid red;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.reversed{
+    flex-direction: column-reverse;
+}
