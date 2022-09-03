@@ -14,11 +14,12 @@ module.exports = {
     searchShows: async(req,res)=>{
         console.log(req.user)
         try{
-            const choice = document.querySelector('input').value
-            const res = await fetch(`https://api.tvmaze.com/search/shows?q=${choice}`)
-            const data = await res.json()
-            res.render('results.ejs',{data: data})
+            const name = req.body.name
+            console.log(name)
+            const abc = await fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
+            const data = await abc.json()
             console.log(data)
+            res.render('results.ejs',{data})
         } catch(error){
             console.error(error)
         }
