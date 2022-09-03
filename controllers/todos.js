@@ -20,6 +20,16 @@ module.exports = {
       console.log(err);
     }
   },
+  getLists: async (req, res) => {
+    try {
+      const todoItems = await Todo.find({ userId: req.user.id }).sort({
+        todo: 1,
+      });
+      res.render("lists.ejs", {
+        lists: todoItems,
+      });
+    } catch (err) {}
+  },
   createTodo: async (req, res) => {
     try {
       await Todo.create({
