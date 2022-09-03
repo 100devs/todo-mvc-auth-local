@@ -8,14 +8,19 @@
   </head>
   <body>
     <h1>Gear creation Test</h1>
-    <span>plzzz work</span>
     <br /><br />
     <!-- Insert Gear -->
-    <form action="/gear/createGear" method="POST">
+    <form action="/createGear" method="POST">
       <input type="text" placeholder="Gear Name" name="gearName" />
       <input type="text" placeholder="Brand" name="gearBrand" />
       <input type="number" placeholder="0" name="gearPrice" />
       <input type="text" placeholder="good" name="gearCondition" />
+      <select name="gearCondition" id="gearCondition">
+        <option value="fair">Fair</option>
+        <option value="good">Good</option>
+        <option value="excellent">Excellent</option>
+        <option value="mint">Mint</option>
+      </select>
       <input
         type="text"
         placeholder="Add any relevant information about the gear in here..."
@@ -25,6 +30,8 @@
         <option value="Private">Private</option>
         <option value="Public">Public</option>
       </select>
+
+      <input type="submit" value="Submit" />
     </form>
   </body>
 </html>
