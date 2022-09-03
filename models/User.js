@@ -19,16 +19,16 @@ const UserSchema = new mongoose.Schema({
     type:String,
     require: true,
   },
-  totalAttempt: {
-    type: Number,
-    default: 0,
-    validate: {
-      validator: function(value) {
-        return value === 3;
-      },
-      message: 'You have already done three attempts.'
-    }
-  }
+  // totalAttempt: {
+  //   type: Number,
+  //   default: 0,
+  //   validate: {
+  //     validator: function(value) {
+  //       return value === 3;
+  //     },
+  //     message: 'You have already done three attempts.'
+  //   }
+  // }
 })
 
 
