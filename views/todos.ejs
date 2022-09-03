@@ -14,13 +14,13 @@
 
     <% BlogPost.forEach( items => { %>
             <li class='todoItem' data-id='<%=items._id%>'>
-                <span class=<%= items.body %></span>
-                <span class='title'> <%= items.title %>  </span> 
-                <span class='body'> <%= items.body %>  </span>
-                <span class='gitHub'> <%= items.gitHub %>  </span>
-                <span class='date'> <%= items.date %>  </span>
-                <span class='dueDate'> <%= items.dueDate %>  </span>
-                <span class="mood"> <%= items.mood %> </span>
+                <div class=<%= items.body %></div>
+                <div class='title'> <%= items.title %>  </div> 
+                <div class='body'> <%= items.body %>  </div>
+                <div class='gitHub'> <%= items.gitHub %>  </div>
+                <div class='date'> <%= items.date %>  </div>
+                <div class='dueDate'> <%= items.dueDate %>  </div>
+                <div class="mood"> <%= items.mood %> </div>
 
 
             </li>
