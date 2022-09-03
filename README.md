@@ -50,14 +50,27 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 - Add Alerts - email alerts, a way of tracking time. (Jazj)
 - Try adding another source of authentication. Maybe https://www.passportjs.org/packages/passport-cookie/(Xavier https://www.passportjs.org/packages/)
 
-# Member Information
+# Contributors
 
-Jasmine (Jaz): https://github.com/jasmine-9000
+**:point_right: Alex**
+:computer: [Portfolio](https://www.johnmal.dev/) | [Github](https://github.com/aapaine07)
+:e-mail: [aapaine@gmail.com](mailto:aapaine@gmail.com)
 
-Tal: https://github.com/TalThatcher //discord: Naril#9626 // tal.intech@gmail.com
+**:point_right: Jaz**
+:computer: [Github](https://github.com/jasmine-9000)
 
-Alex : https://github.com/aapaine07 // discord: Zacarino#7503 // aapaine@gmail.com
+**:point_right: Joe**
+:computer: [Github](https://github.com/joetraunero)
+:e-mail: [joetraunero@gmail.com](mailto:joetraunero@gmail.com)
 
-John: https://github.com/johnmal-dev // discord: johnmal#1773 // johncmalapit@gmail.com
+**:point_right: John Malapit**
+:computer: [Github](https://github.com/johnmal-dev) | [Portfolio](https://www.johnmal.dev/)
+:e-mail: [contact@johnmal.dev](mailto:contact@johnmal.dev)
 
-Joe: https://github.com/joetraunero // discord: shmoe#3902 // joetraunero@gmail.com
+**:point_right: Tal**
+:computer: [Github](https://github.com/TalThatcher)
+:e-mail: [tal.intech@gmail.com](mailto:tal.intech@gmail.com)
+
+**:point_right: Zac**
+:computer: [Github](https://github.com/johnmal-dev)
+:e-mail: [contact@johnmal.dev](mailto:contact@johnmal.dev)
