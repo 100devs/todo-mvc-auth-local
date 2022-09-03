@@ -1,10 +1,56 @@
-h1{
-    color: red;
+
+/* 
+===========
+SHARED STYLE
+===========
+*/
+* {
+    font-family: 'Roboto', sans-serif;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+
+/* 
+===========
+INDEX.EJS
+===========
+*/
+
+.index{
+    background-image: url("https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-.not{
-    text-decoration: underline;
+
+.index .container{
+    width: 80%;
+    margin: 25vh auto 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+
+.index h1 {
+    font-family: 'Dancing Script', sans-serif;
+    font-weight:700;
+}
+
+.index a {
+    border: 1px solid black;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    
+}
+.index a:hover{
+    background-color: lightgray;
+}
+
+
+
