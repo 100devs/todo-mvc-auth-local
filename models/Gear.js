@@ -22,7 +22,6 @@ const GearSchema = new mongoose.Schema({
   },
   gearNote: {
     type: String,
-    required: true,
   },
   dateAdded: {
     type: Date,
@@ -32,6 +31,7 @@ const GearSchema = new mongoose.Schema({
     type: String,
     default: "public",
     enum: ["public", "private"],
+    required: true,
   },
   userId: {
     type: String,
