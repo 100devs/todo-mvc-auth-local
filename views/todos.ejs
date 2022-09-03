@@ -8,22 +8,48 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1><%= user.userName %>'s Posts</h1>
+    <h1>Journal</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+    <h2><%= user.userName %> has <%= left %> journal entries logged.</h2>
+
+    <% BlogPost.forEach( items => { %>
+            <li class='todoItem' data-id='<%=items._id%>'>
+                <div class=<%= items.body %></div>
+                <div class='title'> <%= items.title %>  </div> 
+                <div class='body'> <%= items.body %>  </div>
+                <div class='gitHub'> <%= items.gitHub %>  </div>
+                <div class='date'> <%= items.date %>  </div>
+                <div class='dueDate'> <%= items.dueDate %>  </div>
+                <div class="mood"> <%= items.mood %> </div>
+
+
             </li>
     <% }) %>    
     </ul>
-
     <!-- <h2><%= user.userName %> has <%= left %> things left to do.</h2> -->
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+
+ <form action="/blogPost/createBlogPost" method="POST">
+        <div id="mainInput">
+            <label for="title">Title</label><input id="title" name="title" placeholder="Post Title">
+            <label for="title">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link">
+            <label for="title">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date">
+            <h3 id="date" name="date"></h3>
+            <label for="title">Your Thoughts:</label><textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="Write your daily dev journey here!"></textarea>
+        </div>
+        <div>
+            <label for="mood">Mood: </label><select id="mood" name="mood">
+                <option>Great</option>
+                <option>Good</option>
+                <option>Spicy</option>
+            </select>
+        </div>
+        
+        <div id="buttons">
+        <input type="reset" id="clear" class="button-18" value="Clear">
+        <!-- <button id="saveDraft">Save as Draft</button> -->
+        <input type="submit" name="Post" class="button-18" value="Post">
+        </div>
 
     <a href="/logout">Logout</a>
 

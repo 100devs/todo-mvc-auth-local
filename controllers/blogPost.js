@@ -5,8 +5,8 @@ module.exports = {
         console.log(req.user)
         try{
             const todoItems = await BlogPost.find({userId:req.user.id})
-            const itemsLeft = await BlogPost.countDocuments({userId:req.user.id,completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+            const itemsLeft = await BlogPost.countDocuments({userId:req.user.id})
+            res.render('todos.ejs', {BlogPost: todoItems, left: itemsLeft, user: req.user})
         }catch(err){
             console.log(err)
         }
