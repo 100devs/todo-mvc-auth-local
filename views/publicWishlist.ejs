@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yay!</title>
+    <title>RockWish Wishlist</title>
   </head>
   <body>
-    <h3>This area will test pulling up the gear</h3>
+    <h1>Public Wishlists</h1>
 
     <ul>
       <% gears.forEach( el => { %>
@@ -15,6 +15,10 @@
         <% %>
         <span><%= el.gearName %></span>
         <span><%= el.gearBrand %></span>
+        <span><%= el.gearPrice %></span>
+        <span><%= el.gearCondition %></span>
+        <span><%= el.dateAdded %></span>
+        <span><%= el.visibility %></span>
       </li>
       <% }) %>
     </ul>
@@ -30,16 +34,3 @@ gearNote
 dateAdded
 visibility // public/private
 userId -->
-
-<!-- Login -> Dashboard
-           -> Signup
-
-Signup -- Signup, than return to Login
-
-Dashboard -> Public Wishlist
-          -> Personal Wishlist
-          -> Add gear to Wishlist
-
-Public Wishlist -- Display all public wishlisted items
-Personal Wishlist -- Display all private and public wishlisted items from the logged in user
-Add Gear -- Add gear, than return to Dashboard -->

@@ -13,7 +13,7 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'><i class="material-icons">delete</i></span>
+                <span class='del'>delete</span>
             </li>
     <% }) %>    
     </ul>
@@ -29,6 +29,8 @@
 
     <br/><br/>
     <a href="/gear">Percuss Here for Gear</a>
+    <br/><br/>
+    <a href="/gear/show">Click here to see the gear</a>
 
     <script src="js/main.js"></script>
 </body>
