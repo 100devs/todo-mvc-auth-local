@@ -61,7 +61,6 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
 
     console.log("Expense has been deleted and budget adjusted!");
     res.json('deleted')
-    res.redirect("/budget");
   } catch (err) {
     console.log(err);
   }
