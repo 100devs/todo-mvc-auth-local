@@ -113,7 +113,8 @@ body {
 }
 .card__details {
   padding: 4rem 2rem;
-  line-height:1.7rem;
+  line-height:1.9rem;
+  font-size: 1.2rem;
 }
 .card__details ul {
   list-style: none;
@@ -122,7 +123,7 @@ body {
 }
 .card__details ul li {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   padding: 1rem;
 }
 .card__details ul li:not(:last-child) {

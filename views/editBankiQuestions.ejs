@@ -1,0 +1,21 @@
+   
+
+<h1 class="text-center my-3">Banki Set</h1>
+<div class="accordion accordion-flush m-3" id="accordionFlushExample">
+    <% questions.forEach( el => { %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=el._id%>" aria-expanded="false" aria-controls="flush-collapse<%=el._id%>">
+        <%= el.Question %>
+        </button>
+      </h2>
+      <div id="flush-collapse<%=el._id%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=el._id%>" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body" data-id="<%=el._id %>">
+            <p><%= el.Answer %></p>
+            <img src="/assets/edit-icon.svg" width="40px" height="40px" alt="edit icon" class="mx-2">
+            <img src="/assets/delete-icon.svg" width="40px" height="40px" alt="delete icon" class="mx-2">
+        </div>
+      </div>
+    </div>
+    <% }) %>    
+  </div>
