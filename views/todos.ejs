@@ -6,35 +6,41 @@
   </head>
   <body class="background-img dashboard-screen">
     <section class="todosmain todos-container container">
-      <h1>Todos</h1>
-      <form
-        action="/todos/createTodo"
-        method="POST"
-      >
-        <input
-          type="text"
-          placeholder="Enter Todo Item"
-          name="todoItem"
-        />
-        <input type="submit" />
-      </form>
-      <ul>
-        <!--Edit-Tal. Foreach variables passed in at controller render method.-->
-        <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
-        <% todos.forEach( el => { %> <% if(el.completed === false) {%>
-        <li
-          class="todoItem"
-          data-id="<%=el._id%>"
-        >
-          <span class="not"><%= el.todo %></span>
-          <span class="del">Delete</span>
-        </li>
-        <% } %> <% }) %>
-      </ul>
 
-      <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+      <!--Edit: Tal. Added organizational sections to the Todos page.-->
+      <section class = "createTodosSection">
+        <h2>Create Your Todos!</h2>
+        <form
+          action="/todos/createTodo"
+          method="POST"
+        >
+          <input
+            type="text"
+            placeholder="Create a todo item"
+            name="todoItem"
+          />
+          <input type="submit" />
+        </form>
+      </section>
+      <section class = "taskListSection todosSection">
+        <h2>Todo List</h2>
+        <ul class = "taskList">
+          <!--Edit-Tal. Foreach variables passed in at controller render method.-->
+          <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
+          <% todos.forEach( el => { %> <% if(el.completed === false) {%>
+          <li
+            class="todoItem"
+            data-id="<%=el._id%>"
+          >
+            <span class="not"><%= el.todo %></span>
+            <span class="del">Delete</span>
+          </li>
+          <% } %> <% }) %>
+        </ul>
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+      </section>
       <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
-      <section class="todoshistory">
+      <section class="todosHistory todosSection">
         <form class="historyForm">
           <input
             type="button"
@@ -60,7 +66,9 @@
           <% }) %>
         </ul>
       </section>
-      <a class="btn btn-primary btn-lg" href="/logout">Logout</a>
+      <section class = "logoutSection todosSection">
+        <a class="btn btn-primary btn-lg" href="/logout">Logout</a>
+      </section>
     </section>
 
     <script src="js/main.js"></script>

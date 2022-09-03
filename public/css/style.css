@@ -1,3 +1,7 @@
+html{
+  font-size:16px;
+}
+
 .completed {
   text-decoration: line-through;
   color: gray;
@@ -12,14 +16,35 @@ ul {
 
 .historyForm {
   /*center the show history button in todos.ejs*/
-  display: flex;
-  justify-content: center;
-}
-body {
-  display: flex;
-  flex-direction: row;
+  margin:0 auto;
 }
 
+body{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.todosmain {
+  padding-top:2rem;
+  display: flex;
+  flex-direction: row;
+  min-height: 30rem;
+}
+.createTodosSection, .taskListSection, .todosHistory{
+  margin-right:2rem;
+  width:25%;
+}
+.logoutSection{
+  margin-left:auto;
+}
+.taskListSection >ul, .historyList{
+  padding:0;
+  font-size:1.25rem;
+  text-align: center;
+}
+ul+h2{
+  font-size: 1.25rem;
+}
 .background-img {
   background-image: url('../images/ian-dooley-DJ7bWa-Gwks-unsplash.jpg');
   background-repeat: no-repeat;
