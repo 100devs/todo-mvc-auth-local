@@ -67,6 +67,7 @@ Joe: https://github.com/joetraunero // discord: shmoe#3902 // joetraunero@gmail.
 
 # Gmail
 
+
 Go to https://console.cloud.google.com/getting-started?pli=1
 
 Log in to your google account
@@ -75,7 +76,7 @@ Click on "select a project"
 
 Click on "new project"
 
-Name your project "<name of project>"
+Name your project ``` name of project ```
 
 Create project
 
@@ -85,6 +86,31 @@ Select the project
 
 Go to the APIs and Services dashboard for google cloud
 
+## Create an OAuth Consent screen
+
+Go to Oauth Consent Tab on left hand side of screen
+
+Select "External" for user type
+
+Give an App name
+
+Give support email  (suggested: your own email)
+
+DO NOT SUBMIT AN APP LOGO
+
+Give developer contact information (suggested: your own email)
+
+Save and continue
+
+Leave all scopes at default value
+
+Save and continue
+
+Leave optional info blank
+
+Save and continue
+
+Go back to dashboard
 
 
 
