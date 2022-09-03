@@ -5,9 +5,10 @@ const mongoose = require('mongoose')
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const UserSchema = new mongoose.Schema({
-  userName: {
+  username: {
     type: String,
     unique: true,
+    sparse: true,
     required: true
    },
   email: {
@@ -19,6 +20,7 @@ const UserSchema = new mongoose.Schema({
     type:String,
     require: true,
   },
+  /*
   totalAttempt: {
     type: Number,
     default: 0,
@@ -29,7 +31,8 @@ const UserSchema = new mongoose.Schema({
       message: 'You have already done three attempts.'
     }
   }
-})
+  */
+}, { collection: 'users'})
 
 
 // Password hash middleware.
@@ -56,6 +59,7 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
   })
 }
 
-UserSchema.plugin(passportLocalMongoose);
+
+//UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', UserSchema)

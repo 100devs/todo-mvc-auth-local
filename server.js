@@ -2,8 +2,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport');
-const passportLocal = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
+const LocalStrategy = require('passport-local');
+
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -21,7 +21,6 @@ const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 const groupRoutes = require('./routes/groups')
 
-const User = require('./models/User');
 
 // Passport config
 require('./config/passport')(passport)
@@ -49,15 +48,20 @@ const client = connectDB().then((mClient) => {
  }).catch(err => console.log(err));
 
 
+const User = require('./models/User');
+
+
  // CookieParser should be above session
   app.use(cookieParser());
+
+
 // Sessions
 app.use(
     session({
       secret: process.env.SECRET,
       resave: false,
       saveUninitialized: false,
-store: MongoStore.create({
+      store: MongoStore.create({
         mongoUrl: process.env.DB_STRING,
         collection: 'sessions'
     }),
@@ -65,11 +69,9 @@ store: MongoStore.create({
   )
 
 // Passport middleware
+
 app.use(passport.initialize())
 app.use(passport.session())
-passport.use(new passportLocal(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 app.use(flash())
@@ -77,7 +79,12 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
 app.use('/groups', groupRoutes)
+
+
+// No controller, just a static page. N
 app.use('/terms',(req,res) => res.render('terms.ejs', {title:"Terms of Service & conditions"}));
+
+// All unknown routes will go there, no need to create a controller for this for the moment
 app.get('*', function(req, res){
     res.render('404', {title: '404' });
 });

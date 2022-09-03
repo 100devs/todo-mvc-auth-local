@@ -1,4 +1,4 @@
-<% include('partials/head.ejs') %>
+<%- include('partials/head.ejs') %>
 
     <h1>Todos</h1>
     <ul>
@@ -10,7 +10,7 @@
     <% }) %>
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.username %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
@@ -19,4 +19,4 @@
 
     <a href="/logout">Logout</a>
 
-<% include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>
