@@ -94,6 +94,34 @@ INDEX.EJS
   transform: translate3d(0, 2px, 0);
 }
 
+/* 
+===========
+SIGNUP.EJS
+===========
+*/
+
+.signup,
+.login {
+  padding: 50px 5px;
+}
+
+.formstyle {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formstyle input {
+  padding: 10px;
+  margin: 10px;
+}
+
+.alert {
+  color: red;
+}
+
 
 /* 
 ===========
@@ -147,36 +175,5 @@ TODOS.EJS
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
-/* 
-===========
-SIGNUP.EJS
-===========
-*/
-
-.signup, .login{
-    padding: 50px 5px;
-}
-
-.formstyle{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.formstyle input{
-    padding: 10px;
-    margin: 10px;
-}
-
-.alert {
-    color: red;
-}
-
-
-/* 
-===========
-LOGIN.EJS
-===========
-*/
 
 
