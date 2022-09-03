@@ -13,6 +13,7 @@ module.exports = {
             console.log(err)
         }
     },
+    //just added the fields we want
     createTodo: async (req, res)=>{
         try{
            await Task.create({
@@ -29,6 +30,7 @@ module.exports = {
             res.status(400).json({error: err.message})
         }
     },
+    //original function
     // createTodo: async (req, res)=>{
     //     try{
     //         await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
@@ -70,6 +72,9 @@ module.exports = {
             console.log(err)
         }
     },
+    //get todos based on url params like /todos/oct/10
+    // only get todos with month of oct and day of 10
+    //sends tasks back in json
     getTodosByDate: async (req,res) => {
         try {
             const tasks = await Task.find({userId: req.user.id, month: req.params.month, day: req.params.day })

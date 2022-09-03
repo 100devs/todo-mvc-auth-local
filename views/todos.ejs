@@ -15,10 +15,13 @@
             <div class="content">
                 <h1 class="date">Friday</h1>
                 <div class="monthAndDay">
+                    <!-- i guess you can add variables to ejs so _month is "Sat Sep 03 2022 09:29:18 GMT-0700 (Pacific Daylight Time)" and we get Sep -->
+                    <!-- same with _day -->
+                    <!-- just used to get the current day and month for the calendar -->
                     <%  var _month = Date(Date.now()).split(" ")[1].toLowerCase() %>
                     <%  var _day = Date(Date.now()).split(" ")[2].split("").map(x => +x).filter(x => x !== 0) %>
                     <span class="month"><%= _month %></span>
-                        <span class="day"><%= Date(Date.now()).split(" ")[2].split("").map(x => +x).filter(x => x !== 0) %></span>
+                        <span class="day"><%= _day %></span>
                 </div>
                 <div class="notes">
                    <!-- are they able to add to the list? -->
@@ -26,6 +29,8 @@
                         <input type="text" name="task" placeholder="new task"/>
                         <input type="time" name="startTime"/>
                         <input type="time" name="endTime"/>
+                        <!-- these hidden input contain the day and month data that will get stored in the database so we can filter the tasks by month and day -->
+                        <!-- these input values changed based on month and day that are selected -->
                         <input type="hidden" name="day" class="dbDay" value="<%= _day %>"  />
                         <input type="hidden" name="month" class="dbMonth" value="<%= _month %>"  />
                         <button type="submit" href="#" title="Add note" class="addNote animate">+</button>
@@ -44,6 +49,7 @@
                                 </li>
                         <% }) %>     
                         </ul> -->
+                        <!-- container that holds the fetched tasks -->
                         <ul class="taskContainer">
 
                         </ul>
