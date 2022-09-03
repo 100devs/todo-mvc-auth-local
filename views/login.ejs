@@ -5,8 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- PS 09.02
+            Compiled and minified CSS 
+        -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- PS 09.02
+            Linked Google Fonts 
+        -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+    <div class="logIn container center-align">
+        <h1 class="logInH1">LOG IN</h1>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -17,10 +35,18 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+        <div class="row">
+            <form class="col s12" action="/login" method="POST">
+                <div class="input-field">
+                    <input class="logInInput" type="email" name="email" placeholder="Email">
+                    <input class="logInInput" type="password" name="password" placeholder="Password">
+                    <input class="logInBtn btn blue col s12" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
