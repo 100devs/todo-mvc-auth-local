@@ -59,25 +59,20 @@ TODOS.EJS
 */
 
 .list {
-    background-image: url("https://i.ibb.co/pQLXMBn/girl-gaf23d8098-1920.jpg");
+    background-image: url("https://i.ibb.co/340d0SY/christmas-g8061b26d7-1280.png");
     background-repeat: no-repeat;
-    background-position: bottom left;
+    background-position: bottom center;
     background-attachment:fixed;
-    background-size: contain;
+    background-size: cover;
 }
-  .intro,
-  .intro a{
-    color:#fff;
-    font-family:
-  }
 
   .main-todos {
-    width: 40%;
-    margin: 1% 25% 1% 55%;
+    width: 50%;
+    margin: 2% 45% 2% 25%;
     background-color: rgb(254, 254, 254, 0.75);
     border: 2px solid green;
     border-radius: 3%;
-    padding: 2%;
+    padding: 1% 2% 2% 2%;
   }
 
   .create-list form {
