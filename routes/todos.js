@@ -5,7 +5,7 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getTodos)
 
-router.get('/searchShows', todosController.searchShows)
+router.post('/searchShows', todosController.searchShows)
 
 router.post('/createTodo', todosController.createTodo)
 
