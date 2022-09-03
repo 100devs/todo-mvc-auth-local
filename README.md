@@ -75,3 +75,40 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 **:point_right: Zac**
 :computer: [Github](https://github.com/johnmal-dev)
 :e-mail: [contact@johnmal.dev](mailto:contact@johnmal.dev)
+
+# How to setup email server
+
+
+# Gmail
+
+Go to https://console.cloud.google.com/getting-started?pli=1
+
+Log in to your google account
+
+Click on "select a project" 
+
+Click on "new project"
+
+Name your project "<name of project>"
+
+Create project
+
+Wait for project to be created
+
+Select the project
+
+Go to the APIs and Services dashboard for google cloud
+
+
+
+
+
+# All other mail clients
+
+Use regular STMP client
+
+
+# Sources: 
+
+https://www.youtube.com/watch?v=-rcRf7yswfM
+

@@ -56,7 +56,7 @@ function sendMail() {
         if(err) {
         console.log("An Error occurred. ", err)
         } else {
-        consoel.log("Email sent successfully.")
+        console.log("Email sent successfully.")
         }
     })    
 }
