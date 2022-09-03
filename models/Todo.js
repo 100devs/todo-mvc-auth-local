@@ -14,8 +14,16 @@ const TodoSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    date: {
+      type: Date,
+      default: Date.now
+    },
+    important: {
+    type: Boolean,
+    default: false
+    }
   },
-  { timestamps: true }
+  //{ timestamps: true }
 )
 
 module.exports = mongoose.model('Todo', TodoSchema)
