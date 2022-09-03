@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://kit.fontawesome.com/a2f02755e4.js" crossorigin="anonymous"></script>
+    <link 
+        rel="stylesheet" 
+        href="css/style.css"
+    >
+    <title>Huntober App</title>
+  </head>
+
+  <body>
+    <!-- App Header & Navbar -->
+    <header class="header">
+        <i class="header--logo fa-solid fa-circle-check"></i>
+        <h3 class="header--appName">Huntober App Name</h3>
+        <nav class="nav">
+            <ul class="nav--list">
+                <li class="nav--listItems"><a class="btn--primary" href="/login"> Login</a></li>
+                <li class="nav--listItems"><a class="btn--secondary" href="/signup"> Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="heroSection">
+        <section class="heroSection__left">
+            <img class="heroSection--logo" src="images/logo.png" alt="Leon 100Devs Logo">
+        </section>
+        <section class="heroSection__right">
+            <section class="heroSection--text">
+                <h1 class="heroSection--title">Don't Get Got!</h1>
+                <p class="heroSection--subTitle">We go get!</p>
+            </section>
+            <section class="registration--btns">
+                <a class="btn--primary" href="/login"> Login</a>
+                <a class="btn--secondary" href="/signup"> Signup</a>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <small class="footer--info">© 2022 | Developed by danjkim21, snowsneakers, j-mataway, isravera, TylerP99, and durinwhitestorm </small>
+    </footer>
+
+  </body>
 </html>
