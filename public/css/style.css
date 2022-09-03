@@ -1,3 +1,7 @@
+html{
+  font-size:16px;
+}
+
 .completed {
   text-decoration: line-through;
   color: gray;
@@ -6,6 +10,41 @@
   text-decoration: underline;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.historyForm {
+  /*center the show history button in todos.ejs*/
+  margin:0 auto;
+}
+
+body{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.todosmain {
+  padding-top:2rem;
+  display: flex;
+  flex-direction: row;
+  min-height: 30rem;
+}
+.createTodosSection, .taskListSection, .todosHistory{
+  margin-right:2rem;
+  width:25%;
+}
+.logoutSection{
+  margin-left:auto;
+}
+.taskListSection >ul, .historyList{
+  padding:0;
+  font-size:1.25rem;
+  text-align: center;
+}
+ul+h2{
+  font-size: 1.25rem;
+}
 .background-img {
   background-image: url('../images/ian-dooley-DJ7bWa-Gwks-unsplash.jpg');
   background-repeat: no-repeat;
@@ -23,6 +62,12 @@
   align-items: center;
 }
 
+.dashboard-screen {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
 .index-container,
 .login-container,
 .signup-container {
@@ -31,6 +76,8 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .logo-container {
