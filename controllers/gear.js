@@ -8,7 +8,14 @@ module.exports = {
       console.error(err);
     }
   },
-
+  showGear: async (req, res) => {
+    try {
+      const gearItems = await Gear.find({ userId: req.user.id });
+      res.render("itWorks.ejs", { gears: gearItems, user: req.user });
+    } catch (err) {
+      console.error(err);
+    }
+  },
   createGear: async (req, res) => {
     {
       try {
@@ -18,7 +25,7 @@ module.exports = {
           gearPrice: req.body.gearPrice,
           gearCondition: req.body.gearCondition,
           gearNote: req.body.gearNote,
-          completed: false,
+          visibility: req.body.visibility.toLowerCase(),
           userId: req.user.id,
         });
 
@@ -30,18 +37,5 @@ module.exports = {
         console.log(err);
       }
     }
-    // try {
-    //   await Gear.create({
-    //     gearName: String,
-    //     gearBrand: String,
-    //     gearPrice: Number,
-    //     gearCondition: String,
-    //     gearNote: req.gearNote,
-    //     visibility: "public",
-    //     userId: req.user.id,
-    //   });
-    // } catch (err) {
-    //   console.error(err);
-    // }
   },
 };

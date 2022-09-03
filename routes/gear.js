@@ -12,4 +12,8 @@ router.post("/createGear", gearController.createGear);
 //  @route  GET /
 router.get("/", ensureAuth, gearController.getGear);
 
+//  @desc   Display test page to display gear
+//  @route  GET /show
+router.get("/show", gearController.showGear);
+
 module.exports = router;
