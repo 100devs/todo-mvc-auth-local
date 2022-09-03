@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Todos</h1>
+    <h1>Todon'ts</h1>
     <ul>
         <% todos.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
@@ -32,7 +32,7 @@
     </h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Todon't Item" name='todoItem'>
         <textarea placeholder="Enter Reason Why" name='reasonWhy'></textarea>
         <input type="submit">
     </form>
