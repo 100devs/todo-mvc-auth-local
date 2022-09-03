@@ -13,18 +13,40 @@
 
         <div class="col leftCol">
             <div class="content">
-                <h1 class="date">Friday<span>September 12th</span></h1>
+                <h1 class="date">Friday</h1>
+                <div class="monthAndDay">
+                    <%  var _month = Date(Date.now()).split(" ")[1].toLowerCase() %>
+                    <%  var _day = Date(Date.now()).split(" ")[2].split("").map(x => +x).filter(x => x !== 0) %>
+                    <span class="month"><%= _month %></span>
+                        <span class="day"><%= Date(Date.now()).split(" ")[2].split("").map(x => +x).filter(x => x !== 0) %></span>
+                </div>
                 <div class="notes">
                    <!-- are they able to add to the list? -->
-                    <p>
-                        <input type="text" value="" placeholder="new note"/>
-                        <a href="#" title="Add note" class="addNote animate">+</a>
-                    </p>
+                    <form action="/todos/createTodo" method="POST">
+                        <input type="text" name="task" placeholder="new task"/>
+                        <input type="time" name="startTime"/>
+                        <input type="time" name="endTime"/>
+                        <input type="hidden" name="day" class="dbDay" value="<%= _day %>"  />
+                        <input type="hidden" name="month" class="dbMonth" value="<%= _month %>"  />
+                        <button type="submit" href="#" title="Add note" class="addNote animate">+</button>
+                    </form>
                     
                     <!-- add todo list functionaliliy -->
-                    <ul class="noteList">
+                    <!-- <ul class="noteList">
                         <li>Headbutt a lion<a href="#" title="Remove note" class="removeNote animate">x</a></li>
-                    </ul>
+                    </ul> -->
+                    <!-- <ul>
+                         <% todos.map( el => { %>
+                                <li class='todoItem' data-id='<%=el._id%>'>
+                                    <span class="filteredTasks"><%= el.task %></span>
+                                    <a href="#" title="Remove note" class="removeNote animate del">x</a>
+                                    <span style="display: block"><%= el.startTime %> - <%=el.endTime %></span>
+                                </li>
+                        <% }) %>     
+                        </ul> -->
+                        <ul class="taskContainer">
+
+                        </ul>
                 </div>
             </div>
         </div>
@@ -33,18 +55,18 @@
             <div class="content">
                 <h2 class="year">2022</h2>
                 <ul class="months" id="months">
-                    <li><a href="#" title="Jan" data-value="1">Jan</a></li>
-                    <li><a href="#" title="Feb" data-value="2">Feb</a></li>
-                    <li><a href="#" title="Mar" data-value="3">Mar</a></li>
-                    <li><a href="#" title="Apr" data-value="4">Apr</a></li>
-                    <li><a href="#" title="May" data-value="5">May</a></li>
-                    <li><a href="#" title="Jun" data-value="6">Jun</a></li>
-                    <li><a href="#" title="Jul" data-value="7">Jul</a></li>
-                    <li><a href="#" title="Aug" data-value="8">Aug</a></li>
-                    <li><a href="#" title="Sep" data-value="9" class="selected">Sep</a></li>
-                    <li><a href="#" title="Oct" data-value="10">Oct</a></li>
-                    <li><a href="#" title="Nov" data-value="11">Nov</a></li>
-                    <li><a href="#" title="Dec" data-value="12">Dec</a></li>
+                    <li><a href="#" title="jan" data-value="1">Jan</a></li>
+                    <li><a href="#" title="feb" data-value="2">Feb</a></li>
+                    <li><a href="#" title="mar" data-value="3">Mar</a></li>
+                    <li><a href="#" title="apr" data-value="4">Apr</a></li>
+                    <li><a href="#" title="may" data-value="5">May</a></li>
+                    <li><a href="#" title="jun" data-value="6">Jun</a></li>
+                    <li><a href="#" title="jul" data-value="7">Jul</a></li>
+                    <li><a href="#" title="aug" data-value="8">Aug</a></li>
+                    <li><a href="#" title="sep" data-value="9">Sep</a></li>
+                    <li><a href="#" title="oct" data-value="10">Oct</a></li>
+                    <li><a href="#" title="nov" data-value="11">Nov</a></li>
+                    <li><a href="#" title="dec" data-value="12">Dec</a></li>
                 </ul>
                 <div class="clearfix"></div>
                 <ul class="weekday">
@@ -62,7 +84,7 @@
                 <ul class="days" id="days">
                     <% for(let i = 0; i<= 31; i++) {%>
                       <%  var _addClass = '' %>
-                      <% if(i === 12){_addClass = "selected"} %>
+                      <% if(i === +Date(Date.now()).split(" ")[2]){_addClass = "selected"} %>
                       <li class="day"><a href="#" title=<%= i %> data-value=<%= i %> class=<%= _addClass %>> <%= i %></a></li>
                       <% } %>
                 </ul>
