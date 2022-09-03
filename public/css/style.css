@@ -3,8 +3,6 @@
 Global code
 *************************************************************************************************************************************/
 
-/* What font-family are we using? */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +10,6 @@ Global code
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     font-family: 'Source Sans Pro', sans-serif;
     white-space: normal;
 }
@@ -154,6 +151,11 @@ Login
 
 .signInContainer {
     padding-top: 10%;
+}
+
+.noAccountContainer h3 {
+    font-size: 1.5rem;
+    padding: 20px;
 }
 
 
