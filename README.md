@@ -3,7 +3,7 @@
 Based on : A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app
 
 #### Group members
-[Laura Abro](https://twitter.com/labrocadabro) [Thierry Parlier](https://twitter.com/mrnemesys)
+[Laura Abro](https://twitter.com/labrocadabro)  -  [Thierry Parlier](https://twitter.com/mrnemesys)
 
 
 ###### [Original version here for read about this amazing projet](https://github.com/100devs/todo-mvc-auth-local)
