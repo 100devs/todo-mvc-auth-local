@@ -41,13 +41,9 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
   console.log(req.user)
   try {
     const expense = await Expense.findOne({ _id: req.body.idFromJSFile });
-    // console.log(expense);
+
+    // Add the amount of the expense back to the budget
     const budget = await Budget.findOne({ user: req.user._id });
-
-    console.log(expense);
-    // console.log(budget);
-
-
     await Budget.findOneAndUpdate(
       { _id: budget._id },
       {
@@ -55,6 +51,7 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
       }
     );
 
+    // Delete the expense
     await Expense.deleteOne({
       _id: expense._id
     });
@@ -68,24 +65,27 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
 
 const updateExpense = async (req, res) => { //need to add collapsable form next to each expense in budget page.
   try {
-    // const initialExpense = await Expense.findOne({ _id: req.body.idFromJSFile });
+    const expenseId = req.params.id;
+    const newAmount = Number(req.body.amount) * 100
 
+    const initialExpense = await Expense.findOne({ _id: expenseId, user: req.user.id });
+
+    // Update budget
+    const budget = await Budget.findOne({ user: req.user._id });
+    await Budget.findOneAndUpdate(
+      { _id: budget._id },
+      {
+        remainingAmount: budget.remainingAmount + initialExpense.amount - newAmount
+      }
+    );
+    
+    // transaction object
     const update = {
-      amount: Number(req.body.amount) * 100,
-      // currency: req.body.currency,
-      // category: req.body.category,
+      amount: newAmount,
       user: req.user.id,
     }
 
-    // if (editedExpense.date !== initialExpense.date){
-    //     //fix budgets
-    // }
-
-    // if (editedExpense.amount !== initialExpense.amount){
-    //     //fix budgets
-    // }
-
-    const editedExpense = await Expense.findOneAndUpdate( {_id: req.params.id}, update, {new: true} );
+    const editedExpense = await Expense.findOneAndUpdate( {_id: expenseId}, update, {new: true} );
 
     console.log("Expense has been updated and budget adjusted!");
     res.json(editedExpense);
