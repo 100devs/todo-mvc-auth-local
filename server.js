@@ -8,7 +8,8 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const todoRoutes = require('./routes/todos')
+//const todoRoutes = require('./routes/todos') // Commenting out since we're using cards
+const cardRoutes = require('./routes/cards')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -37,10 +38,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-  
+
+// Routes
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
+//app.use('/todos', todoRoutes) // Commenting out since we're using cards
+app.use('/cards', cardRoutes) // added card routes
  
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log(`Server is running on port: ${process.env.PORT}; you better catch it!`)
 })    
