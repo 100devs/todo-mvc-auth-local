@@ -11,9 +11,9 @@
         <h1 class="my-3">Todos</h1>
         <div class="list-group mb-3">
     <% incomplete.forEach( el=> { %>
-        <div class="list-group-item todoItem">
+        <div class="list-group-item todoItem incomplete" data-id='<%=el._id%>'>
             <label class="w-75" class="not">
-                <input class="form-check-input me-1" type="checkbox" value="" data-id='<%=el._id%>'>
+                <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
                 <%=el.todo %>
             </label>
             <div class='priority' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
@@ -36,9 +36,9 @@
             
                 <div class="list-group mb-3">
                     <% complete.forEach( el=> { %>
-                        <div class="list-group-item todoItem">
+                        <div class="list-group-item todoItem complete" data-id='<%=el._id%>'>
                             <label class="completed">
-                                <input class="form-check-input me-1" type="checkbox" value="" data-id='<%=el._id%>'>
+                                <input class="form-check-input me-1" type="checkbox" value="" checked autocomplete="off">
                                 <%=el.todo %>
                             </label>
                         </div>
