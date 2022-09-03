@@ -7,7 +7,8 @@
                 <span class="not">
                     <%= el.todo %>
                 </span>
-                <span class='priority'> <i class="fa-solid fa-flag" style=`color:<%=priorityColors[el.priority] %>`></i> </span>
+                <!-- this is showing an error in my linter but the code actually renders properly -->
+                <span class='priority'> <i class="fa-solid fa-flag" style='color:<%=priorityColors[el.priority] %>'></i> </span>
                 <span class='del'> <i class="fa-solid fa-trash"></i> </span>
             </li>
     <% }) %>
