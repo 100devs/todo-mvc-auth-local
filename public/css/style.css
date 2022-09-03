@@ -46,6 +46,7 @@ INDEX.EJS
     box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
     box-sizing: border-box;
     color: #41403e;
+    padding: 10px;
     
 }
 
@@ -103,21 +104,27 @@ SIGNUP.EJS
 ===========
 */
 
-.signup{
+.signup, .login{
     padding: 50px 5px;
 }
 
-.signupform{
+.formstyle{
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.signupform input{
+.formstyle input{
     padding: 10px;
     margin: 10px;
 }
 
-.alert{
+.alert {
     color: red;
 }
+
+/* 
+===========
+LOGIN.EJS
+===========
+*/
