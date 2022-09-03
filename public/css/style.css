@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 h1{
     color: red;
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -17,7 +19,7 @@ body {
 .not{
     text-decoration: underline;
 }
-}
+
 
 /* Custom Form login Styles */
 .center-div {
