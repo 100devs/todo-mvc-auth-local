@@ -3,7 +3,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport');
 const passportLocal = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -67,9 +66,6 @@ store: MongoStore.create({
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-passport.use(new passportLocal(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 app.use(flash())
