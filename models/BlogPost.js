@@ -29,9 +29,9 @@ const BlogPostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  isPrivate: {
-    type: Boolean,
-    default: true
+  status: {
+    type: String,
+    default: 'Private'
   }
 })
 

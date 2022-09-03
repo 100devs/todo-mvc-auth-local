@@ -24,6 +24,25 @@ textarea {
     color: goldenrod;
  }
 
+ #backButton {
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin: 1em;
+    font-size: 2em;
+ }
+
+ #actionsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+ }
+ #actionsContainer input {
+    width: 10em;
+ }
+ #actionsContainer input #del {
+    background-color: darkred !important;
+ }
  input, textarea {
     background-color: rgb(92,92,92);
     color: white;
@@ -31,6 +50,10 @@ textarea {
     width: 100%;
     box-sizing: border-box;
     border-radius: 20px;
+    padding: .2em;
+ }
+ textarea {
+    padding: .6em;
  }
  #buttons {
     margin-top: 1em;

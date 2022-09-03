@@ -1,5 +1,6 @@
 module.exports = {
     getIndex: (req,res)=>{
-        res.render('login.ejs')
+        if (req.user) res.redirect('/blogPost')
+        else res.render('login.ejs')
     }
 }

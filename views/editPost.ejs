@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevDays</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<header>
+    <div id='account'>
+        <h2 id="username">Hi, <%= user.userName %>!</h2id>
+        <a href="/logout">Logout</a>
+    </div>
+</header>
+<body>
+    <a href="/blogPost"><i id='backButton' class="fa fa-arrow-left"></i></a>
+    <section>
+    <h1>Edit Post</h1>
+    
+    <form action="/blogPost/edit/<%=postId%>" method="POST">
+        <div id="mainInput">
+            <label for="title">Title</label><input id="title" name="title" placeholder=""
+            value="<%=blogPost.title%>">
+            <h3 id="date">
+                <%= new Date(blogPost.date).toLocaleString('en-us') %></h3>
+            <input type="hidden" name="date" value="<%=blogPost.date %>">
+            <label for="area">Your Thoughts:</label><textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="  Write your daily dev journey here!"
+            ><%=blogPost.body %></textarea>
+        </div>
+        <div>
+            <label for="title">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link"
+            value="<%=blogPost.gitHub%>">
+            <label for="title">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date"
+            value="<%=blogPost.dueDate%>">
+            <label for="mood">Mood: </label><select id="mood" name="mood">
+                <%
+                var options = [ "Great", "Good", "Spicy"];
+                for ( var i = 0; i < options.length; i++ )
+                {
+                    var selected = ( blogPost.mood == options[i] ) ? "selected" : "";
+                %>
+                <option value="<%=options[i] %>" <%=selected %>><%= options[i] %></option>
+                    
+                <% } %>
+                </select>
+        <div id="buttons">
+        <input type="reset" id="clear" class="button-18" value="Clear">
+        <input type="submit" class="button-18" value="Post">
+        </div>
+    </form>
+    </section>
+
+
+    <script src="../../js/main.js"></script>
+</body>

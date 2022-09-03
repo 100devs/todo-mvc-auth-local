@@ -16,9 +16,10 @@
         </div>
     </header>
     <h1>Journal</h1>
+    <a id='newPost' href="/blogPost/createBlogPost"><i class="fa-solid fa-circle-plus"></i> Create New Post</a>
+
     <ul>
     <h2><%= user.userName %> has <%= left %> journal entries logged.</h2>
-    <a id='newPost' href="/blogPost/createBlogPost"><i class="fa-solid fa-circle-plus"></i> Create New Post</a>
     <% BlogPost.forEach( items => { %>
             <li class='todoItem' data-id='<%=items._id%>'>
                 <div class='title'> <%= items.title %>  </div> 
@@ -27,13 +28,14 @@
                 <div class='date'> <%= items.date %>  </div>
                 <div class='dueDate'> <%= items.dueDate %>  </div>
                 <div class="mood"> <%= items.mood %> </div>
-                <input type="hidden" value='<%=items._id %>'>
-                <form action="/blogPost/edit" action="GET">
-                    <input type="submit" value="Edit">
-                </form>
-                <form action="/blogPost/delete" action="DELETE">
-                    <input type="submit" value="Delete">
-                </form>
+                <div id="actionsContainer">
+                    <form action="/blogPost/edit/<%= items._id %>" action="GET">
+                        <input type="submit" class="button-18" value="Edit">
+                    </form>
+                    <form action="/blogPost/delete" action="DELETE">
+                        <input type="submit" class="button-18" id="del" value="Delete">
+                    </form>
+                </div>
             </li>
     <% }) %>    
     </ul>
