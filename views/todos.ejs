@@ -1,10 +1,11 @@
 <%- include('partials/head.ejs', {title:"Todos"}) %>
+<% const priorityColors=['#cccccc', '#3b9614' , '#c9c938' , '#8a1207' ] ; %>
     <h1>Todos</h1>
     <ul>
     <% incomplete.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='priority'> <i class="fa-solid fa-flag"></i> </span>
+                <span class='priority'> <i class="fa-solid fa-flag" style=`color:<%=priorityColors[el.priority] %>`></i> </span>
                 <span class='del'> <i class="fa-solid fa-trash"></i> </span>
             </li>
     <% }) %>
