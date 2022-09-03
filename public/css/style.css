@@ -146,9 +146,44 @@ a{
     border-top: 1px solid #74797865;
 }
 
-/* Login Page */
-
-/* Signup Page */
+/* Login & Signup Page */
+.loginFormArea {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 12.5vh;
+}
+.registrationCard {
+  min-width: 300px;
+}
+.registrationCard--title {
+  font-weight: 400;
+  padding-bottom: 32px;
+  margin: 0;
+}
+.registrationCard--form input {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.registration--inpt {
+  padding: 10px 5px;
+  width: 300px;
+  border: 2px solid #9dca95;
+  border-radius: 4px;
+}
+.registration--btn {
+  padding: 10px 2px;
+  width: 300px;
+  background-color: #9dca95;
+  color: #FFFFFF;
+  border: 1px solid #9dca95;
+  border-radius: 4px; 
+}
+.registrationCard--navigate a {
+  color: #5e95c7;
+  text-decoration: none;
+}
 
 /* ####### Media Queries ####### */
 @media screen and (max-width: 835px) {

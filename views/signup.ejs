@@ -4,20 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a2f02755e4.js" crossorigin="anonymous"></script>
+    <link 
+        rel="stylesheet" 
+        href="css/style.css"
+    >
+    <title>Register</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+    <!-- App Header & Navbar -->
+    <header class="header">
+        <i class="header--logo fa-solid fa-circle-check"></i>
+        <h3 class="header--appName">Huntober App Name</h3>
+        <nav class="nav">
+            <ul class="nav--list">
+                <li class="nav--listItems"><a class="btn--primary" href="/login"> Login</a></li>
+                <li class="nav--listItems"><a class="btn--secondary" href="/signup"> Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="loginFormArea">
+        <section class="registrationCard">
+            <h2 class="registrationCard--title">Sign up with Email</h2>
+
+            <section class="registrationCard--alert">
+                <% if (locals.messages.errors) { %>
+                    <% messages.errors.forEach( el => { %>
+                        <div class="alert alert-danger"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+            </section>
+
+            <form class="registrationCard--form" action="/signup" method="POST">
+                <label for="userName">Username</label>
+                <input class="registration--inpt" type="text" name="userName" placeholder="User Name">
+                <label for="email">Email address</label>
+                <input class="registration--inpt" type="email" name="email" placeholder="Email">
+                <label for="password">Password</label>
+                <input class="registration--inpt" type="password" name="password" placeholder="Password">
+                <label for="confirmPassword">Confirm Password</label>
+                <input class="registration--inpt" type="password" name="confirmPassword" placeholder="Confirm Password">
+                <input class="registration--btn" type="submit" value="Sign Up" >
+            </form>
+
+            <section class="registrationCard--navigate">
+                <p>Already have an account? <a href="/login">Sign in</a></p>
+            </section>
+
+        </section>
+    </section>
+
+
+
 </body>
 </html>
