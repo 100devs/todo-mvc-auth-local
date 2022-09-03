@@ -1,5 +1,5 @@
-<% include('partials/head.ejs', {title:"Todos"}) %>
-
+<%- include('partials/head.ejs', {title:"Todos"}) %>
+    <%=user%>
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
