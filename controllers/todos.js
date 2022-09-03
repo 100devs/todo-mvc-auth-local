@@ -54,10 +54,12 @@ module.exports = {
         }
     },
     changePriority: async (req, res) => {
+        console.log(req.body)
         try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }, {
                 priority: Number(req.body.priority)
-            }
+            })
+            res.json('Updated Priority')
         } catch (err) {
             console.log(err)
         }
