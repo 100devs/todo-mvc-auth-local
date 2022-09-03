@@ -50,6 +50,10 @@ section.large {
 
 /*Body */
 
+body{
+    background-color: white;
+}
+
 main {
     display: flex;
     justify-content: center;
