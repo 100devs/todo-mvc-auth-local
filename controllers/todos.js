@@ -27,7 +27,7 @@ module.exports = {
                 workingOn: true,
             })
 
-            console.log(completed)
+            
             
             res.render('todos.ejs', {
                 todos: todoItems, 
