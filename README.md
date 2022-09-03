@@ -4,18 +4,18 @@
 
 ## About the App
 
-A Simple App to plan out your Vacations with your family and friends.
+A Simple App to plan out your vacations with your family and friends.
 
-This Project is a team assignment for the [100 Devs](https://leonnoel.com/100devs/) agency training program.
-Sign up using your chosen method and enjoy making groups with your family friends to plan out your trip
 
 ---
 
 ## Objectives
+This project is a team assignment for the [100 Devs](https://leonnoel.com/100devs/) agency training program.
+Users will be able to sign up using their chosen method and enjoy making vacation plans with their family friends.
 
-- The main goal of this app was to built a deeper understanding of the MVC paradigm as it pertains to authentication.
-- Other objectives include understanding MERN stack development, github workflows
-- Ultimately we want to build something that we can all use on our next family trips, and we hope you will do the same :).
+- The main goal of this app was to build a deeper understanding of the MVC paradigm and web app authentication.
+- This app was built with MongoDB, Express, and Node, React.js can be added at a later date.
+- Ultimately we want to build something that we can all use on our next family trips, and we hope you will be able do the same :).
 
 ---
 ## How It's Made
