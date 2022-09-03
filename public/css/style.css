@@ -30,6 +30,9 @@ body{
   flex-direction: row;
   min-height: 30rem;
 }
+.todosmain{
+  background-color: white;
+}
 .createTodosSection, .taskListSection, .todosHistory{
   margin-right:2rem;
   width:25%;
