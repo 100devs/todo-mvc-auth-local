@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Entries</h1>
+    <ul>
+    <% entries.forEach( el => { %>
+            <li class='entryItem' data-id='<%=el._id%>'>
+                <span><%= el.expense %></span>
+                <span><%= el.company %></span>
+                <span><%= el.amount %></span>
+              <span><%= el.category %></span>
+
+                
+                
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span>
+                
+                
+                <span class='del'> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
+
+    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+
+    <form action="/entries/createEntry" method='POST'>
+        <input type="text" placeholder="Enter Entry Item" name='entryItem'>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
