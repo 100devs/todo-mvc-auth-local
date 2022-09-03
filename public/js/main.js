@@ -27,14 +27,12 @@ Array.from(monthSelector).forEach((el)=>{
 
 async function selectDay(){
     const days = document.getElementById('days').childNodes
-    
-    for(let i = 2; i<days.length-1; i++){
-      days[i].firstChild.classList.remove('selected')    
+    for(let i = 1; i<days.length-1; i++){
+      if(days[i].firstChild){      
+      days[i].firstChild.classList.remove('selected')}    
     }
-
     const selectedDay = this.firstChild.getAttribute('data-value')
     this.firstChild.className = 'selected'
-
 }
 
 async function selectMonth(){
@@ -45,8 +43,8 @@ async function selectMonth(){
         }
     }
     const selectedMonth = this.getAttribute('title')
-    console.log(selectedMonth)
     this.className= 'selected'
+
 }
 
 async function deleteTodo(){

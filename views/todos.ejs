@@ -58,25 +58,13 @@
                 </ul>
                 <div class="clearfix"></div>
                 
-                <!--calendar functionality script -->
+                <!--calendar functionality -->
                 <ul class="days" id="days">
-                    <script>
-                        for( var _i = 1; _i <= 31; _i += 1 ){
-                            var _addClass = '';
-                            //this highlights the selected day, need to add logic here to get current date and allow for clicking other dates
-                            if( _i === 12 ){ _addClass = ' class="selected"'; }
-                            // changes color of certain dates with 'events' class, don't think we need this
-                            switch( _i ){
-                                case 8:
-                                case 10:
-                                case 27:
-                                    _addClass = ' class="event"';
-                                break;
-                            }
-
-                            document.write( '<li class="day"><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
-                        }
-                    </script>
+                    <% for(let i = 0; i<= 31; i++) {%>
+                      <%  var _addClass = '' %>
+                      <% if(i === 12){_addClass = "selected"} %>
+                      <li class="day"><a href="#" title=<%= i %> data-value=<%= i %> class=<%= _addClass %>> <%= i %></a></li>
+                      <% } %>
                 </ul>
                 <div class="clearfix"></div>
             </div>
