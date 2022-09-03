@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const cron = require('node-cron') // cron job scheduler. Lets you schedule actions.
 
 require('dotenv').config({path: './config/.env'})
 
@@ -41,6 +42,12 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
  
+
+// schedule testing
+cron.schedule("*/10 * * * * *", () => {
+  console.log("Saying hello from the cronjob")
+})
+
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
