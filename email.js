@@ -1,5 +1,10 @@
 const cron = require("node-cron");
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"); // node mailer 
+
+const mongoose = require('mongoose')
+const User = require('./models/User')
+
+
 module.exports = {
     cronJob: () => {
        // schedule testing
@@ -22,6 +27,7 @@ module.exports = {
 // https://stackoverflow.com/questions/71477637/nodemailer-and-gmail-after-may-30-2022
 // https://nodemailer.com/smtp/oauth2/
 // https://stackoverflow.com/questions/59388041/how-to-write-cronjobs-in-seperate-file-nodejs
+// https://www.youtube.com/watch?v=-rcRf7yswfM
 // 
 function sendMail() {
     transporter = nodemailer.createTransport({
@@ -53,4 +59,41 @@ function sendMail() {
         consoel.log("Email sent successfully.")
         }
     })    
+}
+
+// to use gmail services, go to https://console.cloud.google.com/getting-started?pli=1
+const {google} = require('googleapis');
+const CLIENT_ID = process.env.GMAIL_NODEMAILER_CLIENT_ID
+const CLIENT_SECRET = process.env.GMAIL_NODEMAILER_CLIENT_SECRET
+const REDIRECT_URI = process.env.GMAIL_NODEMAILER_REDIRECT_URI
+const REFRESH_TOKEN = process.env.GMAIL_NODEMAILER_REFRESH_TOKEN
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,  CLIENT_SECRET,  REDIRECT_URI);
+oAuth2Client.setCredentials({refresh_token: process.env.GMAIL_NODEMAILER_REFRESH_TOKEN})
+
+async function sendGmail() {
+    // only require googleapis when you use sendGmail();
+    
+    try {
+        
+        const accessToken = await oAuth2Client.getAccessToken();
+        const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth:{
+            type: 'Oauth2',
+            user: process.env.GMAIL_NODEMAILER_USER,
+            clientId: CLIENT_ID,
+            clientSecret: CLIENT_SECRET,
+            refreshToken: REFRESH_TOKEN,
+            accessToken: accessToken
+            }
+        }) 
+    } catch(error) {
+        return error
+    }
+    
+}
+
+function retreiveEmails() {
+    const a = '';
 }
