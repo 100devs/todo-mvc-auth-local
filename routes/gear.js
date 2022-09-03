@@ -6,7 +6,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //  @desc   Process add gear to the db
 //  @route  POST /gear
-// router.post("/gear", gearController.createGear);
+router.post("/gear", gearController.createGear);
 
 //  @desc   Render the gear page and pull up wishlist'ed gear for the user
 //  @route  GET /gear
