@@ -6,7 +6,7 @@
 
 A Simple App to plan out your Vacations with your family and friends.
 
-This is Project is a team assignment for the [100 Devs](https://leonnoel.com/100devs/) agency training program.
+This Project is a team assignment for the [100 Devs](https://leonnoel.com/100devs/) agency training program.
 Sign up using your chosen method and enjoy making groups with your family friends to plan out your trip
 
 ---
