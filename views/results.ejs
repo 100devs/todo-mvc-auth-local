@@ -19,9 +19,9 @@
                 </li>
                 <% for(var i = 0; i < data.length; i++) {%>
                 <li class="results" data-id='<%=data[i]._id%>'>
+                    <span><img src="<%= data[i].show.image.medium %>" alt="Movie poster"></span>
                     <span><%= data[i].show.name %></a></span>
                     <span class="genres"><%= data[i].show.genres[0] %>, <%= data[i].show.genres[1] %></span> 
-                    <span><%= data[i].show.summary %></span>
                 </li>
                 <% } %>
             </ul>
