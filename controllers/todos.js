@@ -13,7 +13,8 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id, 
+                estimatedTimeToCompletion: req.body.estimatedTimeToCompletion, timeMarkedStarted: 0})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){

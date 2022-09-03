@@ -45,12 +45,12 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 We are planning to add...
 
 1. Time estimated to complete task
-  - alter the schema/object stored in our collections
-  - alter the ejs.html to add input field for estimated time to complete task
+  ~~- alter the schema/object stored in our collections~~
+  - alter the todos.ejs to add input field for estimated time to complete task
 
 2.  Start button to 'start' task, should log current time
-  - alter the schema/object stored in our collections
-  - alter the ejs.html to add a button
+  ~~- alter the schema/object stored in our collections~~
+  - alter the todos.ejs to add a button
   - add a smurf which also listens for that button and adds the current to db
 
 3.  Alter the way we mark something complete
