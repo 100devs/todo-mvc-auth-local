@@ -15,23 +15,32 @@
 </header>
 <body>
     <section>
-    <h1>Create New Post</h1>
+    <h1><% if (blogPost) { %>
+     Create New Post
+    <% } else { %>Edit Post <% } %> </h1>
     
     <form action="/blogPost/createBlogPost" method="POST">
         <div id="mainInput">
-            <label for="title">Title</label><input id="title" name="title" placeholder="">
-            
-            <h3 id="date" name="date"></h3>
-            <label for="title">Your Thoughts:</label><textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="  Write your daily dev journey here!"></textarea>
+            <label for="title">Title</label><input id="title" name="title" placeholder="" <%- blogPost ? %> <%="value= %><%=blogPost.title %><% " : '' "%> >
+            <h3 id="date" name="date">
+                <%= new Date().toLocaleString('en-us',{ 
+                                                        weekday:"long", 
+                                                        year:"numeric", 
+                                                        month:"short", 
+                                                        day:"numeric"}) %></h3>
+            <label for="postBody">Your Thoughts:</label><textarea id="postBody" name="postBody" 
+            rows="20" cols="50" 
+            placeholder="  Write your daily dev journey here!" <%- blogPost ? %> <%="value= %><%=blogPost.body %><% " : '' "%> ></textarea>
         </div>
         <div>
-            <label for="title">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link">
-            <label for="title">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date">
-            <label for="mood">Mood: </label><select id="mood" name="mood">
+            <label for="gitHub">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link" <%- blogPost ? %> <%="value= %><%=blogPost.gitHub %><% " : '' "%>>
+            <label for="dueDate">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date" <%- blogPost ? %> <%="value= %><%=blogPost.dueDate %><% " : '' "%>>
+            <label for="mood">Mood: </label><select id="mood" name="mood" <%- blogPost ? %> <%="value= %><%=blogPost.body %><% " : '' "%>>
                 <option>Great</option>
                 <option>Good</option>
                 <option>Spicy</option>
             </select>
+            <input type="hidden" name='postId'<%- blogPost ? %> <%="value= %><%=blogPost.id %><% " : '' %>>
         </div>
         
         <div id="buttons">

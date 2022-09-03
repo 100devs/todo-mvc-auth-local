@@ -8,22 +8,28 @@
     <title>DevDays</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-    <a href='/signup'><button id="toSignup">No Account? Sign Up</button></a>
-    <a href='/forgotPassword'><button id="forgot">Forgot Password</button></a>
+    <h1>DevDays</h1>
+    <h2 id="loginTitle">Blog about your Developer Days!</h2>
+    <div id="loginPane">
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Log in" id="loginButton" class="button-18">
+        </form>
+    <div id="loginLinks">
+        <a href='/signup'>No Account? Sign Up</a>
+        <a href='/forgotPassword'>Forgot Password</a>
+    </div>
+    </div>
 </body>
 </html>

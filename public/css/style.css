@@ -38,10 +38,70 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
  }
- #buttons * {
-    width: 25%;
-    
+
+ #loginContainer {
+    border: 2px solid rgb(46, 46, 46);
+    border-radius: 5%;
  }
+ #loginPane {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ #loginTitle {
+    text-align: center;
+ }
+
+ body {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vw;
+ }
+#loginPane * {
+    margin: .4em auto;
+    font-size: 1em;
+    padding: .4em;
+    width: 80%;
+    display: table;
+} 
+#loginButton {
+    display: table;
+    margin: 0 auto;
+    width: 50%;
+}
+#loginPane form {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+}
+ #loginPane button {
+    font-size: .75em;
+    padding: .5em;
+ }
+ 
+#loginLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+ #loginLinks a {
+    display: inline;
+    margin: 0 .5em;
+    text-align: center;
+ }
+
+ .blogPost input {
+    width: 10%;
+ }
+
+ /* #buttons * {
+    width: 25%;
+    background-color: rgb(110,220,200);
+    color: white;
+ } */
  #clear {
     background-color: rgb(92,92,92);
  }

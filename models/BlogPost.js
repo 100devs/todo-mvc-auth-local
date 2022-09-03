@@ -28,6 +28,10 @@ const BlogPostSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  isPrivate: {
+    type: Boolean,
+    default: true
   }
 })
 

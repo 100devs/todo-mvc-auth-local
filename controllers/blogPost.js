@@ -11,6 +11,16 @@ module.exports = {
             console.log(err)
         }
     },
+    editPost: async (req,res)=>{
+        console.log(req.user)
+        try{
+            const postToEdit = await BlogPost.find({_id:req.id})
+
+            res.redirect('/blogPost')
+        }catch(err){
+            console.log(err)
+        }
+    },
     getCreatePostPage: async (req,res) => {
         try {
             res.render('createPost.ejs', {user: req.user})
