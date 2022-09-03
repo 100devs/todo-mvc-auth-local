@@ -1,5 +1,7 @@
 # Introduction
 
+A group project created to store your project ideas.
+
 A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 
 ---
@@ -40,5 +42,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  ---
  
  Have fun testing and improving it! 😎
+
+ 
 
 
