@@ -9,7 +9,7 @@ module.exports = {
       // get an array of all of the decks the user has
       const decks = await Card.distinct('deck', { user: req.user.id }).lean()
       // send all information over to the view
-      res.render('card.ejs', {cards: cards, decks: decks, user: req.user})
+      res.render('cards.ejs', {cards: cards, decks: decks, user: req.user})
     }catch(err){
       console.error(err)
       res.render('error/500')
