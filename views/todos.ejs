@@ -7,16 +7,58 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="todos-container">
     <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <div class="todos-inner-container">
+
+        
+            <section class="added-todos">
+                <h2>Recently Added</h2>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span><%= el.todo %></span>
+                                <span class="workingOn"> + working-on</span>
+                                <span class="archive">+ archive</span>
+                                <span class='del'> Delete </span>
+                            </li>
+                    <% }) %>    
+                    </ul>
+            </section>
+
+            <section class="working-on">
+                <h2>working On</h2>
+                <ul>
+                    <% workingOn.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span><%= el.todo %></span>
+                                <span class="workingOn"> + working-on</span>
+                                <span class='del'> Delete </span>
+                                <span class="completed">completed</span>
+                            </li>
+                    <% }) %>    
+                    </ul>
+            </section>
+
+
+            <section class="completed">
+                <h2>Completed</h2>
+                <ul>
+                    <% completed.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span><%= el.todo %></span>
+                                <span class="workingOn"> + working-on</span>
+                                <span class='del'> Delete </span>
+                                <span class="archive">archive</span>
+                            </li>
+                    <% }) %>    
+                    </ul>
+            </section>
+        
+
+
+    </div>
+   
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
