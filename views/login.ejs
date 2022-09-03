@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log In</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <% if (locals.messages.errors) { %>
@@ -17,10 +22,22 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <main>
+        <section class="signInPhotoContainer">
+        </section>
+        <section class="signInContainer">
+            <div class="lockContainer">
+                <span class="material-symbols-outlined lock">lock</span>
+                <h2 class="signIn">Log in</h2>
+            </div>
+            <div class="signFormContainer">
+                <form action="/login" method="POST">
+                    <input class="formInput email" type="email" name="email" placeholder="Email">
+                    <input class="formInput password" type="password" name="password" placeholder="Password"><br>
+                    <input class="submitInput" type="submit" class="submitLogin">
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
