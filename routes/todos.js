@@ -7,9 +7,9 @@ router.get('/', ensureAuth, todosController.getTodos)
 
 router.post('/priority', ensureAuth, todosController.changePriority)
 
-router.post('/addTags', ensureAuth, todosController.addTags)
+router.post('/addTag', ensureAuth, todosController.addTag)
 
-router.post('/deleteTags', ensureAuth, todosController.deleteTags)
+router.post('/deleteTag', ensureAuth, todosController.deleteTag)
 
 router.post('/createTodo',ensureAuth, todosController.createTodo)
 
