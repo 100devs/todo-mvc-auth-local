@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -15,13 +16,19 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <!-- <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="text" name="name" placeholder="Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form> -->
+    <main class="signUpContainer">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST">
+            <input class="formInput" type="text" name="userName" placeholder="User Name">
+            <input class="formInput" type="text" name="name" placeholder="Name">
+            <input class="formInput" type="email" name="email" placeholder="Email">
+            <input class="formInput" type="password" name="password" placeholder="Password">
+            <input class="formInput" type="password" name="confirmPassword" placeholder="Confirm Password">
+            <input class="submitInput" type="submit">
+        </form>
+        <div>
+            <a href="/login">I've Been Here Before</a>
+        </div>
+    </main>
 </body>
 </html>
