@@ -5,19 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- PS 09.02
+        Compiled and minified CSS 
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- PS 09.02
+        Linked Google Fonts 
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+    <!-- PS 09.02 
+        Added wrapper div.container to center align all content
+        Added h1.signUpH1 for styling purposes on page
+    -->
+    <div class="signUp container center-align">
+        <h1 class="signUpH1">SIGN UP</h1>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+    <!-- PS 09.02
+        Added wrapper div.row for form 
+        -> And center-align only centers submit btn
+        Added wrapper div.input-field for all inputs
+        Added class="signUpInput" to each input for font-styling
+    -->
+    <div class="row">
+        <form class="col s12" action="/signup" method="POST">
+                <div class="input-field">
+                    <input class="signUpInput" type="text" name="userName" placeholder="User Name">
+                    <input class="signUpInput" type="email" name="email" placeholder="Email">
+                    <input class="signUpInput" type="password" name="password" placeholder="Password">
+                    <input class="signUpInput" type="password" name="confirmPassword" placeholder="Confirm Password">
+                </div>
+            <!-- PS 09.02:
+                Added class signUpBtn btn blue col s12 to submit input
+            -->
+            <input class="signUpBtn btn blue col s12" type="submit">
+        </form>
+    </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

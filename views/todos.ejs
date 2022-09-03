@@ -6,45 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- PS 09.02
+                Compiled and minified CSS 
+            -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <!-- PS 09.02
+            Linked Google Fonts 
+        -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
 </head>
+
 <body>
-    <h1>Todos</h1>
-    <h2><%= "Welcome back, " + user.userName + "."%></h2>
-    <ul>
+    <div class="todosDiv container center-align">
+        <h1 class='todosH1'>TODOS</h1>
+        <h2 class='todosH2'><%= "Welcome back, " + user.userName + "."%></h2>
+        <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem <%= el.urgent === true ? 'urgent' : 'notUrgent' %> <%= el.completed === true ? 'completed' : 'not'%>'' data-id='<%=el._id%>' >
+            <li class='todoItem 
+                <%= el.urgent === true ? 'urgent' : 'notUrgent' %> 
+                <%= el.completed === true ? 'completed' : 'not'%>'' data-id='<%=el._id%>' 
+            >
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span><%= 
                     `${el.dueDate.getMonth()+1}/${el.dueDate.getDate()}/${el.dueDate.getFullYear()}` 
                     %></span>
                 <span ><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
-                <span class='del' style="border: 1px solid black"> Delete </span>
+                <span 
+                    class='btn-floating del' 
+                    style="border: 1px solid black">
+                    <i class="tiny material-icons">clear</i> 
+                </span>
                 <span class = '<%= el.completed === true ? 'fa fa-check' : 'not'%>'></span>
             </li>
     <% }) %>    
-    </ul>
+        </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        <h2 class='todosH2'><%= user.userName %> has <%= left %> things left to do.</h2>
     
     <!-- Added due date and urgent yes/no radio to form - binthroot - 8/31 -->
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <!-- This dates the date, name - dueDate is what sends this during post request, label identifies it on the html -->
-        <input type="date" id="date" name="dueDate"><label for="date">Due Date</label>
+        <div class="container row">
+            <form action="/todos/createTodo" method='POST'>
+                <div class='input-field'>
+                    <div class="col s6">
+                        <p>
+                            <label>
+                                <input class="todoTextInput" type="text" placeholder="Enter Todo Item" name='todoItem'>
+                            </label>
+                        </p>
+                    </div>
+                    <div class="col s6">
+                        <!-- This dates the date, name - dueDate is what sends this during post request, label identifies it on the html -->
+                        <p>
+                            <label>
+                                <input class="calendarInput" for="date" type="date" id="date" name="dueDate">
+                            </label>
+                        </p>
+                    </div>
+                    
+        
         <!-- Here's the two radio buttons -->
-        <div>
-            <input type="radio" name="urgent" id="" value="true">
-            <label for="urgent">Yes</label>
-            <input type="radio" name="urgent" value="false">
-            <label for="urgent">No</label>
+            <!-- PS 09.02
+                Changed wrapped label in form action and added span with name
+            -->
+                
+                    <p>
+                        <label class='urgentLabel col s6'>
+                            <input  
+                                for="urgent" 
+                                type="radio" 
+                                name="urgent" 
+                                id="" 
+                                value="true" 
+                                checked
+                                class='urgent'
+                            >
+                            <span class="urgentOptions">Urgent</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label class='urgentLabel col s6'>
+                            <input 
+                                 
+                                for="urgent" 
+                                type="radio" 
+                                name="urgent" 
+                                id="" 
+                                value="true"
+                                class='notUrgent'
+                            >
+                            <span class="urgentOptions">Not Urgent</span>
+                        </label>
+                    </p>
+                </div>
+        
+
+                <input class="todoSubmitBtn btn blue col s12" type="submit">
+        
+            </form>
         </div>
 
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
+    <a class="logOutBtn btn right" href="/logout">Logout</a>
+    </div>
 
     <script src="js/main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

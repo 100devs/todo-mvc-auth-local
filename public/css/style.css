@@ -85,3 +85,85 @@ li .completed{
   font-size: 6em;
   color: gray;
 }
+
+/*
+
+Sign Up Form styling
+
+*/
+
+.row {
+  margin: 0 auto;
+}
+
+.signUp, 
+.logIn,
+.todosDiv
+{
+  margin: 0 auto;
+  max-width: 500px !important;
+  width: 80%;
+  color: white;
+  background: darkblue;
+  border-radius: 10px;
+  font-family: Nunito, Times, serif;
+}
+
+.todosDiv,
+.indexPage {
+  max-width: 1000px !important;
+  background: gray;
+  border-radius: 20px;
+}
+
+.signUpH1, 
+.logInH1,
+.todosH1,
+.indexH1 
+{
+  color: white;
+  font-weight: 900;
+}
+
+.todosH2 {
+  font-family: Nunito;
+  font-weight: 400;
+}
+
+.veryBig {
+  color: blue;
+}
+
+.signUpInput, 
+.logInInput,
+.todosInput,
+.calendarInput,
+.urgentOptions,
+.todoTextInput
+{
+  color: white;
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.signUpBtn, 
+.logInBtn,
+.todoSubmitBtn,
+.logOutBtn,
+.urgentOptions,
+.indexBtn
+{
+  margin: 10px 0 10px 0;
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.logOutBtn 
+{
+  background: black !important;
+}
+
+.urgentLabel {
+  background: black !important;
+}
+
