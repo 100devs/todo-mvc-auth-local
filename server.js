@@ -9,8 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
-const cron = require('node-cron') // cron job scheduler. Lets you schedule actions.
-const nodemailer = require('nodemailer');
+
 const {cronJob} = require('./email');
 
 cronJob(); // start all cronjobs
