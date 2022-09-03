@@ -102,18 +102,15 @@ Home
     gap: 3.5rem;
 }
 
-.formInput {
-    border: 1px solid rgb(177, 177, 177);
-    border-radius: 7px;
-    width: 300px;
-    font-size: 1.7rem;
-    padding: 10px;
-    margin: 8px;
-}
 
+<<<<<<< HEAD
 /* .submitInput {
     
 } */
+=======
+
+
+>>>>>>> 7a693e02da36d770d2f1233c324874f192959bad
 
 /*************************************************************************************************************************************
 Login
@@ -162,4 +159,41 @@ Login
 
 .signInContainer {
     padding-top: 10%;
+}
+
+
+/*************************************************************************************************************************************
+Todo Page
+*************************************************************************************************************************************/
+
+
+.todos-container{
+    padding:2rem 3rem;
+}
+
+.todos-inner-container{
+    display:flex;
+    gap:3rem;
+}
+
+.added-todos, .working-on{
+    display:flex;
+    flex-direction: column;
+}
+
+.todoItem{
+    display: flex;
+    flex-direction: column;
+}
+.formInput {
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 7px;
+    width: 300px;
+    font-size: 1.7rem;
+    padding: 10px;
+    margin: 8px;
+}
+
+.submitInput {
+    
 }

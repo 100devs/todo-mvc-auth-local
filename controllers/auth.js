@@ -5,6 +5,7 @@ const User = require('../models/User')
  exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/todos')
+
     }
     res.render('login', {
       title: 'Login'
@@ -31,7 +32,12 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
+
+        // res.send({
+        //   name: req.body.userName
+        // })
         res.redirect(req.session.returnTo || '/todos')
+        
       })
     })(req, res, next)
   }
@@ -70,7 +76,6 @@ const User = require('../models/User')
   
     const user = new User({
       userName: req.body.userName,
-      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
