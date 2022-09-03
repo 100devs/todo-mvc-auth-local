@@ -56,7 +56,7 @@ Home
     min-width: 320px;
     min-height: 600px;
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -103,8 +103,9 @@ Home
 }
 
 
-
-
+/* .submitInput {
+    
+} */
 
 /*************************************************************************************************************************************
 Login
