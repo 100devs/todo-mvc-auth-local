@@ -1,14 +1,31 @@
+/*******************************/
+/*****  GENERAL STYLING  *******/
+/*******************************/
+
+    /* Color Scheme */
+    /* Light green - #9dca95 */
+    /* Light blue - #89c1e8 */
+    /* Dark blue - #5e95c7 */
+    /* Grey - #EEEDE9 */
+    /* White - #FFFFFF */
+    /* Black - #000000 */
+
+
+
 /* not required */
 *,:active{
 	outline: none;
 }
+
 *{
 	padding: 0px;
 	margin: 0px;
+	box-sizing: border-box;
 }
 
 body{
-	margin: 20px;
+	/* Commented margin out as it impacts index.ejs, login.ejs & signup.ejs */
+	/* margin: 20px; */
 	background-color: #EEEDE9;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -42,6 +59,153 @@ a{
 	-moz-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+/*******************************/
+/****  COMPONENT STYLING  ******/
+/*******************************/
+/* Nav Bar */
+.header {
+	height: 75px;
+	width: 100vw;
+	padding: 0.5rem 1.75rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #FFFFFF;
+	background-color: #5e95c7;
+}
+.header--logo {
+	font-size: 22.5px;
+	margin-right: 1.25rem;
+}
+.header--appName {
+	margin: 0;
+	margin-right: auto;
+}
+.nav--listItems {
+	margin-left: 1.25rem;
+	display: inline-block;
+}
+
+/* Primary Buttons */
+.btn--primary {
+	width: 145px;
+	height: 45px;
+	padding: 8px 30px;
+	text-decoration: none;
+	color: #000000;
+	background: #FFFFFF;
+	border: 2px solid #9dca95;
+	border-radius: 4px;
+}
+
+/* Secondary Buttons */
+.btn--secondary {
+	width: 85px;
+	height: 45px;
+	padding: 8px 30px;
+	text-decoration: none;
+	color: #000000;
+	background: #9dca95;
+	border: 2px solid #9dca95;
+	border-radius: 4px;
+}
+
+
+/*******************************/
+/****  MAIN PAGES STYLING  *****/
+/*******************************/
+/* Landing Page */
+.heroSection {
+	height: 82.5vh;
+	padding: 10vh 12.5vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* border: 1px solid red; */
+}
+.heroSection__right {
+	margin-left: auto;
+}
+.heroSection--text {
+	margin-bottom: 3.5rem;
+}
+.heroSection--title {
+	font-size: 40px;
+}
+.heroSection--subTitle {
+	font-size: 20px;
+}
+.registration--btns > .btn--primary {
+	margin-right: 1rem;
+}
+.heroSection--logo {
+	max-width: 300px;
+}
+.footer {
+	margin: 1vh 5.5vw;
+	padding-top: 1.5vh;
+	padding-bottom: 1.5vh;
+	border-top: 1px solid #74797865;
+}
+
+/* Login & Signup Page */
+.loginFormArea {
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 12.5vh;
+}
+.registrationCard {
+min-width: 300px;
+}
+.registrationCard--title {
+font-weight: 400;
+padding-bottom: 32px;
+margin: 0;
+}
+.registrationCard--form input {
+display: block;
+margin-top: 8px;
+margin-bottom: 24px;
+}
+.registration--inpt {
+padding: 10px 5px;
+width: 300px;
+border: 2px solid #9dca95;
+border-radius: 4px;
+}
+.registration--btn {
+padding: 10px 2px;
+width: 300px;
+background-color: #9dca95;
+color: #FFFFFF;
+border: 1px solid #9dca95;
+border-radius: 4px; 
+}
+.registrationCard--navigate a {
+color: #5e95c7;
+text-decoration: none;
+}
+
+/* ####### Media Queries ####### */
+@media screen and (max-width: 835px) {
+	.heroSection {
+			display: block;
+			text-align: center;
+			padding-top: 6vh;
+	}
+	.heroSection--logo {
+			margin-bottom: 5vh;
+	}
+	.nav--list {
+			display: none;
+	}
+}
+
+/*******************************/
+/********  APP STYLING  ********/
+/*******************************/
 
 
 /* required */
@@ -212,6 +376,7 @@ a{
 	border-radius: 12px;
 	margin-bottom: 10px;
 	padding-top: 10px;
+	box-sizing: content-box;
 }
 
 
