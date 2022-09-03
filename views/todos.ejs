@@ -4,7 +4,9 @@
     <ul>
     <% incomplete.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class="not">
+                    <%= el.todo %>
+                </span>
                 <span class='priority'> <i class="fa-solid fa-flag" style=`color:<%=priorityColors[el.priority] %>`></i> </span>
                 <span class='del'> <i class="fa-solid fa-trash"></i> </span>
             </li>
@@ -12,18 +14,22 @@
     </ul>
 
     <h2>
-        <%= user.userName %> has <%= incomplete.length %> things left to do.
+        <%= user.userName %> has <%= incomplete.length %>
+                <%= incomplete.length===1 ? "thing" : "things" %> left to do.
     </h2>
 
     <h1>Completed</h1>
     
     <% complete.forEach( el=> { %>
         <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+            <span class="completed">
+                <%= el.todo %>
+            </span>
         </li>
         <% }) %>
             <h2>
-                <%= user.userName %> has completed <%= complete.length %> things.
+                <%= user.userName %> has completed <%= complete.length %>
+                        <%= complete.length===1 ? "thing" : "things" %>.
             </h2>
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
