@@ -54,18 +54,12 @@ Users will be able to sign up using their chosen method and enjoy making vacatio
 
 --- 
 #### Project Team
-[kolourr](https://github.com/kolourr)
-
+[kolourr](https://github.com/kolourr) 
 [THREEhundo](https://github.com/THREEhundo)
-
-[al.exe](https://github.com/alEXE-tech)
-
+[al.exe](https://github.com/alEXE-tech) 
 [jenanemone](https://github.com/jenanemone)
-
 [sanzous](https://github.com/sanzous)
-
 [mari](https://github.com/Mariquisha)
-
 [sergg](https://github.com/Srgiomndz)
 
 ---
