@@ -6,7 +6,8 @@ h1{
     color: gray;
 }
 .not{
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    vertical-align: center;
 }
 
 body {
@@ -15,10 +16,29 @@ body {
     flex-direction: column;
   }
 
-  main {
+main {
     flex: 1 0 auto;
   }
       
   .btnWide {
     width: 100%;
   }
+
+  .markComplete {
+    cursor: pointer;
+  }
+
+  
+
+  .del {
+    cursor: pointer;
+  }
+
+  .iconVertical {
+    margin-top: auto;
+  }
+
+h3 {
+  color: white;
+}
+ 

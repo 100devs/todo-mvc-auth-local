@@ -7,38 +7,68 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <title>Team SuperAwesome Todolist</title>
     
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= moment(el.deadline).format('YYYY-MM-DD') %></span>
-                
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+<body class="grey darken-3">
+    <header>
+        <a href="/logout" class="btn">Logout</a>
+    </header>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-
-        <label for="text">Task:</label>
-        <input type="text" id="text" placeholder="Enter Todo Item" name='todoItem'>
-
-        <label for="deadline">Deadline:</label>
-        <input type="date" id="deadline" name="deadline">
-
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+    <main class="container">
+        <h1>Todos</h1>
+        <ul class="collection ">
+        <% todos.forEach( el => { %>
+                <li class='todoItem collection-item ' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%> '><%= el.todo %>  </span>
+                    
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= moment(el.deadline).format('YYYY-MM-DD') %><i class="material-icons
+                        markComplete iconVertical <%= el.completed === true ? 'completed' : 'not'%>">check</i></span>
+                    
+                    <span class='del right btn red'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul>
+    
+        <h3 class="text-white"><%= user.userName %> has <%= left %> things left to do.</h3>
+        
+        <div class="row">
+              <div class="col s12">
+                <div class="card white darken-1">
+                  <div class="card-content black-text">
+                    <span class="card-title">Add to do:</span>
+                        <form action="/todos/createTodo" method="POST">
+                            <div class="row">
+                            <div class="input-field col s12">
+                                
+                                <label for="text">Task:</label>
+                                <input type="text" id="text" placeholder="Enter Todo Item" name='todoItem'>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="input-field col s12 m3">
+                                <label>Deadline:</label>
+                                <input type="date" id="deadline" name="deadline" placeholder="">
+                            </div>
+                            </div>
+                            <input type="submit">
+                        </form>
+                </div>
+            </div>
+        </div>  
+    </div>    
+    
+    </main>
+    
+    <footer class="page-footer green darken-3">   
+        <div class="footer-copyright green darken-3">
+            <div class="container center-align">
+            <span>&#169; Made by jennaly, kbventures, geordzNZ, VicChai, Hygmod & sconnycodes </span>
+            </div>
+        </div>
+    </footer>
+    
+    
     
     <script type="text/javascript" src="js/materialize.min.js"> </script>
   <script type="text/javascript" src="js/main.js"></script>
