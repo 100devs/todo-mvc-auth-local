@@ -14,6 +14,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 The selected tech used by the app is with the intention to provide the best user experience and security of information. Happy Notes is created by developers who use and are familiar with study apps, but wanted a more personalized approach to their study applications. It was important to our team of developers to provide users with the option to make changes to their studying material without having to navigate through a complex system, so the entire team consulted with each other to design a dashboard for their collection where they had access to all the features of the app in one place. Materialize components were used to streamline the buttons and user interface, and swiper.js provided the smoothness and functionality of swiping through the collection. Express is king in providing our team of developers the abstraction to implement features more easily on the backend using node.js, as well as the capability to include many devs tools to build the Happy Notes app. 
 
 [insert pic here]
+![alt tag](http://placecorgi.com/1200/650)
  
 Security is a key feature of the Happy Notes application. Implementing bcrypt ensures the user's sign up passwords remain private by passing it through hashing algorithm to increase their complexity before it is stored in the database. Passport sessions allow the user to securely remain logged in to their account and return to their study session as they need. MongoDB provides a robust storage system for housing all the associated information from the users collections, to their sessions and credentials. Mongoose is used to provide structure to our schemas when being passed into our Mongo database.
  
@@ -27,7 +28,7 @@ You don't have to include this section but interviewers *love* that you can not 
  
 No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
  
-## Team:
+## Happy Notes Team:
  
 - <a href="https://github.com/degenerating">Christian L.</a>
 - <a href="https://github.com/QuocNguyen2412">Danny N.</a>
