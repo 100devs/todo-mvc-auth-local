@@ -12,8 +12,8 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <!-- <span></span> -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class="estimatedTime"><%= el.estimatedTimeToCompletion %></span>
                 <button class="start" type="button">
                     START
                 </button>
