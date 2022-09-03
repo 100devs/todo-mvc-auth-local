@@ -32,6 +32,9 @@ const User = require('../models/User')
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
         res.redirect(req.session.returnTo || '/todos')
+        res.send({
+          name: req.body.userName
+        })
       })
     })(req, res, next)
   }
@@ -70,6 +73,7 @@ const User = require('../models/User')
   
     const user = new User({
       userName: req.body.userName,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })

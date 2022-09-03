@@ -42,3 +42,26 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  Have fun testing and improving it! 😎
 
 
+Ideas for project:
+
+To Start:
+- To do column
+- working on column
+- Finished / completed column
+- fancy home page https://www.figma.com/community/file/994611219185887302
+- fancy login page https://mui.com/material-ui/getting-started/templates/sign-in-side/
+- fancy sign up page https://mui.com/material-ui/getting-started/templates/sign-up/
+- fancy todos page https://www.figma.com/community/file/892825410260715717
+- add another page to show archive of deleted/finished to dos
+- add another page and show deleted to dos 
+- delete word to trashcan icon
+- drop down to change staus (todo, working on, completed)
+- add default for each column (only image for completed; text for to do and working on columns)
+- add date to do
+- add name from sign up into DATABASE
+- boolean for archive and workingOn
+
+Later on:
+- change todos to books
+- include a page with all books (similar to library)
+- search bar
