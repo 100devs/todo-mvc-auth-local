@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "nodemon server.js",
 		"sync": "browser-sync start --server --files \"**/*\"",
-		"dev": "postcss public/css/input.css -o dist/output.css",
-		"watch:dev": "nodemon -x npm run dev -w tailwind.config.js -w input.css",
+		"dev": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch",
+		"watch:dev": "nodemon -x npm run dev -w tailwind.config.js -w output.css",
 		"watch": "run-p watch:dev sync",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
