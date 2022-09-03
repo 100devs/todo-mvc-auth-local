@@ -32,9 +32,12 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
-     const companyId = this.parentNode.dataset.id
+async function markComplete(e){
+    // guard clause to not trigger markcomplete on button clicks 
+    if(e.target.parentNode.nodeName === "BUTTON" ) return null
+
     try{
+        const companyId = this.parentNode.dataset.id
         const response = await fetch('companies/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
@@ -50,8 +53,11 @@ async function markComplete(){
     }
 }
 
-async function markIncomplete(){
-     const companyId = this.parentNode.dataset.id
+async function markIncomplete(e){
+    // guard clause to not trigger markcomplete on button clicks 
+    if(e.target.parentNode.nodeName === "BUTTON" ) return null
+    
+    const companyId = this.parentNode.dataset.id
     try{
         const response = await fetch('companies/markIncomplete', {
             method: 'put',
