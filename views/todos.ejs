@@ -10,12 +10,15 @@
 </head>
 
 <body>
-    <h1>Todos</h1>
+    <h1>Todon'ts</h1>
     <ul>
         <% todos.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                <span>
+
+                <span><%= el.reasonWhy %></span>
+
+                <span id="shame">
                     <%= el.timesDone %>
                 </span>
                 <div class="addShame">Click for Shame</div>
@@ -25,11 +28,12 @@
     </ul>
 
     <h2>
-        <%= user.userName %> has <%= left %> things left to do.
+        <%= user.userName %> has <%= left %> bad habits that they are working on.
     </h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Todon't Item" name='todoItem'>
+        <textarea placeholder="Enter Reason Why" name='reasonWhy'></textarea>
         <input type="submit">
     </form>
 
