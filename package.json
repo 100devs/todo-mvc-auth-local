@@ -12,8 +12,8 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
