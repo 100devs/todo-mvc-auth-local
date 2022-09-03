@@ -76,7 +76,7 @@ module.exports = {
         try{
             await Company.findOneAndDelete({_id:req.body.companyIdFromJSFile})
             console.log('Deleted Company')
-            res.redirect('/companies')
+            res.json('Deleted It');
         }catch(err){
             console.log(err)
         }
