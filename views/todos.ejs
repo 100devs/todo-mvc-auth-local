@@ -13,17 +13,24 @@
 
         <div class="col leftCol">
             <div class="content">
-                <h1 class="date">Friday<span>September 12th</span></h1>
+                <h1 class="todays-day">Friday</h1>
+                <h1><span class="month-day">September 12th</span></h1>
                 <div class="notes">
                    <!-- are they able to add to the list? -->
-                    <p>
-                        <input type="text" value="" placeholder="new note"/>
-                        <a href="#" title="Add note" class="addNote animate">+</a>
-                    </p>
+                    <form action="/todos/createTodo" method="POST">
+                        <input type="text" name="task" placeholder="new task"/>
+                        <input type="time" name="startTime"/>
+                        <input type="time" name="endTime"/>
+                        <!-- these hidden input contain the day and month data that will get stored in the database so we can filter the tasks by month and day -->
+                        <!-- these input values changed based on month and day that are selected -->
+                        <input type="hidden" name="day" class="dbDay" value=""  />
+                        <input type="hidden" name="month" class="dbMonth" value=""  />
+                        <button type="submit" href="#" title="Add note" class="addNote animate">+</button>
+                    </form>
                     
                     <!-- add todo list functionaliliy -->
-                    <ul class="noteList">
-                        <li>Headbutt a lion<a href="#" title="Remove note" class="removeNote animate">x</a></li>
+                    <ul class="taskList">
+
                     </ul>
                 </div>
             </div>

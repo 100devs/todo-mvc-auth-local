@@ -4,8 +4,10 @@ const todosController = require('../controllers/todos')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getTodos)
+//added this get route to get tasks based on the month and day
+router.get("/:month/:day", ensureAuth, todosController.getTodosByDate)
 
-router.post('/createTodo', todosController.createTodo)
+router.post('/createTodo',  todosController.createTodo)
 
 router.put('/markComplete', todosController.markComplete)
 
