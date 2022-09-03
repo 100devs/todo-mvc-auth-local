@@ -1,7 +1,6 @@
 const { getRounds } = require('bcrypt')
 const express = require('express')
 const router = express.Router()
-const todosController = require('../controllers/todos') 
 const companiesController = require('../controllers/company')
 const { ensureAuth } = require('../middleware/auth')
 
