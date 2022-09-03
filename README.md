@@ -46,7 +46,7 @@ We are planning to add...
 
 1. Time estimated to complete task
   ~~- alter the schema/object stored in our collections~~
-  - alter the todos.ejs to add input field for estimated time to complete task
+  ~~- alter the todos.ejs to add input field for estimated time to complete task~~
 
 2.  Start button to 'start' task, should log current time
   ~~- alter the schema/object stored in our collections~~

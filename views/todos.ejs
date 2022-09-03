@@ -14,7 +14,8 @@
             <li class='todoItem' data-id='<%=el._id%>'>
                 <!-- <span></span> -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                <span class="start">Start Todo</span>
+                <span class="del"> Delete </span>
             </li>
     <% }) %>    
     </ul>

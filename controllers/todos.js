@@ -52,5 +52,16 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
+    markStarted: async (req, res)=>{
+        console.log(req.body.todoIdFromJSFile)
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                timeMarkedStarted: Date.now()})
+            console.log('We started it!')
+            res.json('We started it!')
+        }catch(err){
+            console.log(err)
+        }
+    },
 }    
