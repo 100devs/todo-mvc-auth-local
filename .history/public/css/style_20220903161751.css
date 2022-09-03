@@ -27,7 +27,5 @@ h4{
 }
 
 .signup{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
 }

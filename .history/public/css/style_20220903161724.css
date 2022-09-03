@@ -25,9 +25,3 @@ h4{
     flex-direction: column;
     align-items: center;
 }
-
-.signup{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
