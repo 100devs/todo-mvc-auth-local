@@ -24,33 +24,100 @@ INDEX.EJS
 }
 
 .index .container{
-    width: 80%;
+    width: 50%;
     margin: 25vh auto 0 auto;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    
 }
 
 .index h1 {
     font-family: 'Dancing Script', sans-serif;
     font-weight:700;
+    padding:none;
+    margin: none;
 }
 
-.index a {
-    border: 1px solid black;
+
+.index a, #submitbutton{
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 10px;
+}
+
+.index a:hover, #submitbutton {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.index a:focus, #submitbutton {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+/* 
+===========
+SIGNUP.EJS
+===========
+*/
+
+.signup{
+    padding: 50px 5px;
+}
+
+.signupform{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.signupform input{
+    padding: 10px;
     margin: 10px;
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    
-}
-.index a:hover{
-    background-color: lightgray;
 }
 
-
-
+.alert{
+    color: red;
+}
