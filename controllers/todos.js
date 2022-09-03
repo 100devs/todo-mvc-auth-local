@@ -22,6 +22,7 @@ module.exports = {
     try {
       const item = await Todo.create({
         todo: req.body.todoItem,
+        reasonWhy: req.body.reasonWhy,
         completed: false,
         userId: req.user.id,
       });

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const TodoSchema = new mongoose.Schema({
   todo: {
@@ -13,10 +13,15 @@ const TodoSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  reasonWhy: {
+    type: String,
+    // default: '',
+    // required: true,
+  },
   userId: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Todo', TodoSchema);
