@@ -79,7 +79,7 @@ const deleteBudget = async (req, res) => {
       { _id: req.body.idFromJSFile } //Add trash can to views page
     );
     console.log("Budget has been deleted!");
-    res.redirect("/budget");
+    res.json("deleted");
   } catch (err) {
     console.log(err);
   }

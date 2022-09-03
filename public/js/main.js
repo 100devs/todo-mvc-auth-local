@@ -1,20 +1,25 @@
-const deleteBtn = document.querySelectorAll('.del')
+const delBudget = document.querySelectorAll('.delBudget')
+const delExpense = document.querySelectorAll('.delExpense')
+
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 
-Array.from(deleteBtn).forEach((el)=>{
+Array.from(delExpense).forEach((el)=>{
     el.addEventListener('click', deleteExpense)
 })
 
+Array.from(delBudget).forEach((el)=>{
+    el.addEventListener('click', deleteBudget)
+})
 
 async function deleteBudget(){
-    const idFromJSFile = this.parentNode.dataset.id
+    const id = this.parentNode.dataset.id
     try{
         const response = await fetch('budget/delete', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': idFromJSFile
+                'idFromJSFile': id
             })
         })
         const data = await response.json()
