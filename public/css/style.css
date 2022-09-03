@@ -8,3 +8,21 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.loginPage > form {
+    border: 0.02rem solid #3D36E6;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.loginPage > form > button[type="submit"] {
+    width: 100%;
+}

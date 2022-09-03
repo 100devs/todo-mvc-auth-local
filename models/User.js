@@ -1,15 +1,39 @@
+// https://mongoosejs.com/docs/guide.html#definition
+
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const UserSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
-  email: { type: String, unique: true },
-  password: String
+  userName: {
+    type: String,
+    unique: true,
+    required: true
+   },
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  password: {
+    type:String,
+    require: true,
+  },
+  totalAttempt: {
+    type: Number,
+    default: 0,
+    validate: {
+      validator: function(value) {
+        return value === 3;
+      },
+      message: 'You have already done three attempts.'
+    }
+  }
 })
 
 
 // Password hash middleware.
- 
+
  UserSchema.pre('save', function save(next) {
   const user = this
   if (!user.isModified('password')) { return next() }
@@ -32,5 +56,6 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
   })
 }
 
+UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', UserSchema)
