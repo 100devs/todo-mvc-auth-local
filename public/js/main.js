@@ -1,25 +1,30 @@
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
+const incrementor = document.querySelectorAll('.addShame')
 
-Array.from(deleteBtn).forEach((el)=>{
+Array.from(deleteBtn).forEach((el) => {
     el.addEventListener('click', deleteTodo)
 })
 
-Array.from(todoItem).forEach((el)=>{
+Array.from(todoItem).forEach((el) => {
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
+Array.from(todoComplete).forEach((el) => {
     el.addEventListener('click', markIncomplete)
 })
 
-async function deleteTodo(){
+Array.from(incrementor).forEach((el) => {
+    el.addEventListener('click', addShame)
+})
+
+async function deleteTodo() {
     const todoId = this.parentNode.dataset.id
-    try{
+    try {
         const response = await fetch('todos/deleteTodo', {
             method: 'delete',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
             })
@@ -27,17 +32,36 @@ async function deleteTodo(){
         const data = await response.json()
         console.log(data)
         location.reload()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
 
-async function markComplete(){
+async function addShame() {
     const todoId = this.parentNode.dataset.id
-    try{
+    try {
+        const response = await fetch('todos/addShame', {
+            //add shame route
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function markComplete() {
+    const todoId = this.parentNode.dataset.id
+    try {
         const response = await fetch('todos/markComplete', {
             method: 'put',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
             })
@@ -45,17 +69,17 @@ async function markComplete(){
         const data = await response.json()
         console.log(data)
         location.reload()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
 
-async function markIncomplete(){
+async function markIncomplete() {
     const todoId = this.parentNode.dataset.id
-    try{
+    try {
         const response = await fetch('todos/markIncomplete', {
             method: 'put',
-            headers: {'Content-type': 'application/json'},
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
             })
@@ -63,7 +87,7 @@ async function markIncomplete(){
         const data = await response.json()
         console.log(data)
         location.reload()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
