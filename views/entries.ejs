@@ -19,7 +19,7 @@
 
                 
                 
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span>
+                <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span> -->
                 
                 
                 <span class='del'> Delete </span>
@@ -27,7 +27,7 @@
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has ? things left to do.</h2>
 
     <form action="/entries/createEntry" method='POST'>
         <input type="text" placeholder="Enter Entry Item" name='entryItem'>

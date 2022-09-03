@@ -7,9 +7,9 @@ router.get('/', ensureAuth, entriesController.getEntries)
 
 router.post('/createEntry', entriesController.createEntry)
 
-router.put('/markComplete', entriesController.markComplete)
+// router.put('/markComplete', entriesController.markComplete)
 
-router.put('/markIncomplete', entriesController.markIncomplete)
+// router.put('/markIncomplete', entriesController.markIncomplete)
 
 router.delete('/deleteEntry', entriesController.deleteEntry)
 

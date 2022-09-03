@@ -10,7 +10,7 @@ module.exports = {
             // Get individual entry item
             const entryItems = await Entry.find({userId:req.user.id})
 
-            res.render('entries.ejs', {entries: entryItems, left: itemsLeft, user: req.user})
+            res.render('entries.ejs', {entries: entryItems, user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -37,7 +37,7 @@ module.exports = {
         }
     },
     
-    deleteTodo: async (req, res)=>{
+    deleteEntry: async (req, res)=>{
         console.log(req.body.entryIdFromJSFile)
         try{
             await Entry.findOneAndDelete({_id:req.body.entryIdFromJSFile})
