@@ -20,16 +20,6 @@ module.exports = {
       console.log(err);
     }
   },
-  getLists: async (req, res) => {
-    try {
-      const todoItems = await Todo.find({ userId: req.user.id }).sort({
-        todo: 1,
-      });
-      res.render("lists.ejs", {
-        lists: todoItems,
-      });
-    } catch (err) {}
-  },
   createTodo: async (req, res) => {
     try {
       await Todo.create({
@@ -80,18 +70,6 @@ module.exports = {
       res.json("Deleted It");
     } catch (err) {
       console.log(err);
-    }
-  },
-  sortAToB: async (req, res) => {
-    try {
-      const christmasGifts = await Todo.find({ userId: req.user.id });
-      //find the user
-      //sort the users "for:" alphabetically sort(arg: string | any): this;
-      res.render("todos.ejs", {}); //render alphabetical for seciton
-      await Todo.sort({ giftFor: 1 }); //this'll be waiting a long time
-    } catch (err) {
-      console.log(err);
-      console.log("you got hella errs brah!");
     }
   },
 };
