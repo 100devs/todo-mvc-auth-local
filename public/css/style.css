@@ -1,10 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 h1{
     color: red;
 }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('/assets/background-image.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
 .completed{
     text-decoration: line-through;
     color: gray;
 }
+
 .not{
     text-decoration: underline;
+}
+
+
+/* Custom Form login Styles */
+.center-div {
+    padding-top: 10%;
+}
+
+.btn.btn-success {
+
+    padding: .4em 2em;
+    margin-top: 2em
+}
+
+.btn.btn-success a {
+
+    color: white;
+    text-decoration: none;
+}
+
+form {
+    margin: 0 3em;
+}
+
+.form-group {
+    padding: 1em;
+}
+
+#login .title>span {
+    font-size: .8em;
 }
