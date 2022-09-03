@@ -1,4 +1,4 @@
-h1{
+/* h1{
     color: red;
 }
 .completed{
@@ -7,4 +7,64 @@ h1{
 }
 .not{
     text-decoration: underline;
+} */
+
+
+/* * {
+    background-color: #121212;
+    color: white;
+} */
+
+/* #app { height: 100% } */
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #121212;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #e1e1e1;
+  /* color: red; */
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 80%;
+  height: 50%;
+}
+
+/* .swiper {
+    width: 600px;
+    height: 300px;
+  } */
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #1d1d1d;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
