@@ -47,7 +47,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 - ability to change color theme?(Joe)
 - CSS styling (John)
 - Spruce up HTML (John)
-- Add Alerts - email alerts, a way of tracking time. (Jazj)
+- Add Alerts - email alerts, a way of tracking time. (Jaz)
 - Try adding another source of authentication. Maybe https://www.passportjs.org/packages/passport-cookie/(Xavier https://www.passportjs.org/packages/)
 
 # Contributors
@@ -58,6 +58,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 **:point_right: Jaz**
 :computer: [Github](https://github.com/jasmine-9000)
+:e-mail: [wrkerr9@gmail.com](mailto:wrkerr9@gmail.com)
 
 **:point_right: Joe**
 :computer: [Github](https://github.com/joetraunero)
