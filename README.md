@@ -61,3 +61,40 @@ Alex : https://github.com/aapaine07 // discord: Zacarino#7503 // aapaine@gmail.c
 John: https://github.com/johnmal-dev // discord: johnmal#1773 // johncmalapit@gmail.com
 
 Joe: https://github.com/joetraunero // discord: shmoe#3902 // joetraunero@gmail.com
+
+# How to setup email server
+
+
+# Gmail
+
+Go to https://console.cloud.google.com/getting-started?pli=1
+
+Log in to your google account
+
+Click on "select a project" 
+
+Click on "new project"
+
+Name your project "<name of project>"
+
+Create project
+
+Wait for project to be created
+
+Select the project
+
+Go to the APIs and Services dashboard for google cloud
+
+
+
+
+
+# All other mail clients
+
+Use regular STMP client
+
+
+# Sources: 
+
+https://www.youtube.com/watch?v=-rcRf7yswfM
+
