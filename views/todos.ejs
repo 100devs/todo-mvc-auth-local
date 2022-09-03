@@ -8,17 +8,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Journal</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+    <h2><%= user.userName %> has <%= left %> journal entries logged.</h2>
+
+    <% BlogPost.forEach( items => { %>
+            <li class='todoItem' data-id='<%=items._id%>'>
+                <span class=<%= items.body %></span>
+                <span class='title'> <%= items.title %>  </span> 
+                <span class='body'> <%= items.body %>  </span>
+                <span class='gitHub'> <%= items.gitHub %>  </span>
+                <span class='date'> <%= items.date %>  </span>
+                <span class='dueDate'> <%= items.dueDate %>  </span>
+                <span class="mood"> <%= items.mood %> </span>
+
+
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
