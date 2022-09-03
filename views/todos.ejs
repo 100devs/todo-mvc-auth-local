@@ -1,7 +1,7 @@
 <%- include('partials/head.ejs', {title:"Todos"}) %>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
+    <% incomplete.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='priority'> <i class="fa-solid fa-flag"></i> </span>
@@ -10,8 +10,20 @@
     <% }) %>
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2>
+        <%= user.userName %> has <%= incomplete.length %> things left to do.
+    </h2>
 
+    <h1>Completed</h1>
+    
+    <% complete.forEach( el=> { %>
+        <li class='todoItem' data-id='<%=el._id%>'>
+            <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+        </li>
+        <% }) %>
+            <h2>
+                <%= user.userName %> has completed <%= complete.length %> things.
+            </h2>
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
