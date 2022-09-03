@@ -9,8 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="login">
-        <h1>Log In</h1>
+    
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -26,6 +25,5 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit">
     </form>
-    </section>
 </body>
 </html>
