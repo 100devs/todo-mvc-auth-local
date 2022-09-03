@@ -22,7 +22,7 @@ If name is included, ask if user wants to add another gift
 Add button to reverse sort
 
 ## Backend: Ryan, Steven
-Sorting A -> Z by default (Ryan)
+Sorting A -> Z by default (Ryan) // done
 Create todo.ejs backend, List title,  List type: public/private/wishlist (Ryan/Steven)
 Public (shareable) and private lists (Steven)
 

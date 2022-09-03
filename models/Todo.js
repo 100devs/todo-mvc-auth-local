@@ -1,6 +1,10 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const TodoSchema = new mongoose.Schema({
+  list: {
+    type: String,
+    required: false,
+  },
   todo: {
     type: String,
     required: true,
@@ -15,8 +19,8 @@ const TodoSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model("Todo", TodoSchema);

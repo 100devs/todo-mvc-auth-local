@@ -12,17 +12,19 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
     "express-flash": "^0.0.2",
-    "express-session": "^1.17.1",
-    "mongodb": "^3.6.5",
-    "mongoose": "^5.12.3",
+    "express-session": "^1.17.3",
+    "mongodb": "^3.7.3",
+    "mongoose": "^5.13.15",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.7",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "validator": "^13.6.0"
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
