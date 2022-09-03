@@ -13,22 +13,51 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <header>
+        <section class="countdown">
+            <h2>Christmas Countdown! Commence festivities in ...</h2>
+            <section class="countdown">
+                <span class="days">days</span>
+                <span class="hours">hours</span>
+                <span class="minutes">minutes</span>
+                <span class="seconds">seconds</span>
+            </section>
+        </section>
+    </header>
+    <h1>Gift List</h1>
+    <h2 class="gift-list-name"><%= todos.listName %></h2>
+    <section class="dropdown">
+        <label for="list-type">Choose a type of gift list</label>
+        <select name="list-type" id="list-type">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="Wishlist">Wishlist</option>
+        </select>
+    </section>
+
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class="giftFor"><%= el.giftFor %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <button class="reverse-sort">Sort in Reverse</button>
+    <h2><%= user.userName %> has <%= left %> things on this christmas list</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Christmas Gift" name='todoItem'>
         <input type="text" placeholder="Enter Who the Gift is For" name='giftFor'>
         <input type="submit">
+        <label for="list-type">Choose a type of gift list</label>
+        <!--Not sure if we want to include this option every time a user inputs the new item-->
+        <select name="list-type" id="list-type">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="Wishlist">Wishlist</option>
+        </select>
     </form>
 
     <a href="/logout">Logout</a>
