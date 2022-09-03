@@ -9,7 +9,6 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const todoRoutes = require("./routes/todos");
-const testRoutes = require("./routes/test");
 const gearRoutes = require("./routes/gear");
 
 require("dotenv").config({ path: "./config/.env" });
