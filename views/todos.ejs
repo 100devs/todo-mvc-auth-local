@@ -1,91 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contactr</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1><%= user.userName %>'s Contactr</h1>
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <header class="">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-auto" href="#">
+            <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
+          <img
+          src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/Contactr-logos_transparent.png?raw=true"
+                
+            alt=""
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+          Contactr
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <body class="">
+    <!-- Cut>Format>Paste the ul to format with prettier -->
+    <!-- TODO: look into EJS formatting -->
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
+        <% todos.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
     </ul>
 
-    <h2>Add A Company</h2>
+    <div class="container">
+      <div class="row fb-box-shadow rounded-corners p-4 m-4align-items-center">
+        <div class="col">
+          <h2 class="m-2 text-center">Add a Company</h2>
+        </div>
+      </div>
+    </div>
 
-    <form action="/todos/createTodo" method='POST'>
-        <h3>Job Description</h3>
-
-        <label for="companyName">Company Name:</label>
-        <input type="text" placeholder="Company Name" id="companyName">
-
-        <label for="dateAdded">Date Added:</label>
-        <input type="date" placeholder="Date Added" id="dateAdded">
-
-        <label for="url">URL</label>
-        <input type="text" placeholder="URL" id="url">
-
-        <label for="roleURL">Role URL:</label>
-        <input type="text" placeholder="Role/Position URL" id="roleURL">
-
-        <label for="position">Position:</label>
-        <input type="text" placeholder="Type of Position" id="posiiton">
-
-        <label for="source">Source:</label>
-        <input type="text" placeholder="Source" id="source">
-
-        <h3>Point of Contact</h3>
-
-        <label for="pocName">Name of Contact:</label>
-        <input type="text" placeholder="Name of Contact" id="pocName">
-
-        <label for="pocPosition">Position of Contact:</label>
-        <input type="text" placeholder="Position of Contact" id="pocPosition">
-
-        <label for="pocEmail">Email of Contact:</label>
-        <input type="email" placeholder="Email of Contact" id="pocEmail">
-
-        <h3>Application</h3>
-
-        <input type="checkbox" placeholder="Applied?" id="applied">
-        <label for="Applied?">Applied?</label>
-        
-        <label for="applyDate">Application Date:</label>
-        <input type="date" placeholder="Date you applied" id="applyDate">
-
-        <input type="checkbox" id="coffeeChat">
-        <label for="CoffeeChat">Coffee Chat?</label>
-
-        <label for="coffeeChatDate">Coffee Chat Date:</label>
-        <input type="date" id="coffeeChatDate">
-
-        <input type="checkbox" id="saidThanks">
-        <label for="saidThanks">Said Thanks?</label>
-
-        <label for="interviewDate">Interview Date:</label>
-        <input type="date" id="interviewDate">
-
-        <label for="followUpDate">Follow-Up Date:</label>
-        <input type="date" id="followUpDate">
-
-        <label for="comments">Comments:</label>
-        <input type="text" placeholder="Comments" id="comments">
-
-
-
-
-        <input type="submit">
+    <form action="/todos/createTodo" method="POST">
+      <div class="container">
+        <div class="row fb-box-shadow rounded-corners">
+          <h3 class="text-center m-4">Job Description</h3>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end">
+                <label for="companyName">Company:</label>
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  placeholder="Company Name"
+                  id="companyName"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end">
+                <label for="dateAdded">Date Added:</label>
+              </div>
+              <div class="col text-center mx-auto">
+                <input
+                  class="text-center"
+                  type="date"
+                  placeholder="Date Added"
+                  id="dateAdded"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end"><label for="url">URL</label></div>
+              <div class="col">
+                <input type="text" placeholder="URL" id="url" />
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end">
+                <label for="roleURL">Role URL:</label>
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  placeholder="Role/Position URL"
+                  id="roleURL"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end">
+                <label for="position">Position:</label>
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  placeholder="Type of Position"
+                  id="posiiton"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-xl">
+            <div class="row m-2">
+              <div class="col text-end">
+                <label for="source">Source:</label>
+              </div>
+              <div class="col">
+                <input type="text" placeholder="Source" id="source" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="text-center">Point of Contact</h3>
+        <div class="row">
+          <label for="pocName">Name of Contact:</label>
+          <input type="text" placeholder="Name of Contact" id="pocName" />
+          <label for="pocPosition">Position of Contact:</label>
+          <input
+            type="text"
+            placeholder="Position of Contact"
+            id="pocPosition"
+          />
+          <label for="pocEmail">Email of Contact:</label>
+          <input type="email" placeholder="Email of Contact" id="pocEmail" />
+        </div>
+        <h3 class="text-center">Application</h3>
+        <div class="row">
+          <input type="checkbox" placeholder="Applied?" id="applied" />
+          <label for="Applied?">Applied?</label>
+          <label for="applyDate">Application Date:</label>
+          <input type="date" placeholder="Date you applied" id="applyDate" />
+          <input type="checkbox" id="coffeeChat" />
+          <label for="CoffeeChat">Coffee Chat?</label>
+          <label for="coffeeChatDate">Coffee Chat Date:</label>
+          <input type="date" id="coffeeChatDate" />
+          <input type="checkbox" id="saidThanks" />
+          <label for="saidThanks">Said Thanks?</label>
+          <label for="interviewDate">Interview Date:</label>
+          <input type="date" id="interviewDate" />
+          <label for="followUpDate">Follow-Up Date:</label>
+          <input type="date" id="followUpDate" />
+          <label for="comments">Comments:</label>
+          <input type="text" placeholder="Comments" id="comments" />
+          <input type="submit" />
+        </div>
+      </div>
     </form>
 
-    <a href="/logout">Logout</a>
+    <a href="/logout" class="btn btn-lg btn-danger btn-block m-2" role="button"
+      >Logout</a
+    >
 
     <script src="js/main.js"></script>
-</body>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
