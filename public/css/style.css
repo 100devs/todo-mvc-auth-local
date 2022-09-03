@@ -32,3 +32,39 @@ h1{
     visibility: none;
     pointer-events: none;
 }
+
+/******************************
+** Signup page **/
+.signup .form-label {
+    display: none;
+}
+
+.lost {
+    display: flex;
+    margin: 20px;
+}
+
+.lost__info {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media all and (max-width: 1024px) {
+    .lost {
+        flex-direction: column;
+    }
+
+    .lost__info {
+        order: 1;
+        width: 100%;
+    }
+
+    .lost__image {
+        order: 2
+    }
+
