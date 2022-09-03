@@ -25,10 +25,13 @@
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Squawk here... " name='todoItem'>
-        <input type="submit" value="SEND">
-    </form>
+    <div class="bg-gray-500 h-20 w-1/2">
+        <form action="/todos/createTodo" method='POST'>
+            <span><%= user.userName %></span>
+            <input type="text" placeholder="Squawk here... " name='todoItem' class="border border-slate-300 bg-white py-2 px-4 w-1/2">
+            <input type="submit" value="SEND" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        </form>
+    </div>
 
     <a href="/logout">Logout</a>
 
