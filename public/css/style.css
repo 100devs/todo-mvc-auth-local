@@ -26,3 +26,9 @@ h1{
 .loginPage > form > button[type="submit"] {
     width: 100%;
 }
+
+.hidden {
+    opacity: 0;
+    visibility: none;
+    pointer-events: none;
+}
