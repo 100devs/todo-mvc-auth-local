@@ -53,7 +53,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 # Contributors
 
 **:point_right: Alex**
-:computer: [Portfolio](https://www.johnmal.dev/) | [Github](https://github.com/aapaine07)
+:computer: [Github](https://github.com/aapaine07)
 :e-mail: [aapaine@gmail.com](mailto:aapaine@gmail.com)
 
 **:point_right: Jaz**
