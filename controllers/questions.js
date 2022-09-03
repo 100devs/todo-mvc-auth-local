@@ -13,6 +13,15 @@ module.exports = {
             console.log(err)
         }
     },
+    getBankiQuestionsToEdit: async (req,res)=>{
+        console.log(req.user)
+        try{
+            const questions = await BankiQuestion.find({}) // to do: make it return a random 20 (w/aggregate?)
+            res.render('editBankiQuestions.ejs', {questions: questions, user: req.user})
+        } catch(err){
+            console.log(err)
+        }
+    },
     createQuestion: async (req, res)=>{
         try{
             await Question.create({question: req.body.question, answer:req.body.answer, completed: false, userId: req.user.id})

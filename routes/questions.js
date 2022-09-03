@@ -14,4 +14,6 @@ router.put('/markIncomplete', questionsController.markIncomplete)
 
 router.delete('/deleteQuestion', questionsController.deleteQuestion)
 
+router.get('/editBanki', ensureAuth, questionsController.getBankiQuestionsToEdit)
+
 module.exports = router
