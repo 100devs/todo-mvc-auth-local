@@ -12,6 +12,9 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  categories: {
+    type: Array
   }
 })
 
