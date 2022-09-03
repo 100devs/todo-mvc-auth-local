@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contactr</title>
+    <link
+    rel="icon"
+    href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+  />
 
     <!-- CSS only -->
     <link
@@ -23,7 +27,7 @@
         <a class="navbar-brand mx-auto" href="#">
           <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
           <img
-            src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/Contactr-logos_transparent.png?raw=true"
+            src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
             alt=""
             width="30"
             height="24"
@@ -47,18 +51,19 @@
         <% }) %>    
     </ul>
 
+ 
     <!-- Add a Company -->
     <div class="container">
-      <div class="row fb-box-shadow rounded-corners p-4 m-4 align-items-center mx-auto">
+      <div class="row p-4 m-4 align-items-center mx-auto">
         <div class="col">
           <h2 class="m-2 text-center">Add a Company</h2>
         </div>
       </div>
     </div>
-
+   <div class="fb-box-shadow rounded-corners p-4 m-4">
     <form action="/todos/createTodo" method="POST">
       <!-- Job Description -->
-      <div class="container fb-box-shadow rounded-corners p-4 m-4 align-items-center mx-auto">
+      <div class="container p-4 m-4 align-items-center mx-auto">
         <div class="row">
           <h3 class="text-center m-4">Job Description</h3>
           <div class="col col-12 col-md-6 col-xl-4">
@@ -138,8 +143,9 @@
           </div>
         </div>
       </div>
+      <hr>
       <!-- Point of Contact -->
-      <div class="container fb-box-shadow rounded-corners p-4 m-4 align-items-center mx-auto">
+      <div class="container p-4 m-4 align-items-center mx-auto">
         <h3 class="text-center">Point of Contact</h3>
         <div class="row">
           <div class="col col-12 col-md-6 col-xl-4">
@@ -168,8 +174,9 @@
           </div>
         </div>
       </div>
+      <hr>
       <!-- Application -->
-      <div class="container fb-box-shadow rounded-corners p-4 m-4 align-items-center mx-auto">
+      <div class="container p-4 m-4 align-items-center mx-auto">
         <h3 class="text-center">Application</h3>
         <div class="row">
           <div class="col col-12 col-md-6 col-xl-4">
@@ -230,6 +237,7 @@
         </div>
       </div>
     </form>
+</div>
     <hr>
     <!-- LogOut Button -->
     <a href="/logout" class="btn btn-lg btn-danger btn-block m-2 d-flex justify-content-center w-25 mx-auto" role="button"
