@@ -1,10 +1,10 @@
-const Gear = require("../models/Gear"); // Requires the model schema
+// const Gear = require("../models/Gear"); // Requires the model schema
 
 module.exports = {
   getGear: async (req, res) => {
     console.log(req.user);
     try {
-      res.render("gear.ejs");
+      res.render("/gear.ejs");
     } catch (err) {
       console.log(err);
     }
