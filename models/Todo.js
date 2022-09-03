@@ -34,7 +34,7 @@ const TodoSchema = new mongoose.Schema({
   },
   priority: {
     type: Number,
-    enum: [1, 2, 3, 4, 5],
+    enum: [0, 1, 2, 3],
     default: 1
   },
   tags: {
