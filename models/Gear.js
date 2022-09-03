@@ -16,7 +16,6 @@ const GearSchema = new mongoose.Schema({
   },
   gearCondition: {
     type: String,
-    defualt: "good",
     enum: ["fair", "good", "excellent", "mint"],
     required: true,
   },
