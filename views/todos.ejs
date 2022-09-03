@@ -15,7 +15,7 @@
         <% todos.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                <span>
+                <span id="shame">
                     <%= el.timesDone %>
                 </span>
                 <div class="addShame">Click for Shame</div>
