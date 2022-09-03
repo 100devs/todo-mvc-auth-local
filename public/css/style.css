@@ -1,5 +1,5 @@
 h1{
-    color: red;
+    color: rgb(255, 255, 255);
 }
 .completed{
     text-decoration: line-through;
@@ -8,3 +8,17 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+  .btnWide {
+    width: 100%;
+  }
