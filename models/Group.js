@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 /**
- * todo: name of the taks
+ * todo: name of the groups
  * completed: inform if the
  */
 const GroupSchema = Schema({
