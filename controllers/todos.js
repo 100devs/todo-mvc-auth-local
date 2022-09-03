@@ -51,5 +51,32 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
+    changePriority: async (req, res) => {
+        try {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+                priority: Number(req.body.priority)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    addTag: async (req, res) => {
+        try {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+                $push: { tags: req.body.tag },
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    deleteTag: async (req, res) => {
+        try {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+                $pull: { tags: req.body.tag },
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    },
 }    
