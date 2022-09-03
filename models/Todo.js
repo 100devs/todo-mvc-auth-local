@@ -30,6 +30,14 @@ const TodoSchema = new mongoose.Schema({
   completedBy: {
        type: String,
     required: false
+  },
+  priority: {
+    type: Number,
+    enum: [1, 2, 3, 4, 5],
+    default: 1
+  },
+  tags: {
+    type: [String]
   }
 })
 
