@@ -66,14 +66,14 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
   }
 };
 
-const editExpense = async (req, res) => { //need to add collapsable form next to each expense in budget page.
+const updateExpense = async (req, res) => { //need to add collapsable form next to each expense in budget page.
   try {
-    const initialExpense = await Expense.findOne({ _id: req.body.idFromJSFile });
+    // const initialExpense = await Expense.findOne({ _id: req.body.idFromJSFile });
 
-    const editedExpense = {
+    const update = {
       amount: Number(req.body.amount) * 100,
       // currency: req.body.currency,
-      category: req.body.category,
+      // category: req.body.category,
       user: req.user.id,
     }
 
@@ -85,17 +85,10 @@ const editExpense = async (req, res) => { //need to add collapsable form next to
     //     //fix budgets
     // }
 
-    await Expense.findOneAndUpdate({
-      _id: initialExpense._id
-    }, {
-      amount: Number(req.body.amount) * 100,
-      // currency: req.body.currency,
-      category: req.body.category,
-      user: req.user.id,
-    });
+    const editedExpense = await Expense.findOneAndUpdate( {_id: req.params.id}, update, {new: true} );
 
     console.log("Expense has been updated and budget adjusted!");
-    res.redirect("/budget");
+    res.json(editedExpense);
   } catch (err) {
     console.log(err);
   }
@@ -104,5 +97,5 @@ const editExpense = async (req, res) => { //need to add collapsable form next to
 module.exports = {
   createExpense,
   deleteExpense,
-  editExpense,
+  updateExpense,
 };
