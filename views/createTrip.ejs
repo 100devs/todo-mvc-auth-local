@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="/trip/dashboard">Dashboard</a>
+
+    <h1>Create Your Trip</h1>
+ 
+
+    <form action="/trip/createPostTrip" method='POST'>
+        <textarea type="text" placeholder="Title of the Trip" name='tripTitle'rows="1" cols="40" ></textarea> <br><br>
+        <textarea type="text" rows="4" cols="40" placeholder="option1" name='option1'></textarea><br><br>
+        <textarea type="text" placeholder="option2" name='option2' rows="4" cols="40" ></textarea><br><br>
+        <textarea type="text" placeholder="option3" name='option3' rows="4" cols="40" ></textarea><br><br> 
+
+        <input type="date"  placeholder="dateFrom" name="dateFrom"><br><br>
+        <input type="date"  placeholder="dateTo" name="dateTo"><br><br>
+
+        <textarea type="text" placeholder="Enter all trip member's emails separated by a comma" name='tripMembers' rows="6" cols="40" ></textarea><br><br>
+    
+        <input type="submit"><br><br>
+    </form>
+
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+ 
+ 
