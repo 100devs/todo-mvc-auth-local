@@ -1,3 +1,10 @@
 h1 {
-    color: red;
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+    background-color:azure;
+    border-style: solid;
+}
+body{
+    background-color: aqua;
 }
