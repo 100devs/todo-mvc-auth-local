@@ -42,3 +42,7 @@ h3 {
   color: white;
 }
  
+
+.displayNone {
+  display:none;
+}

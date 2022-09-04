@@ -69,3 +69,18 @@ async function markIncomplete(){
 }
 
 
+// const loginButton = document.querySelector(".frontLoginButton")
+// loginButton.addEventListener("click", () => {
+//     let loginContainer = document.querySelector(".loginContainer")
+//     loginContainer.classList.toggle("displayNone")
+//     loginContainer.classList.toggle("scale-out")
+//     loginContainer.classList.toggle("scale-in")
+// })
+
+// const signupButton = document.querySelector(".frontSignupButton")
+// signupButton.addEventListener("click", () => {
+//     let signupContainer = document.querySelector(".signupContainer")
+//     signupContainer.classList.toggle("displayNone")
+//     signupContainer.classList.toggle("scale-out")
+//     signupContainer.classList.toggle("scale-in")
+// })
