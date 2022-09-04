@@ -33,12 +33,12 @@ Array.from(todoComplete).forEach((el)=>{
 function animateLogo(event) {
     console.log('moved in!')
     const imageElement = event.target;
-    imageElement.src = '../images/logoanimate.gif'
+    imageElement.src = '/images/logoanimate.gif'
 }
 
 function stopAnimateLogo(event) {
     const imageElement = event.target;
-    imageElement.src = '../images/staticlogo.png'
+    imageElement.src = '/images/staticlogo.png'
 }
 
 //change to handle deletes
