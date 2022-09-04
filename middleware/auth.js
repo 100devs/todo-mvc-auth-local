@@ -1,6 +1,5 @@
 module.exports = {
-    ensureAuth: function (req, res, next) {
-    res.locals.loggedin = req.isAuthenticated();
+  ensureAuth: function (req, res, next) {
       if (req.isAuthenticated()) {
         return next()
       }
