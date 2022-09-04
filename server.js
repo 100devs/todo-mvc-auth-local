@@ -74,4 +74,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
 app.use('/groups', groupRoutes)
-
+app.use('/terms',(req,res) => res.render('terms.ejs', {title:"Terms of Service & conditions"}));
+app.get('*', function(req, res){
+    res.render('404', {title: '404' });
+});
