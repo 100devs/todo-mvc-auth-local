@@ -70,7 +70,7 @@ module.exports = {
             await Todo.findOneAndUpdate({ _id: req.body.id }, {
                 $push: { tags: req.body.tag },
             })
-            res.redirect('\todos');
+            res.redirect('/todos');
         } catch (err) {
             console.log(err)
         }
