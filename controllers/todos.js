@@ -24,6 +24,14 @@ module.exports = {
             console.error(error)
         }
     },
+    addToWatchList: async(req,res)=>{
+        console.log(req.user)
+        try{
+            await Todo.create({movieId: req.body.showId, userId: req.user.id})
+        } catch(error){
+            console.error(error)
+        }
+    },
     createTodo: async (req, res)=>{
         try{
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})

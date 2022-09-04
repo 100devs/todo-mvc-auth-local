@@ -7,6 +7,8 @@ router.get('/', ensureAuth, todosController.getTodos)
 
 router.post('/searchShows', todosController.searchShows)
 
+router.post('/addToWatchList', todosController.addToWatchList)
+
 router.post('/createTodo', todosController.createTodo)
 
 router.put('/markComplete', todosController.markComplete)
