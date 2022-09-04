@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contactr</title>
     <link
-    rel="icon"
-    href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
-  />
+      rel="icon"
+      href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+    />
 
     <!-- CSS only -->
     <link
@@ -20,229 +20,317 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-    <!-- Header / Navbar -->
+  <!-- Header / Navbar -->
   <header class="navbar-space">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand mx-auto" href="/">
-          <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
-          <img
-            src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
-            alt=""
-            width="30"
-            height="24"
-            class="d-inline-block align-text-top"
-          />
-          Contactr
-        </a>
+    <nav class="navbar navbar-light bg-white navbar-bottom-shadow">
+      <div class="container">
+        <div class="row d-flex justify-content-between w-100">
+          <div class="col"></div>
+          <div class="col m-1 text-center d-flex justify-content-center">
+            <a class="navbar-brand m-0" href="/">
+              <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
+              <img
+                src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+                alt=""
+                width="30"
+                height="24"
+                class="align-text-top text-center"
+              />
+              Contactr
+            </a>
+          </div>
+          <!-- LogOut Button -->
+          <div class="col text-end">
+            <a href="/logout" class="btn btn-lg btn-danger btn-block navbar-right" role="button"
+              >Logout</a
+            >
+        </div>
+        </div>
       </div>
     </nav>
   </header>
 
   <body class="">
-    <!-- Cut>Format>Paste the ul to format with prettier -->
-    <!-- TODO: look into EJS formatting -->
-    <ul>
+    <!-- <ul>
         <% todos.forEach( el => { %>
                 <li class='todoItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                     <span class='del'> Delete </span>
                 </li>
         <% }) %>    
-    </ul>
+    </ul> -->
 
- 
-    <!-- Add a Company -->
-    <div class="container">
-      <div class="row p-4 m-4 align-items-center mx-auto">
-        <div class="col">
-          <h2 class="m-2 text-center">Add a Company</h2>
-        </div>
-      </div>
-    </div>
-   <div class="fb-box-shadow rounded-corners p-4 m-4">
-    <form action="/todos/createTodo" method="POST">
-      <!-- Job Description -->
-      <div class="container p-4 m-4 align-items-center mx-auto">
-        <div class="row">
-          <h3 class="text-center m-4">Job Description</h3>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end">
-                <label for="companyName">Company:</label>
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  placeholder="Company Name"
-                  id="companyName"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end">
-                <label for="dateAdded">Date Added:</label>
-              </div>
-              <div class="col text-center mx-auto">
-                <input
-                  class="text-center"
-                  type="date"
-                  placeholder="Date Added"
-                  id="dateAdded"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end"><label for="url">URL</label></div>
-              <div class="col">
-                <input type="text" placeholder="URL" id="url" />
-              </div>
-            </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end">
-                <label for="roleURL">Role URL:</label>
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  placeholder="Role/Position URL"
-                  id="roleURL"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end">
-                <label for="position">Position:</label>
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  placeholder="Type of Position"
-                  id="posiiton"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-            <div class="row m-2">
-              <div class="col text-end">
-                <label for="source">Source:</label>
-              </div>
-              <div class="col">
-                <input type="text" placeholder="Source" id="source" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <!-- Point of Contact -->
-      <div class="container p-4 m-4 align-items-center mx-auto">
-        <h3 class="text-center">Point of Contact</h3>
-        <div class="row">
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="pocName">Name of Contact:</label></div>
-                  <div class="col"><input type="text" placeholder="Name of Contact" id="pocName" /></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="pocPosition">Position of Contact:</label></div>
-                  <div class="col">
-                      <input
-                        type="text"
-                        placeholder="Position of Contact"
-                        id="pocPosition"
-                      />
-                  </div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="pocEmail">Email of Contact:</label></div>
-                  <div class="col"><input type="email" placeholder="Email of Contact" id="pocEmail" /></div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <!-- Application -->
-      <div class="container p-4 m-4 align-items-center mx-auto">
-        <h3 class="text-center">Application</h3>
-        <div class="row">
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><input type="checkbox" placeholder="Applied?" id="applied" /></div>
-                  <div class="col"><label for="Applied?">Applied?</label></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="applyDate">Application Date:</label></div>
-                  <div class="col"><input type="date" placeholder="Date you applied" id="applyDate" /></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><input type="checkbox" id="coffeeChat" /></div>
-                  <div class="col"><label for="CoffeeChat">Coffee Chat?</label></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="coffeeChatDate">Coffee Chat Date:</label></div>
-                  <div class="col"><input type="date" id="coffeeChatDate" /></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><input type="checkbox" id="saidThanks" /></div>
-                  <div class="col"><label for="saidThanks">Said Thanks?</label></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="interviewDate">Interview Date:</label></div>
-                  <div class="col"><input type="date" id="interviewDate" /></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="followUpDate">Follow-Up Date:</label></div>
-                  <div class="col"><input type="date" id="followUpDate" /></div>
-              </div>
-          </div>
-          <div class="col col-12 col-md-6 col-xl-4">
-              <div class="row m-2">
-                  <div class="col text-end"><label for="comments">Comments:</label></div>
-                  <div class="col"><textarea type="text" placeholder="Comments" id="comments" rows="4" cols="25"></textarea></div>
-              </div>
-          </div>
-        </div>
-        <!-- Submit Button -->
-        <div class="row text-center">
-            <div class="col">
-                <button class="btn btn-lg btn-primary btn-block m-2" type="submit">Submit
-                  </button>
-            </div>
-        </div>
-      </div>
-    </form>
-</div>
-    <hr>
-    <!-- LogOut Button -->
-    <a href="/logout" class="btn btn-lg btn-danger btn-block m-2 d-flex justify-content-center w-25 mx-auto" role="button"
-      >Logout</a
+    <div
+      class="fb-box-shadow rounded-corners p-4 m-4 text-center text-md-start"
     >
+      <!-- Add a Company -->
+      <div class="container">
+        <div class="row">
+          <div class="col col-12">
+            <h2 class="text-center m-4">Add a Company</h2>
+          </div>
+        </div>
+      </div>
+      <form action="/todos/createTodo" method="POST">
+        <!-- Job Description -->
+        <div class="container align-items-center mx-auto">
+          <div class="row">
+            <div class="col col-12">
+              <h3 class="text-center m-4">Job Description</h3>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="companyName">Company:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Company Name"
+                    id="companyName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="dateAdded">Date Added:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="date"
+                    placeholder="Date Added"
+                    id="dateAdded"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12"><label for="url">URL</label></div>
+                <div class="col col-md-12">
+                  <input class="w-100" type="text" placeholder="URL" id="url" />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="roleURL">Role URL:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Role/Position URL"
+                    id="roleURL"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="position">Position:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Type of Position"
+                    id="posiiton"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="source">Source:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Source"
+                    id="source"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <!-- Point of Contact -->
+        <div class="container p-4 align-items-center mx-auto">
+          <div class="row">
+            <div class="col col-12">
+              <h3 class="text-center m-4">Point of Contact</h3>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="pocName">Name of Contact:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Name of Contact"
+                    id="pocName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="pocPosition">Position of Contact:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="text"
+                    placeholder="Position of Contact"
+                    id="pocPosition"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="pocEmail">Email of Contact:</label>
+                </div>
+                <div class="col col-md-12">
+                  <input
+                    class="w-100"
+                    type="email"
+                    placeholder="Email of Contact"
+                    id="pocEmail"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <!-- Application -->
+
+        <!-- Check Boxes -->
+
+        <div class="container p-4 align-items-center mx-auto">
+          <div class="row text-center">
+            <div class="col col-12">
+              <h3 class="text-center m-4">Application</h3>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <input type="checkbox" placeholder="Applied?" id="applied" />
+                  <label for="Applied?">Applied?</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <input type="checkbox" id="coffeeChat" />
+                  <label for="CoffeeChat">Coffee Chat?</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <input type="checkbox" id="saidThanks" />
+                  <label for="saidThanks">Said Thanks?</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Date Inputs -->
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="applyDate">Application Date:</label>
+                </div>
+                <div class="col">
+                  <input
+                    type="date"
+                    placeholder="Date you applied"
+                    id="applyDate"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="coffeeChatDate">Coffee Chat Date:</label>
+                </div>
+                <div class="col"><input type="date" id="coffeeChatDate" /></div>
+              </div>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="interviewDate">Interview Date:</label>
+                </div>
+                <div class="col"><input type="date" id="interviewDate" /></div>
+              </div>
+            </div>
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="followUpDate">Follow-Up Date:</label>
+                </div>
+                <div class="col"><input type="date" id="followUpDate" /></div>
+              </div>
+            </div>
+
+            <!-- Comments Text Area -->
+
+            <div class="col col-12 col-md-6 col-xl-4">
+              <div class="row m-2">
+                <div class="col col-md-12">
+                  <label for="comments">Comments:</label>
+                </div>
+                <div class="col">
+                  <textarea
+                    type="text"
+                    placeholder="Comments"
+                    id="comments"
+                    rows="4"
+                    cols="25"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+
+          <div class="row">
+            <div class="col col-12 text-center">
+              <button class="btn btn-lg btn-primary m-2" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <script src="js/main.js"></script>
     <!-- JavaScript Bundle with Popper -->
