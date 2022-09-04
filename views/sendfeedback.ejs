@@ -8,7 +8,24 @@
   </head>
   <body>
     <h1>sendfeedback</h1>
-    <p>TODO: Map out data</p>
-    <p><%= test %></p>
+    <p>TODO: Map out data with better CSS / Formatting</p>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Message</th>
+      </tr>
+      <% test.forEach(el => { %>
+      <tr>
+        <td><%= el.name %></td>
+        <td><%= el.email %></td>
+        <td><%= el.phone %></td>
+        <td><%= el.message %></td>
+      </tr>
+
+      <% }) %>
+    </table>
   </body>
 </html>
