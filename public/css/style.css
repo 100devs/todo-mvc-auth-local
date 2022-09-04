@@ -231,10 +231,11 @@ li {
     margin: 1em 0;
     position: relative;
 }
-
+/* posts container */
 ul {
     margin: 0;
-    padding: 0;
+    padding: 1em;
+    width: 90vw;
 }
 
 li > .title {
@@ -271,9 +272,7 @@ li .dueDate {
     position: absolute;
     font-size: .8em;
 }
-li form {
-    margin: 0 20px;
-}
+
 
 ::placeholder {
     color: rgba(255,255,255.7)
