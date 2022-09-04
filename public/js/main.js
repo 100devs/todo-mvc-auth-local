@@ -23,8 +23,15 @@ const swiper = new Swiper('.swiper', {
       },
     });
 
+//the toggle for flipping the card
+const card = document.querySelectorAll('.card_inner');
 
-
+card.forEach(element =>{
+    element.addEventListener('click',  (e) => {
+        element.classList.toggle('is-flipped');
+    });
+})
+//the toggle for flipping the card
     
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
