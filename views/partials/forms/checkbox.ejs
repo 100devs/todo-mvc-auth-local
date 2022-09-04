@@ -1,0 +1,6 @@
+<div class="form-check d-flex align-items-start <%= typeof(parentClass) !== 'undefined' ? parentClass : 'mb-5' %>">
+    <input class="form-check-input me-2" type="checkbox" id="<%= name %>" name="<%= name %>" <% if (checked) { %> checked="checked" <% } %> />
+    <label class="form-check-label" for="<%= name %>">
+        <%= description %>
+    </label>
+</div>

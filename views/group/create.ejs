@@ -1,44 +1,78 @@
 <%- include('../partials/head.ejs') %>
 
+<section class="createGroup">
 
-
-
-
-  <form action="/login" method="post">
+  <form action="/groups/createGroup" method="post">
     <p class="text-center h1 fw-bold">Create a group</p>
     <!-- don't show this by default -->
     <div class="alert hidden" id="formInfo"></div>
 
-    <div class="mb-3">
-      <label for="text" class="form-label">Group Name</label>
-      <input type="email" class="form-control" id="name" name="name" value="" aria-describedby="Group name" placeholder="Give it a name">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-
-<div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
+      <%- include('../partials/forms/input.ejs',
+                  {name: 'name', type: 'text', label:"Create a group",
+                    faIcon: 'fas fa-briefcase', placeholder: 'Group name',
+      parentClass: 'mb-4'}) %>
 
 
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" />
-    </div>
-    <!--
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="remember" name="remember" />
-    <label class="form-check-label" for="remember">Remember me</label>
-  </div>
-  -->
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <p>
-      <a href="/signup" title="Register">Register</a>
-    </p>
+<div class="form-group shadow-textarea mb-4">
+  <label for="description">Description of the group</label>
+  <textarea class="form-control z-depth-1" id="description" name="description" rows="3" placeholder="Add the group description here. The description will help users to understand the goal of the group."></textarea>
+</div>
+
+
+    <%- include('../partials/forms/checkbox.ejs', {
+        name: 'isPublic',
+        checked: true,
+        description: 'Make it public, so everyone can see it',
+        parentClass: 'justify-content-start mb-3'
+    }) %>
+
+<!--
+    <%- include('../partials/forms/checkbox.ejs', {
+        name: 'iscityBased',
+        checked: true,
+        description: 'We only accept people from our city to make everyone reachable.',
+        parentClass: 'justify-content-start mb-3'
+    }) %>
+-->
+
+    <button type="submit" class="btn btn-primary btn-large">Submit</button>
   </form>
+</section>
 
 
+    <script>
+
+      const form = document.querySelector('form');
+      const btnSubmit = document.querySelector('button[type="submit"]');
+
+
+      form.addEventListener('submit', (event) => {
+          // dont send the form, so we can control the inputs
+          event.preventDefault();
+
+          const name = document.querySelector('input[name="name"]').value;
+          const description = document.querySelector('textarea[name="description"]').value;
+          const isPublic = document.querySelector('input[name=isPublic]:checked');
+
+          if(validator.isEmpty(description) || validator.isEmpty(name)) {
+              showInformation('alert-danger', 'All fields are required', btnSubmit);
+              return false;
+          }
+
+          if(description.trim().length < 300) {
+              showInformation('alert-warning', 'The description must be at least 300 characters', btnSubmit);
+              return false;
+          }
+
+          if(description.trim().length > 1000) {
+              showInformation('alert-warning', 'The description must be at maximum 1000 characters', btnSubmit);
+              return false;
+          }
+
+        form.submit();
+      })
+
+    </script>
 
 
 
