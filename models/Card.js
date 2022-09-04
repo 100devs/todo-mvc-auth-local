@@ -11,23 +11,33 @@ const CardSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  active: {
-    type: Boolean,
+  userId: {
+    type: String,
+    required: true,
+  },
+  deck: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Deck',
+    required: true
+  }
+})
+
+const DeckSchema = new mongoose.Schema({
+  title: {
+    type: String,
     required: true,
     trim: true
   },
   userId: {
     type: String,
-    required: true,
+    required: true
   },
-  deck:{
-    type: String,
-    required: true,
-    trim: true,
-  },
-  //deckId:{
-    //idenitfy a way to generate a specific id for each deck (if needed)
-  //}
+  cards: [{
+    type: mongoose.Schema.Types.ObjectId
+  }]
 })
 
-module.exports = mongoose.model('Card', CardSchema)
+const Card = mongoose.model('Card', CardSchema)
+const Deck = mongoose.model('Deck', DeckSchema)
+
+module.exports = { Card, Deck }
