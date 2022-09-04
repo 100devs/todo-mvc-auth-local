@@ -2,6 +2,7 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+
  exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/todos')
@@ -67,11 +68,12 @@ const User = require('../models/User')
       return res.redirect('../signup')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+
   
     const user = new User({
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
   
     User.findOne({$or: [
