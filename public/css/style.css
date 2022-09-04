@@ -46,3 +46,20 @@ h3 {
 .displayNone {
   display:none;
 }
+
+.todoRow {
+    line-height: 40px;
+}
+
+.compIncomp {
+    margin-right: 5px;
+}
+
+
+.todoName {
+    font-weight: bold;
+}
+
+.todoDate {
+    font-style: italic;
+}
