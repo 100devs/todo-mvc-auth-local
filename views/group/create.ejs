@@ -1,0 +1,46 @@
+<%- include('../partials/head.ejs') %>
+
+
+
+
+
+  <form action="/login" method="post">
+    <p class="text-center h1 fw-bold">Create a group</p>
+    <!-- don't show this by default -->
+    <div class="alert hidden" id="formInfo"></div>
+
+    <div class="mb-3">
+      <label for="text" class="form-label">Group Name</label>
+      <input type="email" class="form-control" id="name" name="name" value="" aria-describedby="Group name" placeholder="Give it a name">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+<div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" />
+    </div>
+    <!--
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="remember" name="remember" />
+    <label class="form-check-label" for="remember">Remember me</label>
+  </div>
+  -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <p>
+      <a href="/signup" title="Register">Register</a>
+    </p>
+  </form>
+
+
+
+
+
+<%- include('../partials/footer.ejs') %>
+

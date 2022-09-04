@@ -100,8 +100,9 @@ function validateEmail(email) {
      * Display a message if error append before the form is submitted to the server
      * @params { string } classInfo : class to use with the error message ( alert-danger, alert-success, alert-info with bootstrap)
      * @params { string } message : Message to display to inform the user about what append
+     * @params { HtmlElement } button : button used to submit the form, disable it to now allow multiple form sending
      * */
-      const showInformation = (classInfo, message) => {
+      const showInformation = (classInfo, message, button = null) => {
 
         // show the message
         formInfo.classList.add(classInfo)
@@ -113,6 +114,8 @@ function validateEmail(email) {
             formInfo.classList.remove(classInfo);
             formInfo.classList.add('hidden');
            formInfo.textContent = ''
+           button.disabled = false;
+
                 }, 3000);
       }
 

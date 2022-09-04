@@ -5,8 +5,8 @@ module.exports = {
     })
     },
     createGroup: (req,res)=>{
-        res.render('index.ejs', {
-      title: 'Homepage'
+        res.render('group/create.ejs', {
+      title: 'Create a group'
     })
     },
 

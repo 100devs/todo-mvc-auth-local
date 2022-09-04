@@ -1,48 +1,40 @@
 <%- include('partials/head.ejs', {title:"Log In"}) %>
 
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-info"><%= el.msg %></div>
-        <% }) %>
-    <% } %>
+<%- includes('partials/forms/error.ejs') %>
 
-  <section class="loginPage">
+<section class="loginPage">
 
-    <form action="/login" method="post">
-                    <p class="text-center h1 fw-bold">Log in</p>
-                      <!-- don't show this by default -->
-                <div class="alert hidden" id="formInfo"></div>
+  <form action="/login" method="post">
+    <p class="text-center h1 fw-bold">Log in</p>
+    <!-- don't show this by default -->
+    <div class="alert hidden" id="formInfo"></div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password"  value="" placeholder="Password" />
-  </div>
-  <!--
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" />
+    </div>
+    <!--
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="remember" name="remember" />
     <label class="form-check-label" for="remember">Remember me</label>
   </div>
   -->
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <p>
-    <a href="/signup" title="Register">Register</a>
-  </p>
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <p>
+      <a href="/signup" title="Register">Register</a>
+    </p>
+  </form>
 </section>
 
 
 
-<!-- <script type="application/javascript" defer>
+<script type="application/javascript" defer>
+  /** some controls on client side before sending the form */
   const formEl = document.querySelector('form');
   // select by name.If we add a repeat password field, we don't need to take care of input[type="password"] and change the code
   const formInfo = document.querySelector('#formInfo');
@@ -51,34 +43,34 @@
   formEl.addEventListener('submit', (event) => {
 
     // get element here, so we get the value of the element on submit and not an page load
-  const email = document.querySelector('input[name=email]').value.trim();
-  const password = document.querySelector('input[name=password]').value.trim();
+    const email = document.querySelector('input[name=email]').value.trim();
+    const password = document.querySelector('input[name=password]').value.trim();
+    const btnSubmit = document.querySelector('button[type=submit]');
 
+    // don't send the form as if;
+    event.preventDefault();
+    btnSubmit.disabled = true;
+    // Check if a field is empty
+    if (validator.isEmpty(email) || validator.isEmpty(password)) {
+      showInformation('alert-danger', 'All fields are required', btnSubmit)
+      return false;
+    }
 
-      // don't send the form as if;
-      event.preventDefault();
+    // Validate the email address
+    if (!validator.isEmail(email)) {
+      showInformation('alert-danger', 'Please enter a valid email address.', btnSubmit)
+      return false;
+    }
 
-            // Check if a field is empty
-            if( validator.isEmpty(email) || validator.isEmpty(password) ) {
-                    showInformation('alert-danger','All fields are required')
-                    return false;
-            }
+    // if no passwport
+    if (!password) {
+      showInformation('alert-danger', 'Password cannot be blank.', btnSubmit);
+      return false;
+    }
 
-            // Validate the email address
-            if(!validator.isEmail(email)) {
-                showInformation('alert-danger','Please enter a valid email address.')
-                return false;
-            }
-
-          // if no passwport
-          if(!password) {
-              showInformation('alert-danger','Password cannot be blank.');
-              return false;
-          }
-
-        formEl.submit()
+    formEl.submit()
   })
-  </script>
+</script>
 
 
 <%- include('partials/footer.ejs') %>

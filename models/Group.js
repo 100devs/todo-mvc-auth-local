@@ -8,17 +8,13 @@ const Schema = mongoose.Schema;
  * completed: inform if the
  */
 const GroupSchema = Schema({
-  id: {
-    type: Schema.ObjectId,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
   },
   validated: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   adminId: {
     type: Schema.ObjectId,
@@ -34,7 +30,7 @@ const GroupSchema = Schema({
   },
   cityBased: {
     type:Boolean,
-    required: true
+    required: false
   },
   city: {
     type:String,
