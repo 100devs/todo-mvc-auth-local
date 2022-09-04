@@ -2,6 +2,7 @@
 
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
+
 try {
     const logo = document.querySelector('#logo')
     logo.addEventListener('mouseout', stopAnimateLogo)
@@ -51,7 +52,7 @@ function confirmDelete(event) {
 
 //change to handle deletes
 async function deleteTodo(){
-    const todoId = this.parentNode.parentNode.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('/blogPost/deleteTodo', {
             method: 'delete',   
