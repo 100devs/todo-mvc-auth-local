@@ -1,45 +1,17 @@
-# Introduction
+# Contactr
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app
+Contactr is a contact tracking App for job seekers that helps you create, keep track of, and grow your personal network. It is built using the MVC Architecture and implements authorization so people can sign up & add their personal list of contacts to the app.
 
----
+**Link to project:** http://www.google.com/
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+![alt tag](http://placecorgi.com/1200/650)
 
----
+## How It's Made:
 
-# Objectives
+**Tech used:** HTML, CSS, JavaScript, Express, MongoDB, Mongoose, Passport.js, bcrypt, Bootstrap
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+The back-end was build using Node.js and the Express framework to handle all routes and controller logic. We used EJS as our templating engine for the View, MongoDB & Mongoose for our database and Model logic, Passport.js to handle authentication, bcrypt to salt and hash user passwords, and Bootstrap to style the front-end.
 
----
+## Optimizations
 
-# Who is this for?
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install`
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value`
-  - PORT: 2121 (can be any port example: 3000)
-  - DB_STRING: `your database URI`
-
- ---
-
- Have fun testing and improving it! 😎
-
-Add new branch : Feat: Test
+## Lessons Learned:
