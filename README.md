@@ -49,7 +49,6 @@ To Start:
 - working on column
 - Finished / completed column
 - fancy home page https://www.figma.com/community/file/994611219185887302
-- fancy sign up page https://mui.com/material-ui/getting-started/templates/sign-up/
 - fancy todos page https://www.figma.com/community/file/892825410260715717
 - add another page to show archive of deleted/finished to dos
 - delete word to trashcan icon

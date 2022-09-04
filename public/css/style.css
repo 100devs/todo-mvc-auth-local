@@ -137,6 +137,7 @@ Login
     background-color: #204345;
     padding: 5px;
     width: 90px;
+    cursor: pointer;
 }
 
 .email, .password {
@@ -164,10 +165,12 @@ Sign Up
 *************************************************************************************************************************************/
 
 .signUpContainer {
-    margin: 20% auto;
-    padding: 20px;
+    margin: 20vh auto;
+    padding: 15px;
     height: 20%;
-    border: 1px solid red;
+    border: 1.5px solid #204345;
+    background-color: #e5eff0;
+    border-radius: 15px;
     width: 350px;
     height: 450px;
 }
@@ -177,13 +180,34 @@ Sign Up
 }
 
 .signUpContainer h2 {
-    font-size: 3rem;
+    font-size: 2.9rem;
     text-align: center;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 .signUpContainer .submitInput {
-    
+    margin-left: 68%;
+}
+
+.signUpBody {
+    background-image: url(../image/books.jpg);
+    background-repeat: repeat;
+    background-position: center cover;
+}
+
+.goToLogin h4 {
+    text-align: center;
+    font-size: 1.6rem;
+    padding-top: 10px;
+}
+
+a:link, a:visited {
+    color: #133031;
+    font-weight:600;
+}
+
+a:hover {
+    color: #3c6c6e;
 }
 
 /*************************************************************************************************************************************
