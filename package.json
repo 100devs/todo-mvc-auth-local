@@ -10,8 +10,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "async": "^3.2.4",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^8.6.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
@@ -20,8 +23,10 @@
     "mongodb": "^3.7.3",
     "mongoose": "^5.13.15",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.8",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
     "validator": "^13.7.0"
   },
   "devDependencies": {

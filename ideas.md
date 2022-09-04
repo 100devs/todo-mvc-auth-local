@@ -15,7 +15,7 @@ Login/Signup Pages - ejs/CSS (Emily)
 Index.ejs: (Emily)
 Write CSS for styling (Amanda, Priscilla)
 Embed audio into page (Amanda)
-Implement Christmas countdown (from API?) (Priscilla)
+Implement Christmas countdown (from API?) (Priscilla) // done
 
 ### Frontend Stretch Goals:
 If name is included, ask if user wants to add another gift
