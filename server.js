@@ -12,9 +12,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const cors = require('cors')
 
-// Config and routes
-// require dotenv before database connection so environment variable is accessible in other part of the app
-require('dotenv').config()
+require('dotenv').config({ path: './config/.env' })
 const PORT = process.env.PORT || 3000;
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
