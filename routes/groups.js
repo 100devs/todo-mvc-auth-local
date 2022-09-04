@@ -5,8 +5,6 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, groupsController.getGroups)
 
-router.get('/group/create', ensureAuth, groupsController.createGroup);
-
 router.post('/createGroup',ensureAuth, groupsController.createGroup)
 
 router.get('/createGroup',ensureAuth, groupsController.createGroup)

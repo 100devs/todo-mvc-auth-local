@@ -4,10 +4,13 @@
 
 <section class="loginPage">
 
-  <form action="/login" method="post">
-    <p class="text-center h1 fw-bold">Log in</p>
-    <!-- don't show this by default -->
-    <div class="alert hidden" id="formInfo"></div>
+
+<%- include('partials/forms/formHeader.ejs', {
+  action:"login",
+  method: "post"},
+  title="Log in") %>
+
+
 
 <%- include('partials/forms/input.ejs',
   {name: 'email', type: 'email', label:"Email address",

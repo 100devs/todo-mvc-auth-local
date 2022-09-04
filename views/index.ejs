@@ -1,7 +1,8 @@
 <%- include('partials/head.ejs', {title:"Home"}) %>
 
     <h1>Create Your VERY OWN Todolist!</h1>
+    <% if (loggedIn === false)  { %>
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
-
+    <% } %>
 <%- include('partials/footer.ejs') %>
