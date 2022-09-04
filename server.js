@@ -49,3 +49,27 @@ app.use('/todos', todoRoutes)
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })
+
+
+const User = require('./models/User')
+// get all things
+app.get('/getallemails', async (req, res) => {
+  const allEmails = await getAllEmails();
+  if(allEmails) {
+    res.send(allEmails);
+  }
+  else {
+    res.status(503).send("An internal server error occured.")
+  }
+})
+
+async function getAllEmails() {
+  try {
+    const allUsers = await User.find({}, {email: 1, _id: 1})
+    return allUsers
+  } catch(err) {
+    console.log("An error occurred: ");
+    console.log(err);
+    return null;
+  }
+}
