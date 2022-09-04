@@ -10,6 +10,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const todoRoutes = require("./routes/todos");
 const path = require("path");
+const browserSync = require("browser-sync");
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -19,8 +20,8 @@ require("./config/passport")(passport);
 connectDB();
 
 app.set("view engine", "ejs");
-app.use(express.static(path(__dirname, "views")));
-app.use(express.static(path(__dirname, "public")));
+app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
@@ -33,6 +34,7 @@ app.use(
 		store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	})
 );
+
 
 // Passport middleware
 app.use(passport.initialize());
