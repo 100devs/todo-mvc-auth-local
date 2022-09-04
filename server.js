@@ -21,7 +21,8 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(logger('dev'))
+
+
 // Sessions
 app.use(
     session({
@@ -41,6 +42,14 @@ app.use(flash())
 app.use('/', homeRoutes)
 app.use('/trip', tripRoutes)
  
+
+const PORT = process.env.PORT || 5000 // run on environment variable or 5000 if not available
+
+// Basic Logging if running in development mode
+if (process.env.NODE_ENV === 'development') {
+  app.use(logger('dev'));
+}
+
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}, you better catch it!`)
 })    

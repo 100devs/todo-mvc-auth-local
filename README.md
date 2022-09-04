@@ -1,45 +1,66 @@
-# Introduction
+# VACATION PLANNER
+- Insert Picture here once done
+---
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+## About the App
+
+A Simple App to plan out your vacations with your family and friends.
+
 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## Objectives
+This project is a team assignment for the [100 Devs](https://leonnoel.com/100devs/) agency training program.
+Users will be able to sign up using their chosen method and enjoy making vacation plans with their family friends.
+
+- The main goal of this app was to build a deeper understanding of the MVC paradigm and web app authentication.
+- This app was built with MongoDB, Express, and Node, React.js can be added at a later date.
+- Ultimately we want to build something that we can all use on our next family trips, and we hope you will be able do the same :).
+
+---
+## How It's Made
+ - Will take care of before class Tuesday
 
 ---
 
-# Objectives
+### Dependencies
 
-- It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [connect-mongo](https://www.npmjs.com/package/connect-mongo)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [ejs](https://www.npmjs.com/package/ejs)
+- [express](https://www.npmjs.com/package/express)
+- [express-flash](https://www.npmjs.com/package/express-flash)
+- [express-session](https://www.npmjs.com/package/express-session)
+- [mongodb](https://www.npmjs.com/package/mongodb)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [morgan](https://www.npmjs.com/package/morgan)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [passport](https://www.npmjs.com/package/passport)
+- [passport-local](https://www.npmjs.com/package/passport-local)
+- [validator](https://www.npmjs.com/package/validator)
 
 ---
+### Dev Instructions
 
-# Things to add
+1. ``npm install`` or `npm i` to install all the updated dependencies
+2. Create your environment variables in `config/.env` (A sample configuration will be provided)
+3. Add the following as `key: value` pairs:
+      -  PORT: 2121 (can be any port example: 3000) 
+      -  DB_STRING: `your MongoDB database URI` 
+4. `npm run dev` to run in development mode with `nodemon` or `npm start` to run in production mode
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
 
-testing 1 2 3
 
+--- 
+#### Project Team
+[kolourr](https://github.com/kolourr) 
+[THREEhundo](https://github.com/THREEhundo)
+[al.exe](https://github.com/alEXE-tech) 
+[jenanemone](https://github.com/jenanemone)
+[sanzous](https://github.com/sanzous)
+[mari](https://github.com/Mariquisha)
+[sergg](https://github.com/Srgiomndz)
+
+---
+### Have fun testing and improving it! 😎
