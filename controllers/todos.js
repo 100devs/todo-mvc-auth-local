@@ -5,7 +5,7 @@ module.exports = {
     // console.log(req.user)
     try {
       const todoItems = await Todo.find({ userId: req.user.id }).sort({
-        todo: 1,
+        giftFor: 1,
       });
       const itemsLeft = await Todo.countDocuments({
         userId: req.user.id,
