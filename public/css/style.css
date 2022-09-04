@@ -24,25 +24,44 @@ textarea {
     color: goldenrod;
  }
 
+ /* account header */
+ #account {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: end;
+ }
+
  #backButton {
     top: 0;
     left: 0;
     position: absolute;
-    margin: 1em;
+    margin: 1em .5em;
     font-size: 2em;
  }
 
  #actionsContainer {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
+    position: relative;
  }
+
+ #actionsContainer #del {
+    right: 0;
+    position: absolute;
+    background-color: gray;
+    width: 6em;
+
+ }
+ #actionsContainer #del:hover {
+    background-color: red;
+ }
+ 
  #actionsContainer input {
     width: 10em;
  }
- #actionsContainer input #del {
-    background-color: darkred !important;
- }
+
  input, textarea {
     background-color: rgb(92,92,92);
     color: white;
@@ -134,7 +153,7 @@ textarea {
     text-shadow: 0 0 5px rgba(255,255,255,0.5);
  }
 
-/* CSS */
+/* button base */
 .button-18 {
   align-items: center;
   background-color: rgb(110,220,200);
@@ -182,6 +201,60 @@ label {
   cursor: not-allowed;
   background: rgba(0, 0, 0, .08);
   color: rgba(0, 0, 0, .3);
+}
+
+/*  post titles */
+h4 {
+    font-size: 1.2em;
+    margin: .5em;
+}
+/* each post */
+li {
+    list-style: none;
+    background-color: rgb(22,27,34)	;
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: .5em;
+    margin: 1em;
+    position: relative;
+}
+
+li > .title {
+    color: white;
+    margin: 2em .2em 0;
+}
+
+li .body {
+    margin: 1em 2em 0;
+    font-size: .8em;
+    color: slategray;
+}
+li .gitHub {
+    margin: 1em 0;
+    font-size: .6em;
+}
+
+li .date {
+    top: 5px;
+    right: 10px;
+    position: absolute;
+    font-size: .5em;
+}
+
+li .mood {
+    top: 4em;
+    right: 10px;
+    position: absolute;
+    font-size: .5em;
+}
+li .dueDate {
+    top: 1em;
+    right: 10px;
+    position: absolute;
+    font-size: .8em;
+}
+li form {
+    width: 100%;
 }
 
 ::placeholder {

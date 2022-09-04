@@ -12,22 +12,22 @@
     <header>
         <div id='account'>
             <h2 id="username">Hi, <%= user.userName %>!</h2id>
-            <a href="/logout">Logout</a>
+            <a href="/logout"><button class='button-18'>Log out</button></a>
         </div>
     </header>
     <h1>Journal</h1>
     <a id='newPost' href="/blogPost/createBlogPost"><i class="fa-solid fa-circle-plus"></i> Create New Post</a>
 
     <ul>
-    <h2><%= user.userName %> has <%= left %> journal entries logged.</h2>
+    <h2>You have logged <%= left %> journal entries.</h2>
     <% BlogPost.forEach( items => { %>
             <li class='todoItem' data-id='<%=items._id%>'>
-                <div class='title'> <%= items.title %>  </div> 
+                <div class='title'> <h4><%= items.title %></h4>  </div> 
                 <div class='body'> <%= items.body %>  </div>
-                <div class='gitHub'> <%= items.gitHub %>  </div>
-                <div class='date'> <%= items.date %>  </div>
-                <div class='dueDate'> <%= items.dueDate %>  </div>
-                <div class="mood"> <%= items.mood %> </div>
+                <div class='gitHub'><i class="fa-brands fa-github"></i> <a href="<%= items.gitHub %>"><%= items.gitHub %></a>  </div>
+                <div class='date'> Posted on <%= new Date(items.date).toLocaleString('en-us') %>  </div>
+                <div class='dueDate'> Due <%= items.dueDate %>  </div>
+                <div class="mood">Mood: <%= items.mood %> </div>
                 <div id="actionsContainer">
                     <form action="/blogPost/edit/<%= items._id %>" action="GET">
                         <input type="submit" class="button-18" value="Edit">
