@@ -16,6 +16,7 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
@@ -29,7 +30,7 @@
       <div class="container">
         <div class="row">
           <div class="d-flex justify-content-center">
-            <div class="col col-sm-7 col-md-5 col-lg-3">
+            <div class="col col-8 col-sm-7 col-md-5 col-lg-3">
               <img
                 class="w-100 mx-auto d-block"
                 src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/Contactr-logos_transparent.png?raw=true"
@@ -38,7 +39,7 @@
             </div>
           </div>
         </div>
-        <h1 class="h3 font-weight-normal">Please sign in</h1>
+        <h1 class="h3 font-weight-normal">Please log in</h1>
         <label for="inputEmail" class="sr-only mt-2">Email address</label>
         <div class="d-flex justify-content-center m-2">
           <div class="row">
@@ -72,14 +73,14 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block m-2" type="submit">
-          Sign in
+          Log In
         </button>
         <a
           class="btn btn-lg btn-success btn-block m-2"
           href="/signup"
           role="button"
         >
-          Signup</a
+          Sign up</a
         >
         <p class="m-4 text-muted">© 2022</p>
       </div>
