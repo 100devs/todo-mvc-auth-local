@@ -1,3 +1,5 @@
+
+
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
@@ -15,10 +17,10 @@ Array.from(todoComplete).forEach((el)=>{
 })
 
 async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
-            method: 'delete',
+        const response = await fetch('blogPost/deleteTodo', {
+            method: 'delete',   
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
