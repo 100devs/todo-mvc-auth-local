@@ -8,7 +8,7 @@
     <title>DevDays</title>
 </head>
 <body>
-    <h1>DevDays</h1>
+    <img id="biglogo" src="images/staticlogo.png" onmouseover="animateLogo" onmouseout="stopAnimateLogo">
     <h2 id="loginTitle">Blog about your Developer Days!</h2>
     <div id="loginPane">
         <% if (locals.messages.errors) { %>
@@ -31,5 +31,6 @@
         <a href='/forgotPassword'>Forgot Password</a>
     </div>
     </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

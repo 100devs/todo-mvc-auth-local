@@ -209,6 +209,17 @@ h4 {
     font-size: 1.2em;
     margin: .5em;
 }
+#logo, #biglogo {
+   mix-blend-mode: lighten;
+}
+#logo {
+    width: 100px;
+    height: 100px;
+}
+#biglogo {
+    width: 300px;
+    height: 300px;
+}
 /* each post */
 li {
     list-style: none;
@@ -284,6 +295,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    width: 90vw;
 }
 #account * {
     font-size: .5rem;
