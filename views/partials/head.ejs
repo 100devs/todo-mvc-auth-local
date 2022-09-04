@@ -20,9 +20,8 @@
         <%= title %>
     </title>
 </head>
-
-<body>
-    <!--[if lt IE 7]>
+    <body>
+        <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Responsive navbar-->
@@ -38,8 +37,7 @@
                     <li class="nav-item"><a class="nav-link" href="/todos">Todos</a></li>
                     <% if (typeof user !=='undefined' && loggedin) { %>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -51,7 +49,7 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                         <% } else { %>
-                            <li class="nav-item"><a class="nav-link" href="/login" title="Sign In">Sign In</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/login" title="Sign In">Sign In</a></li>
                             <li class="nav-item"><a class="nav-link" href="/signup" titlz="Sign Up">Sign Up</a></li>
                             <% } %>
                 </ul>

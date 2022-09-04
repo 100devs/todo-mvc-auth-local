@@ -19,6 +19,7 @@ specifiers:
   passport: ^0.6.0
   passport-local: ^1.0.0
   passport-local-mongoose: ^7.1.2
+  prettier: ^2.7.1
   validator: ^13.7.0
 
 dependencies:
@@ -40,6 +41,7 @@ dependencies:
   passport: 0.6.0
   passport-local: 1.0.0
   passport-local-mongoose: 7.1.2
+  prettier: 2.7.1
   validator: 13.7.0
 
 packages:
@@ -1098,6 +1100,12 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: false
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: false
 
   /proxy-addr/2.0.7:
