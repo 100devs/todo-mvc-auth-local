@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Team SuperAwesome Todolist</title>
 </head>
-<body>
+<body class="grey darken-3">
+    <header>
+        <div class="container">
+            <div class="row">
+                <h3>Login</h3>
+            </div>
+        </div>
+    </header>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -20,11 +27,45 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <div class="card white darken-1">
+                      <div class="card-content black-text">
+                        <span class="card-title">Login</span>
+                        <form action="/login" method="POST">
+                        
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="email" type="email" name="email" >
+                              <label for="email">Email</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="password" type="password" name="password" >
+                              <label for="password">Password</label>
+                            </div>
+                          </div>
+                          <input type="submit">
+                      </form>
+                      </div>
+                      
+                    </div>
+            </div>
+            
+        </div>
+        </div>
+    </main>
+    
+    <footer class="page-footer green darken-3">   
+        <div class="footer-copyright green darken-3">
+          <div class="container center-align">
+            <span>&#169; Made by jennaly, kbventures, geordzNZ, VicChai, Hygmod & sconnycodes </span>
+          </div>
+        </div>
+    </footer>
 
     <script type="text/javascript" src="js/materialize.min.js"> </script>
   <script type="text/javascript" src="js/main.js"></script>
