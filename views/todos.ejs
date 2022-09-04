@@ -1,5 +1,5 @@
 <%- include('partials/head.ejs', {title:"Todos"}) %>
-<% const priorityColors=['#aaaaaa', '#3b9614' , '#c9c938' , '#8a1207' ] ; %>
+<% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
 <div class="row pt-5">
     <form class="addTodo" action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
@@ -16,8 +16,8 @@
                 <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
                 <%=el.todo %>
             </label>
-            <div class='priority' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
-                    style='color:<%=priorityColors[el.priority] %>'></i> </div>
+            <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"></i>
+            </div>
             <div class='del'> <i class="fa-solid fa-trash"></i> </div>
         </div>
         

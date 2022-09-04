@@ -44,11 +44,29 @@ h1{
     position: relative;
 }
 
+/******************************
+** Todo page **/
+
 .priority {
     position: absolute;
     right: 50px;
      top: 10px;
 }
+.priority.none {
+color: #aaaaaa;
+}
+.priority.low {
+color: #3b9614;
+}
+
+.priority.med {
+   color: #c9c938;
+
+}
+.priority.high {
+ color:#8a1207;
+}
+
 
 .del {
     position: absolute;
