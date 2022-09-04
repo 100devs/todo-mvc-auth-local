@@ -41,6 +41,12 @@ function stopAnimateLogo(event) {
     imageElement.src = '/images/staticlogo.png'
 }
 
+function confirmDelete(event) {
+    console.log('are you sure?')
+    const dialog = confirm("Are you sure you want to delete this post?")
+    return dialog
+}
+
 //change to handle deletes
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id

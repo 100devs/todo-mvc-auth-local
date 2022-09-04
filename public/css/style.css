@@ -211,6 +211,7 @@ h4 {
 }
 #logo, #biglogo {
    mix-blend-mode: lighten;
+   transition: all .3s ease-in-out;
 }
 #logo {
     width: 100px;
