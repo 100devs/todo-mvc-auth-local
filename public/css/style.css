@@ -9,10 +9,6 @@ nav a:hover {
 section {
     margin: 20px;
 }
-
-h1{
-    color: red;
-}
 .completed{
     text-decoration: line-through;
     color: gray;
