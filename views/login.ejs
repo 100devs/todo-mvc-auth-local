@@ -1,6 +1,6 @@
 <%- include('partials/head.ejs', {title:"Log In"}) %>
 
-<%- includes('partials/forms/error.ejs') %>
+<%- include('partials/forms/error.ejs') %>
 
 <section class="loginPage">
 
@@ -9,15 +9,19 @@
     <!-- don't show this by default -->
     <div class="alert hidden" id="formInfo"></div>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" value="" aria-describedby="emailHelp" placeholder="Email address">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" />
-    </div>
+<%- include('partials/forms/input.ejs',
+  {name: 'email', type: 'email', label:"Email address",
+   inputInfo: "We'll never share your email with anyone else"})
+%>
+
+<%- include('partials/forms/input.ejs',
+  {
+      name: 'password',
+      type: 'password',
+      label:"Password",
+      parentClass: "mb-3"
+      })
+%>
     <!--
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="remember" name="remember" />

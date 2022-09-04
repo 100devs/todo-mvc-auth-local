@@ -13,44 +13,36 @@
               <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
               <form class="mx-1 mx-md-4" action="/signup" method="POST">
-                  <%- includes('partials/forms/error.ejs') %>
+                  <%- include('partials/forms/error.ejs') %>
 
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                  <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" aria-label="Username" />
-                    <label class="form-label" for="username">Your Name</label>
-                  </div>
-                </div>
 
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                  <div class="form-outline flex-fill mb-0">
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" aria-label="Your email" />
-                    <label class="form-label" for="form3Example3c">Your Email</label>
-                  </div>
-                </div>
+                <%- include('partials/forms/inputWithIcons.ejs',
+                  {name: 'username', type: 'text', label:"Your Name",
+                    faIcon: 'fas fa-user',
+                    parentClass: 'mb-4'}) %>
 
-                <div class="d-flex flex-row align-items-center mb-0">
-                  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                  <div class="form-outline flex-fill mb-0">
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" />
-                    <label class="form-label" for="password">Password</label>
-                  </div>
-                </div>
+                <%- include('partials/forms/inputWithIcons.ejs',
+                  {name: 'email', type: 'email', label:"Your Email",
+                    faIcon: 'fas fa-envelope',
+                    parentClass: 'mb-4'}) %>
+
+                <%- include('partials/forms/inputWithIcons.ejs',
+                  {name: 'password', type: 'password', label:"Password",
+                    faIcon: 'fas fa-lock', placeholder: 'Enter your password',
+                    parentClass: 'mb-1'}) %>
+
                 <div class="d-flex flex-row align-items-center mb-4 charlong">
                   <i class="fas fa-lg me-3 fa-fw"></i>
                   <div class="form-outline flex-fill mb-0">
                     Password is at least 8 characters long.
                   </div>
                 </div>
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                  <div class="form-outline flex-fill mb-0">
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-control" />
-                    <label class="form-label" for="confirmPassword">Repeat your password</label>
-                  </div>
-                </div>
+
+                <%- include('partials/forms/inputWithIcons.ejs',
+                  {name: 'confirmPassword', type: 'password', label:"Repeat your Password",
+                    faIcon: 'fas fa-key', placeholder: 'Confirm Password',
+                    parentClass: 'mb-4'}) %>
+
 
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="termsO" name="terms" />
