@@ -3,11 +3,11 @@
 html {
     font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
     background-color: rgb(33	35	38	);
-    color: white;
+    color: rgb(110,220,200);
     font-size: 1.5em;
 }
  a {
-    color: gold;
+    color: rgb(110,220,200);
     text-decoration: none;
  }
  body {
@@ -25,11 +25,12 @@ textarea {
  }
 
  input, textarea {
-    background-color: slategray;
+    background-color: rgb(92,92,92);
     color: white;
     border-color: none;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 20px;
  }
  #buttons {
     margin-top: 1em;
@@ -42,7 +43,7 @@ textarea {
     
  }
  #clear {
-    background-color: gray;
+    background-color: rgb(92,92,92);
  }
  #clear:hover {
     background-color: rgba(0, 0, 0, .08);
@@ -53,7 +54,7 @@ textarea {
 /* CSS */
 .button-18 {
   align-items: center;
-  background-color: #0A66C2;
+  background-color: rgb(110,220,200);
   border: 0;
   border-radius: 100px;
   box-sizing: border-box;
@@ -82,7 +83,7 @@ textarea {
 
 .button-18:hover,
 .button-18:focus { 
-  background-color: #16437E;
+  background-color: gold;
   color: #ffffff;
 }
 
@@ -110,7 +111,7 @@ label {
  }
 
  h1 {
-    color: gold;
+    color: rgb(110,220,200);
     text-align: center;
  }
  button {
@@ -141,4 +142,14 @@ header {
 }
 .not {
     text-decoration: underline;
+}
+
+
+#login {
+   display: flex;
+   justify-content: center;
+}
+#signup {
+   display: flex;
+   justify-content: center;
 }
