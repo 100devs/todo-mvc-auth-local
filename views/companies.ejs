@@ -11,9 +11,10 @@
     <h1>List of companies</h1>
     
     
-        <!-- <ul>
-        <% todos.forEach( el => { %>
-                <li class='todoItem PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+        <!-- previous leon example
+            <ul>
+        <% companies.forEach( el => { %>
+                <li class='todoItem PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> <%= el.PhoneNumber %></span>
                     <span class='del'> Delete </span>
                 </li>
@@ -27,30 +28,30 @@
             </tr>
             <tr >
                <td>
-                <% todos.forEach( el => { %>
-                    <li style="list-style: none;" class='todoItem' class='todoItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> </span>
+                <% companies.forEach( el => { %>
+                    <li style="list-style: none;" class='companyItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.name %> </span>
                         
                     </li><% }) %>    
                 </td>   
                 
                 
-               <td><% todos.forEach( el => { %>
-                <li style="list-style: none;"" class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.PhoneNumber %></span>
+               <td><% companies.forEach( el => { %>
+                <li style="list-style: none;"" class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.phone %></span>
                 <!-- <span class='del'> Delete </span> -->
                     
                 </li><% }) %></td>
 
                 <!-- delete button -->
                 <td> 
-                    <% todos.forEach( el => { %> 
+                    <% companies.forEach( el => { %> 
 
                         <li style="list-style: none;">
-                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
-                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                                <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
                                 
-                                <span class='del'> Delete </span>
+                                <span class='del <%= el.completed === true ? 'completed' : 'not'%>'> Delete </span>
 
                                 </button>
                         </li>
@@ -60,13 +61,13 @@
 
                 <!-- edit button: Edit button will need work on the backend, a new page or pop up to edit any info we put in -->
                 <td> 
-                    <% todos.forEach( el => { %> 
+                    <% companies.forEach( el => { %> 
 
                         <li style="list-style: none;">
-                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
-                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                                <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
                                 
-                                <span class='edit'> Edit </span>
+                                <span class='edit <%= el.completed === true ? 'completed' : 'not'%>'> Edit </span>
 
                                 </button>
                         </li>
@@ -84,9 +85,9 @@
 
     <h2><%= user.userName %> has <%= left %> companies left to contact</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Company Name" name='todoItem'>
-        <input type="text" placeholder="Phone Number" name='PhoneNumber'>
+    <form action="/companies/createCompany" method='POST'>
+        <input type="text" placeholder="Company Name" name='companyName'>
+        <input type="text" placeholder="Phone Number" name='phoneNumber'>
         <input type="submit">
     </form>
 

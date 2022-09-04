@@ -9,7 +9,7 @@ const flash = require('express-flash');
 const logger = require('morgan');
 const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
-const todoRoutes = require('./routes/todos');
+const companiesRoutes = require('./routes/companies');
 
 require('dotenv').config({ path: './config/.env' });
 
@@ -42,7 +42,7 @@ app.use(flash());
 
 //home page => mainroute; find in routes folder
 app.use('/', mainRoutes);
-app.use('/todos', todoRoutes);
+app.use('/companies', companiesRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log('Server is running, you better catch it!');
