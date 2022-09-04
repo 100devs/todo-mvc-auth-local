@@ -12,8 +12,8 @@
     <ul>
     <% groceries.forEach( el => { %>
             <li class='groceryItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.grocery %></span>
                 <span class="itemNumber"><%=el.quantity %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.grocery %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
