@@ -99,6 +99,10 @@ INDEX.EJS
   transform: translate3d(0, 2px, 0);
 }
 
+.button:hover{
+  opacity: 0.5;
+}
+
 /* 
 ===========
 SIGNUP.EJS
@@ -150,7 +154,7 @@ TODOS.EJS
     width: 50%;
     margin: 1% 45% 1% 25%;
     background-color: rgb(255, 255, 255);
-    /* border: 2px solid green; */
+    /* outline: 2px solid pink; */
     /* border-radius: 3%; */
     padding: 1% 2% 2% 2%;
   }
