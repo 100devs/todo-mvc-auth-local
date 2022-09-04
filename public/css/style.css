@@ -134,6 +134,7 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden;
   -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
   backface-visibility: hidden;
   overflow: hidden;
   border-radius: 16;
