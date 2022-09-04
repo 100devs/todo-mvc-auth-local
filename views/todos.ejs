@@ -22,7 +22,7 @@
                 <li class='todoItem collection-item ' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%> '><%= el.todo %>  </span>
                     
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= moment(el.deadline).format('YYYY-MM-DD') %><i class="material-icons
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= moment(el.deadline).format('YYYY-MMM-DD') %><i class="material-icons
                         markComplete iconVertical <%= el.completed === true ? 'completed' : 'not'%>">check</i></span>
                     
                     <span class='del right btn red'> Delete </span>
