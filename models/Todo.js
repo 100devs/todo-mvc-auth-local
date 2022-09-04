@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const TodoSchema = new mongoose.Schema({
   todo: {
@@ -11,11 +11,11 @@ const TodoSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required: true
+    required: true,
   },
-  categories: {
-    type: Array
-  }
-})
+  category: {
+    type: String,
+  },
+});
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model("Todo", TodoSchema);
