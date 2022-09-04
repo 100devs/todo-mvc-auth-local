@@ -5,10 +5,10 @@ module.exports = {
     console.log(req);
     try {
       // const todoItems = await Sendfeedback.find({userId:req.user.id})
-      // const sendfeedback.find({})
+      const sendfeedbackArr = await Sendfeedback.find({})
       // const itemsLeft = await Sendfeedback.countDocuments({userId:req.user.id,completed: false})
       // res.render('sendfeedback.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
-      res.render("sendfeedback.ejs", { test: "Hello" });
+      res.render("sendfeedback.ejs", { test: sendfeedbackArr });
       // res.send({Test: "Hello"})
     } catch (err) {
       console.log(err);
@@ -24,7 +24,7 @@ module.exports = {
         message: req.body.message,
       });
       console.log("Sendfeedback has been added!");
-      res.redirect("/sendfeedback");
+      res.redirect("/");
     } catch (err) {
       console.log(err);
     }
