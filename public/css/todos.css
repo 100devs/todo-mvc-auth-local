@@ -1,6 +1,3 @@
-li {
-    outline: thin solid red;
-}
 .flex{
     display: flex;
     flex-direction: column;
