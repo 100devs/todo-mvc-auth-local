@@ -18,10 +18,18 @@
                     <span>Summary</span>
                 </li>
                 <% for(var i = 0; i < data.length; i++) {%>
-                <li class="results" data-id='<%=data[i]._id%>'>
-                    <span><img src="<%= data[i].show.image.medium %>" alt="Movie poster"></span>
+                <li class="results" data-id='<%=data[i].show.id%>'>
+
+                        
+
+                    <span><img src="<%= data[i].show.image.medium %>" alt=""></span>
                     <span><%= data[i].show.name %></a></span>
                     <span class="genres"><%= data[i].show.genres[0] %>, <%= data[i].show.genres[1] %></span> 
+                    <form action="/todos/addToWatchList" method="post">
+                        <input name="showId" value="<%=data[i].show.id%>" type="text">
+                        <input type="submit" value="Add to list">
+                    </form>
+                    
                 </li>
                 <% } %>
             </ul>

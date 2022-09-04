@@ -1,12 +1,8 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const WatchListSchema = new mongoose.Schema({
+  movieId: {
     type: String,
-    required: true,
-  },
-  completed: {
-    type: Boolean,
     required: true,
   },
   userId: {
@@ -15,4 +11,4 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Todo', WatchListSchema)
