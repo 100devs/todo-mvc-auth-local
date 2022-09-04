@@ -237,7 +237,7 @@ class Calendar {
                                 <a href="#" title="Remove note" class="removeNote animate del" onclick="deleteTodo(this.parentNode.dataset.id)">x</a>`
 
                 if(x.startTime != undefined) {
-                    li.innerHtml += `<span style="display: block">${x.startTime} - ${x.endTime}</span>`
+                    li.innerHTML += `<span style="display: block">${x.startTime} - ${x.endTime}</span>`
                 }
 
                 this.taskList.appendChild(li);
