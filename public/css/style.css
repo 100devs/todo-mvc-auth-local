@@ -8,3 +8,7 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.hidden {
+    display: none;
+}
