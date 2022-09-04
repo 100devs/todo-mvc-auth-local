@@ -7,6 +7,10 @@ const { ensureAuth } = require('../middleware/auth')
 // @route           GET /cards
 router.get('/', ensureAuth, cardsController.getDashboard)
 
+// @description     Show cards homepage
+// @route           GET /cards
+router.get('/decks/:id', ensureAuth, cardsController.getDeck)
+
 // @description     Show add page
 // @route           GET /cards/addCard
 router.get('/addCard', ensureAuth, cardsController.getAddCard)

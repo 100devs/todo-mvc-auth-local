@@ -15,6 +15,20 @@ module.exports = {
       res.render('error/500')
     }
   },
+  getDeck: async (req,res) => {
+    console.log(req.user)
+    try{
+      // get all of the cards in the deck
+      const cards = await Card.find({ deck: req.params.id }).lean()
+      // get all of the decks the user has
+      const decks = await Deck.find({ user: req.user.id }).lean()
+      // send all information over to the view
+      res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
+    }catch(err){
+      console.error(err)
+      res.render('error/500')
+    }
+  },
   getAddCard: (req,res) => {
     res.render('add.ejs')
   },
