@@ -47,14 +47,6 @@
 </header>
 
 <body class="">
-  <!-- <ul>
-        <% todos.forEach( el => { %>
-                <li class='todoItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                    <span class='del'> Delete </span>
-                </li>
-        <% }) %>    
-    </ul> -->
 
   <div class="fb-box-shadow rounded-corners p-4 m-4 text-center text-md-start">
     <!-- Add a Company -->
@@ -65,7 +57,7 @@
         </div>
       </div>
     </div>
-    <form action="/todos/createTodo" method="POST">
+    <form action="/companies/addCompany" method="POST">
       <!-- Job Description -->
       <div class="container align-items-center mx-auto">
         <div class="row">

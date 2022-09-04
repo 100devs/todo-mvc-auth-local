@@ -32,8 +32,8 @@ const CompanySchema = new mongoose.Schema({
   },
   comments: String,
   userId: {
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   },
 })
 
