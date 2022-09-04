@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const WatchListSchema = new mongoose.Schema({
-  movieId: {
+  tvShowName: {
+    type: String,
+    required: true,
+  },
+  tvShowId: {
     type: String,
     required: true,
   },
@@ -11,4 +15,4 @@ const WatchListSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', WatchListSchema)
+module.exports = mongoose.model('WatchList', WatchListSchema)
