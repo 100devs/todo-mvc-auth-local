@@ -29,6 +29,7 @@ module.exports = {
         console.log(req.user)
         try{
             await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id})
+            // stops the browser from constantly loading.
             res.status(204).send()
         } catch(error){
             console.error(error)
@@ -65,7 +66,7 @@ module.exports = {
             console.log(err)
         }
     },
-    deleteTodo: async (req, res)=>{
+    deleteShow: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
