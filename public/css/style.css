@@ -68,3 +68,35 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* greenwindbreaker button start */
+.fit{
+  /* margin: 0.5rem 1rem 2rem -4.65rem;
+  width: 390px; */
+  width: 100%;
+   background-color: #1D1D1D ; 
+  /* background-color: #20217D; */
+  height: 100%;
+}
+#border-override{
+  /* top:45%; */
+  border-top: 2px solid #1D1D1D;
+}
+.right-button-place{
+  position: relative;
+  /* left: 175px; */
+  left: 190px; /*good for icons only*/
+}
+.left-button-place{
+  position: relative;
+  right: 190px; /*good for icons only*/
+}
+.corner-right-buttons{
+  position: relative;
+  left: 165px;
+  top: 185px;
+}
+.button-off-card{
+  position: relative;
+}
+/* greenwindbreaker button end */
