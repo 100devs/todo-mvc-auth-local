@@ -39,6 +39,26 @@ h1{
     pointer-events: none;
 }
 
+.todoItem {
+    width: 90%;
+    position: relative;
+}
+
+.priority {
+    position: absolute;
+    right: 50px;
+     top: 10px;
+}
+
+.del {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+.addTodo {
+    display: flex;
+    justify-content: center;
+}
 /******************************
 ** Signup page **/
 .signup .form-label {

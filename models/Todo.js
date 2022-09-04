@@ -26,10 +26,19 @@ const TodoSchema = new mongoose.Schema({
   shared: {
     type: Boolean,
     required: true,
+    default: false
   },
   completedBy: {
        type: String,
     required: false
+  },
+  priority: {
+    type: Number,
+    enum: [0, 1, 2, 3],
+    default: 0
+  },
+  tags: {
+    type: [String]
   }
 })
 

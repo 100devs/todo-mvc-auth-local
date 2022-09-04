@@ -1,22 +1,55 @@
-<%- include('partials/head.ejs') %>
-
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>
-    </ul>
-
-    <h2><%= user.username %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
+<%- include('partials/head.ejs', {title:"Todos"}) %>
+<% const priorityColors=['#aaaaaa', '#3b9614' , '#c9c938' , '#8a1207' ] ; %>
+<div class="row pt-5">
+    <form class="addTodo" action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
+</div>
+<div class="row pb-5">
+    <div class="col-sm">
+        <h1 class="my-3">Todos</h1>
+        <div class="list-group mb-3">
+    <% incomplete.forEach( el=> { %>
+        <div class="list-group-item todoItem incomplete" data-id='<%=el._id%>'>
+            <label class="w-75" class="not">
+                <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
+                <%=el.todo %>
+            </label>
+            <div class='priority' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
+                    style='color:<%=priorityColors[el.priority] %>'></i> </div>
+            <div class='del'> <i class="fa-solid fa-trash"></i> </div>
+        </div>
+        
+        <% }) %>
+            </div>
 
-    <a href="/logout">Logout</a>
 
+    <h2>
+        <%= user.userName %> has <%= incomplete.length %>
+                <%= incomplete.length===1 ? "thing" : "things" %> left to do.
+    </h2>
+            </div>
+            <div class="col-sm">
+                <h1 class="my-3">Completed</h1>
+            
+            
+                <div class="list-group mb-3">
+                    <% complete.forEach( el=> { %>
+                        <div class="list-group-item todoItem complete" data-id='<%=el._id%>'>
+                            <label class="completed">
+                                <input class="form-check-input me-1" type="checkbox" value="" checked autocomplete="off">
+                                <%=el.todo %>
+                            </label>
+                        </div>
+                        
+                        <% }) %>
+                            </div>
+
+                <h2>
+                    <%= user.userName %> has completed <%= complete.length %>
+                            <%= complete.length===1 ? "thing" : "things" %>.
+                </h2>
+    </div>
+    </div>
 <%- include('partials/footer.ejs') %>

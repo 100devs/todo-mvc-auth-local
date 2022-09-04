@@ -1,17 +1,19 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const priorityBtn = document.querySelectorAll('.priority')
+const todoItem = document.querySelectorAll('.todoItem.incomplete')
+const todoComplete = document.querySelectorAll('.todoItem.complete')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
+priorityBtn.forEach(el => el.addEventListener('click', changePriority))
 
 Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
+    el.addEventListener('change', markComplete)
 })
 
 Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
+    el.addEventListener('change', markIncomplete)
 })
 
 async function deleteTodo(){
@@ -33,9 +35,27 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
+    const todoId = this.dataset.id;
+    try {
         const response = await fetch('todos/markComplete', {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function markIncomplete() {
+    const todoId = this.dataset.id;
+    try{
+        const response = await fetch('todos/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -50,20 +70,22 @@ async function markComplete(){
     }
 }
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markIncomplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
+async function changePriority() {
+    const todoId = this.parentNode.dataset.id;
+    const priority = (Number(this.dataset.priority) + 1) % 4;
+    try {
+        const response = await fetch('todos/priority', {
+            method: 'post',
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': todoId,
+                'priority': priority
             })
         })
         const data = await response.json()
         console.log(data)
         location.reload()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
