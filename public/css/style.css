@@ -50,6 +50,9 @@ section {
 .todoItem label {
     font-size: 1.3rem;
 }
+.todoItem i {
+    cursor: pointer;
+}
 .priority {
     position: absolute;
     right: 50px;
@@ -79,11 +82,17 @@ color: #3b9614;
     display: flex;
     justify-content: center;
 }
+.addTag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .tags  {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    height: 40px;
 }
 .tag {
     border: 1px solid #6c92b8;
@@ -93,7 +102,7 @@ color: #3b9614;
     padding: 0 5px;
 }
 .tag:hover {
-    cursor: default; 
+    cursor: pointer; 
 }
 /******************************
 ** Signup page **/

@@ -23,13 +23,20 @@
 
             
                 <div class="tags mt-1">
+<div class="addTag">
+    <i class="fa-solid fa-plus" title="Add tag"></i>
+    <form style="display:none" action="/todos/addTag" method="post">
+        <input class="form-control" type="text" name="tag" placeholder="Add tag" autocomplete="off" />
+        <input type="hidden" name="id" value="<%=el._id%>" />
+    </form>
+</div>
                     <% el.tags.forEach( tag=> { %>
+                            
                         <div class="tag">
                             <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
                             <%=tag%>
                         </div>
                         <%}) %>
-                            <i class="fa-solid fa-plus" title="Add tag"></i>
             
                 </div>
     
