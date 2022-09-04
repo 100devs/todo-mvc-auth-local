@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<body class="signUpBody">
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
     <main class="signUpContainer">
-        <h2>Sign Up</h2>
+        <h2>Sign Up Here!</h2>
         <form action="/signup" method="POST">
             <input class="formInput" type="text" name="userName" placeholder="User Name">
             <input class="formInput" type="text" name="name" placeholder="Name">
@@ -26,8 +26,8 @@
             <input class="formInput" type="password" name="confirmPassword" placeholder="Confirm Password">
             <input class="submitInput" type="submit">
         </form>
-        <div>
-            <a href="/login">I've Been Here Before</a>
+        <div class="goToLogin">
+            <h4><a href="/login">I've Been Here Before</a></h4>
         </div>
     </main>
 </body>
