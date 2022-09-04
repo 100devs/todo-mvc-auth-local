@@ -8,8 +8,14 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
+<<<<<<< HEAD
+const todoRoutes = require("./routes/todos");
+const path = require("path");
+const browserSync = require("browser-sync");
+=======
 const dashboardRoutes = require("./routes/dashboard");
 const gearRoutes = require("./routes/gear");
+>>>>>>> main
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -19,19 +25,21 @@ require("./config/passport")(passport);
 connectDB();
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
 // Sessions
 app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
+	session({
+		secret: "keyboard cat",
+		resave: false,
+		saveUninitialized: false,
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
+	})
 );
+
 
 // Passport middleware
 app.use(passport.initialize());
@@ -44,7 +52,7 @@ app.use("/dashboard", dashboardRoutes);
 app.use("/gear", gearRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log(`
+	console.log(`
     o
     |    o
     |   /
