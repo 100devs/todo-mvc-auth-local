@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/todos.css">
     <link rel="stylesheet" href="css/countdown.css">
+    <script src="https://kit.fontawesome.com/c8efdce633.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="list">
@@ -125,22 +126,6 @@
                     </span>
                 </section>
                 </div>
-        </header>
-        <section class="create-list">
-            <h1>Gift List</h1>
-            <h2 class="gift-list-name">
-                <%= todos.listName %>
-            </h2>
-            <section class="dropdown">
-                <label for="list-type">Choose a type of gift list</label>
-                <select name="list-type" id="list-type">
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                    <option value="Wishlist">Wishlist</option>
-                </select>
-            </section>
-
-        </section>
     </header>
     <section class="create-list">
     <h1>Gift List</h1>
@@ -158,8 +143,8 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class="giftFor"><%= el.giftFor %></span>
-                <span class='del'> Delete </span>
+                <span class="giftFor"> - <%= el.giftFor %></span>
+                <span class='del'> <i class="fa-solid fa-ban"></i> Delete </span>
             </li>
     <% }) %>    
     </ul>
