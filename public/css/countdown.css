@@ -1,20 +1,20 @@
-/* 
-===========
-SHARED STYLE
-===========
-*/
 
-.countdown {
-    font-family: 'Dancing Script', sans-serif;
+.countdown-label{
+    font-size:5em;
+    font:bold 24px 'Roboto', sans-serif;
+    user-select:none;
 }
+
 .deadline{
-display: flex;
-justify-content: space-evenly;
-align-items: center;
-flex-wrap: wrap;
-width: 75%%;
-margin: 0 auto;
-font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: 0 auto;
+    font-size: 18px;
+    font-size:5em;
+    font:bold 24px 'Roboto', sans-serif;
 }
 
 .deadline-format {
@@ -23,3 +23,35 @@ font-size: 18px;
     align-items: center;
     flex-direction: column;
 }
+
+h2 span { display:inline-block; animation:float 2s ease-in-out infinite; }
+ @keyframes float {
+  0%,100%{ transform:none; }
+  33%{ transform:translateY(-1px) rotate(-2deg); }
+  66%{ transform:translateY(1px) rotate(2deg); }
+}
+h2:hover span { animation:bounce 1s; }
+@keyframes bounce {
+  0%,100%{ transform:translate(0); }
+  25%{ transform:rotateX(20deg) translateY(2px) rotate(-3deg); }
+  50%{ transform:translateY(-20px) rotate(3deg) scale(1.1);  }
+}
+
+span:nth-child(4n) { color: hsl(356,100%,36%)}
+span:nth-child(4n-1) { color:hsl(142,100%,16%)}
+span:nth-child(4n-2) { color: #830e10 }
+span:nth-child(4n-3) { color:#1f3102}
+
+h2 span:nth-child(2){ animation-delay:.05s; }
+h2 span:nth-child(3){ animation-delay:.1s; }
+h2 span:nth-child(4){ animation-delay:.15s; }
+h2 span:nth-child(5){ animation-delay:.2s; }
+h2 span:nth-child(6){ animation-delay:.25s; }
+h2 span:nth-child(7){ animation-delay:.3s; }
+h2 span:nth-child(8){ animation-delay:.35s; }
+h2 span:nth-child(9){ animation-delay:.4s; }
+h2 span:nth-child(10){ animation-delay:.45s; }
+h2 span:nth-child(11){ animation-delay:.5s; }
+h2 span:nth-child(12){ animation-delay:.55s; }
+h2 span:nth-child(13){ animation-delay:.6s; }
+h2 span:nth-child(14){ animation-delay:.65s; }
