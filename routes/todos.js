@@ -11,11 +11,12 @@ router.put('/markWorkingOn', todosController.markWorkingOn)
 
 router.put('/markArchive', todosController.markArchive)
 
-router.put('/unmarkArchive', todosController.unmarkArchive)
+// router.put('/unmarkArchive', todosController.unmarkArchive)
+
 
 router.put('/markComplete', todosController.markComplete)
 
-router.put('/markIncomplete', todosController.markIncomplete)
+router.put('/unmarkComplete', todosController.unmarkComplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 

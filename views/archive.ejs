@@ -10,6 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Archived Todos</h1>
+                <ul>
+                    <% archive.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span><%= el.todo %></span>
+                                <div class="todoItem--btns">
+                                    <span class="incomplete"> inComplete</span>
+                                  
+                                </div>
+                                
+                            </li>
+                    <% }) %>    
+                    </ul>
 </body>
 </html>

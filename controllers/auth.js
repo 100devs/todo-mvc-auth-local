@@ -32,10 +32,6 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-
-        // res.send({
-        //   name: req.body.userName
-        // })
         res.redirect(req.session.returnTo || '/todos')
         
       })
@@ -80,6 +76,8 @@ const User = require('../models/User')
       password: req.body.password
     })
   
+
+    console.log(user)
     User.findOne({$or: [
       {email: req.body.email},
       {userName: req.body.userName}
@@ -89,14 +87,17 @@ const User = require('../models/User')
         req.flash('errors', { msg: 'Account with that email address or username already exists.' })
         return res.redirect('../signup')
       }
+      
       user.save((err) => {
         if (err) { return next(err) }
-        req.logIn(user, (err) => {
+        return req.logIn(user, (err) => {
           if (err) {
             return next(err)
           }
-          res.redirect('/todos')
+          req.flash('success', { msg: 'Success! You are logged in.' })
+          return res.redirect('/todos')
         })
       })
+
     })
   }

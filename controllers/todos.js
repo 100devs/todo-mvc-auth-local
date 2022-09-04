@@ -27,6 +27,11 @@ module.exports = {
                 workingOn: true,
             })
 
+
+            // const todosArchived = await Todo.find({
+            //     userId:req.user.id,
+            //     archive: true
+            // })
             
             
             res.render('todos.ejs', {
@@ -37,11 +42,14 @@ module.exports = {
                 user: req.user
             })
 
+            console.log(todosCompleted)
+
             console.log(req.user)
         }catch(err){
             console.log(err)
         }
     },
+
     createTodo: async (req, res)=>{
         try{
             await Todo.create({
@@ -74,6 +82,7 @@ module.exports = {
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 archive: true,
+                completed: false
             })
             console.log('Mark archive')
             res.json('Mark archive')
@@ -99,7 +108,8 @@ module.exports = {
             await Todo.findOneAndUpdate({
                 _id:req.body.todoIdFromJSFile
             },{
-                completed: true
+                completed: true,
+                workingOn: false
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
@@ -107,10 +117,11 @@ module.exports = {
             console.log(err)
         }
     },
-    markIncomplete: async (req, res)=>{
+    unmarkComplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: false
+                completed: false,
+                workingOn: true
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')

@@ -207,8 +207,11 @@ Todo Page
 
 .todoItem{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    gap:1rem;
 }
+
+
 .formInput {
     border: 1px solid rgb(177, 177, 177);
     border-radius: 7px;

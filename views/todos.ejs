@@ -23,7 +23,7 @@
                                 <span><%= el.todo %></span>
                                 <span class="workingOn"> + working-on</span>
                                 <span class="archive">+ archive</span>
-                                <span class='del'> Delete </span>
+                                <!-- <span class='del'> Delete </span> -->
                             </li>
                     <% }) %>    
                     </ul>
@@ -35,7 +35,7 @@
                     <% workingOn.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
                                 <span><%= el.todo %></span>
-                                <span class="workingOn"> + working-on</span>
+                                
                                 <span class='del'> Delete </span>
                                 <span class="completed">completed</span>
                             </li>
@@ -50,8 +50,8 @@
                     <% completed.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
                                 <span><%= el.todo %></span>
-                                <span class="workingOn"> + working-on</span>
-                                <span class='del'> Delete </span>
+                                <span class="incomplete"> inComplete</span>
+                                <!-- <span class='del'> Delete </span> -->
                                 <span class="archive">archive</span>
                             </li>
                     <% }) %>    
@@ -69,7 +69,8 @@
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
-
+    
+    <a href="/archive">archied todos</a>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
