@@ -103,7 +103,10 @@
         <header>
             <div class="countdown">
                 <h2 class="countdown-label">
-                    <span>Chris</span><span>tmas</span> <span> Cou</span><span>ntdo</span><span>wn! </span> <span></span><span>Comm</span><span>ence </span> <span>festi</span><span>viti</span><span></span><span>es </span> <span>in .</span><span>..</span>
+                    <span>Chris</span><span>tmas</span> <span> Cou</span><span>ntdo</span><span>wn!
+                    </span> <span></span><span>Comm</span><span>ence
+                    </span> <span>festi</span><span>viti</span><span></span><span>es </span> <span>in
+                        .</span><span>..</span>
                 </h2>
                 <section class="deadline">
                     <!--days -->
@@ -127,52 +130,47 @@
                         <p>seconds</p>
                     </span>
                 </section>
+            </div>
+
+            <audio controls>
+                <source src="audio/music.mp3" type="audio/mp3">
+            </audio>
+
+        </header>
+        <section class="create-list">
+            <h1>Gift List</h1>
+            <h2 class="gift-list-name">
+                <%= todos.listName %>
+            </h2>
+            <ul class="sortArr flex">
+                <% todos.forEach( el=> { %>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                        <span class="giftFor <%= el.completed === true ? ' completed' : 'not' %>"><%= el.giftFor %> - </span>
+                        <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                        <span class='del'> <i class="fa-solid fa-ban"></i></span>
+                    </li>
+                    <% }) %>
+            </ul>
+            <button class="reverse-sort button">Sort in Reverse</button>
+            <h2>
+                <%= user.userName %> has <%= left %> things on this Christmas list
+            </h2>
+
+            <form action="/todos/createTodo" method='POST'>
+                <div class="new-items">
+                    <input class="input-field" type="text" placeholder="Enter Who the Gift is For" name='giftFor'>
+                    <input class="input-field" type="text" placeholder="Enter Christmas Gift" name='todoItem'>
                 </div>
+                <input class="button" type="submit">
 
-                <audio controls>
-                    <source src="audio/music.mp3" type="audio/mp3">
-                </audio>
-               
-    </header>
-    <section class="create-list">
-    <h1>Gift List</h1>
-    <h2 class="gift-list-name"><%= todos.listName %></h2>
-    <section class="dropdown">
-        <label for="list-type">Choose a type of gift list</label>
-        <select class="input-field" name="list-type" id="list-type">
-            <option value="public">Public</option>
-            <option value="private">Private</option>
-            <option value="Wishlist">Wishlist</option>
-        </select>
-    </section>
+            </form>
+        </section>
 
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class="giftFor"> - <%= el.giftFor %></span>
-                <span class='del'> <i class="fa-solid fa-ban"></i> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-    <button class="reverse-sort button">Sort in Reverse</button>
-    <h2><%= user.userName %> has <%= left %> things on this Christmas list</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <div class="new-items">
-            <input class="input-field" type="text" placeholder="Enter Who the Gift is For" name='giftFor'>
-            <input class="input-field" type="text" placeholder="Enter Christmas Gift" name='todoItem'>
-        </div>
-        <input class="button" type="submit">
-        
-    </form>
-    </section>
-
-        <a class ="button" href="/logout">Logout</a>
+        <a class="button" href="/logout">Logout</a>
 
     </section>
 
-    
+
 
     <script src="js/main.js"></script>
     <script src="js/sort.js"></script>
