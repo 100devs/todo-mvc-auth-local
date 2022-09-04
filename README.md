@@ -26,19 +26,14 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 ---
 
-# Install all the dependencies or node packages used for development via Terminal
+# Development Setup
 
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file in the config folder and add the following as `key: value` 
-  - PORT: 3000
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
-
+1. Clone repo to your machine
+2. Run `npm install` in terminal to install all project dependencies
+3. Create a .env file in the config folder with the following info:
+```
+PORT = 3000
+DB_STRING = database string here
+```
+4. Type ```npm run start``` in terminal and press enter
+5. Visit ```http://localhost:3000``` in your browser
