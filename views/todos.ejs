@@ -13,6 +13,7 @@
     <title>Christmas Shopping List</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/todos.css">
+    <link rel="stylesheet" href="css/countdown.css">
 </head>
 
 <body class="list">
@@ -99,15 +100,31 @@
     <section class="main-todos">
 
         <header>
-            <section class="countdown">
-                <h2>Christmas Countdown! Commence festivities in ...</h2>
-                <section class="countdown">
-                    <span class="days">days</span>
-                    <span class="hours">hours</span>
-                    <span class="minutes">minutes</span>
-                    <span class="seconds">seconds</span>
+            <div class="countdown">
+                <h2 class="countdown-label">Christmas Countdown! Commence festivities in ...</h2>
+                <section class="deadline">
+                    <!--days -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>days</p>
+                    </span>
+                    <!--hours -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>hours</p>
+                    </span>
+                    <!-- minutes -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>minutes</p>
+                    </span>
+                    <!-- seconds -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>seconds</p>
+                    </span>
                 </section>
-            </section>
+                </div>
         </header>
         <section class="create-list">
             <h1>Gift List</h1>
@@ -159,6 +176,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/sort.js"></script>
+    <script src="js/countdown.js"></script>
 </body>
 
 </html>
