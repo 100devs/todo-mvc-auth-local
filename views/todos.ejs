@@ -12,10 +12,9 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <!-- <span></span> -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-
-                <!-- <button class="start" type="button">
+                <span class="estimatedTime"><%= el.estimatedTimeToCompletion %></span>
+                <button class="start" type="button">
                     START
                 </button>
                 AW testing new format-->
