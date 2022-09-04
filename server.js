@@ -18,7 +18,6 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 const groupRoutes = require('./routes/groups')
-const loggedIn = require('./middleware/loggedin')
 
 
 // Passport config
@@ -72,7 +71,10 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(loggedIn.loggedIn);
+app.use((req, res, next) => {
+ res.locals.loggedIn = req.isAuthenticated();
+ next();
+});
 
 
 app.use(flash())
