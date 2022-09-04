@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/a2f02755e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- App Header & Navbar -->
+    <header class="header">
+        <a class="header--linkLogo" href="/"><i class="header--logo fa-solid fa-circle-check"></i></a>
+        <h3 class="header--appName">Huntober App Name</h3>
+        <i class="nav--hambrgBtn fa-solid fa-bars"></i>
+        <nav class="nav">
+            <ul class="nav--list">
+                <li class="nav--listItems"><a class="btn--secondary" href="/logout"> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="calendar">
 
@@ -18,9 +30,11 @@
                 <div class="notes">
                    <!-- are they able to add to the list? -->
                     <form action="/todos/createTodo" method="POST">
-                        <input type="text" name="task" placeholder="new task"/>
-                        <input type="time" name="startTime"/>
-                        <input type="time" name="endTime"/>
+                        <input class="todo--task animate" type="text" name="task" placeholder="Add new task"/>
+                        <label class="todo--label" for="startTime">Start</label>
+                        <input class="todo--input__date animate" type="time" name="startTime"/>
+                        <label class="todo--label" for="endTime">End</label>
+                        <input class="todo--input__date animate" type="time" name="endTime"/>
                         <!-- these hidden input contain the day and month data that will get stored in the database so we can filter the tasks by month and day -->
                         <!-- these input values changed based on month and day that are selected -->
                         <input type="hidden" name="day" class="dbDay" value=""  />
