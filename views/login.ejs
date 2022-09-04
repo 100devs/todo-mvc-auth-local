@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Account Login</title>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/9f91d488b5.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a href="https://github.com/neverarockstar/todo-mvc-auth-local" class="float-right"><i class="fa-brands fa-github fa-2xl"></i></a>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -17,10 +24,24 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+        <form id="login" action="/login" method="POST">
+            <fieldset class="account-info">
+                <label>
+                    Username
+                    <input type="email" name="email" placeholder="Email">
+                </label>
+                <label>
+                    Password
+                    <input type="password" name="password" placeholder="Password">
+                </label>
+            </fieldset>
+            <fieldset class="account-action">
+                <input type="submit" name="submit" value="login" class="button">
+                <label>
+                    <input type="checkbox" name="remember">Stay Signed in
+                </label>
+            </fieldset>
+        </form>
+    <!-- </form> -->
 </body>
 </html>
