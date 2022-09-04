@@ -114,14 +114,7 @@
             <h2 class="gift-list-name">
                 <%= todos.listName %>
             </h2>
-            <section class="dropdown">
-                <label for="list-type">Choose a type of gift list</label>
-                <select name="list-type" id="list-type">
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                    <option value="Wishlist">Wishlist</option>
-                </select>
-            </section>
+            
 
             <ul class="sortArr flex">
                 <% todos.forEach( (el, i)=> { %>
@@ -144,12 +137,7 @@
                 <input type="text" placeholder="Enter Who the Gift is For" name='giftFor'>
                 <input type="submit">
                 <label for="list-type">Choose a type of gift list</label>
-                <!--Not sure if we want to include this option every time a user inputs the new item-->
-                <select name="list-type" id="list-type">
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                    <option value="Wishlist">Wishlist</option>
-                </select>
+                
             </form>
         </section>
 
