@@ -43,8 +43,13 @@ textarea {
  #actionsContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
+ }
+
+ #actionsContainer input {
+    max-width: 50%;
+    width: 20em;
  }
 
  #actionsContainer #del {
@@ -56,10 +61,6 @@ textarea {
  }
  #actionsContainer #del:hover {
     background-color: red;
- }
- 
- #actionsContainer input {
-    width: 10em;
  }
 
  input, textarea {
@@ -215,8 +216,13 @@ li {
     border-radius: 20px;
     border: 1px solid gray;
     padding: .5em;
-    margin: 1em;
+    margin: 1em 0;
     position: relative;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 li > .title {
@@ -225,7 +231,7 @@ li > .title {
 }
 
 li .body {
-    margin: 1em 2em 0;
+    margin: 1em .1em 0;
     font-size: .8em;
     color: slategray;
 }
@@ -254,7 +260,7 @@ li .dueDate {
     font-size: .8em;
 }
 li form {
-    width: 100%;
+    margin: 0 20px;
 }
 
 ::placeholder {
@@ -300,12 +306,7 @@ header {
     text-decoration: underline;
 }
 
-
-#login {
-   display: flex;
-   justify-content: center;
-}
-#signup {
+#login, #signup {
    display: flex;
    justify-content: center;
 }
