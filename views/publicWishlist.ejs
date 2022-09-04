@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RockWish Wishlist</title>
+  </head>
+  <body>
+    <h1>Public Wishlists</h1>
+
+    <ul>
+      <% gears.forEach( el => { %>
+      <li class="gearItem" data-id="<%=el._id%>">
+        <% %>
+        <span><%= el.gearName %></span>
+        <span><%= el.gearBrand %></span>
+        <span><%= el.gearPrice %></span>
+        <span><%= el.gearCondition %></span>
+        <span><%= el.dateAdded %></span>
+        <span><%= el.visibility %></span>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
+
+<!-- 
+gearName
+gearBrand
+gearPrice
+gearCondition
+gearNote
+dateAdded
+visibility // public/private
+userId -->
