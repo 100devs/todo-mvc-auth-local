@@ -1,5 +1,6 @@
 <%- include('partials/head.ejs', {title:"Todos"}) %>
 <% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
+
 <div class="row pt-5">
     <form class="addTodo" action="/todos/createTodo" method='POST'>
         <input class="form-control" type="text" placeholder="Enter todo" name='todoItem'>

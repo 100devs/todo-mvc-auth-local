@@ -17,7 +17,7 @@ const TodoSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required: true
+    required: false
   },
   groupId: {
     type: String,

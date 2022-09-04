@@ -84,6 +84,22 @@ color: #3b9614;
     width: 400px;
     margin: 0 auto;
 }
+
+.addTodo > input {
+
+    border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+}
+
+.addTodo > button[type="submit"] {
+    border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0.25rem !important;
+        border-bottom-right-radius: 0.25rem !important;
+}
+
 .addTag {
     display: flex;
     align-items: center;

@@ -20,6 +20,12 @@ const UserSchema = new mongoose.Schema({
     type:String,
     require: true,
   },
+  role: {
+    type: Number,
+    /* 0: admin, 1: Moderator, 2: user, 3: guest */
+    enum: [0, 1, 2, 3],
+    default: 3
+  }
   /*
   totalAttempt: {
     type: Number,

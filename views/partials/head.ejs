@@ -42,11 +42,12 @@
                                 <li><a class="dropdown-item" href="/groups/createGroup">Create a group</a></li>
                                 <li><a class="dropdown-item" href="/groupShow">My groups</a></li>
                                 <li><a class="dropdown-item" href="#">My Tasks</a></li>
-
+                                <% if (isAdmin) { %>
                                 <li>
-                                    <hr class="dropdown-divider" />
+                                    <hr class="dropdown-divider" />Manage
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="/admin/manageGroup">Groups</a></li>
+                                <li><a class="dropdown-item" href="/admin/manageTodo">Tasks</a></li>                                <% } %>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
