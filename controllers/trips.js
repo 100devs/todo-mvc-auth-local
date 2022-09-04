@@ -1,13 +1,13 @@
-//Trip Controller
+//Trips Controller
 const Trip = require('../models/Trip')
 
 module.exports = {
-   dashboard: async (req, res) => {
+   showTrips: async (req, res) => {
       try {
          let allUserTrips = await Trip.find({
             userId: req.user._id,
          });
-         res.render('dashboard', {
+         res.render('trips', {
             allUserTrips
          })
       } catch (err) {
@@ -37,7 +37,7 @@ module.exports = {
             userId: req.user._id,
          });
          console.log("Trip created");
-         res.redirect("dashboard");
+         res.redirect("/trips");
       } catch (err) {
          console.log(err);
          res.render("error/500");
@@ -50,7 +50,7 @@ module.exports = {
             _id: req.params.id
          })
          console.log('Trip deleted')
-         res.redirect("dashboard");
+         res.redirect("/trips");
       } catch (err) {
          console.error(err)
          res.render("error/500");

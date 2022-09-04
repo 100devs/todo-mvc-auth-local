@@ -9,7 +9,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
-const tripRoutes = require('./routes/trip')
+const tripRoutes = require('./routes/trips')
 
 require('dotenv').config({ path: './config/.env' })
 
@@ -26,7 +26,7 @@ app.use(express.json())
 // Method Override
 app.use(methodOverride((req, res) => {
    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies and delete it
+      // look in urlencoded POST bodies and delete it to replace with another Method
       let method = req.body._method;
       delete req.body._method;
       return method;
@@ -52,7 +52,7 @@ app.use(flash())
 
 // Route Links
 app.use('/', homeRoutes)
-app.use('/trip', tripRoutes)
+app.use('/trips', tripRoutes)
 
 
 const PORT = process.env.PORT || 5000 // run on environment variable or 5000 if not available
