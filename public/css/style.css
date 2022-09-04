@@ -169,3 +169,9 @@ body {
 }
 
 /*  dannynyn flipping animation end  */
+
+/* Navigation bottom margin */
+
+nav {
+  margin-bottom: 7rem;
+}
