@@ -39,10 +39,10 @@
             </div>
 
 
-    <h2>
-        <%= user.userName %> has <%= incomplete.length %>
+    <h3>
+        You have <%= incomplete.length %>
                 <%= incomplete.length===1 ? "thing" : "things" %> left to do.
-    </h2>
+    </h3>
             </div>
             <div class="col-sm">
                 <h1 class="my-3">Completed</h1>
@@ -60,10 +60,10 @@
                         <% }) %>
                             </div>
 
-                <h2>
-                    <%= user.userName %> has completed <%= complete.length %>
+                <h3>
+                    You have completed <%= complete.length %>
                             <%= complete.length===1 ? "thing" : "things" %>.
-                </h2>
+                </h3>
     </div>
     </div>
 <%- include('partials/footer.ejs') %>
