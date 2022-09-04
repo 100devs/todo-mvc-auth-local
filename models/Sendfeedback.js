@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const SendfeedbackSchema = new mongoose.Schema({
-    name: {
+  name: {
     type: String,
     required: true,
   },
@@ -11,12 +11,12 @@ const SendfeedbackSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true
+    required: true,
   },
   message: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Sendfeedback', SendfeedbackSchema)
+module.exports = mongoose.model("Sendfeedback", SendfeedbackSchema);
