@@ -1,3 +1,7 @@
+nav a {
+    border-bottom: 1px solid transparent;
+}
+
 nav a:hover {
     border-bottom: 1px solid #3D36E6;
 }
