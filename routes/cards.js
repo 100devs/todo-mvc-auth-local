@@ -27,14 +27,6 @@ router.get('/updateCard/:id', ensureAuth, cardsController.getUpdateCard)
 // @route           PUT /cards/updateCard
 router.put('/updateCard', ensureAuth, cardsController.processUpdateCard)
 
-// @description     Update card to Inactive
-// @route           PUT /cards/markInactive
-router.put('/markInactive', ensureAuth, cardsController.markInactive)
-
-// @description     Update card to Active
-// @route           PUT /cards/markActive
-router.put('/markActive', ensureAuth, cardsController.markActive)
-
 // @description     Delete card
 // @route           GET /cards/deleteCard
 router.delete('/deleteCard', ensureAuth, cardsController.deleteCard)

@@ -123,27 +123,9 @@ module.exports = {
       res.render('error/500')
     }
   },
-  markInactive: async (req,res) => {
-    try{
-      await Card.findOneAndUpdate({ _id: req.body.cardIdFromJSFile }, { active: false }, { runValidators: true })
-      console.log('Your card has been marked inactive!')
-      res.json('Card has been marked inactive.')
-    } catch(err){
-      console.error(err)
-    }
-  },
-  markActive: async (req,res) => {
-    try{
-      await Card.findOneAndUpdate({ _id: req.body.cardIdFromJSFile }, { active: true }, { runValidators: true })
-      console.log('Your card has been marked active!')
-      res.json('Card has been marked active.')
-    } catch(err){
-      console.error(err)
-    }
-  },
   deleteCard: async (req,res) => {
     try{
-      await Card.remove({ _id: req.body.cardIdFromJSFile })
+      await Card.remove({ _id: req.body.cardToDelete})
       console.log('Card has been deleted!')
       res.json('Card has been deleted!')
     } catch(err){
