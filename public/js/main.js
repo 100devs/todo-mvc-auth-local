@@ -1,6 +1,22 @@
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+try {
+    const logo = document.querySelector('#logo')
+    logo.addEventListener('mouseout', stopAnimateLogo)
+    logo.addEventListener('mouseover', animateLogo)
+} 
+catch (err) {
+    console.error(err)
+}
+
+try {
+    const biglogo = document.querySelector('#biglogo')
+    biglogo.addEventListener('mouseout', stopAnimateLogo)
+    biglogo.addEventListener('mouseover', animateLogo)
+}
+catch (err) {
+    console.error(err)
+}
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -14,6 +30,24 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
+function animateLogo(event) {
+    console.log('moved in!')
+    const imageElement = event.target;
+    imageElement.src = '/images/logoanimate.gif'
+}
+
+function stopAnimateLogo(event) {
+    const imageElement = event.target;
+    imageElement.src = '/images/staticlogo.png'
+}
+
+function confirmDelete(event) {
+    console.log('are you sure?')
+    const dialog = confirm("Are you sure you want to delete this post?")
+    return dialog
+}
+
+//change to handle deletes
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{

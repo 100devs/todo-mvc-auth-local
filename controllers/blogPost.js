@@ -4,9 +4,18 @@ module.exports = {
     getTodos: async (req,res)=>{
         console.log(req.user)
         try{
-            const todoItems = await BlogPost.find({userId:req.user.id})
+            const todoItems = await BlogPost.find({userId:req.user.id}).sort({date: -1})
             const itemsLeft = await BlogPost.countDocuments({userId:req.user.id})
             res.render('todos.ejs', {BlogPost: todoItems, left: itemsLeft, user: req.user})
+        }catch(err){
+            console.log(err)
+        }
+    },
+    getEditPostPage: async (req,res)=>{
+        console.log(req.params.id)
+        try{
+            const postToEdit = await BlogPost.findById(req.params.id)
+            res.render('editPost.ejs', {blogPost: postToEdit, postId:req.params.id, user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -30,6 +39,22 @@ module.exports = {
                 mood: req.body.mood,
                 userId: req.user.id})
             console.log('Blog has been posted!')
+            res.redirect('/blogpost')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    editBlogPost: async (req, res)=>{
+        try{
+            await BlogPost.findOneAndUpdate({_id: req.params.id}, {
+                title: req.body.title,
+                body: req.body.postBody,
+                gitHub: req.body.gitHub,
+                date: req.body.date,
+                dueDate: req.body.dueDate,
+                mood: req.body.mood,
+                userId: req.user.id})
+            console.log(`Blog post ${req.params.id} has been updated!`)
             res.redirect('/blogpost')
         }catch(err){
             console.log(err)
