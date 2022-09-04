@@ -86,8 +86,8 @@
     <h2><%= user.userName %> has <%= left %> companies left to contact</h2>
 
     <form action="/companies/createCompany" method='POST'>
-        <input type="text" placeholder="Company Name" name='companyName'>
-        <input type="text" placeholder="Phone Number" name='phoneNumber'>
+        <input type="text" placeholder="Company Name" name='companyName' required>
+        <input type="text" placeholder="Phone Number" name='phoneNumber' required>
         <input type="submit">
     </form>
 
