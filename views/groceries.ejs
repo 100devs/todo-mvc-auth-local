@@ -22,7 +22,7 @@
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/groceries/createGrocery" method='POST'>
-        <input type="number" placeholder="# of items" name="itemNumber">
+        <input type="number" min="1" placeholder="# of items" name="itemNumber">
         <input type="text" placeholder="Enter Grocery Item" name='groceryItem'>
         <input type="submit">
     </form>
