@@ -16,22 +16,23 @@
                 <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
                 <%=el.todo %>
             </label>
-            <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"></i>
+            <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
+                    title="Change priority"></i>
             </div>
-            <div class='del'> <i class="fa-solid fa-trash"></i> </div>
-            <% if (el.tags.length) { %>
+            <div class='del'> <i class="fa-solid fa-trash" title="Delete todo"></i> </div>
+
             
                 <div class="tags mt-1">
                     <% el.tags.forEach( tag=> { %>
                         <div class="tag">
-                            <i class="fa-solid fa-circle-xmark"></i>
+                            <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
                             <%=tag%>
                         </div>
                         <%}) %>
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-plus" title="Add tag"></i>
             
                 </div>
-                <% } %>
+    
         </div>
         
         <% }) %>
