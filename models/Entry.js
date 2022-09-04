@@ -13,7 +13,7 @@ const EntrySchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  entry: {
+  description: {
     type: String,
     required: true,
   },
