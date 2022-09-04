@@ -19,15 +19,18 @@
                 </li>
                 <% for(var i = 0; i < data.length; i++) {%>
                 <li class="results" data-id='<%=data[i].show.id%>'>
+                    <% if(data[i].show.image === null) {%>
+                        <span><img src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt=""></span>
+                    <% } else{ %>  
+                        <span><img src="<%= data[i].show.image.medium %>" alt=""></span>
+                    <% } %>       
 
-                        
-
-                    <span><img src="<%= data[i].show.image.medium %>" alt=""></span>
                     <span><%= data[i].show.name %></a></span>
                     <span class="genres"><%= data[i].show.genres[0] %>, <%= data[i].show.genres[1] %></span> 
                     <form action="/todos/addToWatchList" method="post">
-                        <input name="showId" value="<%=data[i].show.id%>" type="text">
-                        <input type="submit" value="Add to list">
+                        <input type="hidden" value="<%=data[i].show.name%>" name="showName">
+                        <input type="hidden" value="<%=data[i].show.id%>" name="showId">
+                        <input type="submit" value="Add to Watchlist">
                     </form>
                     
                 </li>
