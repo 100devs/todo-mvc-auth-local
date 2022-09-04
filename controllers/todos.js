@@ -7,7 +7,7 @@ module.exports = {
             const todoItems = await Todo.find({ userId: req.user._id })
             const complete = todoItems.filter(todo => todo.completed);
             const incomplete = todoItems.filter(todo => !todo.completed)
-            res.render('todos.ejs', { complete, incomplete, user: JSON.parse(JSON.stringify(req.user)) })            
+            res.render('todos.ejs', { complete, incomplete, user: JSON.parse(JSON.stringify(req.user)) })
         }catch(err){
             console.log(err)
         }
@@ -86,4 +86,4 @@ module.exports = {
         }
         res.json(`Removed tag ${req.body.tag}`);
     },
-}    
+}
