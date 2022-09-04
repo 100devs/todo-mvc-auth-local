@@ -67,20 +67,23 @@ module.exports = {
     },
     addTag: async (req, res) => {
         try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+            await Todo.findOneAndUpdate({ _id: req.body.id }, {
                 $push: { tags: req.body.tag },
-            }
+            })
+            res.redirect('/todos');
         } catch (err) {
             console.log(err)
         }
     },
     deleteTag: async (req, res) => {
+        console.log(req.body)
         try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }), {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }, {
                 $pull: { tags: req.body.tag },
-            }
+            })
         } catch (err) {
             console.log(err)
         }
+        res.json(`Removed tag ${req.body.tag}`);
     },
 }    

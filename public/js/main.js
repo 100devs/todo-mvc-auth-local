@@ -1,12 +1,18 @@
 const deleteBtn = document.querySelectorAll('.del')
 const priorityBtn = document.querySelectorAll('.priority')
-const todoItem = document.querySelectorAll('.todoItem.incomplete')
-const todoComplete = document.querySelectorAll('.todoItem.complete')
+const todoItem = document.querySelectorAll('.todoItem.incomplete .form-check-input')
+const todoComplete = document.querySelectorAll('.todoItem.complete .form-check-input')
+const addTagBtn = document.querySelectorAll('.addTag i');
+const deleteTagBtn = document.querySelectorAll('.tag i');
+
+
+priorityBtn.forEach(el => el.addEventListener('click', changePriority))
+addTagBtn.forEach(el => el.addEventListener('click', toggleTagForm))
+deleteTagBtn.forEach(el => el.addEventListener('click', deleteTag))
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
-priorityBtn.forEach(el => el.addEventListener('click', changePriority))
 
 Array.from(todoItem).forEach((el)=>{
     el.addEventListener('change', markComplete)
@@ -35,7 +41,7 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoId = this.dataset.id;
+    const todoId = this.parentNode.parentNode.dataset.id;
     try {
         const response = await fetch('todos/markComplete', {
             method: 'put',
@@ -53,7 +59,7 @@ async function markComplete(){
 }
 
 async function markIncomplete() {
-    const todoId = this.dataset.id;
+    const todoId = this.parentNode.parentNode.dataset.id;
     try{
         const response = await fetch('todos/markIncomplete', {
             method: 'put',
@@ -88,6 +94,43 @@ async function changePriority() {
     } catch (err) {
         console.log(err)
     }
+}
+
+function toggleTagForm() {
+    const form = this.parentNode.querySelector('form');
+    if (form.style.display === "none") {
+        form.style.display === "show";
+        this.classList.remove('fa-plus');
+        this.classList.add('fa-minus');
+
+    } else {
+        form.style.display === "show";
+        this.classList.remove('fa-minus');
+        this.classList.add('fa-plus');
+    }
+    form.style.display = form.style.display === "none" ? "block" : "none";
+
+}
+
+async function deleteTag() {
+    const tag = this.parentNode.innerText.trim();
+    const todoId = this.parentNode.parentNode.parentNode.dataset.id;
+    try {
+        const response = await fetch('todos/deleteTag', {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId,
+                'tag': tag
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
+
 }
 
 function validateEmail(email) {

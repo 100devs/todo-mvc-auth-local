@@ -1,13 +1,13 @@
+nav a {
+    border-bottom: 1px solid transparent;
+}
+
 nav a:hover {
     border-bottom: 1px solid #3D36E6;
 }
 
 section {
     margin: 20px;
-}
-
-h1{
-    color: red;
 }
 .completed{
     text-decoration: line-through;
@@ -44,20 +44,70 @@ h1{
     position: relative;
 }
 
+/******************************
+** Todo page **/
+
+.todoItem label {
+    font-size: 1.3rem;
+}
+.todoItem i {
+    cursor: pointer;
+}
 .priority {
     position: absolute;
     right: 50px;
-     top: 10px;
+    top: 10px;
+}
+.priority.none {
+color: #888;
+}
+.priority.low {
+color: #3b9614;
 }
 
+.priority.med {
+   color: #c9c938;
+
+}
+.priority.high {
+ color:#8a1207;
+}
 .del {
     position: absolute;
     right: 15px;
     top: 10px;
+    color: #888;
 }
 .addTodo {
     display: flex;
     justify-content: center;
+    width: 400px;
+    margin: 0 auto;
+}
+.addTag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.tags  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    min-height: 40px;
+}
+.tag {
+    border: 1px solid #6c92b8;
+    border-radius: 3px;
+    color: #152f4a;
+    background: #deedfc;
+    padding: 0 5px;
+}
+.tag:hover {
+    cursor: pointer; 
+}
+.addTag input {
+    width: 150px;
 }
 /******************************
 ** Signup page **/
