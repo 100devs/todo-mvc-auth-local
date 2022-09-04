@@ -102,7 +102,9 @@
 
         <header>
             <div class="countdown">
-                <h2 class="countdown-label">Christmas Countdown! Commence festivities in ...</h2>
+                <h2 class="countdown-label">
+                    <span>Chris</span><span>tmas</span> <span> Cou</span><span>ntdo</span><span>wn! </span> <span></span><span>Comm</span><span>ence </span> <span>festi</span><span>viti</span><span></span><span>es </span> <span>in .</span><span>..</span>
+                </h2>
                 <section class="deadline">
                     <!--days -->
                     <span class="deadline-format">
@@ -149,7 +151,7 @@
     <% }) %>    
     </ul>
     <button class="reverse-sort button">Sort in Reverse</button>
-    <h2><%= user.userName %> has <%= left %> things on this christmas list</h2>
+    <h2><%= user.userName %> has <%= left %> things on this Christmas list</h2>
 
     <form action="/todos/createTodo" method='POST'>
         <div class="new-items">
