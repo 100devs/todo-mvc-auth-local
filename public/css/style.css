@@ -128,6 +128,10 @@ SIGNUP.EJS
 TODOS.EJS
 ===========
 */
+.completed{
+  color: #41403e;
+  text-decoration: line-through;
+}
 
 .list {
     background-image: url("https://i.ibb.co/340d0SY/christmas-g8061b26d7-1280.png");
