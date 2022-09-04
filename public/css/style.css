@@ -1,5 +1,6 @@
 h1{
-    color: red;
+    /* Testing something, can delete whenever */
+    color: red !important; 
 }
 .completed{
     text-decoration: line-through;

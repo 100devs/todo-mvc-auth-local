@@ -38,4 +38,13 @@ module.exports = {
       }
     }
   },
+  deleteGear: async (req, res) => {
+        try {
+          await Gear.findOneAndDelete({ _id:req.body.gearIdFromJSFile });
+          console.log("Deleted Gear");
+          res.json("Deleted It");
+        } catch (err) {
+          console.log(err);
+        }
+      }
 };
