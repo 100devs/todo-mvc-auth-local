@@ -14,11 +14,20 @@
             <li class='todoItem' data-id='<%=el._id%>'>
                 <!-- <span></span> -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <button class="start" type="button">
+
+                <!-- <button class="start" type="button">
                     START
                 </button>
+                AW testing new format-->
+                <input type="button" value="Reset" id="sw-rst" disabled/>
+                <input type="button" value="Start" id="sw-go" disabled/>
+
                 <!-- <span class="start">Start Todo</span> -->
                 <span class="del"> Delete </span>
+            </li>
+            <li>
+                <span id="onTime" class="hidden">You completed the task in a timely manner!</span>
+                <span id="tooSlow" class="hidden">You needed to schedule more time</span>
             </li>
     <% }) %>    
     </ul>
@@ -34,5 +43,6 @@
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+    <script src="js/stopwatch.js"></script>
 </body>
 </html>
