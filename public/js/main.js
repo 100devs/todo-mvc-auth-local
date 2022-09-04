@@ -19,6 +19,8 @@ Array.from(incrementor).forEach((el) => {
   el.addEventListener('click', addShame);
 });
 
+isItTime()
+
 async function deleteTodo() {
   const todoId = this.parentNode.dataset.id;
   try {
@@ -30,7 +32,6 @@ async function deleteTodo() {
       }),
     });
     const data = await response.json();
-    console.log(data);
     location.reload();
   } catch (err) {
     console.log(err);
@@ -41,7 +42,6 @@ async function addShame() {
   const todoId = this.parentNode.dataset.id;
   let shame = Number(this.previousElementSibling.textContent);
   const newShame = (shame += 1);
-  console.log(newShame);
   try {
     const response = await fetch('todos/addShame', {
       //add shame route
@@ -53,7 +53,6 @@ async function addShame() {
       }),
     });
     const data = await response.json();
-    console.log(data);
     location.reload();
   } catch (err) {
     console.log(err);
@@ -95,3 +94,21 @@ async function addShame() {
 //     console.log(err);
 //   }
 // }
+
+function isItTime() {
+    const toDontAmount = document.querySelectorAll('#shame').length
+    const placeToShame = document.querySelector('#shaming')
+    let timesDoneAmount = 0
+    for (let i = 0; i < toDontAmount; i++) {
+        timesDoneAmount += Number(document.querySelectorAll('#shame')[i].textContent)
+    }
+    if (timesDoneAmount >= 20) {
+        placeToShame.textContent = 'Wow.. maybe you should stop doing that.'
+    } else if (timesDoneAmount >= 15) {
+        placeToShame.textContent = 'And here I thought I had no self-control.. I think it might be time to see a specialist before it\'s too late.'
+    } else if (timesDoneAmount >= 10) {
+        placeToShame.textContent = 'I mean, really? You decided to just go at it today, didn\'t you?'
+    } else if (timesDoneAmount >= 5) {
+        placeToShame.textContent = 'Wow.. maybe you should stop doing that.'
+    }
+}
