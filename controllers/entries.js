@@ -9,8 +9,9 @@ module.exports = {
         try{
             // Get individual entry item
             const entryItems = await Entry.find({userId:req.user.id})
+            const totalEntries = await Entry.countDocuments({userId:req.user.id,})
 
-            res.render('entries.ejs', {entries: entryItems, user: req.user})
+            res.render('entries.ejs', {entries: entryItems, total: totalEntries, user: req.user})
         }catch(err){
             console.log(err)
         }

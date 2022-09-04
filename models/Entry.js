@@ -3,24 +3,24 @@ const mongoose = require('mongoose')
 const EntrySchema = new mongoose.Schema({
   amount: {
     type: Number,
-    required: true,
+    required: false,
   },
   company: {
     type: String,
-    required: true,
+    required: false,
   },
   category: {
     type: String,
-    required: true,
+    required: false,
   },
-  description: {
+  entry: {
     type: String,
     required: true,
   },
   expense: {
     // true for expense, false for income
     type: Boolean,
-    required: true,
+    required: false,
   },
   userId: {
     type: String,

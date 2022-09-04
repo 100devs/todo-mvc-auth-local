@@ -12,10 +12,10 @@
     <ul>
     <% entries.forEach( el => { %>
             <li class='entryItem' data-id='<%=el._id%>'>
-                <span><%= el.expense %></span>
-                <span><%= el.company %></span>
-                <span><%= el.amount %></span>
-              <span><%= el.category %></span>
+                <span><%= el.entry %></span>
+                <!-- <span><%= el.company %></span> -->
+                <!-- <span><%= el.amount %></span> -->
+              <!-- <span><%= el.category %></span> -->
 
                 
                 
@@ -27,7 +27,7 @@
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has ? things left to do.</h2>
+    <h2><%= user.userName %> has <%= total %> expenses.</h2>
 
     <form action="/entries/createEntry" method='POST'>
         <input type="text" placeholder="Enter Entry Item" name='entryItem'>
