@@ -1,5 +1,5 @@
 <%- include('partials/head.ejs', {title:"Todos"}) %>
-<% const priorityColors=['#aaaaaa', '#3b9614' , '#c9c938' , '#8a1207' ] ; %>
+<% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
 <div class="row pt-5">
     <form class="addTodo" action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
@@ -16,19 +16,40 @@
                 <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
                 <%=el.todo %>
             </label>
-            <div class='priority' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
-                    style='color:<%=priorityColors[el.priority] %>'></i> </div>
-            <div class='del'> <i class="fa-solid fa-trash"></i> </div>
+            <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
+                    title="Change priority"></i>
+            </div>
+            <div class='del'> <i class="fa-solid fa-trash" title="Delete todo"></i> </div>
+
+            
+                <div class="tags mt-1">
+<div class="addTag">
+    <i class="fa-solid fa-plus" title="Add tag"></i>
+    <form style="display:none" action="/todos/addTag" method="post">
+        <input class="form-control" type="text" name="tag" placeholder="Add tag" autocomplete="off" />
+        <input type="hidden" name="id" value="<%=el._id%>" />
+    </form>
+</div>
+                    <% el.tags.forEach( tag=> { %>
+                            
+                        <div class="tag">
+                            <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
+                            <%=tag%>
+                        </div>
+                        <%}) %>
+            
+                </div>
+    
         </div>
         
         <% }) %>
             </div>
 
 
-    <h2>
-        <%= user.userName %> has <%= incomplete.length %>
+    <h3>
+        You have <%= incomplete.length %>
                 <%= incomplete.length===1 ? "thing" : "things" %> left to do.
-    </h2>
+    </h3>
             </div>
             <div class="col-sm">
                 <h1 class="my-3">Completed</h1>
@@ -46,10 +67,10 @@
                         <% }) %>
                             </div>
 
-                <h2>
-                    <%= user.userName %> has completed <%= complete.length %>
+                <h3>
+                    You have completed <%= complete.length %>
                             <%= complete.length===1 ? "thing" : "things" %>.
-                </h2>
+                </h3>
     </div>
     </div>
 <%- include('partials/footer.ejs') %>

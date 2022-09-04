@@ -9,7 +9,7 @@ router.post('/priority', todosController.changePriority)
 
 router.post('/addTag', todosController.addTag)
 
-router.post('/deleteTag', todosController.deleteTag)
+router.put('/deleteTag', todosController.deleteTag)
 
 router.post('/createTodo', todosController.createTodo)
 
