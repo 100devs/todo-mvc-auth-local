@@ -34,9 +34,7 @@
                     <form action="/blogPost/edit/<%= items._id %>" action="GET">
                         <input type="submit" class="button-18" value="Edit">
                     </form>
-                    <form action="/blogPost/deleteTodo/<%= items._id %>" action="DELETE">
-                        <input type="submit" onclick="confirmDelete" class="button-18 del" id="del" value="Delete">
-                    </form>
+                        <button onclick="deleteTodo" class="button-18 del" id="del">Delete</button>
                 </div>
             </li>
     <% }) %>    
