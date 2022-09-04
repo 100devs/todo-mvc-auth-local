@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Font Awesome fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,25 +24,40 @@
     You would need to get the _id of he trip and then edit and delete them
 
     You will also need to use the method override package to create the editing functionality-->
+
+
     <ul>
         <% allUserTrips.forEach(trip => { %>
-        <li><%=trip.tripTitle%></li>
-        <li><%=trip.option1%></li>
-        <li><%=trip.option2%></li>
-        <li><%=trip.option3%></li>
-        <li><%=trip.dateFrom%></li>
-        <li><%=trip.dateTo%></li>
-        <li><%=trip.tripMembers%></li>
+        <li>
+           <h3><%=trip.tripTitle%><h3>
+        </li>
+        <li>Plan1: <%=trip.option1%></li>
+        <li>Plan2: <%=trip.option2%></li>
+        <li>Plan3: <%=trip.option3%></li>
+        <li>From: <%=trip.dateFrom%></li>
+        <li>To: <%=trip.dateTo%></li>
+        <li>Host Email: <%=trip.tripMembers%></li>
+        <!-- POST form utilizing method override for DELETE request -->
+        <form action="/trip/<%=trip.id%>" method="POST" id="delete-from">
+           <input type="hidden" name="_method" value="DELETE">
+           <button type="submit" class="btn btn-small red">
+              <i class="fas fa-trash trip-delete"></i>
+           </button>
+        </form>
         <br />
         <br />
         <% }) %>
-</ul>
+   </ul>
 
 
 
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
 
