@@ -323,3 +323,15 @@ header {
    display: flex;
    justify-content: center;
 }
+
+#signupContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    width: 80vw;
+    align-items: center;
+}
+#signupContainer input {
+    font-size: 1em;
+}
