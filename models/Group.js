@@ -12,6 +12,10 @@ const GroupSchema = Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   validated: {
     type: Boolean,
     required: false,
@@ -24,23 +28,24 @@ const GroupSchema = Schema({
     type: Date,
     default: Date.now
 },
-  hidden: {
+createdBy: {
+    trim: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: [true, "User ID is required"]
+  },
+  isPublic: {
     type: Boolean,
     require: true,
   },
-  cityBased: {
+ isCityBased: {
     type:Boolean,
     required: false
   },
   city: {
     type:String,
-    required: true
+    required: false
   }
-
-
-
-
-
 })
 
 module.exports = mongoose.model('Group', GroupSchema)
