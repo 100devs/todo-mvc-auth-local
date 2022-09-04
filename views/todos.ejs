@@ -5,39 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>To Don'ts</title>
 </head>
 
 <body>
-    <h1>Todon'ts</h1>
-    <ul>
-        <% todos.forEach( el=> { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+    <section class="todont__container">
+        <h1 class="todont__title">To Don't List</h1>
+        <div class="list group">
+            <div class="grid__header">
+                <div class="col span_1_of_5 ">
+                    To Don't
+                </div>
+                <div class="col span_1_of_5">
+                    Reason
+                </div>
+                <div class="col span_1_of_5">
+                    # of Times Done
+                </div>
+                <div class="col span_1_of_5">
+                    Shame
+                </div>
+                <div class="col span_1_of_5">
+                    Delete
+                </div>
+            </div>
+            <% todos.forEach( el=> { %>
+                <div class="todoItem" data-id='<%=el._id%>'>
+                    <div class="col span_1_of_5">
+                        <%= el.todo %>
+                    </div>
+                    <div class="col span_1_of_5">
+                        <%= el.reasonWhy %>
+                    </div>
+                    <div class="col span_1_of_5" id="shame">
+                        <%= el.timesDone %>
+                    </div>
+                    <div class="col span_1_of_5 addShame sad" alt="Click for Shame!"></div>
+                    <div class="col span_1_of_5 del" alt="Delete"></div>
+                </div>
+                <% }) %>
+                    <h2 class="total ">
+                        <%= user.userName %> has
+                            <%= left %> bad habits that they are working on.</h2>
+        </div>
+        <div class="todont__form">
+            <form action="/todos/createTodo " method='POST'>
+                <input type="text" placeholder="Enter To Don't Item" name='todoItem'>
+                <textarea placeholder="Enter Reason Why" name='reasonWhy'></textarea>
+                <div class="submit__flex">
+                    <input type="submit" class="submit__button">
+                </div>
+            </form>
+        </div>
+        <footer>
+            <a href="/logout">Logout</a>
+        </footer>
+    </section>
 
-                <span><%= el.reasonWhy %></span>
 
-                <span id="shame">
-                    <%= el.timesDone %>
-                </span>
-                <div class="addShame">Click for Shame</div>
-                <span class='del'> Delete </span>
-            </li>
-            <% }) %>
-    </ul>
 
-    <h2>
-        <%= user.userName %> has <%= left %> bad habits that they are working on.
-    </h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todon't Item" name='todoItem'>
-        <textarea placeholder="Enter Reason Why" name='reasonWhy'></textarea>
-        <input type="submit">
-    </form>
 
-    <a href="/logout">Logout</a>
+
+
+
+
+
+
 
     <script src="js/main.js"></script>
 </body>
