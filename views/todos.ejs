@@ -13,6 +13,9 @@
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <% if(el.date != "Invalid Date"){ %>
+                    <span class="dateStyle">Due Date: <%=el.date %></span> 
+                <% } %>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -22,6 +25,13 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="date" name="toDoDate">
+        <input type="submit">
+    </form>
+
+    <h3>Find tasks for a particular date</h3>
+    <form action="/todos/getTask" method="POST">
+        <input type="date" placeholder="Find tasks" name="findTask" class="double">
         <input type="submit">
     </form>
 

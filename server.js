@@ -9,6 +9,9 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const cron = require('node-cron')
+const Todo = require('./models/Todo')
+const mailing = require('./nodemailer')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -40,6 +43,23 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
+
+// Scheduler
+
+// cron.schedule('5 * * * * *', () => {
+//   Todo.find({}, function(err, todos) {
+
+    
+//     if (err) throw err;
+//     console.log(todos)
+    
+//     todos.forEach(function(todo) {
+//       if(Math.ceil((new Date(todo.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) == 5){
+//         mailing.sendMail(todo.email)
+//       }
+//     });
+//   });
+// })
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

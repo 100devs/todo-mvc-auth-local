@@ -1,5 +1,6 @@
 h1{
-    color: red;
+    color: black;
+    text-decoration: underline;
 }
 .completed{
     text-decoration: line-through;
@@ -7,4 +8,10 @@ h1{
 }
 .not{
     text-decoration: underline;
+}
+.del {
+    color: red;
+}
+.dateStyle {
+    font-style: italic;
 }

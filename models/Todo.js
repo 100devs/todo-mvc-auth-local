@@ -9,6 +9,20 @@ const TodoSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  date: {
+    type: Date,
+    required: false,
+    default: Date.now,
+    get: (date)=> date.toLocaleDateString(),
+  },
+  // date: {
+  //   type: String,
+  //   required: false,
+  // },
+  email: {
+    type: String,
+    unique: false
+  },
   userId: {
     type: String,
     required: true
