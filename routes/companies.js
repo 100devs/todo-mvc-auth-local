@@ -1,20 +1,26 @@
-const { getRounds } = require('bcrypt')
-const express = require('express')
-const router = express.Router()
-const companiesController = require('../controllers/company')
-const { ensureAuth } = require('../middleware/auth')
+const { getRounds } = require('bcrypt');
+const express = require('express');
+const router = express.Router();
+const companiesController = require('../controllers/company');
+const { ensureAuth } = require('../middleware/auth');
 
-// protect all route to stop artificial requests 
-router.use('/', ensureAuth)
+// protect all route to stop artificial requests
+router.use('/', ensureAuth);
 
-router.get('/', companiesController.getCompanys)
+router.get('/', companiesController.getCompanys);
 
-router.post('/createCompany', companiesController.createCompany)
+// required to serve static files
+router.use('/edit', express.static('public'));
+router.get('/edit/:companyId', companiesController.getCompanyPage);
 
-router.put('/markComplete', companiesController.markComplete)
+router.put('/edit', companiesController.editCompany);
 
-router.put('/markIncomplete', companiesController.markIncomplete)
+router.post('/createCompany', companiesController.createCompany);
 
-router.delete('/deleteCompany', companiesController.deleteCompany)
+router.put('/markComplete', companiesController.markComplete);
 
-module.exports = router
+router.put('/markIncomplete', companiesController.markIncomplete);
+
+router.delete('/deleteCompany', companiesController.deleteCompany);
+
+module.exports = router;

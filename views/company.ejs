@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script defer src="js/company.js"></script>
+
+    <title>Edit <%=company.name%></title>
+  </head>
+  <body>
+    <!-- PUT method -->
+    <h2>Edit Company info</h2>
+    <form action="/companies/edit" data-id="<%=company._id%>">
+      <label for="name">
+        Name:
+        <input
+          type="text"
+          name="companyName"
+          id="name"
+          value="<%=company.name%>"
+        />
+      </label>
+      <label for="phone">
+        Phone Number:
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phone"
+          value="<%=company.phone%>"
+        />
+      </label>
+      <button type="submit">Update</button>
+    </form>
+
+    <a href="/companies">Company list</a>
+  </body>
+</html>
