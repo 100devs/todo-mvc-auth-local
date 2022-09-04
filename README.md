@@ -52,12 +52,10 @@ To Start:
 - fancy sign up page https://mui.com/material-ui/getting-started/templates/sign-up/
 - fancy todos page https://www.figma.com/community/file/892825410260715717
 - add another page to show archive of deleted/finished to dos
-- add another page and show deleted to dos
 - delete word to trashcan icon
 - drop down to change staus (todo, working on, completed)
 - add default for each column (only image for completed; text for to do and working on columns)
 - add date to do
-- add name from sign up into DATABASE
 
 Later on:
 
