@@ -41,7 +41,7 @@ module.exports = {
       const deckTitle = decks.filter(deck => !deckTitle.localeCompare(deck, 'en', { sensitivity: base }))[0] || req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
 
       // finding the specific deck
-      let deck = await Deck.find({ title: deckTitle })
+      let deck = await Deck.findOne({ title: deckTitle })
       
       // if no deck, create a new deck
       if(!deck){
@@ -71,7 +71,7 @@ module.exports = {
       res.redirect('/cards')
     } catch(err){
       console.error(err)
-      res.render('error/500')
+      //res.render('error/500')
     }
   },
   getUpdateCard: async (req,res) => {
