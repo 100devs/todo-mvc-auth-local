@@ -42,10 +42,11 @@ body {
     height: 300px;
   } */
 
-.swiper-slide {
+.swiper-slide{
   text-align: center;
   font-size: 18px;
   background: #1d1d1d;
+
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -83,13 +84,18 @@ body {
   border-top: 2px solid #1D1D1D;
 }
 .right-button-place{
-  position: relative;
-  /* left: 175px; */
-  left: 190px; /*good for icons only*/
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 2px;
 }
 .left-button-place{
-  position: relative;
-  right: 190px; /*good for icons only*/
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 70px;
 }
 .corner-right-buttons{
   position: relative;
@@ -100,3 +106,61 @@ body {
   position: relative;
 }
 /* greenwindbreaker button end */
+
+
+/*  dannynyn flipping animation   */
+
+.card{
+  width: 490px;
+  height: 500px;
+} 
+
+.card_inner{
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card_inner.is-flipped{
+  transform: rotateY(180deg);
+}
+
+.card_face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16;
+}
+
+.card_face-front{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_face-back{
+  transform: rotateY(180deg);
+}
+
+.card_content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.answer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*  dannynyn flipping animation end  */
