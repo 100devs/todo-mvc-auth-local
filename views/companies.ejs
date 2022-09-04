@@ -34,84 +34,34 @@
   <!-- Cut>Format>Paste the ul to format with prettier -->
   <!-- TODO: look into EJS formatting -->
 
-  <a href="/todos">Add A Company</a>
+  <!-- button to add a company -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="companies/add" class="btn btn-primary">Add Company</a>
+      </div>
+    </div>
 
-  <div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered table-sm">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Company Name</th>
-          <th scope="col">Date Added</th>
-          <th scope="col">Company Website</th>
-          <!--   'Position' and 'Position URL' get displayed as a single item below    -->
-          <th scope="col">Role/Position</th>
-          <th scope="col">Position Type</th>
-          <th scope="col">Source</th>
-          <th scope="col">Point of Contact</th>
-          <th scope="col">Applied?</th>
-          <th scope="col">Application Date</th>
-          <th scope="col">Coffee Chat?</th>
-          <th scope="col">Coffee Chat Date?</th>
-          <th scope="col">Thanked?</th>
-          <th scope="col">Interview Date</th>
-          <th scope="col">Follow-Up Date</th>
-          <th scope="col">Comments</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% companies.forEach((company, index)=> { %>
-          <tr>
-            <th scope="row">
-              <%= index + 1 %>
-            </th>
-            <td>
-              <%= company.companyName %>
-            </td>
-            <td>
-              <%= company.dateAdded %>
-            </td>
-            <td>
-              <%= company.url %>
-            </td>
-            <td><a href="<%= company.roleURL %>">
-                <%= company.role %>
-              </a></td> <!-- Link to position URL here-->
-            <td>
-              <%= company.position %>
-            </td>
-            <td>
-              <%= company.source %>
-            </td>
-            <td>
-              <%= company.pointOfContact.name %> - <%= company.pointOfContact.position %> - <%=
-                    company.pointOfContact.email %>
-            </td>
-            <td>
-              <%= company.application.applied %>
-            </td>
-            <td>
-              <%= company.application.date %>
-            </td>
-            <td>
-              <%= company.application.coffeeChatDate %>
-            </td>
-            <td>
-              <%= company.application.saidThanks %>
-            </td>
-            <td>
-              <%= company.application.interviewDate %>
-            </td>
-            <td>
-              <%= company.application.followUpDate %>
-            </td>
-            <td>
-              <%= company.comments %>
-            </td>
-          </tr>
+    <!-- list of companies in card format -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-group">
+          <% companies.forEach(company => { %>
+          <li class="list-group-item">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= company.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= company.address %></h6>
+                <p class="card-text"><%= company.description %></p>
+                <a href="/companies/<%= company._id %>" class="card-link">View</a>
+                <a href="/companies/edit/<%= company._id %>" class="card-link">Edit</a>
+                <a href="/companies/delete/<%= company._id %>" class="card-link">Delete</a>
+              </div>
+            </div>
+          </li>
           <% }) %>
-      </tbody>
-    </table>
+        </ul>
+      </div>
   </div>
 
 

@@ -47,14 +47,6 @@
 </header>
 
 <body class="">
-  <!-- <ul>
-        <% todos.forEach( el => { %>
-                <li class='todoItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                    <span class='del'> Delete </span>
-                </li>
-        <% }) %>    
-    </ul> -->
 
   <div class="fb-box-shadow rounded-corners p-4 m-4 text-center text-md-start">
     <!-- Add a Company -->
@@ -65,7 +57,7 @@
         </div>
       </div>
     </div>
-    <form action="/todos/createTodo" method="POST">
+    <form action="/companies/addCompany" method="POST">
       <!-- Job Description -->
       <div class="container align-items-center mx-auto">
         <div class="row">
@@ -126,19 +118,7 @@
                 <label for="position">Position Type:</label>
               </div>
               <div class="col col-md-12">
-                <select class="w-100 form-select" aria-label="select position type" name="position" id="position">
-                  <option selected>Choose position type</option>
-                  <option value="Full-time Local">Full-time Local</option>
-                  <option value="Full-time Remote">Full-time Remote</option>
-                  <option value="Full-time Hybrid">Full-time Hybrid</option>
-                  <option value="Part-time Local">Part-time Local</option>
-                  <option value="Part-time Remote">Part-time Remote</option>
-                  <option value="Part-time Hybrid">Part-time Hybrid</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Internship">Internship</option>
-                  <option value="Seasonal">Seasonal</option>
-                  <option value="Temporary">Temporary</option>
-                </select>
+                <input class="w-100 form-control" type="text" placeholder="Type of Position" id="posiiton" />
               </div>
             </div>
           </div>
@@ -208,8 +188,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input class="form-check-input" type="checkbox" placeholder="Applied?" id="applied" />
-                <label class="form-check-label" for="applied">Applied?</label>
+                <input type="checkbox" placeholder="Applied?" id="applied" />
+                <label for="Applied?">Applied?</label>
               </div>
             </div>
           </div>
@@ -217,8 +197,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input class="form-check-input" type="checkbox" id="coffeeChat" />
-                <label class="form-check-label" for="coffeeChat">Coffee Chat?</label>
+                <input type="checkbox" id="coffeeChat" />
+                <label for="CoffeeChat">Coffee Chat?</label>
               </div>
             </div>
           </div>
@@ -226,8 +206,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input class="form-check-input" type="checkbox" id="saidThanks" />
-                <label class="form-check-label" for="saidThanks">Said Thanks?</label>
+                <input type="checkbox" id="saidThanks" />
+                <label for="saidThanks">Said Thanks?</label>
               </div>
             </div>
           </div>
@@ -291,9 +271,8 @@
 
         <div class="row">
           <div class="col col-12 text-center">
-            <a href="/companies" class="btn btn-lg btn-secondary m-2">Cancel</a>
             <button class="btn btn-lg btn-primary m-2" type="submit">
-              Save
+              Submit
             </button>
           </div>
         </div>
