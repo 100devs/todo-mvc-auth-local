@@ -1,9 +1,12 @@
 const sendEmail = require("../config/sendEmail")
 const User = require("../models/User")
-const Token = require("../models/Token")
 const validator = require("validator")
 const crypto = require('crypto')
 const passport = require("passport")
+const passportLocalMongoose = require("passport-local-mongoose")
+const nodemailer = require("nodemailer")
+const async = require("async")
+
 
 exports.getPasswordRecover = (req, res) => {
     if (req.user) {
@@ -22,33 +25,60 @@ exports.postPasswordRecover = async (req, res) =>{
             req.flash('errors', validationErrors)
             return res.redirect('/recover')
         }
-        req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+       
+    async.waterfall([
+        function (done) {
+            crypto.randomBytes(20, function (err, buf) {
+                var token = buf.toString('hex');
+                done(err, token);
+            });
+        },
+        function (token, done) {
+            User.findOne({ email: req.body.email }, function (err, user) {
+                if (!user) {
+                    req.flash('errors', 'No account with that email address exists.');
+                    return res.redirect('/recover');
+                }
 
-        const user = await User.findOne({ email: req.body.email })
-        
-        if (!user) {
-            req.flash('errors', { msg: 'Account with that email address does not exist.' })
-            return res.redirect('/recover')
+                user.resetPasswordToken = token;
+                user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+                user.save(function (err) {
+                    done(err, token, user);
+                });
+            });
+        },
+        function (token, user, done) {
+            const transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    user: process.env.USER,
+                    pass: process.env.PASS
+                }
+            })
+            const mailOptions = {
+                to: user.email,
+                from: process.env.USER,
+                subject: 'Christmas List Central Password Reset Request',
+                text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                    'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                    'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+                    'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            };
+            transporter.sendMail(mailOptions, function (err) {
+                req.flash('errors', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+                done(err, 'done');
+            });
         }
-
-        let token = await Token.findOne({ userId: user._id })
-        if (!token) {
-            token = await new Token({
-                userId: user._id,
-                token: crypto.randomBytes(32).toString("hex")
-            }).save()
-        }
-
-       if(user && token){
-        const link = `http://localhost:${process.env.PORT}/password-reset/${user._id}/${token.token}`
-        await sendEmail(user.email, "Password Reset Request", `Please reset your password using this link: ${link}`)
-        res.redirect('/login')
-       }
+    ], function (err) {
+        if (err) return next(err);
+        res.redirect('/recover');
+    })
 }
 
 exports.getPasswordReset = (req, res) => {
     if (req.user) {
-        return res.redirect('/password-reset/:userid/:token')
+        return res.redirect('/reset/:token')
     }
     res.render('password-reset', {
         title: 'Password Reset'
@@ -57,8 +87,6 @@ exports.getPasswordReset = (req, res) => {
 
 exports.postPasswordReset = async(req,res) =>{
 
-  
-   
         const validationErrors = []
         if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
         if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
@@ -67,23 +95,26 @@ exports.postPasswordReset = async(req,res) =>{
             req.flash('errors', validationErrors)
         
         }
+    async.waterfall([
+        function (done) {
+            User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function (err, user) {
+                if (!user) {
+                    req.flash('error', 'Password reset token is invalid or has expired.');
+                    return res.redirect('back');
+                }
 
-    const user = await User.findById(req.params.userId)
-    //if (!user) {
-    //    req.flash('errors', { msg: 'Invalid link or expired. Please try to reset your password again.' })
-    //}
-    const token = await Token.findOne({ userId: req.params.userId, token: req.params.token, })
-    //if (!token) {
-    //    req.flash('errors', { msg: 'Invalid link or expired. Please try to reset your password again.' })
-    //}   
+                user.password = req.body.password;
+                user.resetPasswordToken = undefined;
+                user.resetPasswordExpires = undefined;
 
-        
-    
-        
-        console.log(user, token)
-        user.password = req.body.password
-        await user.save()
-        await token.delete()
-        res.redirect("/todos")
-    
+                user.save(function (err) {
+                    req.logIn(user, function (err) {
+                        done(err, user);
+                    });
+                });
+            });
+        },
+    ], function (err) {
+        res.redirect('/todos');
+    })
 }

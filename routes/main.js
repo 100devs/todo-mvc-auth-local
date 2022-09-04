@@ -13,7 +13,7 @@ router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 router.get('/recover', passwordResetController.getPasswordRecover)
 router.post('/recover', passwordResetController.postPasswordRecover)
-router.get('/password-reset/:id/:token', passwordResetController.getPasswordReset)
-router.post('/password-reset/:userid/:token', passwordResetController.postPasswordReset)
+router.get('/reset/:token', passwordResetController.getPasswordReset)
+router.post('/reset/:token', passwordResetController.postPasswordReset)
 
 module.exports = router

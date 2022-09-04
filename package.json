@@ -10,6 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "async": "^3.2.4",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
@@ -25,6 +26,7 @@
     "nodemailer": "^6.7.8",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
     "validator": "^13.7.0"
   },
   "devDependencies": {
