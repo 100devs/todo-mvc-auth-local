@@ -86,7 +86,7 @@ module.exports = {
       if(card.userId !== req.user.id){
         res.redirect('/cards')
       } else{
-        res.render('cards/edit', { card: card })
+        res.render('editCard.ejs', { card: card })
       }
       
     } catch(err){
@@ -109,8 +109,7 @@ module.exports = {
       } else {
         await Card.findOneAndUpdate({ _id: req.params.id }, {
           question: req.body.question, 
-          answer: req.body.answer, 
-          deck: req.body.deck
+          answer: req.body.answer
         },{
           // ensures updates match model schema
           runValidators: true
