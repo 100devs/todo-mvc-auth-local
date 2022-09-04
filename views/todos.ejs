@@ -2,8 +2,8 @@
 <% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
 <div class="row pt-5">
     <form class="addTodo" action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <input class="form-control" type="text" placeholder="Enter todo" name='todoItem'>
+        <button type="submit" class="btn btn-primary">Add</button>
     </form>
 </div>
 <div class="row pb-5">

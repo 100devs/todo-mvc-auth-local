@@ -81,6 +81,8 @@ color: #3b9614;
 .addTodo {
     display: flex;
     justify-content: center;
+    width: 400px;
+    margin: 0 auto;
 }
 .addTag {
     display: flex;
@@ -92,7 +94,7 @@ color: #3b9614;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
-    height: 40px;
+    min-height: 40px;
 }
 .tag {
     border: 1px solid #6c92b8;
@@ -103,6 +105,9 @@ color: #3b9614;
 }
 .tag:hover {
     cursor: pointer; 
+}
+.addTag input {
+    width: 150px;
 }
 /******************************
 ** Signup page **/
