@@ -1,96 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contactr</title>
-    <link
-    rel="icon"
-    href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
-  />
 
-    <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contactr</title>
+  <link rel="icon"
+    href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true" />
 
-    <!-- Header / Navbar -->
-  <header class="navbar-space">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand mx-auto" href="/">
-          <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
-          <img
-            src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
-            alt=""
-            width="30"
-            height="24"
-            class="d-inline-block align-text-top"
-          />
-          Contactr
-        </a>
-      </div>
-    </nav>
-  </header>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-  <body class="">
-    <!-- Cut>Format>Paste the ul to format with prettier -->
-    <!-- TODO: look into EJS formatting -->
+<!-- Header / Navbar -->
+<header class="navbar-space">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="/">
+        <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
+        <img
+          src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+          alt="" width="30" height="24" class="d-inline-block align-text-top" />
+        Contactr
+      </a>
+    </div>
+  </nav>
+</header>
 
-    <a href="/todos">Add A Company</a>
+<body class="">
+  <!-- Cut>Format>Paste the ul to format with prettier -->
+  <!-- TODO: look into EJS formatting -->
 
-    <table>
+  <a href="/todos">Add A Company</a>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+      <thead>
         <tr>
-            <th>Company Name</th>
-            <th>Date Applied</th>
-            <th>Role</th>
-            <th>Point of Contact</th>
-            <th>Applied?</th>
-            <th>App Date</th>
-            <th>Coffee Date</th>
-            <th>Thanked?</th>
-            <th>Interview Date</th>
-            <th>Follow-Up Date</th>
-            <th>Comments</th>
+          <th scope="col">#</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Date Added</th>
+          <th scope="col">Company Website</th>
+          <!--   'Position' and 'Position URL' get displayed as a single item below    -->
+          <th scope="col">Role/Position</th>
+          <th scope="col">Position Type</th>
+          <th scope="col">Source</th>
+          <th scope="col">Point of Contact</th>
+          <th scope="col">Applied?</th>
+          <th scope="col">Application Date</th>
+          <th scope="col">Coffee Chat?</th>
+          <th scope="col">Coffee Chat Date?</th>
+          <th scope="col">Thanked?</th>
+          <th scope="col">Interview Date</th>
+          <th scope="col">Follow-Up Date</th>
+          <th scope="col">Comments</th>
         </tr>
-        <% companies.forEach(company => { %>
-        <tr>
-            <td><%= company.companyName %></td>
-            <td><%= company.dateAdded %></td>
-            <td><a href="<%= company.roleURL %>"><%= company.position %></a></td> <!-- Link to position URL here-->
-            <td><%= company.pointOfContact.name %> - <%= company.pointOfContact.position %></td> 
-            <td><%= company.application.applied %></td>
-            <td><%= company.application.date %></td>
-            <td><%= company.application.coffeeChatDate %></td>
-            <td><%= company.application.saidThanks %></td>
-            <td><%= company.application.interviewDate %></td>
-            <td><%= company.application.followUpDate %></td>
-            <td><%= company.comments %></td>
-        </tr>
-
-        <% }) %>
+      </thead>
+      <tbody>
+        <% companies.forEach((company, index)=> { %>
+          <tr>
+            <th scope="row">
+              <%= index + 1 %>
+            </th>
+            <td>
+              <%= company.companyName %>
+            </td>
+            <td>
+              <%= company.dateAdded %>
+            </td>
+            <td>
+              <%= company.url %>
+            </td>
+            <td><a href="<%= company.roleURL %>">
+                <%= company.role %>
+              </a></td> <!-- Link to position URL here-->
+            <td>
+              <%= company.position %>
+            </td>
+            <td>
+              <%= company.source %>
+            </td>
+            <td>
+              <%= company.pointOfContact.name %> - <%= company.pointOfContact.position %> - <%=
+                    company.pointOfContact.email %>
+            </td>
+            <td>
+              <%= company.application.applied %>
+            </td>
+            <td>
+              <%= company.application.date %>
+            </td>
+            <td>
+              <%= company.application.coffeeChatDate %>
+            </td>
+            <td>
+              <%= company.application.saidThanks %>
+            </td>
+            <td>
+              <%= company.application.interviewDate %>
+            </td>
+            <td>
+              <%= company.application.followUpDate %>
+            </td>
+            <td>
+              <%= company.comments %>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
     </table>
+  </div>
 
- 
-    
-    <hr>
-    <!-- LogOut Button -->
-    <a href="/logout" class="btn btn-lg btn-danger btn-block m-2 d-flex justify-content-center w-25 mx-auto" role="button"
-      >Logout</a
-    >
 
-    <script src="js/main.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+  <hr>
+  <!-- LogOut Button -->
+  <a href="/logout" class="btn btn-lg btn-danger btn-block m-2 d-flex justify-content-center w-25 mx-auto"
+    role="button">Logout</a>
+
+  <script src="js/main.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
