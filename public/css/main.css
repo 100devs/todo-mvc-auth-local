@@ -2,9 +2,26 @@ h1 {
     color: black;
     text-align: center;
     text-decoration: underline;
-    background-color:azure;
-    border-style: solid;
+    /* background-color:azure; */
+    padding-bottom: 20px ;
+ 
 }
 body{
     background-color: aqua;
+}
+
+a.login  {
+    color:beige;
+    border-style:solid;
+
+}
+a.signup {
+  color: beige;  
+  border-style: solid;
+  /* padding: 10px solid; */
+}
+
+.buttons{
+    justify-content: center;
+    display: flex;
 }
