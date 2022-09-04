@@ -3,7 +3,7 @@ A study note taking application in the style of flash cards. A new user can sign
  
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
  
-![alt tag](http://placecorgi.com/1200/650)
+![Happy notes frontpage](https://github.com/jericashall/happy-notes/blob/main/happynotes.png)
  
 ## How It's Made:
  
