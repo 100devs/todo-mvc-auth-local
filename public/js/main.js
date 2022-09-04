@@ -2,7 +2,7 @@ const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 const dateSelector = document.querySelectorAll('li.day')
-
+const hamburgerBtn = document.querySelector('.nav--hambrgBtn')
 
 
 Array.from(deleteBtn).forEach((el)=>{
@@ -16,6 +16,17 @@ Array.from(todoItem).forEach((el)=>{
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
+
+hamburgerBtn.addEventListener('click', toggleNavBar)
+
+async function toggleNavBar() {
+    let header = document.querySelector('.header')
+    let navList = document.querySelector('.nav--list')
+
+    header.classList.toggle('expanded')
+    navList.classList.toggle('unhide')
+
+}
 
 async function deleteTodo(id){
     try{

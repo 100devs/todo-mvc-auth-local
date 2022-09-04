@@ -30,7 +30,7 @@ body{
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-size: 96.5%;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 input{
@@ -74,6 +74,9 @@ a{
 	color: #FFFFFF;
 	background-color: #5e95c7;
 }
+.header--linkLogo{
+	color: #ffffff;
+}
 .header--logo {
 	font-size: 22.5px;
 	margin-right: 1.25rem;
@@ -85,6 +88,32 @@ a{
 .nav--listItems {
 	margin-left: 1.25rem;
 	display: inline-block;
+}
+.nav--hambrgBtn {
+	font-size: 24px;
+	display: none;
+}
+.expanded {
+	height: 135px;
+	flex-wrap: wrap;
+}
+.unhide {
+	display: block !important;
+	width: 100vw;
+	justify-self: flex-end;
+}
+
+/* ####### Media Queries ####### */
+@media screen and (max-width: 835px) {
+	.header {
+		/* display: block; */
+	}
+	.nav--hambrgBtn {
+		display: inline-block;
+	}
+	.nav--list {
+		display: none;
+	}
 }
 
 /* Primary Buttons */
@@ -197,9 +226,6 @@ text-decoration: none;
 	}
 	.heroSection--logo {
 			margin-bottom: 5vh;
-	}
-	.nav--list {
-			display: none;
 	}
 }
 
