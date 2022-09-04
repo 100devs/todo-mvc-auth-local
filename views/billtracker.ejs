@@ -15,7 +15,9 @@
         <li class="billtrackerItem" data-id="<%=el._id%>">
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString()}` %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
+                {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %>
+            </span>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span>
             <span class='fa-solid fa-trash-can del'>  </span>
 
