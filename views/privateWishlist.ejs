@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
   </head>
   <body>
     <h1>Yes, this is the Personal Wishlist page.</h1>
-    <span>If you are reading this, something is working. How?</span>
+    
+    <ul>
+      <% gears.forEach( el => { %>
+      <li class="gearItem" data-id="<%=el._id%>" >
+        <span><%= el.gearName %></span> 
+        <span><%= el.gearBrand %></span>
+        <span><%= el.gearPrice %></span>
+        <span><%= el.gearCondition %></span>
+        <span><%= el.dateAdded %></span>
+        <!-- <span><%= el.visibility %></span>     User need to see?  -->
+        <button class ='delete'>Delete Gear</button>
+      </li>
+      <% }) %>
+    </ul>
+    <script src="/js/main.js"></script>
   </body>
 </html>

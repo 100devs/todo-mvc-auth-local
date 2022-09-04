@@ -16,4 +16,9 @@ router.get("/", ensureAuth, gearController.getGear);
 //  @route  GET /show
 router.get("/show", gearController.showGear);
 
+//  @desc   Delete gear in your list
+//  @route  DELETE /gear
+router.delete('/deleteGear', gearController.deleteGear)
+
+
 module.exports = router;
