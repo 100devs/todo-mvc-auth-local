@@ -19,12 +19,14 @@ module.exports = {
 
             const todosCompleted = await Todo.find({
                 userId:req.user.id,
-                completed: true
+                completed: true,
+                archive:false
             })
 
             const currentWorkingOn = await Todo.find({
                 userId:req.user.id,
                 workingOn: true,
+                archive:false
             })
 
 

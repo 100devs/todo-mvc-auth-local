@@ -11,13 +11,11 @@ module.exports = {
             })
             
             
-            res.render('todos.ejs', {
-                archived: todosArchived,
+            res.render('archive.ejs', {
+                archivedTodos: todosArchived,
                 user: req.user
             })
-
-
-            console.log(req.user)
+            
         }catch(err){
             console.log(err)
         }
