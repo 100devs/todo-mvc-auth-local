@@ -1,4 +1,5 @@
-const Trip = require('../models/trip')
+//tripController
+const Trip = require('../models/Trip')
 
 module.exports = {
     dashboard: async (req,res)=>{
