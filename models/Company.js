@@ -12,6 +12,7 @@ const CompanySchema = new mongoose.Schema({
     default: Date.now,
   },
   url: String,
+  role: String,
   roleURL: String,
   position: String,
   source: String,
@@ -33,7 +34,7 @@ const CompanySchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true,
-  }
+  },
 })
 
 // Should there be a way to add multiple points of contacts to the same company? For example: 1 Document per company (Amazon) with 3 contacts (with a separate contact schema) nested within it. <-- Complicated feature
