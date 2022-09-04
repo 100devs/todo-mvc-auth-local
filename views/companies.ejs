@@ -14,7 +14,7 @@
         <!-- previous leon example
             <ul>
         <% companies.forEach( el => { %>
-                <li class='todoItem PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                <li class='todoItem PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> <%= el.PhoneNumber %></span>
                     <span class='del'> Delete </span>
                 </li>
@@ -29,7 +29,7 @@
             <tr >
                <td>
                 <% companies.forEach( el => { %>
-                    <li style="list-style: none;" class='todoItem' class='todoItem' data-id='<%=el._id%>'>
+                    <li style="list-style: none;" class='companyItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.name %> </span>
                         
                     </li><% }) %>    
@@ -37,7 +37,7 @@
                 
                 
                <td><% companies.forEach( el => { %>
-                <li style="list-style: none;"" class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                <li style="list-style: none;"" class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.phone %></span>
                 <!-- <span class='del'> Delete </span> -->
                     
@@ -48,7 +48,7 @@
                     <% companies.forEach( el => { %> 
 
                         <li style="list-style: none;">
-                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
                                 <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
                                 
                                 <span class='del <%= el.completed === true ? 'completed' : 'not'%>'> Delete </span>
@@ -64,7 +64,7 @@
                     <% companies.forEach( el => { %> 
 
                         <li style="list-style: none;">
-                            <button class='PhoneNumber' class='todoItem' data-id='<%=el._id%>'>
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
                                 <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
                                 
                                 <span class='edit <%= el.completed === true ? 'completed' : 'not'%>'> Edit </span>
