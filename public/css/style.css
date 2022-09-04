@@ -23,10 +23,9 @@ INDEX.EJS
     background-size: cover;
 }
 
-.index .container{
+.index .container, .main-todos {
     width: 50%;
     margin: 25vh auto 0 auto;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +49,10 @@ INDEX.EJS
     
 }
 
+.index .container {
+    text-align: center;
+}
+
 .index h1 {
     font-family: 'Dancing Script', sans-serif;
     font-weight:700;
@@ -58,7 +61,8 @@ INDEX.EJS
 }
 
 
-.index a, #submitbutton{
+.index a, #submitbutton,
+.list .button {
   align-self: center;
   background-color: #fff;
   background-image: none;
@@ -89,7 +93,8 @@ INDEX.EJS
   margin: 10px;
 }
 
-.index a:hover, #submitbutton {
+
+.index a:hover, #submitbutton, .button {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
@@ -130,19 +135,19 @@ TODOS.EJS
 */
 
 .list {
-    background-image: url("https://i.ibb.co/340d0SY/christmas-g8061b26d7-1280.png");
+    background-image: url("https://images.unsplash.com/photo-1576072446580-32468f1b5439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
     background-repeat: no-repeat;
-    background-position: bottom center;
-    background-attachment:fixed;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
 }
 
   .main-todos {
     width: 50%;
-    margin: 2% 45% 2% 25%;
-    background-color: rgb(254, 254, 254, 0.75);
-    border: 2px solid green;
-    border-radius: 3%;
+    margin: 1% 45% 1% 25%;
+    background-color: rgb(255, 255, 255);
+    /* border: 2px solid green; */
+    /* border-radius: 3%; */
     padding: 1% 2% 2% 2%;
   }
 
@@ -151,9 +156,21 @@ TODOS.EJS
     flex-direction: column;
   }
 
+  .new-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
   input, select {
-    width: 30%;
+    width: 40%;
     margin-bottom: 2%;
+    background: white;
+  }
+
+  .input-field {
+    border: none;
+    background: rgba(240, 235, 235, 0.715);
   }
 
   .countdown h2 {
