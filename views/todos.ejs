@@ -16,6 +16,13 @@
 
     <h2><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
 
+    <% watchList.forEach( el => { %>
+        <li class='watchListItem' data-id='<%=el.id%>'>
+            <span><%=el.tvShowName%></span>
+            <span class='del'> Delete </span>
+        </li>
+<% }) %>  
+
 
     <a href="/logout">Logout</a>
 
