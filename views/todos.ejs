@@ -144,7 +144,12 @@
                     </li>
                     <% }) %>
             </ul>
-            <button class="reverse-sort">Sort in Reverse</button>
+            <label for="reverse-switch" class="switch-label">Sort in Reverse</label>
+            <label class="switch" name="reverse-switch">
+                <input type="checkbox" class="reverse-sort">
+                <span class="slider round"></span>
+            </label>
+            <!-- <button class="reverse-sort">Sort in Reverse</button> -->
             <h2>
                 <%= user.userName %> has <%= left %> things on this christmas list
             </h2>
@@ -153,7 +158,7 @@
                 <input type="text" placeholder="Enter Christmas Gift" name='todoItem'>
                 <input type="text" placeholder="Enter Who the Gift is For" name='giftFor'>
                 <input type="submit">
-                <label for="list-type">Choose a type of gift list</label>
+                
                 
             </form>
         </section>
