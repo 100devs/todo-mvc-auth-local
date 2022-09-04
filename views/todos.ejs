@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,40 +12,43 @@
         rel="stylesheet">
     <title>Christmas Shopping List</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/todos.css">
+    <link rel="stylesheet" href="css/countdown.css">
 </head>
+
 <body class="list">
     <!-- Needed to Make it Snow -->
     <div class="snowflakes" aria-hidden="true">
-   
+
         <div class="snowflake">
-        ❅
+            ❅
         </div>
         <div class="snowflake">
-        ❅
+            ❅
         </div>
         <div class="snowflake">
-        ❆
+            ❆
         </div>
         <div class="snowflake">
-        ❄
+            ❄
         </div>
         <div class="snowflake">
-        ❅
+            ❅
         </div>
         <div class="snowflake">
-        ❆
+            ❆
         </div>
         <div class="snowflake">
-        ❄
+            ❄
         </div>
         <div class="snowflake">
-        ❅
+            ❅
         </div>
         <div class="snowflake">
-        ❆
+            ❆
         </div>
         <div class="snowflake">
-        
+
         </div>
         <div class="snowflake">
             ❄
@@ -91,19 +95,51 @@
         <div class="snowflake">
             ❄
         </div>
-      </div>
+    </div>
 
     <section class="main-todos">
 
-    <header>
-        <section class="countdown">
-            <h2>Christmas Countdown! Commence festivities in ...</h2>
-            <section class="countdown">
-                <span class="days">days</span>
-                <span class="hours">hours</span>
-                <span class="minutes">minutes</span>
-                <span class="seconds">seconds</span>
+        <header>
+            <div class="countdown">
+                <h2 class="countdown-label">Christmas Countdown! Commence festivities in ...</h2>
+                <section class="deadline">
+                    <!--days -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>days</p>
+                    </span>
+                    <!--hours -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>hours</p>
+                    </span>
+                    <!-- minutes -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>minutes</p>
+                    </span>
+                    <!-- seconds -->
+                    <span class="deadline-format">
+                        <span class="time">00</span>
+                        <p>seconds</p>
+                    </span>
+                </section>
+                </div>
+        </header>
+        <section class="create-list">
+            <h1>Gift List</h1>
+            <h2 class="gift-list-name">
+                <%= todos.listName %>
+            </h2>
+            <section class="dropdown">
+                <label for="list-type">Choose a type of gift list</label>
+                <select name="list-type" id="list-type">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="Wishlist">Wishlist</option>
+                </select>
             </section>
+
         </section>
     </header>
     <section class="create-list">
@@ -146,10 +182,13 @@
     </form>
     </section>
 
-    <a href="/logout">Logout</a>
+        <a href="/logout">Logout</a>
 
-</section>
+    </section>
 
     <script src="js/main.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/countdown.js"></script>
 </body>
+
 </html>

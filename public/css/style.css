@@ -45,6 +45,7 @@ INDEX.EJS
     box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
     box-sizing: border-box;
     color: #41403e;
+    padding: 10px;
     
 }
 
@@ -96,6 +97,34 @@ INDEX.EJS
 .index a:hover, #submitbutton, .button {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
+}
+
+/* 
+===========
+SIGNUP.EJS
+===========
+*/
+
+.signup,
+.login {
+  padding: 50px 5px;
+}
+
+.formstyle {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formstyle input {
+  padding: 10px;
+  margin: 10px;
+}
+
+.alert {
+  color: red;
 }
 
 
@@ -163,28 +192,5 @@ TODOS.EJS
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
-/* 
-===========
-SIGNUP.EJS
-===========
-*/
 
-.signup{
-    padding: 50px 5px;
-}
-
-.signupform{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.signupform input{
-    padding: 10px;
-    margin: 10px;
-}
-
-.alert{
-    color: red;
-}
 

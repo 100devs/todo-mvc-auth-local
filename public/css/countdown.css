@@ -1,0 +1,25 @@
+/* 
+===========
+SHARED STYLE
+===========
+*/
+
+.countdown {
+    font-family: 'Dancing Script', sans-serif;
+}
+.deadline{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap: wrap;
+width: 75%%;
+margin: 0 auto;
+font-size: 18px;
+}
+
+.deadline-format {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
