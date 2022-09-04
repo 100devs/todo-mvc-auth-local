@@ -17,7 +17,7 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-hamburgerBtn.addEventListener('click', toggleNavBar)
+//hamburgerBtn.addEventListener('click', toggleNavBar)
 
 async function toggleNavBar() {
     let header = document.querySelector('.header')
@@ -194,7 +194,7 @@ class Calendar {
         this.day = selectedDay;
 
         const days = document.getElementById('days').childNodes
-        for(let i = 1; i<days.length-1; i++){
+        for(let i = 0; i<days.length; i++){
             if(days[i].firstChild){      
             days[i].firstChild.classList.remove('selected')}    
         }
@@ -234,8 +234,11 @@ class Calendar {
                 li.dataset.id = x._id;
 
                 li.innerHTML = `<span class="filteredTasks">${x.task}</span>
-                                <a href="#" title="Remove note" class="removeNote animate del" onclick="deleteTodo(this.parentNode.dataset.id)">x</a>
-                                <span style="display: block">${x.startTime} - ${x.endTime}</span>`
+                                <a href="#" title="Remove note" class="removeNote animate del" onclick="deleteTodo(this.parentNode.dataset.id)">x</a>`
+
+                if(x.startTime != undefined) {
+                    li.innerHtml += `<span style="display: block">${x.startTime} - ${x.endTime}</span>`
+                }
 
                 this.taskList.appendChild(li);
             });

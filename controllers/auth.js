@@ -1,6 +1,7 @@
 const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
+const todosController = require("./todos.js");
 
  exports.getLogin = (req, res) => {
     if (req.user) {
@@ -85,6 +86,8 @@ const User = require('../models/User')
       }
       user.save((err) => {
         if (err) { return next(err) }
+        // Add default tasks (anki, banki, codewars, due dates)
+        todosController.addDefaultTasks(user);
         req.logIn(user, (err) => {
           if (err) {
             return next(err)

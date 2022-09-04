@@ -4,8 +4,8 @@ const TaskSchema = new mongoose.Schema({
 task: {type: String, required: true},
 day: {type: String, required: true},
 month: {type: String, required: true},
-startTime: {type: String, required: true},
-endTime: {type: String, required: true},
+startTime: {type: String},
+endTime: {type: String},
 userId: { type: String, required: true}
 }, {timestamps: true})
 
