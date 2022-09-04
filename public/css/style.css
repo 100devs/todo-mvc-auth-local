@@ -106,7 +106,12 @@ body {
   position: relative;
 }
 /* greenwindbreaker button end */
+/* greenwindbreaker addCard.ejs start */
+.addcard-bg{
+  background-image: linear-gradient(to bottom right, #670d10,#092756) !important;
+}
 
+/* greenwindbreaker addCard.ejs end */
 
 /*  dannynyn flipping animation   */
 

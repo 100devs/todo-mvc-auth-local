@@ -16,7 +16,7 @@ module.exports = {
     }
   },
   getAddCard: (req,res) => {
-    res.render('add.ejs')
+    res.render('addCard.ejs')// before -> res.render('add.ejs')
   },
   processAddCard: async (req,res) => {
     try{

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Compiled and minified CSS (materialize) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  
+    <nav class="blue-grey darken-4" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="/cards" class="brand-logo">Happy Notes</a>
+          <ul class="right">
+            <li><a class="waves-effect blue darken-3 btn-small" href="/logout"><i class="material-icons right">exit_to_app</i>Logout</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+          <!-- <a href="/logout" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">Logout</i></a> -->
+        </div>
+      </nav>
+    <section class="container addcard-bg">
+        <h3>Add A Card</h3>
+    <div class="row">
+        <form class="col s12" action="/createCard" method="POST">
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="DECK NAME" id="first_name" type="text" class="validate" name="deckTitle" required="">
+              <label for="deck">Deck Name</label>
+            </div>
+            <div class="input-field col s8">
+              <!-- <input id="last_name" type="text" class="validate">
+              <label for="last_name"></label> -->
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="input-field col s12">
+              <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+              <label for="disabled">Disabled</label>
+            </div>
+          </div> -->
+            <div class="row">
+            <div class="col s5">
+                <div class="input-field" required="">
+                    <h5>Question:</h5>
+                    <textarea name="question" id="body" required=""></textarea>
+                </div>
+            </div>
+            <div class="col s7"></div>
+            
+            </div>
+            <div class="row">
+            <div class="col s5">
+                <div class="input-field" required="">
+                    <h5>Answer:</h5>
+                    <textarea name="answer" id="body" required=""></textarea>
+                </div>
+            </div>
+            <div class="col s7"></div>
+            </div>
+          <!-- <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div> -->
+          <!-- <div class="row">
+            <div class="col s12">
+              This is an inline input field:
+              <div class="input-field inline">
+                <input id="email_inline" type="email" class="validate">
+                <label for="email_inline">Email</label>
+                <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+              </div>
+            </div>
+          </div> -->
+          <div class="row">
+            <a href="/cards" class="btn orange lighten-2">Cancel</a>
+          <input type="submit" class="btn  indigo lighten-3">
+          
+          </div>
+        </form>
+      </div>
+    </section>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        CKEDITOR.replace('question', {
+            plugins:'wysiwygarea, toolbar, basicstyles, link'
+        })
+        CKEDITOR.replace('answer', {
+            plugins:'wysiwygarea, toolbar, basicstyles, link'
+        })
+    </script>
+</body>
+</html>
