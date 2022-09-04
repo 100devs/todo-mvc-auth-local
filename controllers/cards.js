@@ -1,4 +1,4 @@
-const Card = require('../models/card')
+const { Card, Deck } = require('../models/card')
 
 module.exports = {
   getDashboard: async (req,res) => {
@@ -6,10 +6,10 @@ module.exports = {
     try{
       // get all of the cards the user has
       const cards = await Card.find({ user: req.user.id }).lean()
-      // get an array of all of the decks the user has
-      const decks = await Card.distinct('deck', { user: req.user.id }).lean()
+      // get all of the decks the user has
+      const decks = await Deck.find({ user: req.user.id }).lean()
       // send all information over to the view
-      res.render('cards.ejs', {cards: cards, decks: decks, user: req.user})
+      res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
     }catch(err){
       console.error(err)
       res.render('error/500')
@@ -20,14 +20,39 @@ module.exports = {
   },
   processAddCard: async (req,res) => {
     try{
-      await Card.create({ 
+      // obtaining a list of all deck names the user has
+      const decks = await Deck.distinct('title', { userId: req.user.id })
+
+      // setting the value of the title to what's in the DB or what the user entered
+      const deckTitle = decks.filter(deck => !deckTitle.localeCompare(deck, 'en', { sensitivity: base }))[0] || req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
+
+      // finding the specific deck
+      let deck = await Deck.find({ title: deckTitle })
+      
+      // if no deck, create a new deck
+      if(!deck){
+        deck = await Deck.create({
+          title: deckTitle,
+          userId: req.user.id,
+        })
+        console.log('A new deck was created!')
+      }
+
+      const card = await Card.create({ 
         question: req.body.question, 
         answer: req.body.answer,
         active: true,
         userId: req.user.id,
-        deck: req.body.deck,
-        //deckId: {} //determine how to generate deckId
+        deck: deck._id,
       })
+      
+      // update the deck with the card created
+      await Deck.findByIdAndUpdate(deck._id, {
+        $push: {
+          "cards": card._id
+        }
+      }, () => console.log('Card added to deck!'))
+
       console.log('A new card has been created!!')
       res.redirect('/cards')
     } catch(err){
