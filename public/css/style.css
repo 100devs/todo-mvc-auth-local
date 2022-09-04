@@ -47,13 +47,16 @@ h1{
 /******************************
 ** Todo page **/
 
+.todoItem label {
+    font-size: 1.3rem;
+}
 .priority {
     position: absolute;
     right: 50px;
-     top: 10px;
+    top: 10px;
 }
 .priority.none {
-color: #aaaaaa;
+color: #888;
 }
 .priority.low {
 color: #3b9614;
@@ -66,16 +69,31 @@ color: #3b9614;
 .priority.high {
  color:#8a1207;
 }
-
-
 .del {
     position: absolute;
     right: 15px;
     top: 10px;
+    color: #888;
 }
 .addTodo {
     display: flex;
     justify-content: center;
+}
+.tags  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.tag {
+    border: 1px solid #6c92b8;
+    border-radius: 3px;
+    color: #152f4a;
+    background: #deedfc;
+    padding: 0 5px;
+}
+.tag:hover {
+    cursor: default; 
 }
 /******************************
 ** Signup page **/
