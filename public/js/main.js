@@ -4,8 +4,8 @@ const delExpense = document.querySelectorAll('.delExpense')
 const updExpense = document.querySelectorAll('.updExpense')
 const updBudget = document.querySelectorAll('.updBudget')
 
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+// const todoItem = document.querySelectorAll('span.not')
+// const todoComplete = document.querySelectorAll('span.completed')
 
 Array.from(delExpense).forEach((el)=>{
     el.addEventListener('click', deleteExpense)
