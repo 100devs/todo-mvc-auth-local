@@ -23,7 +23,7 @@
     <ul>
     <h2>You have logged <%= left %> journal entries.</h2>
     <% BlogPost.forEach( items => { %>
-            <li class='todoItem' data-id='<%=items._id%>'>
+            <li class='postItem' data-id='<%=items._id%>'>
                 <div class='title'> <h4><%= items.title %></h4>  </div> 
                 <div class='body'> <%= items.body %>  </div>
                 <div class='gitHub'><i class="fa-brands fa-github"></i> <a href="<%= items.gitHub %>" target="_blank"><%= items.gitHub %></a>  </div>
@@ -34,7 +34,7 @@
                     <form action="/blogPost/edit/<%= items._id %>" action="GET">
                         <input type="submit" class="editButton button-18" value="Edit">
                     </form>
-                        <button onclick="deleteTodo" class="button-18 del" id="del">Delete</button>
+                        <button onclick="deletePost" class="button-18 del" id="del">Delete</button>
                 </div>
             </li>
     <% }) %>    
