@@ -7,8 +7,8 @@ const { ensureAuth } = require('../middleware/auth')
 // @route           GET /cards
 router.get('/', ensureAuth, cardsController.getDashboard)
 
-// @description     Show cards homepage
-// @route           GET /cards
+// @description     Show cards from specific decks
+// @route           GET /decks/:id
 router.get('/decks/:id', ensureAuth, cardsController.getDeck)
 
 // @description     Show add page
@@ -21,11 +21,11 @@ router.post('/createCard', ensureAuth, cardsController.processAddCard)
 
 // @description     Show update page
 // @route           GET /cards/updateCard/:id
-router.get('/updateCard/:id', ensureAuth, cardsController.getUpdateCard)
+router.get('/edit/:id', ensureAuth, cardsController.getUpdateCard)
 
 // @description     Process edit form
 // @route           PUT /cards/updateCard
-router.put('/updateCard', ensureAuth, cardsController.processUpdateCard)
+router.put('/updateCard/', ensureAuth, cardsController.processUpdateCard)
 
 // @description     Delete card
 // @route           GET /cards/deleteCard

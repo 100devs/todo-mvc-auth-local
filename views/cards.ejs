@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Happy Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
-
-    <!-- Compiled and minified CSS (materialize) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<link rel="stylesheet" href="css/style.css">
-
-
+  <!-- Compiled and minified CSS (materialize) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
-
 <body>
   <!-- header -->
   <nav class="blue-grey darken-4" role="navigation">
@@ -39,7 +31,6 @@
     <div class="row">
       <div class="col s6"><a href="/cards/addCard" class="waves-effect waves-light btn-small  blue-grey lighten-3">ADD NEW CARD<i class="material-icons right">add</i></a></div>
       <div class="col s3"></div>
-      <div class="col s3"><a href="/addDeck" class="waves-effect waves-light btn-small  blue-grey lighten-3">MAKE A NEW DECK<i class="material-icons right">layers</i></a></div>
     </div>
   </div>
 
@@ -48,16 +39,16 @@
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <%for (let i = 0; i < cards.length; i++) {%>
+      <% for (let i = 0; i < cards.length; i++) { %>
       <div class="swiper-slide">
         
         <div class="card fit">
           <div class="card fit card_inner">
 
-            <div class="card_face card_face-front" id="<%= cards[i]._id %>">
+            <div class="card_face card_face-front" id="<%=cards[i]._id%>">
               <p><%= cards[i].question %></p>
 
-              <a href="/updateCard/<%= cards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
+              <a href="cards/edit/<%= cards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
               <a href="#" class="waves-effect waves-light btn-small red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
           </div>
 
@@ -87,7 +78,7 @@
     <ul id="nav-mobile" class="center deck-holder">
       <a href="/cards" class="decks-link"">All</a>
       <%for (let i = 0; i < decks.length; i++) {%>
-      <a href="/decks/<%= decks[i]._id %>" class="decks-link"></a>
+      <a href="/cards/decks/<%=decks[i]._id%>" class="decks-link"><%=decks[i].title%></a>
       <% } %>
   </ul>
   </div>
@@ -103,7 +94,7 @@
 
 
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     
 </body>
 </html>

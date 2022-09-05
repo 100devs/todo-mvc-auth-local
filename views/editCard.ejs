@@ -26,14 +26,10 @@
         </div>
       </nav>
     <section class="container addcard-bg">
-        <h3>Add A Card</h3>
+        <h3>Edit A Card</h3>
     <div class="row">
-        <form class="col s12" action="/cards/createCard" method="POST">
+        <form class="col s12" action="/cards/updateCard/<%card._id%>?_method=PUT" method="POST">
           <div class="row">
-            <div class="input-field col s4">
-              <input placeholder="<%= card.deck.title %>" id="first_name" type="text" class="validate" name="deckTitle" disabled>
-              <label for="deck">Deck Name</label>
-            </div>
             <div class="input-field col s8">
               <!-- <input id="last_name" type="text" class="validate">
               <label for="last_name"></label> -->

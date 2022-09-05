@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 //const todoRoutes = require('./routes/todos') // Commenting out since we're using cards
 const cardRoutes = require('./routes/cards')
+const methodOverride = require('method-override')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -23,6 +24,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+app.use(methodOverride('_method'))
 // Sessions
 app.use(
     session({

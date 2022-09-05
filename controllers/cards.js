@@ -5,9 +5,10 @@ module.exports = {
     console.log(req.user)
     try{
       // get all of the cards the user has
-      const cards = await Card.find({ user: req.user.id }).lean()
+      const cards = await Card.find({ userId: req.user.id }).lean()
+      console.log(cards)
       // get all of the decks the user has
-      const decks = await Deck.find({ user: req.user.id }).lean()
+      const decks = await Deck.find({ userId: req.user.id }).lean()
       // send all information over to the view
       res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
     }catch(err){
@@ -20,8 +21,9 @@ module.exports = {
     try{
       // get all of the cards in the deck
       const cards = await Card.find({ deck: req.params.id }).lean()
+      console.log(cards)
       // get all of the decks the user has
-      const decks = await Deck.find({ user: req.user.id }).lean()
+      const decks = await Deck.find({ userId: req.user._id }).lean()
       // send all information over to the view
       res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
     }catch(err){
@@ -36,10 +38,10 @@ module.exports = {
     try{
       // obtaining a list of all deck names the user has
       const decks = await Deck.distinct('title', { userId: req.user.id })
-
+      console.log(req.body)
       // setting the value of the title to what's in the DB or what the user entered
       const deckTitle = decks.filter(deck => !deckTitle.localeCompare(deck, 'en', { sensitivity: base }))[0] || req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
-
+      
       // finding the specific deck
       let deck = await Deck.findOne({ title: deckTitle })
       
@@ -55,7 +57,6 @@ module.exports = {
       const card = await Card.create({ 
         question: req.body.question, 
         answer: req.body.answer,
-        active: true,
         userId: req.user.id,
         deck: deck._id,
       })
@@ -83,11 +84,7 @@ module.exports = {
       }
 
       // ensure that the userId matches userId on card (additional redundency)
-      if(card.userId !== req.user.id){
-        res.redirect('/cards')
-      } else{
         res.render('editCard.ejs', { card: card })
-      }
       
     } catch(err){
       console.error(err)
