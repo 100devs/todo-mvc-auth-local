@@ -8,3 +8,24 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+li{
+ list-style: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.main{
+    display:flex;
+    
+}
+
+.showList{
+    width:50%;
+}
+
+.summaryDisplay{
+    width:50%;
+}

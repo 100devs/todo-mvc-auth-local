@@ -67,3 +67,29 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+const showSummary = document.getElementsByClassName('showTitle')
+
+Array.from(showSummary).forEach((el)=>{
+    el.addEventListener('click', showBio)
+})
+
+
+function showBio(click){
+    
+    const showName = this.parentNode.dataset.id
+    console.log(showName)
+    click.target.classList.contains(`${showName}img`)
+	document.getElementById(`${showName}img`).classList.toggle('hidden')
+    document.getElementById(`${showName}sum`).classList.toggle('hidden')
+    
+    
+}
+
+// function showSumm(click){
+//     const showName = this.parentNode.dataset.id
+//     console.log(showName)
+//     click.target.classList.contains(`${showName}sum`)
+// 	document.getElementById(`${showName}sum`).classList.toggle('hidden')
+    
+// }

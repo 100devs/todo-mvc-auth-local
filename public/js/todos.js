@@ -1,26 +1,17 @@
-// const addbtn = document.querySelectorAll('button')
+const showSummary = document.querySelectorAll('showTitle')
 
-// Array.from(addbtn).forEach((el)=>{
-//     el.addEventListener('click', addShow)
-// })
+Array.from(showSummary).forEach((el)=>{
+    el.addEventListener('click', showBio)
+})
 
-// async function addShow(){
-//     const showId = this.parentNode.dataset.show.id
-//     try{
-//         const response = await fetch('todos/createTodo', {
-//             method: 'POST',
-//             headers: {'Content-type': 'application/json'},
-//             body: JSON.stringify({
-//                 'showID': showId
-//             })
-//         })
-//         const data = await response.json()
-//         console.log(data)
-//         location.reload()
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
+function showBio(click){
+    const showId = this.parentNode.dataset.id
+    if(click.target.dataset-id.contains(`${showId}`)){
+		document.querySelector('#showInfo').classList.toggle('hidden')
+	}else{
+		alert("Wrong!");
+	}
+}
 
 
 
