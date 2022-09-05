@@ -37,15 +37,26 @@ const createBudget = async (req, res, next) => {
     const totalExpenses = expenses.reduce((a, e) => a + e.amount, 0);
     console.log(`total: ${totalExpenses}`);
 
+    //check to see if a budget already exists:
+    const budget = await Budget.find({ user: req.user.id });
+
     // Create a new budget
-    await Budget.create({
-      initialAmount: Number(req.body.initialAmount) * 100,
-      remainingAmount: Number(req.body.initialAmount) * 100 - totalExpenses, // Subtract the expenses in this period
-      // currency: req.body.currency,
-      // startDate: req.body.startDate,
-      // endDate: req.body.endDate,
-      user: req.user.id,
-    });
+    if (budget.length === 0) {
+      await Budget.create({
+        initialAmount: Number(req.body.initialAmount) * 100,
+        remainingAmount: Number(req.body.initialAmount) * 100 - totalExpenses, // Subtract the expenses in this period
+        // currency: req.body.currency,
+        // startDate: req.body.startDate,
+        // endDate: req.body.endDate,
+        user: req.user.id,
+      });
+    } else await Budget.findOneAndUpdate({ _id: budget[0]._id },
+      {
+        initialAmount: req.body.initialAmount * 100 + budget[0].initialAmount,
+        remainingAmount: req.body.initialAmount * 100 + budget[0].initialAmount - totalExpenses
+      },
+      {new: true})
+    
     console.log("Budget has been added!");
     res.redirect("/budget");
   } catch (err) {
