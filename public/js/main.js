@@ -1,21 +1,22 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
+//const todoItem = document.querySelectorAll('span.not')
 const entryItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+//const todoComplete = document.querySelectorAll('span.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteEntry)
 })
 
-Array.from(todoItem).forEach((el)=>{
+Array.from(entryItem).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
-})
+//Array.from(todoComplete).forEach((el)=>{
+//    el.addEventListener('click', markIncomplete)
+//})
 
-async function deleteTodo(){
+//async function deleteTodo(){
+async function deleteEntry(){
     const entryId = this.parentNode.dataset.id
     try{
         const response = await fetch('entries/deleteEntry', {
