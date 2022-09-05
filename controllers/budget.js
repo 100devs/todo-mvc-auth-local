@@ -6,16 +6,16 @@ const getBudget = async (req, res, next) => {
     const budget = await Budget.find({ user: req.user.id });
     const expenses = await Expense.find({ user: req.user.id });
 
-    const categories = req.user.categories;
-    const currencies = req.user.currencies;
-    console.log(req.user.currencies);
+    // const categories = req.user.categories;
+    // const currencies = req.user.currencies;
+    // console.log(req.user.currencies);
 
     res.render("budget.ejs", {
       budget: budget,
       expenses: expenses,
       user: req.user,
-      categories,
-      currencies,
+      // categories,
+      // currencies,
     });
   } catch (err) {
     // next(err) sends the error to the error handler
@@ -53,20 +53,28 @@ const createBudget = async (req, res, next) => {
   }
 };
 
-const editBudget = async (req, res) => {
+const updateBudget = async (req, res) => {
   try {
-    await Budget.findOneAndUpdate( //add edit functionality to budget page. Maybe add in collapsable div that hides and shows form?
-      { _id: req.body.idFromJSFile },
+    const budgetId = req.params.id;
+    const newInitialAmount = Number(req.body.newInitialAmount) * 100
+
+    const initialBudget = await Expense.findOne({ _id: budgetId, user: req.user.id });
+
+    // Find expenses
+    const expenses = await Expense.find({ user: req.user.id });
+    const totalExpenses = expenses.reduce((a, e) => a + e.amount, 0);
+    console.log(`total: ${totalExpenses}`);
+
+    const updatedBudget = await Budget.findOneAndUpdate( //add edit functionality to budget page. Maybe add in collapsable div that hides and shows form?
+      { _id: budgetId },
       {
-        amount: Number(req.body.amount) * 100,
-        // currency: req.body.currency,
-        // startDate: req.body.startDate,
-        // endDate: req.body.endDate,
-        user: req.user.id,
-      }
+        initialAmount: newInitialAmount,
+        remainingAmount: newInitialAmount - totalExpenses
+      },
+      {new: true}
     );
     console.log("Budget has been updated!");
-    res.redirect("/budget");
+    res.json(updatedBudget);
   } catch (err) {
     console.log(err);
   }
@@ -79,7 +87,7 @@ const deleteBudget = async (req, res) => {
       { _id: req.body.idFromJSFile } //Add trash can to views page
     );
     console.log("Budget has been deleted!");
-    res.redirect("/budget");
+    res.json("deleted");
   } catch (err) {
     console.log(err);
   }
@@ -89,6 +97,6 @@ const deleteBudget = async (req, res) => {
 module.exports = {
   getBudget,
   createBudget,
-  editBudget,
+  updateBudget,
   deleteBudget,
 };

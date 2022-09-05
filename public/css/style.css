@@ -1,6 +1,39 @@
-h1 {
-  color: red;
+.auth-cards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width:inherit;
+  height: 100vh;
+  
 }
+
+.index{
+  background: url('../images/index.png') center /contain  no-repeat;
+}
+
+.login{
+  background: url('../images/login.png') center /contain  no-repeat;
+}
+
+.signup{
+  background: url('../images/signup.png') center /contain  no-repeat;
+}
+
+.index-card{
+  margin: 0 auto;
+  padding: 2rem !important;
+}
+
+.lead{
+   font-size: 1.5rem;
+}
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  color: green;
+}
+
 .completed {
   text-decoration: line-through;
   color: gray;
@@ -10,8 +43,8 @@ h1 {
 }
 
 .container {
-  display: flex;
-  gap: 5rem;
+  margin-top: 0;
+  width: 100%;
 }
 .budget,
 .expenses {

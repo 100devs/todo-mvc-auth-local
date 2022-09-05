@@ -41,62 +41,58 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
   console.log(req.user)
   try {
     const expense = await Expense.findOne({ _id: req.body.idFromJSFile });
-    // console.log(expense);
+
+    // Add the amount of the expense back to the budget
     const budget = await Budget.findOne({ user: req.user._id });
+    if (budget) {
+      await Budget.findOneAndUpdate(
+        { _id: budget._id },
+        {
+          remainingAmount: budget.remainingAmount + expense.amount,
+        }
+      );
+    }
 
-    console.log(expense);
-    // console.log(budget);
-
-
-    await Budget.findOneAndUpdate(
-      { _id: budget._id },
-      {
-        remainingAmount: Number(budget.remainingAmount) + Number(expense.amount),
-      }
-    );
-
+    // Delete the expense
     await Expense.deleteOne({
       _id: expense._id
     });
 
     console.log("Expense has been deleted and budget adjusted!");
     res.json('deleted')
-    res.redirect("/budget");
   } catch (err) {
     console.log(err);
   }
 };
 
-const editExpense = async (req, res) => { //need to add collapsable form next to each expense in budget page.
+const updateExpense = async (req, res) => { //need to add collapsable form next to each expense in budget page.
   try {
-    const initialExpense = await Expense.findOne({ _id: req.body.idFromJSFile });
+    const expenseId = req.params.id;
+    const newAmount = Number(req.body.amount) * 100
 
-    const editedExpense = {
-      amount: Number(req.body.amount) * 100,
-      // currency: req.body.currency,
-      category: req.body.category,
+    const initialExpense = await Expense.findOne({ _id: expenseId, user: req.user.id });
+
+    // Update budget
+    const budget = await Budget.findOne({ user: req.user._id });
+    if (budget) {
+      await Budget.findOneAndUpdate(
+        { _id: budget._id },
+        {
+          remainingAmount: budget.remainingAmount + initialExpense.amount - newAmount
+        }
+      );
+    }
+
+    // transaction object
+    const update = {
+      amount: newAmount,
       user: req.user.id,
     }
 
-    // if (editedExpense.date !== initialExpense.date){
-    //     //fix budgets
-    // }
-
-    // if (editedExpense.amount !== initialExpense.amount){
-    //     //fix budgets
-    // }
-
-    await Expense.findOneAndUpdate({
-      _id: initialExpense._id
-    }, {
-      amount: Number(req.body.amount) * 100,
-      // currency: req.body.currency,
-      category: req.body.category,
-      user: req.user.id,
-    });
+    const editedExpense = await Expense.findOneAndUpdate( {_id: expenseId}, update, {new: true} );
 
     console.log("Expense has been updated and budget adjusted!");
-    res.redirect("/budget");
+    res.json(editedExpense);
   } catch (err) {
     console.log(err);
   }
@@ -105,5 +101,5 @@ const editExpense = async (req, res) => { //need to add collapsable form next to
 module.exports = {
   createExpense,
   deleteExpense,
-  editExpense,
+  updateExpense,
 };
