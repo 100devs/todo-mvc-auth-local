@@ -3,6 +3,12 @@ const deleteBtn = document.querySelectorAll('.del');
 // const todoComplete = document.querySelectorAll('span.completed');
 const incrementor = document.querySelectorAll('.addShame');
 
+const options = {
+  valueNames: ['todont', 'timesDone'],
+};
+
+const todoList = new List('todontList', options);
+
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener('click', deleteTodo);
 });
@@ -21,15 +27,6 @@ Array.from(incrementor).forEach((el) => {
 
 // isItTime()
 
-// function shameProcess() {
-//   const todoId = this.parentNode.dataset.id;
-//   console.log(todoId);
-//   let shame = Number(this.previousElementSibling.textContent);
-//   console.log(shame);
-//   const num = addShame(todoId, shame);
-//   isItTime(num);
-// }
-
 async function deleteTodo() {
   const todoId = this.parentNode.dataset.id;
   try {
@@ -47,10 +44,8 @@ async function deleteTodo() {
   }
 }
 
-// add todoId and shame variables
 async function addShame() {
   const todoId = this.parentNode.dataset.id;
-  //shamePlace
   let shameMsg = this.previousElementSibling;
   let shame = Number(this.previousElementSibling.textContent);
   const newShame = (shame += 1);
