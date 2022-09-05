@@ -5,6 +5,12 @@ html{
 }
 /* Header */
 
+img{
+    min-width: 50px;
+    width: 10rem;
+    height: 10rem
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -46,6 +52,7 @@ section.large {
 .logProfile a:hover{
     background-color: white;
     color: #f7b733;
+    text-decoration: none !important;
 }
 
 /*Body */

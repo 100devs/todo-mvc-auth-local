@@ -11,6 +11,9 @@
 </head>
 <body>
     <main>
+        <section class="logo">
+            <img class="login-img" src="/images/To-Do white.png" >
+        </section>
         <section class="login">
             <h1>Log In</h1>
         <% if (locals.messages.errors) { %>
@@ -37,7 +40,7 @@
                 </form>
             </section>
             <section>
-                <span class="small">If you don't have an account, click <a> here </a> make one.</span>
+                <span class="small">If you don't have an account, click <a class="signup" href="/signup"> here </a> make one.</span>
             </section>
         </section>
     </main>
