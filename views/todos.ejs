@@ -10,7 +10,9 @@
         <div class="left"><%- include('./partials/logo'); %></div>
         <div class="right">
           <h4>Welcome <%= user.userName %>!</h4>
-          <h6>You have <%= left %> things left to do.</h6>
+          <h6>
+            You have <%= left %> thing<%= left == 1 ? '' : 's'%> left to do.
+          </h6>
           <a
             class="btn btn-primary btn-sm"
             href="/logout"
@@ -72,7 +74,6 @@
             </li>
             <% } %> <% }) %>
           </ul>
-          <h2><%= user.userName %> has <%= left %> things left to do.</h2>
         </section>
         <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
         <section class="todosHistory todosSection">
