@@ -12,18 +12,27 @@
         <h2>Create Your Todos!</h2>
         <form
           action="/todos/createTodo"
-          method="POST"
+          method="POST" 
         >
           <input
             type="text"
             placeholder="Create a todo item"
             name="todoItem"
           />
+          <!-- joe added importance -->
+          <label>Importance:</label>
+          <select name="importance" id="importance">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
           <input type="submit" />
         </form>
       </section>
       <section class = "taskListSection todosSection">
         <h2>Todo List</h2>
+        <!-- joe -->
+        <button><a href="todos?sortBy=importance&direction=<%= query.direction === 'asc'?'desc':'asc'%>">Sort By Importance</a></button>
         <ul class = "taskList">
           <!--Edit-Tal. Foreach variables passed in at controller render method.-->
           <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
