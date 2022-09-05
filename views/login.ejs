@@ -4,37 +4,23 @@
 
 <section class="loginPage">
 
+  <%- include('partials/forms/formHeader.ejs', { action:"login", method: "post" }, title="Log in" ) %>
 
-<%- include('partials/forms/formHeader.ejs', {
-  action:"login",
-  method: "post"},
-  title="Log in") %>
+  <%- include('partials/forms/input.ejs', {name: 'email' , type: 'email' , label:"Email address",
+          inputInfo: "We'll never share your email with anyone else" }) %>
 
-
-
-<%- include('partials/forms/input.ejs',
-  {name: 'email', type: 'email', label:"Email address",
-   inputInfo: "We'll never share your email with anyone else"})
-%>
-
-<%- include('partials/forms/input.ejs',
-  {
-      name: 'password',
-      type: 'password',
-      label:"Password",
-      parentClass: "mb-3"
-      })
-%>
-    <!--
+  <%- include('partials/forms/input.ejs', { name: 'password' , type: 'password' , label:"Password",
+            parentClass: "mb-3" }) %>
+  <!--
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="remember" name="remember" />
     <label class="form-check-label" for="remember">Remember me</label>
   </div>
   -->
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <p>
-      <a href="/signup" title="Register">Register</a>
-    </p>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <p>
+    <a href="/signup" title="Register">Register</a>
+  </p>
   </form>
 </section>
 

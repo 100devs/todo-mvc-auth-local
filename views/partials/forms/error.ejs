@@ -1,18 +1,22 @@
-                <!-- don't show this by default -->
-                <div class="alert hidden" id="formInfo"></div>
+<!-- don't show this by default -->
+<div class="alert hidden" id="formInfo"></div>
 
-                <% if (locals.messages.errors) { %>
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <% messages.errors.forEach( el => { %>
-                  <div class="alert alert-danger"><%= el.msg %></div>
-                  <% }) %>
-                </div>
-                <% } %>
-                <% if (locals.messages.info) { %>
-                <div class="d-flex flex-row align-items-center mb-4">
+<% if (locals.messages.errors) { %>
+<div class="d-flex flex-row align-items-center mb-4">
+  <% messages.errors.forEach( el=> { %>
+  <div class="alert alert-danger">
+    <%= el.msg %>
+  </div>
+  <% }) %>
+</div>
+<% } %>
+<% if (locals.messages.info) { %>
+<div class="d-flex flex-row align-items-center mb-4">
 
-                  <% messages.info.forEach( el => { %>
-                  <div class="alert alert-info"><%= el.msg %></div>
-                  <% }) %>
-                </div>
-                <% } %>
+  <% messages.info.forEach( el=> { %>
+  <div class="alert alert-info">
+    <%= el.msg %>
+  </div>
+  <% }) %>
+</div>
+<% } %>

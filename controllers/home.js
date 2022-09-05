@@ -1,7 +1,7 @@
 module.exports = {
     getIndex: (req,res)=>{
         res.render('index.ejs', {
-      title: 'Homepage'
+          user: req.user
     })
     }
 }

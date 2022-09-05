@@ -7,26 +7,20 @@
     <!-- don't show this by default -->
     <div class="alert hidden" id="formInfo"></div>
 
-      <%- include('../partials/forms/input.ejs',
-                  {name: 'name', type: 'text', label:"Create a group",
-                    faIcon: 'fas fa-briefcase', placeholder: 'Group name',
-      parentClass: 'mb-4'}) %>
+    <%- include('../partials/forms/input.ejs', {name: 'name' , type: 'text' , label:"Create a group",
+        faIcon: 'fas fa-briefcase' , placeholder: 'Group name' , parentClass: 'mb-4' }) %>
 
 
-<div class="form-group shadow-textarea mb-4">
-  <label for="description">Description of the group</label>
-  <textarea class="form-control z-depth-1" id="description" name="description" rows="3" placeholder="Add the group description here. The description will help users to understand the goal of the group."></textarea>
-</div>
+    <div class="form-group shadow-textarea mb-4">
+      <label for="description">Description of the group</label>
+      <textarea class="form-control z-depth-1" id="description" name="description" rows="3" placeholder="Add the group description here. The description will help users to understand the goal of the group."></textarea>
+    </div>
 
 
-    <%- include('../partials/forms/checkbox.ejs', {
-        name: 'isPublic',
-        checked: true,
-        description: 'Make it public, so everyone can see it',
-        parentClass: 'justify-content-start mb-3'
-    }) %>
+    <%- include('../partials/forms/checkbox.ejs', { name: 'isPublic' , checked: true,
+          description: 'Make it public, so everyone can see it' , parentClass: 'justify-content-start mb-3' }) %>
 
-<!--
+    <!--
     <%- include('../partials/forms/checkbox.ejs', {
         name: 'iscityBased',
         checked: true,
@@ -40,41 +34,38 @@
 </section>
 
 
-    <script>
+<script>
+  const form = document.querySelector('form');
+  const btnSubmit = document.querySelector('button[type="submit"]');
 
-      const form = document.querySelector('form');
-      const btnSubmit = document.querySelector('button[type="submit"]');
 
+  form.addEventListener('submit', (event) => {
+    // dont send the form, so we can control the inputs
+    event.preventDefault();
 
-      form.addEventListener('submit', (event) => {
-          // dont send the form, so we can control the inputs
-          event.preventDefault();
+    const name = document.querySelector('input[name="name"]').value;
+    const description = document.querySelector('textarea[name="description"]').value;
+    const isPublic = document.querySelector('input[name=isPublic]:checked');
 
-          const name = document.querySelector('input[name="name"]').value;
-          const description = document.querySelector('textarea[name="description"]').value;
-          const isPublic = document.querySelector('input[name=isPublic]:checked');
+    if (validator.isEmpty(description) || validator.isEmpty(name)) {
+      showInformation('alert-danger', 'All fields are required', btnSubmit);
+      return false;
+    }
 
-          if(validator.isEmpty(description) || validator.isEmpty(name)) {
-              showInformation('alert-danger', 'All fields are required', btnSubmit);
-              return false;
-          }
+    if (description.trim().length < 300) {
+      showInformation('alert-warning', 'The description must be at least 300 characters', btnSubmit);
+      return false;
+    }
 
-          if(description.trim().length < 300) {
-              showInformation('alert-warning', 'The description must be at least 300 characters', btnSubmit);
-              return false;
-          }
+    if (description.trim().length > 1000) {
+      showInformation('alert-warning', 'The description must be at maximum 1000 characters', btnSubmit);
+      return false;
+    }
 
-          if(description.trim().length > 1000) {
-              showInformation('alert-warning', 'The description must be at maximum 1000 characters', btnSubmit);
-              return false;
-          }
-
-        form.submit();
-      })
-
-    </script>
+    form.submit();
+  })
+</script>
 
 
 
 <%- include('../partials/footer.ejs') %>
-

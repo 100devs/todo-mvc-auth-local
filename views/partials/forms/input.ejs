@@ -1,9 +1,13 @@
 <div class="<%= typeof parentClass !== 'undefined' ? parentClass : 'mb-3' %>">
-      <label for="<%=name%>" class="form-label"><%=label%></label>
-      <input type="<%=name%>" class="form-control" id="<%=name%>"
-        name="<%=name%>" value="<%= typeof value != 'undefined' ? value : '' %>"
-         aria-describedby="<%=name%>" placeholder="<%= typeof placeholder != 'undefined' ? placeholder : name %>">
-    <% if (typeof inputInfo != "undefined") { %>
-      <div class="form-text"><%=inputInfo%></div>
+  <label for="<%=name%>" class="form-label">
+    <%=label%>
+  </label>
+  <input type="<%=name%>" class="form-control" id="<%=name%>" name="<%=name%>"
+    value="<%= typeof value != 'undefined' ? value : '' %>" aria-describedby="<%=name%>"
+    placeholder="<%= typeof placeholder != 'undefined' ? placeholder : name %>">
+  <% if (typeof inputInfo !="undefined" ) { %>
+    <div class="form-text">
+      <%=inputInfo%>
+    </div>
     <% } %>
 </div>

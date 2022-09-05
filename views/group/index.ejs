@@ -1,33 +1,30 @@
-<%- include('../partials/head.ejs', { title: 'My Groups'}) %>
-
+<%- include('../partials/head.ejs', { title: 'My Groups' }) %>
 
 <div class="row pb-5">
-        <% if (groupNumber > 0) { %>
-            <h1 class="my-3">My group<%= groupNumber > 1 ? 's' : '' %>( <%= groupNumber %>)</h1>
-            <div class="list-group mb-3">
+  <% if (groupNumber> 0) { %>
+  <h1 class="my-3">My group<%= groupNumber> 1 ? 's' : '' %>(<%= groupNumber %>)</h1>
+  <div class="list-group mb-3">
 
-
-
-<% let cnt = 1 %>
- <% groupItems.forEach( el=> { %>
-
-                <details>
-                    <summary>    <%= cnt++ %><%= el.createdAt %><%= el.name %>
-            <i class="fas fa-edit"></i><td>
-            <i class="fa-regular fa-check"></i>
-            <i class="fa-duotone fa-trash"></i>
-</summary>
-                    <%= el.description %>
-                </details>
-
+    <% let cnt=1 %>
+    <% groupItems.forEach( el=> { %>
+    <details>
+      <summary>
+        <%= cnt++ %>. <%= el.name %>, Created:
+        <!-- change the date formatting to whatever you want -->
+        <%= el.createdAt.toLocaleDateString('en-US', {'month': 'short' , 'day'
+                                            : 'numeric' , 'year' : 'numeric' } ) %>
+        <i class="fas fa-edit"></i>
+        <!-- You were trying to use pro icons, they didn't work -->
+        <i class="fas fa-check"></i>
+        <i class="fas fa-trash"></i>
+      </summary>
+      <%= el.description %>
+    </details>
     <% }) %>
+  </div>
+  <% } else { %>
+  <p>You have joined 0 groups. <a href="/group/createGroup" title="Create a group">Create a group</a></p>
+  <% } %>
 
-
-
-            </div>
-             <% } else { %>
-                <p>You have joined 0 group. <a href="/group/createGroup" title="Create a group">Create a group</a></p>
-            <% } %>
-
-    </div>
+</div>
 <%- include('../partials/footer.ejs') %>
