@@ -51,17 +51,22 @@ app.listen(process.env.PORT, ()=>{
 })
 
 
+const Todo = require('./models/Todo')
 const User = require('./models/User')
 // get all things
 app.get('/getallemails', async (req, res) => {
-  const allEmails = await getAllEmails();
-  if(allEmails) {
+  const allUsers = await getAllUsers();
+  if(allUsers) {
     let str = ""
-    // query by foreign key in mongo
-    allEmails.forEach((email) => {
-      const userID = email._id;
-      str += `Email: ${email.email}<br> Username: ${email.userName}<br> Todos: ${userID}<br><br>`
+    // query by foreign key in mongodb?
+    const x = await getTodosForAllUsers(allUsers);
+    console.log(x);
+    /*
+    allUsers.forEach((user) => {
+      const userID = user._id;
+      str += `Email: ${user.email}<br> Username: ${user.userName}<br> Todos: ${userID}<br><br>`
     });
+    */
     res.send(str);
   }
   else {
@@ -69,7 +74,7 @@ app.get('/getallemails', async (req, res) => {
   }
 })
 
-async function getAllEmails() {
+async function getAllUsers() {
   try {
     const allUsers = await User.find({}, {email: 1, _id: 1, userName: 1})
     return allUsers
@@ -82,4 +87,33 @@ async function getAllEmails() {
 
 async function getTodosByID(userID) {
   return 'Cartouche';
+}
+
+
+// assume users is an array with all users in the database.
+// each user looks like this: 
+// {
+//    email:string, userName:string,_id: string
+// }
+// @returns An array of objects: 
+// [
+//  {
+//      email:string, userName:string, todoList:Array<string> 
+//  }
+// ]
+async function getTodosForAllUsers(users) {
+  let queries = []
+  users.forEach(user => {
+      queries.push(async() => await Todo.find({_id: user._id})
+    )
+  })
+  mongoose.Promise.all(queries) 
+  .then((results) => {
+    results.forEach(result => {
+      console.log(result);
+    })
+  })
+  .catch(function(error) {
+    console.log("Error mass reading...", error);
+  })
 }
