@@ -174,7 +174,6 @@ nav {
   margin-bottom: 7rem;
 }
 
-<<<<<<< HEAD
 .decks-link {
   font-size: 1.2rem;
   color: white;
@@ -182,10 +181,33 @@ nav {
 
 .deck-holder {
   margin: 5%;
-=======
+}
 /* Deck name input text white */
 
 #first_name {
   color: #FFFFFF;
->>>>>>> 871207c7d01ccbf6e1d59326c1e7079c22e21282
+}
+
+/* Error pages styles */
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  background: -webkit-linear-gradient(#0d84f4, #689fe4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return2-dash > a {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  text-decoration: none;
 }

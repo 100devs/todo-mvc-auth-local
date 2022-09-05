@@ -12,7 +12,7 @@ module.exports = {
       res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
     }catch(err){
       console.error(err)
-      res.render('error/500')
+      res.render('error500.ejs')
     }
   },
   getDeck: async (req,res) => {
@@ -30,7 +30,12 @@ module.exports = {
     }
   },
   getAddCard: (req,res) => {
-    res.render('addCard.ejs')// before -> res.render('add.ejs')
+    try {
+      res.render('addCard.ejs')// before -> res.render('add.ejs')
+    } catch (err) {
+      console.error(err)
+      res.render('error404.ejs')
+    }
   },
   processAddCard: async (req,res) => {
     try{
@@ -71,7 +76,7 @@ module.exports = {
       res.redirect('/cards')
     } catch(err){
       console.error(err)
-      //res.render('error/500')
+      res.render('error500.ejs')
     }
   },
   getUpdateCard: async (req,res) => {
@@ -79,7 +84,7 @@ module.exports = {
       const card = await Card.findById(req.params.id).lean()
       // ensure card is in collection (should be a redundency)
       if(!card){
-        res.render('error/404')
+        res.render('error404.ejs')
       }
 
       // ensure that the userId matches userId on card (additional redundency)
@@ -91,7 +96,7 @@ module.exports = {
       
     } catch(err){
       console.error(err)
-      res.render('error/500')
+      res.render('error500.ejs')
     }
   },
   processUpdateCard: async (req,res) => {
@@ -100,7 +105,7 @@ module.exports = {
 
       // ensure card is in collection (should be a redundency)
       if(!card){
-        res.render('error/404')
+        res.render('error404.ejs')
       }
 
       // ensure that the userId matches userId on card (additional redundency)
@@ -119,7 +124,7 @@ module.exports = {
       }
     } catch(err){
       console.error(err)
-      res.render('error/500')
+      res.render('error500.ejs')
     }
   },
   deleteCard: async (req,res) => {
