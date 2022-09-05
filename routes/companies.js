@@ -24,8 +24,8 @@ router.get("/edit/:id", ensureAuth, companyController.editCompany);
 router.put("/:id", ensureAuth, companyController.updateCompany);
 
 // @desc    Delete company
-// @route   DELETE /companies/:id
-router.delete("/:id", ensureAuth, companyController.deleteCompany);
+// @route   DELETE /companies/delete
+router.delete("/delete", ensureAuth, companyController.deleteCompany);
 
 
 module.exports = router;
