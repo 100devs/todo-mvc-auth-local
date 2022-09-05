@@ -4,10 +4,18 @@ module.exports = {
     getTodos: async (req,res)=>{
         console.log(JSON.stringify(req.user))
         try{
-            const todoItems = await Todo.find({ userId: req.user._id })
+            const tags = req.query.tags ? req.query.tags.split(',') : [];
+            const todoItems = tags.length ?
+                await Todo.find({
+                    userId: req.user._id,
+                    tags: {
+                        $all: tags
+                    }
+                }) :
+                await Todo.find({ userId: req.user._id });
             const complete = todoItems.filter(todo => todo.completed);
             const incomplete = todoItems.filter(todo => !todo.completed)
-            res.render('todos.ejs', { complete, incomplete, user: req.user })
+            res.render('todos.ejs', { complete, incomplete, user: req.user, filterTags: tags })
         }catch(err){
             console.log(err)
         }
