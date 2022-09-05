@@ -40,7 +40,8 @@ Studying is hard, but when you can turn studying into a friendly competition, we
 ## Steps run project: 
 - Install all dependences or node packages used for development via Terminal `npm install`
 
-
+---
+Have fun testing and improving it! 😎
 
 
 
