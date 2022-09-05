@@ -61,9 +61,8 @@ module.exports = {
     },
     editMessage: async (req, res)=>{
         try{
-            const message = await Message.findOne({_id:req.body.messageId})
             await Message.findOneAndUpdate({_id:req.body.messageId},{
-                message: message.message
+                message: req.body.message
             })
             console.log('Message edited')
             res.json('Message edited')
