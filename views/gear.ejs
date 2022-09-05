@@ -13,7 +13,8 @@
     <form action="/gear/createGear" method="POST">
       <input type="text" placeholder="Gear Name" name="gearName" />
       <input type="text" placeholder="Brand" name="gearBrand" />
-      <input type="number" placeholder="0" name="gearPrice" />
+      <input type="text" placeholder="Optional Image URL" name="gearImage" />
+      <input type="number" placeholder="$$$" name="gearPrice" />
       <select name="gearCondition" id="gearCondition">
         <option value="fair">Fair</option>
         <option value="good">Good</option>
@@ -30,7 +31,7 @@
         <option value="Public">Public</option>
       </select>
 
-      <input type="submit"/>
+      <input type="submit" />
     </form>
 
     <a href="/dashboard">return to dashboard</a>

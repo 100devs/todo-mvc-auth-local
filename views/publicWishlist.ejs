@@ -10,10 +10,10 @@
     <h1>Public Wishlists</h1>
 
     <ul>
-    
       <% gears.forEach( el => { %>
       <li class="gearItem" data-id="<%=el._id%>">
         <% %>
+        <img src="<%= el.gearImage %>" alt="" />
         <span><%= el.gearName %></span>
         <span><%= el.gearBrand %></span>
         <span><%= el.gearPrice %></span>
@@ -22,17 +22,6 @@
         <!-- <span><%= el.visibility %></span> Users need to see? -->
       </li>
       <% }) %>
-      
     </ul>
   </body>
 </html>
-
-<!-- 
-gearName
-gearBrand
-gearPrice
-gearCondition
-gearNote
-dateAdded
-visibility // public/private
-userId -->
