@@ -1,5 +1,5 @@
 h1{
-    color: red;
+    color: white;
 }
 .completed{
     text-decoration: line-through;
@@ -45,5 +45,5 @@ h4{
 }
 
 body{
-    background-color: aqua;
+    background-color: #4abdac;
 }
