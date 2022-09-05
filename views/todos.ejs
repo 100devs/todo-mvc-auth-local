@@ -16,29 +16,29 @@
     </form>
 
     <h2><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
-<div class="main">
+    <div class="main">
 
 
-<div class="showList">
-    <% watchList.forEach( el => { %>
-        <li class='watchListItem' data-id='<%=el.id%>'>
-            <span class="showTitle"><%=el.tvShowName%></span>
-            <span class='fa fa-trash del'></span>
-        </li>
-<% }) %>  
-</div>
-    
-
-    <div class="summaryDisplay">
-        <% watchList.forEach( el => { %>
-            <li class='watchListItem' data-id='<%=el.id%>'>
-                <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
-                <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
-            </li>
-    <% }) %>
+        <div class="showList">
+            <% watchList.forEach( el => { %>
+                <li class='watchListItem' data-id='<%=el.id%>'>
+                    <span class="showTitle"><%=el.tvShowName%></span>
+                    <span class='fa fa-trash del'></span>
+                </li>
+            <% }) %>  
+        </div>
         
+
+        <div class="summaryDisplay">
+            <% watchList.forEach( el => { %>
+                <li class='watchListItem' data-id='<%=el.id%>'>
+                    <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
+                    <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
+                </li>
+            <% }) %>
+            
+        </div>
     </div>
-</div>
 
 
     <a href="/logout">Logout</a>
