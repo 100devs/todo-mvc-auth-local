@@ -29,13 +29,13 @@
           <% companies.forEach(company => { %>
           <li class="list-group-item">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body" data-id='<%=company._id%>'>
                 <h5 class="card-title">Company Name: <%= company.companyName %></h5>
                 <h6 class="card-subtitle mb-2 text-muted">Point of Contact Name: <%= company.pointOfContact.name %></h6>
                 <p class="card-text">Point of Contact Email: <%= company.pointOfContact.email %></p>
                 <a href="/companies/<%= company._id %>" class="card-link">View</a>
                 <a href="/companies/edit/<%= company._id %>" class="card-link">Edit</a>
-                <a href="/companies/delete/<%= company._id %>" class="card-link">Delete</a>
+                <button class='del-company btn btn-danger'>Delete</button>
               </div>
             </div>
           </li>
@@ -56,6 +56,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
+    <script src="js/companies.js"></script>
 </body>
 
 </html>
