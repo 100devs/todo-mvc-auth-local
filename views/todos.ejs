@@ -17,7 +17,7 @@
                     <li class='todoItem task-list-item' data-id='<%=el._id%>'>
                         <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                         <% if(el.date != "Invalid Date"){ %>
-                            <span class="dateStyle">Due Date: <%=el.date %></span> 
+                            <span class="dateStyle">due: <%=el.date %></span>
                         <% } %>
                         <span class='del fa fa-trash delete-btn'></span>
                     </li>
@@ -26,8 +26,8 @@
         </section>
         <h2><%= user.userName %> has <%= left %> things left to do.</h2>
         <form action="/todos/createTodo" method='POST' class="add-task">
-            <input type="text" autocomplete="off" placeholder="Add New Task" v-model="tasks.name" @keyup.enter="newItem" class="task-input" name='todoItem'>
-            <input type="date" name="toDoDate">
+            <input type="text" autocomplete="off" placeholder="Add new task" v-model="tasks.name" @keyup.enter="newItem" class="task-input" name='todoItem'>
+            <input type="date" name="toDoDate" class="input-date">
             <input type="submit" value="" class="submit-task" @click="newItem" title="Add Task">
         </form>
         <h3>Find tasks for a particular date:</h3>

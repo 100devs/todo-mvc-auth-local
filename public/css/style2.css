@@ -142,3 +142,13 @@ a {
 .logout{
   margin-top: 10px;
 }
+
+.input-date {
+    width: 150px;
+}
+
+.dateStyle{
+    margin-left: 15px;
+    font-style: italic;
+    color: #b20009;
+}
