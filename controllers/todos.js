@@ -6,7 +6,7 @@ module.exports = {
         try{
             const watchListItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id})
-            res.render('todos.ejs', {watchList: watchListItems, left: itemsLeft, user: req.user})
+            res.render('todos.ejs', {watchList: watchListItems, left: itemsLeft, user: req.user,})
             console.log(watchListItems)
         }catch(err){
             console.log(err)
