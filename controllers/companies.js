@@ -9,7 +9,7 @@ exports.showAddPage = (req, res) => {
 // @desc    Process add form
 // @route   POST /companies
 exports.createCompany = async (req, res) => {
-  console.log(req.user);
+  console.log(req.body);
   try {
     const uniqID = await req.user.id;
     await Company.create({
@@ -109,11 +109,13 @@ exports.updateCompany = async (req, res) => {
 };
 
 // @desc    Delete company
-// @route   DELETE /companies/:id
+// @route   DELETE /companies/delete
 exports.deleteCompany = async (req, res) => {
+  console.log(req.body);
   try {
-    await Company.remove({ _id: req.params.id });
-    res.redirect("/companies");
+    await Company.findOneAndDelete({ _id: req.body.id });
+
+    res.json("Deleted It");
   } catch (err) {
     console.error(err);
     return res.render("error/500");
