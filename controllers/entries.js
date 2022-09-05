@@ -7,7 +7,6 @@ module.exports = {
       const entryItems = await Entries.find({ userId: req.user.id });
       const itemsLeft = await Entries.countDocuments({
         userId: req.user.id,
-        completed: false,
       });
       res.render("dashboard.ejs", {
         Entries: entryItems,
