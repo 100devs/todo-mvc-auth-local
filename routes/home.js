@@ -4,7 +4,7 @@ const authController = require('../controllers/auth')
 const homeController = require('../controllers/home')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', ensureAuth, homeController.getIndex) // decide if guest or member
+router.get('/', ensureGuest, homeController.getIndex) // if guest go to login else go to dashboard
 router.get('/login', ensureGuest, authController.getLogin) // go here if Guest
 router.get('/dashboard', ensureAuth, homeController.dashboard) // only go here if Authorized
 router.post('/login', authController.postLogin)
