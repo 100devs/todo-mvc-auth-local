@@ -4,33 +4,232 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Contactr - Feedback</title>
+    <link
+      rel="icon"
+      href="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+    />
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
+  <!-- Header / Navbar -->
+  <header class="navbar-space">
+    <nav class="navbar navbar-light bg-white navbar-bottom-shadow">
+      <div class="container">
+        <div class="row d-flex justify-content-between w-100">
+          <div class="col">
+            <a href="/" class="btn btn-lg btn-block navbar-left" role="button"
+              >Go Home</a
+            >
+          </div>
+          <div class="col m-1 text-center d-flex justify-content-center">
+            <a class="navbar-brand m-0" href="/">
+              <!-- Swap IMG src to coffeechat-icon.png after uploading assets -->
+              <img
+                src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/coffeechat-icon.png?raw=true"
+                alt=""
+                width="30"
+                height="24"
+                class="align-text-top text-center"
+              />
+              Contactr
+            </a>
+          </div>
+          <!-- LogOut Button -->
+          <div class="col text-end">
+            <a
+              href="/sendfeedback/logout"
+              class="btn btn-lg btn-danger btn-block navbar-right"
+              role="button"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
   <body>
-    <h1>sendfeedback</h1>
-    <p>TODO: Map out data with better CSS / Formatting</p>
-    <a href="/">Go Home</a>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-        <th>Delete Button</th>
-      </tr>
-      <% test.forEach(el => { %>
-      <tr>
-        <td><%= el.name %></td>
-        <td><%= el.email %></td>
-        <td><%= el.message %></td>
-        <td data-id="<%=el.userId%>">
-          <span class="del"> Delete <%=el.userId%></span>
-        </td>
-      </tr>
+    <!-- Error if not logged in -->
+    <% if (locals.error) { %>
+    <div class="alert alert-danger text-center">
+      <%= error %>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary text-center m-4"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal"
+      >
+        Log In
+      </button>
 
-      <% }) %>
-    </table>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form
+              class="form-signin text-center"
+              action="/sendfeedback/login"
+              method="POST"
+            >
+              <div class="container">
+                <div class="row">
+                  <div class="d-flex justify-content-center">
+                    <div class="col col-8 col-sm-7 col-md-5 col-lg-3">
+                      <img
+                        class="w-100 mx-auto d-block"
+                        src="https://github.com/anthonypz/todo-mvc-auth-local/blob/main/public/assets/Contactr-logos/Contactr-logos_transparent.png?raw=true"
+                        alt="Contactr Logo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h1 class="h3 font-weight-normal">Please log in</h1>
+                <label for="inputEmail" class="sr-only mt-2"
+                  >Email address</label
+                >
+                <div class="d-flex justify-content-center m-2">
+                  <div class="row">
+                    <div class="col">
+                      <input
+                        type="email"
+                        name="email"
+                        id="inputEmail"
+                        class="form-control"
+                        placeholder="Email / ID"
+                        required=""
+                        autofocus=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <label for="inputPassword" class="sr-only mt-2">Password</label>
+                <div class="d-flex justify-content-center m-2">
+                  <div class="row">
+                    <div class="col">
+                      <input
+                        type="password"
+                        name="password"
+                        id="inputPassword"
+                        class="form-control"
+                        placeholder="Password"
+                        required=""
+                      />
+                    </div>
+                  </div>
+                </div>
 
+                <button
+                  class="btn btn-lg btn-primary btn-block m-2"
+                  type="submit"
+                >
+                  Log In
+                </button>
+                <a
+                  class="btn btn-lg btn-success btn-block m-2"
+                  href="/sendfeedback/signup"
+                  role="button"
+                >
+                  Sign up</a
+                >
+                <p class="m-4 text-muted">© 2022</p>
+              </div>
+            </form>
+            <!-- Demo Log In -->
+            <hr class="w-50 mx-auto" />
+            <form
+              class="form-signin text-center"
+              action="/sendfeedback/login"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="email"
+                id="inputEmailDemo"
+                class="form-control"
+                placeholder="Email / ID"
+                required=""
+                autofocus=""
+                value="admin@admin.com"
+              />
+              <input
+                type="hidden"
+                name="password"
+                id="inputPasswordDemo"
+                class="form-control"
+                placeholder="Password"
+                required=""
+                value="admin1234"
+              />
+              <button
+                class="btn btn-lg btn-secondary btn-block m-2 mb-4"
+                type="submit"
+              >
+                Demo Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- Box Shadow Table -->
+    <div
+      class="fb-box-shadow rounded-corners p-4 m-4 text-center text-md-start"
+    >
+      <h1 class="text-center">Feedback</h1>
+      <p class="text-center">We value any constructive criticism.</p>
+
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Message</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% sendfeedbackArr.forEach(el => { %>
+          <tr>
+            <th class="align-middle" scope="row"><%= el.name %></th>
+            <td class="align-middle"><%= el.email %></td>
+            <td class="align-middle"><%= el.message %></td>
+            <td class="align-middle text-end" data-id="<%=el.userId%>">
+              <button class="del btn btn-sm btn-danger btn-block">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
     <!-- Scripts -->
     <script src="js/sendfeedback.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
