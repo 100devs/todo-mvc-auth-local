@@ -1,23 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-</body>
+  </head>
+  <body>
+    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+    el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %>
+
+    <!-- HAMBURGER MENU -->
+    <div class="menu-container">
+      <div class="menu-wrapper">
+        <div id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!-- hamburger-menu -->
+      </div>
+      <!-- menu-wrapper -->
+
+      <ul class="menu-list accordion">
+        <li class="accordion-toggle nav1">
+          <a class="menu-link" href="#">Home</a>
+        </li>
+        <li class="accordion-toggle nav2">
+          <a class="menu-link" href="#">Dashboard</a>
+        </li>
+        <li class="toggle accordion-toggle nav3">
+          <a class="menu-link" href="#">Journal</a>
+        </li>
+        <li class="toggle accordion-toggle nav4">
+          <a class="menu-link" href="#">Logout</a>
+        </li>
+        <li class="toggle accordion-toggle nav5">
+          <a class="menu-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- LOGIN BODY -->
+
+    <!--ICON-->
+    <div class="icon">
+      <img src="/images/Default.png" alt="squish-icon" />
+    </div>
+
+    <!-- LOGIN -->
+
+    <div class="cardContainer">
+      <div class="card">
+        <div class="cardFront flip" id="cardFront">
+          <div class="formTitle">
+            <h2>Login</h2>
+          </div>
+
+          <form
+            action="/signup"
+            method="POST"
+            autocomplete="off"
+            class="loginForm"
+          >
+            <div class="loginFormInput">
+              <iconify-icon icon="bx:at"></iconify-icon>
+
+              <input
+                type="email"
+                name="email"
+                id=""
+                placeholder="Your Email"
+                class="homeFormBox"
+              />
+            </div>
+
+            <div class="loginFormInput">
+              <iconify-icon icon="bx:lock"></iconify-icon>
+
+              <input
+                type="password"
+                name="password"
+                id=""
+                placeholder="Your Password"
+                class="homeFormBox"
+              />
+            </div>
+
+            <div class="loginBtns">
+              <input type="submit" value="Signup" class="homeFormBtn" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

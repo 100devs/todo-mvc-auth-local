@@ -7,10 +7,6 @@ router.get("/", ensureAuth, EntriesController.getEntries);
 
 router.post("/createEntry", EntriesController.createEntry);
 
-router.put("/markComplete", EntriesController.markComplete);
-
-router.put("/markIncomplete", EntriesController.markIncomplete);
-
-router.delete("/deleteTodo", EntriesController.deleteTodo);
+// router.delete("/deleteTodo", EntriesController.deleteTodo);
 
 module.exports = router;

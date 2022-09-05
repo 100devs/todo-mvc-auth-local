@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squish</title>
+
+    <!-- LINKS -->
+
+    <link rel="stylesheet" href="/public/css/reset.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+
+    <!-- SCRIPTS -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/public/js/menu.js"></script>
+  </head>
+  <body>
+    <!-- HAMBURGER MENU-->
+    <div class="menu-container">
+      <div class="menu-wrapper">
+        <div id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!-- hamburger-menu -->
+      </div>
+      <!-- menu-wrapper -->
+
+      <ul class="menu-list accordion">
+        <li class="accordion-toggle nav1">
+          <a class="menu-link" href="#">Home</a>
+        </li>
+        <li class="accordion-toggle nav2">
+          <a class="menu-link" href="#">Dashboard</a>
+        </li>
+        <li class="toggle accordion-toggle nav3">
+          <a class="menu-link" href="#">Journal</a>
+        </li>
+        <li class="toggle accordion-toggle nav4">
+          <a class="menu-link" href="#">Logout</a>
+        </li>
+        <li class="toggle accordion-toggle nav5">
+          <a class="menu-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <!-- DASHBOARD BODY -->
+
+    <div class="title">
+      <h2>Dashboard</h2>
+    </div>
+
+    <section>
+      <div class="dash-filter">
+        <span>Filter:</span>
+        <ul>
+          <iconify-icon icon="fa6-regular:face-smile"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-meh"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-rolling-eyes"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-angry"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-frown"></iconify-icon>
+        </ul>
+      </div>
+
+      <div>
+        <div>
+          <!-- <ul>
+                <% todos.forEach( el => { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <span class='del'> Delete </span>
+                        </li>
+                <% }) %>    
+                </ul> -->
+          <ul>
+            <div class="dash-row">
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+            </div>
+            <div class="dash-row">
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+            </div>
+            <div class="dash-row">
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+              <li><img src="./image/Group 3.png" /></li>
+            </div>
+          </ul>
+        </div>
+        <div class="dash-buttons">
+          <div class="dash-button">
+            <input type="submit" value="Previous" />
+          </div>
+          <div class="dash-button">
+            <input type="submit" value="Next" />
+          </div>
+          <div class="dash-add-entry">
+            <img src="./image/add-entry.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
