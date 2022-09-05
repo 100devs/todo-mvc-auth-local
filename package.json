@@ -10,6 +10,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@sentry/browser": "^7.12.1",
+    "@sentry/tracing": "^7.12.1",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",

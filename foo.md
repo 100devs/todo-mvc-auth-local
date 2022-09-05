@@ -34,20 +34,20 @@
 
       <ul class="menu-list accordion">
         <li class="accordion-toggle nav1">
-          <a class="menu-link" href="#">Home</a>
+          <a class="menu-link" href="/views/index.ejs">Home</a>
         </li>
         <li class="accordion-toggle nav2">
-          <a class="menu-link" href="#">Dashboard</a>
+          <a class="menu-link" href="/views/dashboard.ejs">Dashboard</a>
         </li>
         <li class="toggle accordion-toggle nav3">
-          <a class="menu-link" href="#">Journal</a>
+          <a class="menu-link" href="/views/entry.ejs">Journal</a>
         </li>
         <li class="toggle accordion-toggle nav4">
-          <a class="menu-link" href="#">Logout</a>
+          <a class="menu-link" href="/logout">Logout</a>
         </li>
-        <li class="toggle accordion-toggle nav5">
-          <a class="menu-link" href="#">Logout</a>
-        </li>
+        <!-- <li class="toggle accordion-toggle nav5">
+          <a class="menu-link" href="/logout">Logout</a>
+        </li> -->
       </ul>
     </div>
 
@@ -61,7 +61,7 @@
 
       <!-- LOGIN -->
       <div class="">
-        <form action="" method="get" class="login-info">
+        <form action="/" method="get" class="login-info">
           <div class="login">
             <label for="email">Email:</label>
             <br />

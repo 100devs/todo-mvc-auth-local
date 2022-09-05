@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+   <!-- META TAGS -->
+  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Journal Entry</title>
+
+   <!-- LINKS -->
+  
     <link rel="stylesheet" href="/public/css/reset.css">
     <link rel="stylesheet" href="/public/css/style.css">
 
     <!-- Scripts -->
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+     <script src="./public/js/menu.js"></script>
   
 </head>
 <body>
@@ -30,16 +38,29 @@
             </ul>
         </div>
     </div>
+  <div class="menu-container">
+        
+    <div class="menu-wrapper">    
+       <div id="hamburger-menu">   
+            <span></span>
+            <span></span>
+            <span></span>   
+        </div>    
+       <!-- hamburger-menu -->    
+    </div>   
 
-    <!-- LOGO -->
-    <div class="logo logo-entry">
-        <img src="./image/logo.png">
+  <div class="formPage">
+  
+  
+   <!--LOGO-->
+    <div class="entryIcon">
+      <img src="/images/Default.png" alt="squish-icon">
     </div>
 
-    <!-- ENTRY STUFF -->
+    <!-- ENTRY BODY -->
     <div class="container journalForm">
 
-    <section class="titlebar">
+      <section class="titlebar">
 
         <h1 class="entryTitle">Journal Entry</h1>
 
@@ -53,11 +74,11 @@
 
         </div>
 
-    </section>
+      </section>
 
-    <section class="journalInputs">
+      <section class="journalInputs">
         
-        <form action="" class="entry" autocomplete="off">
+        <form action="" class="entry" autocomplete="off" method="post">
 
           <label for="date">
 
@@ -79,11 +100,12 @@
             
             </textarea>
 
-            <a href="http://" target="_blank" rel="noopener noreferrer">Submit</a>
+            <input type="submit" value="Submit" class="submit">
 
         </form>
 
-    </section>
+      </section>
+    </div>
   </div>
 
 </body>

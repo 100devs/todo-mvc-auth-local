@@ -11,8 +11,8 @@
 
     <!-- LINKS -->
 
-    <link rel="stylesheet" href="./public/css/reset.css" />
-    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/reset.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
 
     <!-- SCRIPTS -->
 
@@ -21,13 +21,6 @@
     <script src="./public/js/menu.js"></script>
   </head>
   <body>
-    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
-    el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %>
-
     <!-- HAMBURGER MENU -->
     <div class="menu-container">
       <div class="menu-wrapper">
@@ -42,19 +35,19 @@
 
       <ul class="menu-list accordion">
         <li class="accordion-toggle nav1">
-          <a class="menu-link" href="/views/login.ejs">Home</a>
+          <a class="menu-link" href="#">Home</a>
         </li>
         <li class="accordion-toggle nav2">
-          <a class="menu-link" href="/views/dashboard.ejs">Dashboard</a>
+          <a class="menu-link" href="#">Dashboard</a>
         </li>
         <li class="toggle accordion-toggle nav3">
-          <a class="menu-link" href="/entry">Journal</a>
+          <a class="menu-link" href="#">Journal</a>
         </li>
         <li class="toggle accordion-toggle nav4">
-          <a class="menu-link" href="/logout">Logout</a>
+          <a class="menu-link" href="#">Logout</a>
         </li>
         <li class="toggle accordion-toggle nav5">
-          <a class="menu-link" href="/logout">Logout</a>
+          <a class="menu-link" href="#">Logout</a>
         </li>
       </ul>
     </div>
@@ -70,17 +63,12 @@
 
     <div class="cardContainer">
       <div class="card">
-        <div class="cardFront flip" id="cardFront">
+        <div class="cardFront">
           <div class="formTitle">
             <h2>Login</h2>
           </div>
 
-          <form
-            action="/login"
-            method="POST"
-            autocomplete="off"
-            class="loginForm"
-          >
+          <form action="" autocomplete="off" class="loginForm">
             <div class="loginFormInput">
               <iconify-icon icon="bx:at"></iconify-icon>
 
