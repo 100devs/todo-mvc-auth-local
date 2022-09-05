@@ -101,7 +101,7 @@ main {
 }
 
 .notice{
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     font-size: 1.2rem;
     font-style: italic;
 }
@@ -110,6 +110,17 @@ main {
     font-weight: 700;
     text-decoration: none;
 }
+
+/* Form  */
+
+.card .bottom{
+    padding-top: 0;
+}
+
+.bottom div {
+    margin: .25rem;
+}
+
 /* Button Decorations */
 .del, .update{
     border: none;

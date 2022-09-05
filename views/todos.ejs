@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/todos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/854239efb5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -42,13 +43,17 @@
                     <% }) %>    
                  </ul>
             </section>
-            <section>
+            <section class="bottom">
                 <h2 id="create">Create a New To-Do:</h2>
-                <form action="/todos/createTodo" method='POST'>
-                    <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-                    <input type="date" placeholeer="Enter date" name ='date'> 
-                    <input type="time" placeholder="Enter time" name="time">
-                    <input type="submit" class="submit">
+                <form class="input-group container d-flex align-items-center" action="/todos/createTodo" method='POST'>
+                    <div>
+                        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                    </div>
+                    <div>
+                        <input type="date" placeholeer="Enter date" name ='date'> 
+                        <input type="time" placeholder="Enter time" name="time">
+                    </div>
+                    <div> <input type="submit" class="submit"> </div>
                 </form>
             </section>    
         </section>
