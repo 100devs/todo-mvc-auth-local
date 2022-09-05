@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/login.css">
-    <title>Document</title>
-  </head>
-  <body>
-    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
-    el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %>
-    <form action="/login" method="POST">
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <input type="submit" value="Submit" class="submit" />
-    </form>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/login.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container bg-guitar w-full h-full bg-no-repeat bg-center bg-cover">
+			<!-- Title section -->
+			<div class="flex flex-col items-center p-10">
+				<span class="text-9xl uppercase font-londrina text-white -rotate-[20deg]">Gear</span>
+				<span class="text-8xl font-love text-white -translate-y-10 -rotate-[20deg]">wish</span>
+			</div>
+
+			<% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+			<div class="alert alert-danger"><%= el.msg %></div>
+			<% }) %> <% } %> <% if (locals.messages.info) { %> <%
+			messages.info.forEach( el => { %>
+			<div class="alert alert-danger"><%= el.msg %></div>
+			<% }) %> <% } %>
+			<div class="container">
+				<!-- TODO: add black transparent border background // Login section --> 
+				<div class="">
+					<form action="/login" method="POST" class="flex flex-col">
+						<input
+							type="email"
+							name="email"
+							placeholder="Email"
+							autocomplete="off"
+							class="placeholder:text-xl placeholder:text-black"
+						/>
+						<input
+							type="password"
+							name="password"
+							placeholder="Password"
+							autocomplete="off"
+						/>
+						<input type="submit" value="Login" class="submit" />
+					</form>
+					<!--Sign up section --> 
+					<div>
+						<h3>Don't have an account?</h3>
+						<div class="">
+							<a href="/signup" class=""> Sign up </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

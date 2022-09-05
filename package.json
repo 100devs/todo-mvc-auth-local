@@ -7,8 +7,7 @@
 		"start": "nodemon server.js",
 		"sync": "browser-sync start --proxy \"index.ejs\" --files \"**/*\"",
 		"dev": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch",
-		"watch:dev": "nodemon npm run dev -w tailwind.config.js -w output.css",
-		"watch": "run-p watch:dev sync",
+		"watch": "run-p dev start",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",
@@ -16,7 +15,6 @@
 	"dependencies": {
 		"autoprefixer": "^10.4.8",
 		"bcrypt": "^5.0.1",
-		"browser-sync": "^2.27.10",
 		"connect-mongo": "^3.2.0",
 		"dotenv": "^8.2.0",
 		"ejs": "^3.1.6",
