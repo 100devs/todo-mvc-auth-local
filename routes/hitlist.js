@@ -5,7 +5,9 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, hitlistController.getHitlist)
 
-router.get('/details/:userId', hitlistController.details)
+router.get('/details/:_id', ensureAuth, hitlistController.details)
+
+router.get('/edit/:_id', ensureAuth, hitlistController.editHitlist)
 
 router.post('/createHitList', hitlistController.createHitlist)
 

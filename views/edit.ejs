@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+   
+    <h1>Edit HitList</h1>
+    <ul>
+        
+        <% items.forEach( el=> { %>
+            
+    <form action="/hitlist/createHitlist" method='POST' data-id='<%=el._id%>'>
+        <% if(el.name !== undefined) { %>
+        <input type="text" placeholder="Enter Contact's Name" name='name' value = '<%= el.name %>'>
+        <% } %>
+        <% if(el.url !== undefined) { %>
+        <input type="text" placeholder="Enter Company URL" name='url' value = '<%=el.url %>'>
+        <% } %>
+        <% if(el.position !== undefined) { %>
+        <input type="text" placeholder="Enter Position" name='position' value = '<%= el.position %>'>
+        <% } %>
+        <% if(el.company !== undefined) { %>
+        <input type="text" placeholder="Enter Company Name" name='company' value = '<%= el.company %>'>
+        <% } %>
+        <% if(el.email !== undefined) { %>
+        <input type="email" placeholder="Enter Contact's email" name='email' value = '<%= el.email %>'>
+        <% } %>
+        <% if(el.typeOfPosition !== undefined) { %>
+        <input type="text" placeholder="Enter Type of Position" name='typeOfPosition' value = '<%= el.typeOfPosition %>'>
+        <% } %>
+        <input type="text" placeholder="Coffee Chat?" name='<%= el.coffeeChat %>'>
+        <input type="text" placeholder="Date of coffee chat" name='<%= el.dateOfCoffeeChat %>'>
+        <input type="text" placeholder="Applied?" name='<%= el.applied %>'>
+        <input type="text" placeholder="Interview Date" name='<%= el.interviewDate %>'> 
+        <input type="text" placeholder="Did you follow up?" name='<%= el.followUp %>'>
+        <input type="text" placeholder="Did you send a Thank You?" name='<%= el.thankYou %>'>
+        <% if(el.comments !== undefined) { %>
+        <input type="text" placeholder="Comments" name='comments' value = '<%= el.comments%>'>
+        <% } %>
+        <input type="submit">
+    </form>
+    
+    <% }) %>
+    <a href="/hitlist/details/:userId">View</a>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

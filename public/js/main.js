@@ -10,7 +10,7 @@ Array.from(hitlistItem).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
+Array.from(jobApplied).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
@@ -33,13 +33,13 @@ async function deleteHitlist(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+    const hitlistId = this.parentNode.dataset.id
     try{
         const response = await fetch('hitlist/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'hitlistIdFromJSFile': todoId
+                'hitlistIdFromJSFile': hitlistId
             })
         })
         const data = await response.json()
@@ -51,13 +51,13 @@ async function markComplete(){
 }
 
 async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+    const hitlistId = this.parentNode.dataset.id
     try{
         const response = await fetch('hitlist/markApplied', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'hitlistIdFromJSFile': hitlistId
             })
         })
         const data = await response.json()

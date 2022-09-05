@@ -1,0 +1,13 @@
+ <h1>HitList</h1>
+    <ul>
+        <% Hitlist.forEach( el=> { %>
+            <li class='hitListItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.name %></span>
+                <span class='del'> Delete </span>
+            </li>
+            <% }) %>
+    </ul>
+
+    <h2>
+        <%= user.userName %> has
+    </h2>

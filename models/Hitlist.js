@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 //Source ?	
 
  
-// Interview date Follow up	Comments / Notes
+// Interview date Follow up / Notes
 
 const HitListSchema = new mongoose.Schema({
   name: {//Company  Name
@@ -37,44 +37,45 @@ const HitListSchema = new mongoose.Schema({
   },
   thankYou: {//Did you say thank you?
     type: Boolean,
-    required: true 
+    required: false 
   },
   applied: { //Did you apply?
     type: Boolean,
-    required: true
+    required: false
   },
   interviewDate:{//Date of Interview
     type: String,
-    required: true,
+    required: false,
   },
   followUp: { 
     type: String, 
-    required: true,
+    required: false,
   },
   comments:{ //Comments and notes
     type: String,
-    required: true,
+    required: false,
   },
   userId: {
     type: String,
-    required: true
+    required: false
   },
   dateOfCoffeeChat: { //Date coffee chat
     type: String,
-    required: true
+    required: false
   },
   coffeeChat: { //Coffee chat
     type: String,
-    required: true
+    required: false
   },
   dateAppSent: { //Date application sent
     type: String,
-    required: true
+    required: false
   },
   
+
 
 
   
 })
 
-module.exports = mongoose.model('HitList', HitListSchema)
+module.exports = mongoose.model('HitList', HitListSchema, 'Hitlist')

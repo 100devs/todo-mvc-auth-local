@@ -6,25 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+    <span class='hitListItem' data-id=' '></span>
+
     <h1>HitList</h1>
-    <tbody>
-        <% todos.forEach( el=> { %>
-            <tr>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.name %></span>
-                <span class='del'> Delete </span>
-            </li>
-            </td>
-            <% }) %>
-            
-    </ul>
-    <tbody>
-        <% todos.forEach( el=> { %>
-        <span class='hitListItem' data-id='<%=el._id%>'></span>
+    <a href = '/hitlist/edit/:_id'><i class="fa-solid fa-pen-to-square"></i></a>
+        <% items.forEach( el=> { %>
+        <table>
+            <tbody>
         <tr>
             <th>Name</th>
             <th>Company Name</th>
@@ -37,6 +31,7 @@
             <td><%= el.createdAt %></td>
             <td><%= el.url %></td>
         </tr>
+    </tbody>
         <tr>
             <th>Role / Position (URL)</th>
             <th>Type of position</th>
@@ -50,45 +45,45 @@
             <td><%= el.dateOfCoffeeChat %></td>
         </tr>
         <tr>
-            <th>Interview date</th>
             <th>Applied?</th>
             <th>Date application sent</th>	
+            <th>Interview date</th>
             <th>Coffee chat?</th>
         </tr>
         <tr>
-            <td><%= el.interviewDate %></td>
             <td><%= el.applied %></td>
             <td><%= el.dateAppSent %></td>
+            <td><%= el.interviewDate %></td>
             <td><%= el.coffeeChat %></td>
         </tr>
         <tr>
             <th>Thank you</th>	
-            <th>Interview date</th>
             <th>Follow up</th>
             <th>Comments / Notes</th>
         </tr>
         <tr>
             <td><%= el.thankYou %></td>
-            <td><%= el.interviewDate %></td>
             <td><%= el.followUp %></td>
             <td><%= el.comments %></td>
         </tr>
-
-        <% }) %>
     </tbody>
+</table>
+        <% }) %>
+   
 
     <h2>
         <%= user.userName %> has
     </h2>
 
-    <form action="/todos/createTodo" method='POST'>
+    <!-- <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
-    </form>
+    </form> -->
 
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/d0e0071c1c.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

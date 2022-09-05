@@ -11,8 +11,9 @@ h1 {
     text-decoration: underline;
 }
 
-table {
-
+table,
+td {
+    border: 1px solid #333;
 }
 
 td, th{
@@ -21,6 +22,33 @@ td, th{
 
 tbody {
 
+}
+
+p {
+  margin: 10px 0 !important;
+}
+
+.login-container {
+  width: 300px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.fa-small {
+  font-size: 16px !important;
+}
+
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}
+
+.img-small {
+  width: 180px;
+}
+
+.marginBottom {
+  margin: 5% 15%;
 }
 
 
@@ -52,4 +80,9 @@ tbody {
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
+  }
+
+  table{
+    width: 100%;
+    margin: 5% 0;
   }

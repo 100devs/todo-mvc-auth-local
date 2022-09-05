@@ -5,24 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
     <title>Sign Up</title>
 </head>
 
-    <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el=> { %>
-            <div class="alert alert-danger">
-                <%= el.msg %>
-            </div>
-            <% }) %>
-                <% } %>
-                    <form action="/signup" method="POST">
-                        <input type="text" name="userName" placeholder="User Name">
-                        <input type="email" name="email" placeholder="Email">
-                        <input type="password" name="password" placeholder="Password">
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-                        <input type="submit">
-                    </form>
-    </body>
+<body>
+    <div class="container login-container">
+        <div class="card">
+            <div class="card-content">
+                <h3>Welcome to Hitlist2.0</h3>
+                <div class="section">
+                   
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <% if (locals.messages.errors) { %>
+                        <% messages.errors.forEach( el=> { %>
+                            <div class="alert alert-danger">
+                                <%= el.msg %>
+                            </div>
+                            <% }) %>
+                                <% } %>
+                                    <form action="/signup" method="POST">
+                                        <input type="text" name="userName" placeholder="User Name">
+                                        <input type="email" name="email" placeholder="Email">
+                                        <input type="password" name="password" placeholder="Password">
+                                        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                                        <input class="btn blue darken-1" type="submit">
+                                    </form>
+                                </div>
+</body>
 
 </html>
