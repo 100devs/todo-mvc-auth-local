@@ -7,11 +7,9 @@ module.exports = {
     },
    dashboard: async (req, res) => {
       try {
-         let allUserTrips = await Trip.find({
-            userId: req.user._id,
-         });
+         let user = req.user.userName;
          res.render('dashboard', {
-            allUserTrips
+            user
          })
       } catch (err) {
          console.log(err)

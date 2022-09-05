@@ -4,11 +4,13 @@ const Trip = require('../models/Trip')
 module.exports = {
    showTrips: async (req, res) => {
       try {
+         let user = req.user.userName;
          let allUserTrips = await Trip.find({
             userId: req.user._id,
          });
          res.render('trips', {
-            allUserTrips
+            allUserTrips,
+            user
          })
       } catch (err) {
          console.log(err)

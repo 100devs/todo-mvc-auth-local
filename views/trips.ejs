@@ -21,7 +21,7 @@
     You would need to get the _id of he trip and then edit and delete them
 
     You will also need to use the method override package to create the editing functionality-->
-    <a href="/trip/createTrip">Create Trip</a>
+    <a href="/trips/createTrip">Create Trip</a>
     <br>
     <ul>
         <% allUserTrips.forEach(trip => { %>
@@ -35,7 +35,7 @@
         <li>To: <%=trip.dateTo%></li>
         <li>Host Email: <%=trip.tripMembers%></li>
         <!-- POST form utilizing method override for DELETE request -->
-        <form action="/trip/<%=trip.id%>" method="POST" id="delete-from">
+        <form action="/trips/<%=trip.id%>" method="POST" id="delete-from">
            <input type="hidden" name="_method" value="DELETE">
            <button type="submit" class="btn btn-small red">
               <i class="fas fa-trash trip-delete"></i>
@@ -45,9 +45,7 @@
         <br />
         <% }) %>
    </ul>
-
-
-
+    <span>Logged in as <%=user%> | </span>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
@@ -57,8 +55,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
-
-
-
- 
- 
