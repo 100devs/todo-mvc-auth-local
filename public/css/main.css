@@ -1,5 +1,5 @@
 h1 {
-    color: black;
+    color: white;
     text-align: center;
     text-decoration: underline;
     /* background-color:azure; */
@@ -24,4 +24,8 @@ a.signup {
 .buttons{
     justify-content: center;
     display: flex;
+}
+
+.buttons #login{
+    
 }
