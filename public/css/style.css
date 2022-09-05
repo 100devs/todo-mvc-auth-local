@@ -2,17 +2,11 @@
     text-decoration: line-through;
     color: gray;
 }
-.not{
-    /* text-decoration: underline; */
-}
+
 
 h1, h2 {
     text-align: center;
     margin-top: 50px;
-}
-
-#description-input {
-    
 }
 
 .billSum-header {
