@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance History</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Car Maintenance History for <%= user.userName %>'s account</h1>
+    <% logHistory.forEach( (el, ind) => { %>
+        <div class='logHistory' data-id='<%=el._id%>'>
+            <h3>Log Entry#<%= logHistory.length-ind %></h3>
+            <ul>
+                <li><strong>Date:</strong> <%= new Date(el.date).toDateString() %></li>
+                <li><strong>License Plate:</strong> <%= el.licensePlate %></li>
+                <li><strong>Description:</strong> <%= el.title %></li>
+                <li><strong>Details:</strong> <%= el.logDetails %></li>
+            </ul>
+            <button class='delMaintenance'> Delete </button>
+        </div>
+    <% }) %>    
+    <br>
+
+    <h2>Add Maintenance Log to <%= user.userName %>'s account</h2>
+
+    <form action="/maintenance/addMaintenance" method='POST'>
+        <input type="text" placeholder="Enter License plate #" name='licensePlate'>
+        <input type="text" placeholder="Enter Maintenance Title" name='title'>
+        <textarea name="logDetails" cols="30" rows="10" placeholder="Enter maintenance log details here..." ></textarea>
+
+        <input type="submit">
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <a href="/carlogs">
+        <button> Go back to all of your cars</button>
+    </a>
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
