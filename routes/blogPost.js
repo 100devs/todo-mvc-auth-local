@@ -5,12 +5,12 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, blogPostController.getPosts)
 
-router.get('/createBlogPost', blogPostController.getCreatePostPage)
-router.post('/createBlogPost', blogPostController.createBlogPost)
+router.get('/createBlogPost', ensureAuth, blogPostController.getCreatePostPage)
+router.post('/createBlogPost', ensureAuth, blogPostController.createBlogPost)
 
-router.get('/edit/:id', blogPostController.getEditPostPage)
-router.post('/edit/:id', blogPostController.editBlogPost)
+router.get('/edit/:id', ensureAuth, blogPostController.getEditPostPage)
+router.post('/edit/:id', ensureAuth, blogPostController.editBlogPost)
 
-router.delete('/deletePost', blogPostController.deletePost)
+router.delete('/deletePost', ensureAuth, blogPostController.deletePost)
 
 module.exports = router
