@@ -1,41 +1,47 @@
-# Introduction
+# Quizzer App 
+![Quizzer App Home](Quizzer-App-SS.png)
+<p align="center">A simple flash card generator with CRUD capabilities for Decks and Cards.
+</p>
 
-A simple flash card generator with CRUD capabilities for Decks and Cards.
+**Link to project:** 
+[Link TBD]()
 
----
+## How It's Made:
 
-# Objectives
+**Tech used:** bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
-- It's a beginner level project created to expand our existing login functionality on our MVC class and practice working on a new codebase together.
-
----
-
-# Packages/Dependencies used
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install`
+## Why It Was Made:
+Studying is hard, but when you can turn studying into a friendly competition, well, now we're talking!
 
 ---
+## Project Checklist for Team: 
+- [x] Create an `.env` file and add the following as `key: value` pairs
+    - PORT: 2121 (Or whatever you choose!)
+    - DB_STRING: `your database URI`
+- [ ] CSS Styling with Bootstrap 
+- [ ] Generate `ejs` template in views 
+- [ ] Follow CRUD operations for new routes and controllers (decks/cards/quizzes)
+- [ ] Create new schemas in models for decks and cards 
+- [ ] Deploy to Heroku/Netlify 
 
-# Things to add / Todos
 
-- ~~Create a `.env` file and add the following as `key: value`~~
-  - ~~PORT: 2121 (can be any port example: 3000)~~
-  - ~~DB_STRING: `your database URI`~~
-- Css styling
-- New ejs template to our views
-- New routes and controllers (Decks/Cards/Quizes)
-- New schemas in models for decks and cards
-- CRUD functionality for decks and cards
-- Quiz functionality to let you quiz yourself on a deck
-- Temporary link generator that lets you send quizes to anyone
-- getting server up on heroku and connecting it with a netlify address
+## Issues 
+- Issues we run into will go here.
 
----
+## Lessons Learned:
+- Lessons learned form those issues will go here. 
 
-Have fun testing and improving it! 😎
+
+## Optimizations
+- Create an option for users to reset a forgotten password
+- Temporary link generator that allows you to send quizzes to anyone
+
+
+## Steps run project: 
+- Install all dependences or node packages used for development via Terminal `npm install`
+
+
+
+
+
+
