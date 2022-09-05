@@ -27,6 +27,10 @@ bcrypt connect-mongo dotenv ejs express express-flash express-session mongodb mo
 # Optimizations
 Add option to post pictures as part of a journal entry
 
+Customize profile including contact info, photo
+
+
+
 
  
  Have fun testing and improving it! 😎
