@@ -1,14 +1,75 @@
-body {
-    color: green;
-}
-
-h1{
-    color: red;
-}
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
-    text-decoration: underline;
+    /* text-decoration: underline; */
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#description-input {
+    
+}
+
+.billSum-header {
+    font-size: 2rem;
+}
+
+.btn {
+    font-size: 1rem;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    color: white;
+}
+
+.form-submit {
+    background-color: #ee6e73;
+    width: 100%;
+    border: 1px solid transparent;
+    box-shadow: 5px 5px 10px rgb(183, 183, 183);
+}
+
+.form-submit:hover {
+    background-color: #ff9599;
+}
+
+/* .form-submit {
+    background-color: #ee6e73;
+    box-shadow: 0 5px rgb(145, 145, 145);
+    transform: translateY(4px);
+} */
+
+.form-header {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-container {
+    width: 35%;
+    margin: 50px auto;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: 10px 10px 18px rgb(183, 183, 183);
+    padding: 30px;
+}
+
+.index-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.index-header {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+.index-login {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
 }

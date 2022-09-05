@@ -35,6 +35,7 @@ async function deleteBillTracker(){
 
 async function markComplete(){
     const billTrackerId = this.parentNode.dataset.id
+    console.log(this.parentNode)
     try{
         const response = await fetch('billtracker/markComplete', {
             method: 'put',
@@ -53,6 +54,7 @@ async function markComplete(){
 
 async function markIncomplete(){
     const billTrackerId = this.parentNode.dataset.id
+    console.log(this.parentNode)
     try{
         const response = await fetch('billtracker/markIncomplete', {
             method: 'put',
@@ -68,3 +70,8 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+  });

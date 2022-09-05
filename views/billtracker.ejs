@@ -6,43 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Tracker</title>
     <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+  
+
 <body>
-    <h1>Track your bills!</h1>
-  <ul>
+
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="right">
+                <li><a class="waves-effect waves-light btn" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+      
+    <h1>Track Your Bills!</h1>
+
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+          <th>Company Name</th>
+          <th>Description</th>
+          <th>Amount Due</th>
+          <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
     <% billtrackers.forEach(el => {%>
-        <li class="billtrackerItem" data-id="<%=el._id%>">
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
-                {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %>
-            </span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `${el.dueDate.split('').slice(5,7).join('')}/${el.dueDate.split('').slice(8,10).join('')}/${el.dueDate.split('').slice(0,4).join('')}` %></span>
-            <span class='fa-solid fa-trash-can del'>  </span>
-
-        </li>
+        <tr>
+            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span></td>
+            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span></td>
+            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
+                {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %></span></td>
+            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span></td>
+            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='fa-solid fa-trash-can del'>  </span></td>
+        </tr>
     <% }) %>
-  </ul>
+    </tbody>
+  </table>
 
-  <h2><%= left === 1 ? `${user.userName} has ${left} bill to pay for a total of \$${billSum}` : `${user.userName} has ${left} bills to pay for a total of \$${billSum}` %></h2>
+  <div><h2 class='billSum-header'><%= left === 1 ? `${user.userName} has ${left} bill to pay for a total of \$${billSum}` : `${user.userName} has ${left} bills to pay for a total of \$${billSum}` %></h2></div>
 
+   <section class="section container form-container">
+    <h3 class="form-header">Input your bill information below: </h3>
+    <div class="row">
+        <div>
+            <form action="/billtracker/createBillTracker" method='POST'>
+                <div class="input-field">
+                    <input type="text"  name='companyName'>
+                    <label for="text">Company Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name='description'>
+                    <label for="text">Description</label>
+                </div>
+                <div class="input-field">
+                     <input type="number" name='amountDue' step=".01">
+                    <label for="number">Amount Due</label>
+                </div>
+                <div class="input-field">
+                     <input type="text"  class="datepicker" name='dueDate'>
+                    <label for="date">Bill Due Date</label>
+                </div>
+                <div class="input-field center">
+                    <button class="btn form-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </section>
 
-
-
-
-
-  <form action="/billtracker/createBillTracker" method='POST'>
-      <input type="text" placeholder="Company Name" name='companyName'>
-      <input type="text" placeholder="Description" name='description'>
-      <input type="number" placeholder="Amount Due" name='amountDue' step=".01">
-      <input type="date" placeholder="Due-date" name='dueDate'>
-<!--       <input type="text" placeholder="completed" name='completed'> -->
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <script src="js/main.js"></script>
 </body>
 </html>
