@@ -15,13 +15,6 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-
-<!-- ////////////////////////////////
-
-////    DO NOT USE THIS PAGE     ////
-
-/////////////////////////////////-->
-
 <!-- Header / Navbar -->
 <header class="navbar-space">
   <nav class="navbar navbar-light bg-white navbar-bottom-shadow">
@@ -67,10 +60,11 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <label for="companyName">Company:</label>
+                <label for="companyName">Company: <span style="color: red">*</span></label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Company Name" id="companyName" required />
+                <input class="w-100 form-control" type="text" placeholder="Company Name" id="companyName"
+                  name="companyName" required />
               </div>
             </div>
           </div>
@@ -80,7 +74,8 @@
                 <label for="dateAdded">Date Added:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="date" placeholder="Date Added" id="dateAdded" />
+                <input class="w-100 form-control" type="date" placeholder="Date Added" id="dateAdded"
+                  name="dateAdded" />
               </div>
             </div>
           </div>
@@ -88,7 +83,7 @@
             <div class="row m-2">
               <div class="col col-md-12"><label for="url">Company Website</label></div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="URL" id="url" />
+                <input class="w-100 form-control" type="text" placeholder="URL" id="url" name="url" />
               </div>
             </div>
           </div>
@@ -98,7 +93,7 @@
                 <label for="roleURL">Role/Position:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Role/Position" id="roleURL" />
+                <input class="w-100 form-control" type="text" placeholder="Role/Position" id="roleURL" name="role" />
               </div>
             </div>
           </div>
@@ -108,7 +103,7 @@
                 <label for="roleURL">Role/Position URL:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Position URL" id="roleURL" />
+                <input class="w-100 form-control" type="text" placeholder="Position URL" id="roleURL" name="roleURL" />
               </div>
             </div>
           </div>
@@ -118,7 +113,19 @@
                 <label for="position">Position Type:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Type of Position" id="posiiton" />
+                <select class="w-100 form-select" aria-label="select position type" name="position" id="position">
+                  <option selected value="">Choose position type</option>
+                  <option value="Full-time Local">Full-time Local</option>
+                  <option value="Full-time Remote">Full-time Remote</option>
+                  <option value="Full-time Hybrid">Full-time Hybrid</option>
+                  <option value="Part-time Local">Part-time Local</option>
+                  <option value="Part-time Remote">Part-time Remote</option>
+                  <option value="Part-time Hybrid">Part-time Hybrid</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Seasonal">Seasonal</option>
+                  <option value="Temporary">Temporary</option>
+                </select>
               </div>
             </div>
           </div>
@@ -128,8 +135,8 @@
                 <label for="source">Source:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Word of Mouth, Job Board, Other"
-                  id="source" />
+                <input class="w-100 form-control" type="text" placeholder="Word of Mouth, Job Board, Other" id="source"
+                  name="source" />
               </div>
             </div>
           </div>
@@ -148,7 +155,8 @@
                 <label for="pocName">Name of Contact:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Name of Contact" id="pocName" />
+                <input class="w-100 form-control" type="text" placeholder="Name of Contact" id="pocName"
+                  name="pocName" />
               </div>
             </div>
           </div>
@@ -158,7 +166,8 @@
                 <label for="pocPosition">Position of Contact:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="text" placeholder="Position of Contact" id="pocPosition" />
+                <input class="w-100 form-control" type="text" placeholder="Position of Contact" id="pocPosition"
+                  name="pocPosition" />
               </div>
             </div>
           </div>
@@ -168,7 +177,8 @@
                 <label for="pocEmail">Email of Contact:</label>
               </div>
               <div class="col col-md-12">
-                <input class="w-100 form-control" type="email" placeholder="Email of Contact" id="pocEmail" />
+                <input class="w-100 form-control" type="email" placeholder="Email of Contact" id="pocEmail"
+                  name="pocEmail" />
               </div>
             </div>
           </div>
@@ -188,8 +198,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input type="checkbox" placeholder="Applied?" id="applied" />
-                <label for="Applied?">Applied?</label>
+                <input class="form-check-input" type="checkbox" placeholder="Applied?" id="applied" name="applied" />
+                <label class="form-check-label" for="applied">Applied?</label>
               </div>
             </div>
           </div>
@@ -197,8 +207,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input type="checkbox" id="coffeeChat" />
-                <label for="CoffeeChat">Coffee Chat?</label>
+                <input class="form-check-input" type="checkbox" id="coffeeChat" name="coffeeChat" />
+                <label class="form-check-label" for="coffeeChat">Coffee Chat?</label>
               </div>
             </div>
           </div>
@@ -206,8 +216,8 @@
           <div class="col col-12 col-md-6 col-xl-4">
             <div class="row m-2">
               <div class="col col-md-12">
-                <input type="checkbox" id="saidThanks" />
-                <label for="saidThanks">Said Thanks?</label>
+                <input class="form-check-input" type="checkbox" id="saidThanks" name="saidThanks" />
+                <label class="form-check-label" for="saidThanks">Said Thanks?</label>
               </div>
             </div>
           </div>
@@ -220,7 +230,8 @@
                 <label for="applyDate">Application Date:</label>
               </div>
               <div class="col">
-                <input type="date" class="form-control" placeholder="Date you applied" id="applyDate" />
+                <input type="date" class="form-control" placeholder="Date you applied" id="applyDate"
+                  name="applyDate" />
               </div>
             </div>
           </div>
@@ -230,7 +241,8 @@
               <div class="col col-md-12">
                 <label for="coffeeChatDate">Coffee Chat Date:</label>
               </div>
-              <div class="col"><input type="date" class="form-control" id="coffeeChatDate" /></div>
+              <div class="col"><input type="date" class="form-control" id="coffeeChatDate" name="coffeeChatDate" />
+              </div>
             </div>
           </div>
 
@@ -239,7 +251,7 @@
               <div class="col col-md-12">
                 <label for="interviewDate">Interview Date:</label>
               </div>
-              <div class="col"><input type="date" class="form-control" id="interviewDate" /></div>
+              <div class="col"><input type="date" class="form-control" id="interviewDate" name="interviewDate" /></div>
             </div>
           </div>
 
@@ -248,7 +260,7 @@
               <div class="col col-md-12">
                 <label for="followUpDate">Follow-Up Date:</label>
               </div>
-              <div class="col"><input type="date" class="form-control" id="followUpDate" /></div>
+              <div class="col"><input type="date" class="form-control" id="followUpDate" name="followUpDate" /></div>
             </div>
           </div>
 
@@ -271,8 +283,9 @@
 
         <div class="row">
           <div class="col col-12 text-center">
+            <a href="/companies" class="btn btn-lg btn-secondary m-2">Cancel</a>
             <button class="btn btn-lg btn-primary m-2" type="submit">
-              Submit
+              Save
             </button>
           </div>
         </div>
