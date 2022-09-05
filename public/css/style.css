@@ -1,5 +1,13 @@
-h1{
-    color: red;
+nav a {
+    border-bottom: 1px solid transparent;
+}
+
+nav a:hover {
+    border-bottom: 1px solid #3D36E6;
+}
+
+section {
+    margin: 20px;
 }
 .completed{
     text-decoration: line-through;
@@ -8,3 +16,236 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginPage > form {
+    border: 0.02rem solid #3D36E6;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.loginPage > form > button[type="submit"] {
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: none;
+    pointer-events: none;
+}
+
+.todoItem {
+    width: 90%;
+    position: relative;
+}
+
+/******************************
+** Todo page **/
+
+.todoItem label {
+    font-size: 1.3rem;
+}
+.todoItem i {
+    cursor: pointer;
+}
+.priority {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}
+.priority.none {
+color: #888;
+}
+.priority.low {
+color: #3b9614;
+}
+
+.priority.med {
+   color: #c9c938;
+
+}
+.priority.high {
+ color:#8a1207;
+}
+.del {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #888;
+}
+#addTodo {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#addTodo > input {
+
+    border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+}
+
+#addTodo > button[type="submit"] {
+    border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0.25rem !important;
+        border-bottom-right-radius: 0.25rem !important;
+}
+
+#filtersAddTodo {
+    width: 500px;
+    margin: 0 auto;
+    text-align:center;
+}
+
+#tagSummary {
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid #6c92b8;
+    border-radius: 3px;
+    color: #152f4a;
+    background: #deedfc;
+    font-size: 1.3rem;
+    padding: 5px;
+}
+
+.removeFilter {
+    text-decoration: none;
+    color: #152f4a;
+}
+
+.removeFilter:hover {
+    color: #152f4a;
+}
+
+.addTag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.tags  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    min-height: 40px;
+}
+.tag {
+    border: 1px solid #6c92b8;
+    border-radius: 3px;
+    color: #152f4a;
+    background: #deedfc;
+    padding: 0 5px;
+}
+.tag a {
+    color: #152f4a;
+    text-decoration: none;
+    
+
+}
+.tag:hover {
+    cursor: pointer;
+}
+.addTag input {
+    width: 150px;
+}
+/******************************
+********* Signup page *********
+******************************/
+.signup .form-label {
+    display: none;
+}
+
+.lost {
+    display: flex;
+}
+
+.signup button[type="submit"] {
+    width: 100%;
+}
+
+.lost__info {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media all and (max-width: 1024px) {
+    .lost {
+        flex-direction: column;
+    }
+
+    .lost__info {
+        order: 1;
+        width: 100%;
+    }
+
+    .lost__image {
+        order: 2
+    }
+
+}
+
+/******************************
+********* Groups page *********
+******************************/
+.legend {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 764px;
+}
+.legend span {
+    padding-left: 10px;
+}
+.css-grid-table,
+.css-grid-table-header,
+.css-grid-table-body {
+display: grid;
+max-width: 764px;
+
+}
+
+.css-grid-table {
+grid-template-rows: 24px 72px;
+}
+
+.css-grid-table-header,
+.css-grid-table-body {
+grid-template-columns: 200px 100px 150px 75px;
+max-width: 764px;
+
+line-height: 24px;
+}
+
+.css-grid-table-header {
+grid-column-gap: 2px;
+grid-template-rows: auto;
+}
+
+.css-grid-table-body {
+grid-template-rows: auto auto auto;
+text-align: center;
+}
+
+.css-grid-table-header div {
+text-align: center;
+font-weight: bold;
+background-color: rgb(191, 191, 191);
+}
+
+.css-grid-table-body div {
+padding-left: 6px;
+}
+

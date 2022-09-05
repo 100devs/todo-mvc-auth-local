@@ -1,0 +1,78 @@
+  <% const isEdit = typeof(group) !== "undefined" ? true : false %>
+  <% const title = isEdit ? "Edit a group" : "Create a group" %>
+<%- include('../partials/head.ejs', { title: title}) %>
+
+
+<section class="createGroup">
+
+  <form action="/groups/<%= isEdit ? 'updateGroup' : 'createGroup' %>" method="post">
+    <!-- don't show this by default -->
+    <div class="alert hidden" id="formInfo"></div>
+
+    <%- include('../partials/forms/input.ejs', {name: 'name' , type: 'text' , label:"Group Name", value: isEdit ? group.name : "" ,
+        faIcon: 'fas fa-briefcase' , placeholder: 'Group name' , parentClass: 'mb-4' }) %>
+
+
+    <%- include('../partials/forms/textarea.ejs', {name:'description',label:'Description', placeholder:"Add the group description here. The description will help users to understand the goal of the group.",
+    value: isEdit ? group.description : "" }) %>
+
+
+    <%- include('../partials/forms/checkbox.ejs', { name: 'isPublic' , checked: isEdit ? group.isPublic : true,
+          description: 'Make it public, so everyone can see it' , parentClass: 'justify-content-start mb-3' }) %>
+
+
+    <% if(isEdit) { %>
+    <%- include('../partials/forms/checkbox.ejs', { name: 'isValidated' , checked: isEdit ? group.isValidated : true,
+          description: 'Accept this group creation' , parentClass: 'justify-content-start mb-3' }) %>
+
+        <input type="hidden" value="<%= group._id %>" name="id" />
+    <% } %>
+    <!--
+    <%- include('../partials/forms/checkbox.ejs', {
+        name: 'iscityBased',
+        checked: isEdit ? group.isCityBased : true,
+        description: 'We only accept people from our city to make everyone reachable.',
+        parentClass: 'justify-content-start mb-3'
+    }) %>
+-->
+
+    <button type="submit" class="btn btn-primary btn-large"><%= isEdit ? 'Apply change' : 'Create the group' %></button>
+  </form>
+</section>
+
+
+<script>
+  const form = document.querySelector('form');
+  const btnSubmit = document.querySelector('button[type="submit"]');
+
+
+  form.addEventListener('submit', (event) => {
+    // dont send the form, so we can control the inputs
+    event.preventDefault();
+
+    const name = document.querySelector('input[name="name"]').value;
+    const description = document.querySelector('textarea[name="description"]').value;
+    const isPublic = document.querySelector('input[name=isPublic]:checked');
+
+    if (validator.isEmpty(description) || validator.isEmpty(name)) {
+      showInformation('alert-danger', 'All fields are required', btnSubmit);
+      return false;
+    }
+
+    if (description.trim().length < 300) {
+      showInformation('alert-warning', 'The description must be at least 300 characters', btnSubmit);
+      return false;
+    }
+
+    if (description.trim().length > 1000) {
+      showInformation('alert-warning', 'The description must be at maximum 1000 characters', btnSubmit);
+      return false;
+    }
+
+    form.submit();
+  })
+</script>
+
+
+
+<%- include('../partials/footer.ejs') %>

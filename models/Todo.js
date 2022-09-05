@@ -1,5 +1,11 @@
+// https://mongoosejs.com/docs/guide.html#definition
+
 const mongoose = require('mongoose')
 
+/**
+ * todo: name of the taks
+ * completed: inform if the
+ */
 const TodoSchema = new mongoose.Schema({
   todo: {
     type: String,
@@ -11,7 +17,28 @@ const TodoSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required: true
+    required: false
+  },
+  groupId: {
+    type: String,
+    required: false
+  },
+  shared: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  completedBy: {
+       type: String,
+    required: false
+  },
+  priority: {
+    type: Number,
+    enum: [0, 1, 2, 3],
+    default: 0
+  },
+  tags: {
+    type: [String]
   }
 })
 

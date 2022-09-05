@@ -1,0 +1,10 @@
+<div class="d-flex flex-row align-items-center <%= typeof parentClass != 'undefined' ? parentClass : 'mb-4' %>">
+    <i class="<%= faIcon %> fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+        <input type="<%= type %>" id="<%= name %>" name="<%= name %>" class="form-control"
+            placeholder="<%= typeof placeholder != 'undefined' ? placeholder : name %>" aria-label="<%= label %>" />
+        <label class="form-label" for="<%=name%>">
+            <%= label %>
+        </label>
+    </div>
+</div>
