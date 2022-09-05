@@ -9,23 +9,28 @@
   <body>
     <h1>sendfeedback</h1>
     <p>TODO: Map out data with better CSS / Formatting</p>
-
+    <a href="/">Go Home</a>
     <table>
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Phone</th>
         <th>Message</th>
+        <th>Delete Button</th>
       </tr>
       <% test.forEach(el => { %>
       <tr>
         <td><%= el.name %></td>
         <td><%= el.email %></td>
-        <td><%= el.phone %></td>
         <td><%= el.message %></td>
+        <td data-id="<%=el.userId%>">
+          <span class="del"> Delete <%=el.userId%></span>
+        </td>
       </tr>
 
       <% }) %>
     </table>
+
+    <!-- Scripts -->
+    <script src="js/sendfeedback.js"></script>
   </body>
 </html>

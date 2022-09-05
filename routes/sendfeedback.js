@@ -1,16 +1,18 @@
-const express = require('express')
-const router = express.Router()
-const sendfeedbackController = require('../controllers/sendfeedback') 
+const express = require("express");
+const router = express.Router();
+const sendfeedbackController = require("../controllers/sendfeedback");
 // const { ensureAuth } = require('../middleware/auth')
 
-router.get('/sendfeedback', sendfeedbackController.getSendfeedback)
+// @desc    Show sendfeedback page
+// @route   GET /sendfeedback/
+router.get("/", sendfeedbackController.getSendfeedback);
 
-router.post('/sendfeedback', sendfeedbackController.createSendfeedback)
+// @desc    Process sendfeedback form
+// @route   POST /sendfeedback/
+router.post("/", sendfeedbackController.createSendfeedback);
 
-// router.put('/markComplete', todosController.markComplete)
+// @desc    Delete sendfeedback entry
+// @route   DELETE /sendfeedback/
+router.delete("/", sendfeedbackController.deleteSendfeedback);
 
-// router.put('/markIncomplete', todosController.markIncomplete)
-
-// router.delete('/deleteTodo', todosController.deleteTodo)
-
-module.exports = router
+module.exports = router;
