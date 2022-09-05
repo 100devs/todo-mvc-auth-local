@@ -716,6 +716,11 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+=======
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -765,4 +770,3 @@ video {
   .md\:mt-0 {
     margin-top: 0px;
   }
-}
