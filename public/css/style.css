@@ -100,6 +100,17 @@ color: #3b9614;
         border-bottom-right-radius: 0.25rem !important;
 }
 
+#tagSummary {
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid #6c92b8;
+    border-radius: 3px;
+    color: #152f4a;
+    background: #deedfc;
+    font-size: 1.3rem;
+    padding: 5px;
+}
+
 .addTag {
     display: flex;
     align-items: center;
@@ -118,6 +129,12 @@ color: #3b9614;
     color: #152f4a;
     background: #deedfc;
     padding: 0 5px;
+}
+.tag a {
+    color: #152f4a;
+    text-decoration: none;
+    
+
 }
 .tag:hover {
     cursor: pointer;

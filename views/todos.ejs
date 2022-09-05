@@ -6,6 +6,19 @@
         <input class="form-control" type="text" placeholder="Enter todo" name='todoItem'>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
+    <% if (filterTags.length) { %>
+        <div id="tagSummary">
+            <div>
+                Showing <%=complete.length + incomplete.length%> todo <%= filterTags.length===1 ? "item" : "items" %> marked
+                        with the
+                        <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
+                            <% filterTags.forEach( tag=> { %>
+                                <i class="fa-solid fa-circle-xmark remove-filter" title="Remve tag from filter"></i>
+                                <%=tag %>
+                                    <% }) %> <a href="/todos">Clear filters</a>
+            </div>
+        </div>
+        <% } %>
 </div>
 <div class="row pb-5">
     <div class="col-sm">
@@ -35,7 +48,11 @@
 
                         <div class="tag">
                             <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
-                            <%=tag%>
+                                <% const tempTags=[...filterTags]; if (!tempTags.includes(tag.trim())) { tempTags.push(tag.trim()); } const
+                                    tagParams=tempTags.join(',') %>
+                                    <a href='/todos?tags=<%=tagParams%>'>
+                                    <%=tag%>
+                                </a>
                         </div>
                         <%}) %>
 
@@ -49,7 +66,10 @@
 
     <h3>
         You have <%= incomplete.length %>
-                <%= incomplete.length===1 ? "thing" : "things" %> left to do.
+                <%= incomplete.length===1 ? "thing" : "things" %>
+                    <% if (filterTags.length) {%>with the selected
+                        <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
+                            <%}%> left to do.
     </h3>
             </div>
             <div class="col-sm">
@@ -70,7 +90,10 @@
 
                 <h3>
                     You have completed <%= complete.length %>
-                            <%= complete.length===1 ? "thing" : "things" %>.
+                            <%= complete.length===1 ? "thing" : "things" %>
+                                <% if (filterTags.length) {%>with the selected
+                                    <%= complete.length + incomplete.length===1 ? "tag." : "tags." %>
+                                        <%}%>
                 </h3>
 
     </div>
