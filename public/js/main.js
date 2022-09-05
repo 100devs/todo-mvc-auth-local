@@ -63,22 +63,40 @@ async function deleteExpense(){
 
 async function updateExpense(){
     console.log('updateExpense is running')
-    const id = this.parentNode.dataset.id
-    console.log(id)
-    try{
-        const response = await fetch(`expenses/update/${id}`, {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'amount': 10 // THIS SHOULD BE THE AMOUNT GIVEN BY USER
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+
+    const updateExpenseDialog = document.querySelector('#updateExpenseDialog')
+    const newAmount = updateExpenseDialog.querySelector('#newAmount')
+    const saveNewAmountBtn = updateExpenseDialog.querySelector('#saveNewAmountBtn')
+
+    // show modal window
+    updateExpenseDialog.showModal();
+
+    // Save the new amount
+    newAmount.addEventListener('change', () => {
+        saveNewAmountBtn.value = newAmount.value;
+    });
+
+    // create a put request only after the dialog is closed and has a value
+    updateExpenseDialog.addEventListener('close', async () => {
+        const id = this.parentNode.dataset.id // since it's an arrow function, the value of 'this' is borrowed from the nearest outer function - updateBudget
+        // if no value was provided and saved, or cancel button pressed, the dialog returnValue is empty string and the request is not made
+        if (updateExpenseDialog.returnValue) {
+            try {
+                const response = await fetch(`expenses/update/${id}`, {
+                    method: 'put',
+                    headers: {'Content-type': 'application/json'},
+                    body: JSON.stringify({
+                        'amount': updateExpenseDialog.returnValue
+                    })
+                })
+                const data = await response.json()
+                console.log(data)
+                location.reload()
+            } catch(err) {
+                console.log(err)
+            }
+        }
+    })
 }
 
 async function updateBudget(){
