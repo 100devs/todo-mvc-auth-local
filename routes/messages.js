@@ -3,9 +3,9 @@ const router = express.Router()
 const messageController = require('../controllers/messages') 
 const { ensureAuth } = require('../middleware/auth')
 
-// Need params to get all or own messager
+// Need params to get all or own messages
 // Default will be all
-router.get('/', ensureAuth, messageController.getMessages)
+router.get('/:own?', ensureAuth, messageController.getMessages)
 
 router.post('/createMessage', messageController.createMessage)
 
