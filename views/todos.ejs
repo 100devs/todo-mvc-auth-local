@@ -24,47 +24,47 @@
     </header>
 
     <main class="container">
-        <h1>Todos</h1>
-        <ul class="collection ">
-        <% todos.forEach( el => { %>
-                <li class='todoItem collection-item ' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%> '><%= el.todo %>  </span>
-                    
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= moment(el.deadline).format('YYYY-MMM-DD') %><i class="material-icons
-                        markComplete iconVertical <%= el.completed === true ? 'completed' : 'not'%>">check</i></span>
-                    
-                    <span class='del right btn red'> Delete </span>
-                </li>
-        <% }) %>    
-        </ul>
-    
-        <h3 class="text-white"><%= user.userName %> has <%= left %> things left to do.</h3>
-        
+        <h3 class="text-white center"><%= user.userName %> has <%= left %> thing<%= left === 1 ? '' : 's'%> left to do</h3>
+
         <div class="row">
-              <div class="col s12">
-                <div class="card white darken-1">
-                  <div class="card-content black-text">
-                    <span class="card-title">Add to do:</span>
-                        <form action="/todos/createTodo" method="POST">
-                            <div class="row">
-                            <div class="input-field col s12">
-                                
-                                <label for="text">Task:</label>
-                                <input type="text" id="text" placeholder="Enter Todo Item" name='todoItem'>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="input-field col s12 m3">
-                                <label>Deadline:</label>
-                                <input type="date" id="deadline" name="deadline" placeholder="">
-                            </div>
-                            </div>
-                            <input type="submit" class="btn orange darken-3">
-                        </form>
-                </div>
+            <div class="col s3">
+                      <div class="card white darken-1">
+                        <div class="card-content black-text">
+                              <form action="/todos/createTodo" method="POST">
+                                  <div class="row">
+                                  <div class="input-field">
+                                      <label for="text">Task:</label>
+                                      <input type="text" id="text" placeholder="Enter Todo Item" name='todoItem'>
+                                  </div>
+                                  </div>
+                                  <div class="row">
+                                  <div class="input-field">
+                                      <label>Deadline:</label>
+                                      <input type="date" id="deadline" name="deadline" placeholder="">
+                                  </div>
+                                  </div>
+                                  <input class='btn red' type="submit">
+                              </form>
+                      </div>
+                  </div>
             </div>
-        </div>  
-    </div>    
+            <div class="col s9">
+
+            <ul class="collection">
+            <% todos.forEach( el => { %>
+                <li class='todoItem collection-item'>
+                    <div class='row'>
+                        <div class='col s6 todoName <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></div>
+                        <div class='col s3 todoDate <%= el.completed === true ? 'completed' : 'not'%>'><%= !el.deadline ? 'No Deadline Set' : moment(el.deadline).format('YYYY-MM-DD') %></div>
+                        <div class='col s1 compIncomp btn red' data-id='<%=el._id%>'><i class="material-icons">check</i> </div>
+                        <div class='col s1 del btn red' data-id='<%=el._id%>'><i class="material-icons">delete</i> </div>
+                    </div>
+                </li>
+            <% }) %>    
+            </ul>
+
+            </div>
+        </div>
     
     </main>
     
