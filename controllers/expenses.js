@@ -44,12 +44,14 @@ const deleteExpense = async (req, res) => { //add trash can next to each expense
 
     // Add the amount of the expense back to the budget
     const budget = await Budget.findOne({ user: req.user._id });
-    await Budget.findOneAndUpdate(
-      { _id: budget._id },
-      {
-        remainingAmount: Number(budget.remainingAmount) + Number(expense.amount),
-      }
-    );
+    if (budget) {
+      await Budget.findOneAndUpdate(
+        { _id: budget._id },
+        {
+          remainingAmount: budget.remainingAmount + expense.amount,
+        }
+      );
+    }
 
     // Delete the expense
     await Expense.deleteOne({
@@ -72,13 +74,15 @@ const updateExpense = async (req, res) => { //need to add collapsable form next 
 
     // Update budget
     const budget = await Budget.findOne({ user: req.user._id });
-    await Budget.findOneAndUpdate(
-      { _id: budget._id },
-      {
-        remainingAmount: budget.remainingAmount + initialExpense.amount - newAmount
-      }
-    );
-    
+    if (budget) {
+      await Budget.findOneAndUpdate(
+        { _id: budget._id },
+        {
+          remainingAmount: budget.remainingAmount + initialExpense.amount - newAmount
+        }
+      );
+    }
+
     // transaction object
     const update = {
       amount: newAmount,
