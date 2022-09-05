@@ -1,23 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-</body>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Homework Bound Signup Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Homework Bound</a></h1>
+
+					<!-- Banner -->
+						<section id="banner">
+                            <% if (locals.messages.errors) { %>
+                                <% messages.errors.forEach( el => { %>
+                                    <div class="alert alert-danger"><%= el.msg %></div>
+                                <% }) %>    
+                            <% } %>
+                            <form action="/signup" method="POST" class="textareaWidth">
+                                <label>
+                                <input type="text" name="userName" placeholder="User Name" class="button large textColor">
+                                </label>
+                                <label>
+                                <input type="email" name="email" placeholder="Email" class="button large textColor">
+                                </label>
+                                <label>
+                                <input type="password" name="password" placeholder="Password" class="button large textColor">
+                                </label>
+                                <label>
+                                <input type="password" name="confirmPassword" placeholder="Confirm Password" class="button large textColor">
+                                </label>
+                                <label>
+                                <input type="submit" class="button">
+                                </label>
+                            </form>
+						</section>
+				</section>
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+                                            <li>&copy; 
+                                                <a href="https://github.com/JulienMellon">Julien Mellon</a>,
+                                                <a href="https://github.com/jaclynbrothers">Jaclyn Brothers</a>,
+                                                <a href="https://github.com/gaildev10">Gail Giles</a>,
+                                                <a href="https://github.com/mathung">Matt Hung</a>,
+                                                <a href="https://github.com/ztlaw">Walt Lungan</a>,
+                                                <a href="https://github.com/phuphaju">Nischaya Khatiwada</a>, & 
+                                                <a href="https://github.com/neffcodes">James Neff</a>. All rights reserved. 
+                                                Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
