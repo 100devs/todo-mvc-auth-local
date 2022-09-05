@@ -2,6 +2,7 @@ const delBudget = document.querySelectorAll('.delBudget')
 const delExpense = document.querySelectorAll('.delExpense')
 
 const updExpense = document.querySelectorAll('.updExpense')
+const updBudget = document.querySelectorAll('.updBudget')
 
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
@@ -16,6 +17,10 @@ Array.from(delBudget).forEach((el)=>{
 
 Array.from(updExpense).forEach((el)=>{
     el.addEventListener('click', updateExpense)
+})
+
+Array.from(updBudget).forEach((el)=>{
+    el.addEventListener('click', updateBudget)
 })
 
 async function deleteBudget(){
@@ -66,6 +71,26 @@ async function updateExpense(){
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'amount': 10 // THIS SHOULD BE THE AMOUNT GIVEN BY USER
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function updateBudget(){
+    console.log('updateBudget is running')
+    const id = this.parentNode.dataset.id
+    console.log(id)
+    try{
+        const response = await fetch(`budget/update/${id}`, {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'newInitialAmount': 1000 // THIS SHOULD BE THE AMOUNT GIVEN BY USER
             })
         })
         const data = await response.json()
