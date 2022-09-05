@@ -1,44 +1,19 @@
-# Introduction
+# Our Awesome Project
+This project is a Christmas themed shopping list with a built-in Christmas countdown and Christmas music player! This application helps you keep track of what you need to buy for friends and family for Christmas.
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+<!-- add screenshot of page -->
 
----
+## How It's Made:
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+**Tech used:** HTML, CSS, JavaScript, MongoDB, using the MVC Architecture
 
----
+This is a simple ToDo App remade into a lovely Christmas shopping list. Built using the MVC Architecture with authorization so folx can sign up to track what they have to buy before Christmas! We created the Christmas theme through ejs and CSS, embed Christmas music into the page, and implemented a Christmas countdown timer. 
 
-# Objectives
+## Optimizations
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+Some features to add can include adding more features to list organization (i.e. a list for multiple gifts to the same person) and shareable private lists for users without an account to see.
 
----
+## Lessons Learned:
 
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
+placeholder
 
