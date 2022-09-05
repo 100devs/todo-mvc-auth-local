@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Car Maintenance Log</h1>
+    <ul>
+    <% carlogVehicles.forEach( el => { %>
+            <li class='carlogVehicles' data-id='<%=el._id%>'>
+                <span class='carlogVehicles-detail'><%= el.licensePlate %></span>
+                <span class='carlogVehicles-detail'><%= el.year %></span>
+                <span class='carlogVehicles-detail'><%= el.make %></span>
+                <span class='carlogVehicles-detail'><%= el.model %></span>
+                <button href="/maintenance">Maintenance Log</button>
+                <span class='carlogdel'> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
+
+    <h2>Add vehicle to <%= user.userName %>'s account</h2>
+
+    <form action="/carlog/addCarlogVehicle" method='POST'>
+        <input type="text" placeholder="Enter License plate #" name='licensePlate'>
+        <input type="text" placeholder="Enter Year" name='year'>
+        <input type="text" placeholder="Enter Make" name='make'>
+        <input type="text" placeholder="Enter Model" name='model'>
+        <input type="date" placeholder="Enter Registration Expiration" name='registrationExpiration'>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
