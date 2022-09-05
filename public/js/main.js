@@ -103,7 +103,7 @@ function isItTime() {
         timesDoneAmount += Number(document.querySelectorAll('#shame')[i].textContent)
     }
     if (timesDoneAmount >= 20) {
-        placeToShame.textContent = 'Yup, now you have really done it. Forget that specialist, they clearly won\t have any power here.'
+        placeToShame.textContent = 'Yup, now you have really done it. Forget that specialist, they clearly won\'t have any power here.'
     } else if (timesDoneAmount >= 15) {
         placeToShame.textContent = 'And here I thought I had no self-control.. I think it might be time to see a specialist before it\'s too late.'
     } else if (timesDoneAmount >= 10) {
