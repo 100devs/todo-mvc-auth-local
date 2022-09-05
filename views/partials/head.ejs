@@ -27,7 +27,8 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <!-- You can change this text to whatever you want, I was just bothered by 'Start Bootstrap' :) -->
+            <a class="navbar-brand" href="/">MVC Group Project</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -37,10 +38,11 @@
                     <li class="nav-item"><a class="nav-link" href="/todos">Todos</a></li>
                     <% if (loggedIn) { %>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Groups</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/groups/createGroup">Create a group</a></li>
-                                <li><a class="dropdown-item" href="/groupShow">My groups</a></li>
+                                <li><a class="dropdown-item" href="/groups">My groups</a></li>
                                 <li><a class="dropdown-item" href="#">My Tasks</a></li>
                                 <% if (isAdmin) { %>
                                 <li>
