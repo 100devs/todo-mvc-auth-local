@@ -5,9 +5,9 @@ const todoComplete = document.querySelectorAll('.todoItem.complete .form-check-i
 const addTagBtn = document.querySelectorAll('.addTag i');
 const deleteTagBtn = document.querySelectorAll('.tag i');
 const addTagForm = document.querySelectorAll('.addTag form');
-// const addTodoForm = document.getElementById('addTodo');
+const addTodoForm = document.getElementById('addTodo');
 
-// addTodoForm.addEventListener('submit', addTodo);
+addTodoForm.addEventListener('submit', addTodo);
 
 priorityBtn.forEach(el => el.addEventListener('click', changePriority))
 addTagBtn.forEach(el => el.addEventListener('click', toggleTagForm))
@@ -25,7 +25,34 @@ Array.from(todoItem).forEach((el)=>{
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('change', markIncomplete)
 })
+async function addTodo(e) {
+    const filtersAddTodo = document.getElementById('filtersAddTodo');
+    const action = document.getElementById('addTodo-addTags');
+    const todoItem = addTodoForm.querySelector('[name="todoItem"]').value;
+    if (!filtersAddTodo || !action.checked) return;
+    e.preventDefault();
+    const params = (new URL(document.location)).searchParams;
+    let tags = params.get("tags").split(',');
+    console.log(tags)
+    try {
+        const response = await fetch('todos/createTodoWithTags', {
+            method: 'post',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'todoItem': todoItem,
+                'tags': tags
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
 
+
+
+}
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{

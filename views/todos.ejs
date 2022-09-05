@@ -3,12 +3,31 @@
 
 <div class="row pt-5">
     <form id="addTodo" action="/todos/createTodo" method='POST'>
-        <input class="form-control" type="text" placeholder="Enter todo" name='todoItem'>
-        <button type="submit" class="btn btn-primary">Add</button>
+            <input class="form-control" type="text" placeholder="Enter todo" name='todoItem' autocomplete="off">
+            <button type="submit" class="btn btn-primary">Add</button>
     </form>
+    </div>
+    <% if (filterTags.length) {%>
+        <div class="row">
+            <div id="filtersAddTodo"><strong>Note:</strong> To see your new todo, you must clear the filters or add the
+                currently selected tags.
+                <div>
+                    <input class="form-check-input" id="addTodo-clearFilters" type="radio" name="addTodo"
+                        value="clearFilters" checked>
+                    <label class="form-check-label" for="addTodo-clearFilters">
+                        Clear filters
+                    </label>
+                    <input class="form-check-input" id="addTodo-addTags" type="radio" name="addTodo" value="addTags">
+                    <label class="form-check-label" for="addTodo-addTags">
+                        Add tags
+                    </label>
+                </div>
+            </div>
+        </div>
+        <%} %>
     <% if (filterTags.length) { %>
+        <div class="row">
         <div id="tagSummary">
-            <div>
                 Showing <%=complete.length + incomplete.length%> todo <%= filterTags.length===1 ? "item" : "items" %> marked
                         with the
                         <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
@@ -16,10 +35,9 @@
                                 <i class="fa-solid fa-circle-xmark remove-filter" title="Remve tag from filter"></i>
                                 <%=tag %>
                                     <% }) %> <a href="/todos">Clear filters</a>
-            </div>
+        </div>
         </div>
         <% } %>
-</div>
 <div class="row pb-5">
     <div class="col-sm">
         <h1 class="my-3">Todos</h1>

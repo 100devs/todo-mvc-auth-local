@@ -100,6 +100,12 @@ color: #3b9614;
         border-bottom-right-radius: 0.25rem !important;
 }
 
+#filtersAddTodo {
+    width: 500px;
+    margin: 0 auto;
+    text-align:center;
+}
+
 #tagSummary {
     text-align: center;
     margin-top: 10px;

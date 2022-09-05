@@ -13,6 +13,8 @@ router.put('/deleteTag', todosController.deleteTag)
 
 router.post('/createTodo', todosController.createTodo)
 
+router.post('/createTodoWithTags', todosController.createTodoWithTags)
+
 router.put('/markComplete', todosController.markComplete)
 
 router.put('/markIncomplete', todosController.markIncomplete)
