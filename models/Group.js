@@ -3,6 +3,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
+const memberSchema = new Schema({ email: 'string' });
+
 /**
  * todo: name of the groups
  * completed: inform if the
@@ -16,7 +18,7 @@ const GroupSchema = Schema({
     type: String,
     required: true,
   },
-  validated: {
+  isValidated: {
     type: Boolean,
     required: false,
   },
@@ -45,6 +47,10 @@ createdBy: {
   city: {
     type:String,
     required: false
+  },
+  members: {
+      type: [memberSchema],
+      require: false
   }
 })
 

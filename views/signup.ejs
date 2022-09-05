@@ -16,11 +16,15 @@
                 <%- include('partials/forms/error.ejs') %>
 
 
-                <%- include('partials/forms/inputWithIcons.ejs', {name: 'username' , type: 'text' , label:"Your
-                      Name", faIcon: 'fas fa-user' , parentClass: 'mb-4' }) %>
+                <%- include('partials/forms/inputWithIcons.ejs', {name: 'username' , type: 'text' ,
+                          label:"Username", faIcon: 'fas fa-user' , placeholder: 'Enter your name' ,
+                          parentClass: 'mb-4' }) %>
 
-                <%- include('partials/forms/inputWithIcons.ejs', {name: 'email' , type: 'email' , label:"Your
-                        Email", faIcon: 'fas fa-envelope' , parentClass: 'mb-4' }) %>
+                <%- include('partials/forms/inputWithIcons.ejs', {name: 'email' , type: 'email' ,
+                          label:"Email", faIcon: 'fas fa-envelope' , placeholder: 'Enter your email' ,
+                          parentClass: 'mb-4' }) %>
+
+
 
                 <%- include('partials/forms/inputWithIcons.ejs', {name: 'password' , type: 'password' ,
                           label:"Password", faIcon: 'fas fa-lock' , placeholder: 'Enter your password' ,

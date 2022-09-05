@@ -7,8 +7,17 @@ const Group = require('../models/Group')
 module.exports = {
     getGroups: async (req,res)=>{
         try{
-            const groupItems = await Group.find()
-            res.render('group/index.ejs', { groupItems , user: JSON.parse(JSON.stringify(req.user)), groupNumber: groupItems.length })
+                const groupItems = await Group.aggregate([{
+                $lookup:
+                {
+                    from: "users",
+                    localField: "createdBy",
+                    foreignField: "_id",
+                    as: "groupAdmin"
+                }
+            }])
+
+            res.render('group/index.ejs', { groupItems , groupNumber: groupItems.length, adminPage: req.originalUrl.includes('manageGroup') })
         }catch(err){
             console.log(err)
         }

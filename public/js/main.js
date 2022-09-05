@@ -25,7 +25,7 @@ Array.from(todoComplete).forEach((el)=>{
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('/todos/deleteTodo', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -43,7 +43,7 @@ async function deleteTodo(){
 async function markComplete(){
     const todoId = this.parentNode.parentNode.dataset.id;
     try {
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('/todos/markComplete', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -61,7 +61,7 @@ async function markComplete(){
 async function markIncomplete() {
     const todoId = this.parentNode.parentNode.dataset.id;
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('/todos/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -77,10 +77,11 @@ async function markIncomplete() {
 }
 
 async function changePriority() {
+    console.log('changed priority')
     const todoId = this.parentNode.dataset.id;
     const priority = (Number(this.dataset.priority) + 1) % 4;
     try {
-        const response = await fetch('todos/priority', {
+        const response = await fetch('/todos/priority', {
             method: 'post',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -116,7 +117,7 @@ async function deleteTag() {
     const tag = this.parentNode.innerText.trim();
     const todoId = this.parentNode.parentNode.parentNode.dataset.id;
     try {
-        const response = await fetch('todos/deleteTag', {
+        const response = await fetch('/todos/deleteTag', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({

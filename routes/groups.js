@@ -9,8 +9,10 @@ router.post('/createGroup',ensureAuth, groupsController.addGroup)
 
 router.get('/createGroup',ensureAuth, groupsController.createGroup)
 
+router.post('/updateGroup',ensureAuth, groupsController.updateGroup)
+
 router.delete('/deleteGroup',ensureAuth, groupsController.deleteGroup)
 
-router.delete('/updateGroup',ensureAuth, groupsController.updateGroup)
+router.get('/editGroup/:id',ensureAuth, groupsController.editGroup)
 
 module.exports = router

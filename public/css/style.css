@@ -169,6 +169,51 @@ color: #3b9614;
 /******************************
 ********* Groups page *********
 ******************************/
-.hiddenRow {
-    padding: 0 !important;
+.legend {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 764px;
 }
+.legend span {
+    padding-left: 10px;
+}
+.css-grid-table,
+.css-grid-table-header,
+.css-grid-table-body {
+display: grid;
+max-width: 764px;
+
+}
+
+.css-grid-table {
+grid-template-rows: 24px 72px;
+}
+
+.css-grid-table-header,
+.css-grid-table-body {
+grid-template-columns: 200px 100px 150px 75px;
+max-width: 764px;
+
+line-height: 24px;
+}
+
+.css-grid-table-header {
+grid-column-gap: 2px;
+grid-template-rows: auto;
+}
+
+.css-grid-table-body {
+grid-template-rows: auto auto auto;
+text-align: center;
+}
+
+.css-grid-table-header div {
+text-align: center;
+font-weight: bold;
+background-color: rgb(191, 191, 191);
+}
+
+.css-grid-table-body div {
+padding-left: 6px;
+}
+

@@ -1,35 +1,42 @@
-<%- include('../partials/head.ejs') %>
+  <% const isEdit = typeof(group) !== "undefined" ? true : false %>
+  <% const title = isEdit ? "Edit a group" : "Create a group" %>
+<%- include('../partials/head.ejs', { title: title}) %>
+
 
 <section class="createGroup">
 
-  <form action="/groups/createGroup" method="post">
-    <p class="text-center h1 fw-bold">Create a group</p>
+  <form action="/groups/<%= isEdit ? 'updateGroup' : 'createGroup' %>" method="post">
     <!-- don't show this by default -->
     <div class="alert hidden" id="formInfo"></div>
 
-    <%- include('../partials/forms/input.ejs', {name: 'name' , type: 'text' , label:"Create a group",
+    <%- include('../partials/forms/input.ejs', {name: 'name' , type: 'text' , label:"Group Name", value: isEdit ? group.name : "" ,
         faIcon: 'fas fa-briefcase' , placeholder: 'Group name' , parentClass: 'mb-4' }) %>
 
 
-    <div class="form-group shadow-textarea mb-4">
-      <label for="description">Description of the group</label>
-      <textarea class="form-control z-depth-1" id="description" name="description" rows="3" placeholder="Add the group description here. The description will help users to understand the goal of the group."></textarea>
-    </div>
+    <%- include('../partials/forms/textarea.ejs', {name:'description',label:'Description', placeholder:"Add the group description here. The description will help users to understand the goal of the group.",
+    value: isEdit ? group.description : "" }) %>
 
 
-    <%- include('../partials/forms/checkbox.ejs', { name: 'isPublic' , checked: true,
+    <%- include('../partials/forms/checkbox.ejs', { name: 'isPublic' , checked: isEdit ? group.isPublic : true,
           description: 'Make it public, so everyone can see it' , parentClass: 'justify-content-start mb-3' }) %>
 
+
+    <% if(isEdit) { %>
+    <%- include('../partials/forms/checkbox.ejs', { name: 'isValidated' , checked: isEdit ? group.isValidated : true,
+          description: 'Accept this group creation' , parentClass: 'justify-content-start mb-3' }) %>
+
+        <input type="hidden" value="<%= group._id %>" name="id" />
+    <% } %>
     <!--
     <%- include('../partials/forms/checkbox.ejs', {
         name: 'iscityBased',
-        checked: true,
+        checked: isEdit ? group.isCityBased : true,
         description: 'We only accept people from our city to make everyone reachable.',
         parentClass: 'justify-content-start mb-3'
     }) %>
 -->
 
-    <button type="submit" class="btn btn-primary btn-large">Submit</button>
+    <button type="submit" class="btn btn-primary btn-large"><%= isEdit ? 'Apply change' : 'Create the group' %></button>
   </form>
 </section>
 

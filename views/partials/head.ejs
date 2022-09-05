@@ -29,22 +29,21 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- You can change this text to whatever you want, I was just bothered by 'Start Bootstrap' :) -->
-            <a class="navbar-brand" href="/">MVC Group Project</a>
+            <a class="navbar-brand" href="/"><i class="fa-solid fa-house"></i>&nbsp;MVC Group Project</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/todos">Todos</a></li>
                     <% if (loggedIn) { %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Groups</a>
+                                data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/groups/createGroup">Create a group</a></li>
                                 <li><a class="dropdown-item" href="/groups">My groups</a></li>
-                                <li><a class="dropdown-item" href="#">My Tasks</a></li>
+                                <li><a class="dropdown-item" href="/todos">My todos</a></li>
                                 <% if (isAdmin) { %>
                                     <li>
                                         <hr class="dropdown-divider" />Manage
@@ -54,7 +53,7 @@
                                     <% } %>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout"><i class="fa-solid fa-power-off"></i>&nbsp;<%= currentUser.username %></a></li>
                         <% } else { %>
                             <li class="nav-item"><a class="nav-link" href="/login" title="Sign In">Sign In</a></li>
                             <li class="nav-item"><a class="nav-link" href="/signup" titlz="Sign Up">Sign Up</a></li>

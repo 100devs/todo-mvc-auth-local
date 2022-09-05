@@ -77,7 +77,7 @@ app.use((req, res, next) => {
  res.locals.loggedIn = req.isAuthenticated();
    if(res.locals.loggedIn) {
       res.locals.isAdmin = (req.user.role === 0);
-      console.log(req.user.role)
+      res.locals.currentUser = req.user;
   }
  next();
 });
