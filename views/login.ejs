@@ -1,4 +1,8 @@
-<div class="card">
+<div class="login auth-cards row">
+    <div class="card col s12 m6 offset-m3 index-card">
+        <div class="card-content center">
+            <h1>Welcome Back!</h1>
+        </div>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -10,12 +14,18 @@
         <% }) %>    
     <% } %>
     <form action="/login" method="POST">
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email">
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
+        <div class="card-content">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password">
+        </div>
         
-        <input type="submit">
-    </form>
+        <div class="divider"></div>
+        <div class="section center row">
+            <input class="btn green darken-2" type="submit" value="Login">
+        </div>
+        </form>
+    </div>
 </div>
     
