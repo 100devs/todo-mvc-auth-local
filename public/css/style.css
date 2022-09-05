@@ -279,6 +279,10 @@ footer {
   /* For IE 6/7 */
 }
 
+.sort {
+  cursor: pointer;
+}
+
 .span_5_of_5 {
   width: 100%;
 }
