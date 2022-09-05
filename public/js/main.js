@@ -9,10 +9,10 @@ const addTodoForm = document.getElementById('addTodo');
 
 addTodoForm.addEventListener('submit', addTodo);
 
-priorityBtn.forEach(el => el.addEventListener('click', changePriority))
-addTagBtn.forEach(el => el.addEventListener('click', toggleTagForm))
-addTagForm.forEach(el => el.addEventListener('submit', addTag))
-deleteTagBtn.forEach(el => el.addEventListener('click', deleteTag))
+priorityBtn.forEach(el => el.addEventListener('click', changePriority));
+addTagBtn.forEach(el => el.addEventListener('click', toggleTagForm));
+addTagForm.forEach(el => el.addEventListener('submit', addTag));
+deleteTagBtn.forEach(el => el.addEventListener('click', deleteTag));
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -25,6 +25,7 @@ Array.from(todoItem).forEach((el)=>{
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('change', markIncomplete)
 })
+
 async function addTodo(e) {
     const filtersAddTodo = document.getElementById('filtersAddTodo');
     const action = document.getElementById('addTodo-addTags');
@@ -49,10 +50,8 @@ async function addTodo(e) {
     } catch (err) {
         console.log(err)
     }
-
-
-
 }
+
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{

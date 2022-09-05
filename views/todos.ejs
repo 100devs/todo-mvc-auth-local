@@ -32,7 +32,10 @@
                         with the
                         <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
                             <% filterTags.forEach( tag=> { %>
-                                <i class="fa-solid fa-circle-xmark remove-filter" title="Remve tag from filter"></i>
+                                    <% const filterParams=filterTags.filter(t=> t!=tag).join(",") %>
+                                        <a href="/todos?tags=<%=filterParams%>" class="removeFilter" title="Remve tag from filter">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </a>
                                 <%=tag %>
                                     <% }) %> <a href="/todos">Clear filters</a>
         </div>

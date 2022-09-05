@@ -117,6 +117,15 @@ color: #3b9614;
     padding: 5px;
 }
 
+.removeFilter {
+    text-decoration: none;
+    color: #152f4a;
+}
+
+.removeFilter:hover {
+    color: #152f4a;
+}
+
 .addTag {
     display: flex;
     align-items: center;
