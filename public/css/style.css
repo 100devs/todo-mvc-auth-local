@@ -181,3 +181,27 @@ nav {
 #first_name {
   color: #FFFFFF;
 }
+
+/* Error pages styles */
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  background: -webkit-linear-gradient(#0d84f4, #689fe4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return2-dash > a {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  text-decoration: none;
+}
