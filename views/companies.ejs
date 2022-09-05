@@ -50,9 +50,9 @@
           <li class="list-group-item">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title"><%= company.name %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= company.address %></h6>
-                <p class="card-text"><%= company.description %></p>
+                <h5 class="card-title">Company Name: <%= company.companyName %></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Point of Contact Name: <%= company.pointOfContact.name %></h6>
+                <p class="card-text">Point of Contact Email: <%= company.pointOfContact.email %></p>
                 <a href="/companies/<%= company._id %>" class="card-link">View</a>
                 <a href="/companies/edit/<%= company._id %>" class="card-link">Edit</a>
                 <a href="/companies/delete/<%= company._id %>" class="card-link">Delete</a>
