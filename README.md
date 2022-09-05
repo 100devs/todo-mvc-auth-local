@@ -1,5 +1,5 @@
 # Introduction
-<img align="center" src="https://github.com/Teamasaurus/todo-mvc-auth-local/blob/main/public/images/logoanimate.gif?raw=true" width="250" />
+<img valign ="center" src="https://github.com/Teamasaurus/todo-mvc-auth-local/blob/main/public/images/logoanimate.gif?raw=true" width="250" />
 
 
 DevDays is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
