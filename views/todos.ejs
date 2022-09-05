@@ -13,7 +13,7 @@
         <img id='logo' src="../images/staticlogo.png">
 
         <div id='account'>
-            <h2 id="username">Hi, <%= user.userName %>!</h2id>
+            <h2 id="username">Hi, <%= user.userName %>!</h2>
             <a href="/logout"><button class='button-18'>Log out</button></a>
         </div>
     </header>
@@ -32,7 +32,7 @@
                 <div class="mood">Mood: <%= items.mood %> </div>
                 <div id="actionsContainer">
                     <form action="/blogPost/edit/<%= items._id %>" action="GET">
-                        <input type="submit" class="button-18" value="Edit">
+                        <input type="submit" class="editButton button-18" value="Edit">
                     </form>
                         <button onclick="deleteTodo" class="button-18 del" id="del">Delete</button>
                 </div>
