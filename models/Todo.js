@@ -26,7 +26,11 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-  }
+  },
+  important: {
+    type: Boolean,
+    default: false
+    }
 })
 
 module.exports = mongoose.model('Todo', TodoSchema)
