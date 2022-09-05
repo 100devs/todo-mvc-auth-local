@@ -1,4 +1,4 @@
-# Introduction
+# Dev Days
 <img valign ="center" src="https://github.com/Teamasaurus/todo-mvc-auth-local/blob/main/public/images/logoanimate.gif?raw=true" width="250" />
 
 
@@ -14,7 +14,7 @@ Additions by Antosha_montana, Johnaius, madeleineofrivia, S1oop, Scamm & Stinker
 ---
 
 # Objectives
-DevDays was created by developers for developers.  DevDays gives developers a single location to keep a journal of their day to day work
+DevDays was created by developers for developers.  DevDays gives developers a single location to keep a journal about their day to day work.  Journaling gives users an opportunity to actively recall what they worked on/learned during the day
 - 
 
 
