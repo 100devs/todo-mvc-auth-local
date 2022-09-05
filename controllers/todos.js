@@ -75,10 +75,10 @@ module.exports = {
     },
     addTag: async (req, res) => {
         try {
-            await Todo.findOneAndUpdate({ _id: req.body.id }, {
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }, {
                 $push: { tags: req.body.tag },
             })
-            res.redirect('/todos');
+            res.json('Added Tag');
         } catch (err) {
             console.log(err)
         }

@@ -4,10 +4,14 @@ const todoItem = document.querySelectorAll('.todoItem.incomplete .form-check-inp
 const todoComplete = document.querySelectorAll('.todoItem.complete .form-check-input')
 const addTagBtn = document.querySelectorAll('.addTag i');
 const deleteTagBtn = document.querySelectorAll('.tag i');
+const addTagForm = document.querySelectorAll('.addTag form');
+// const addTodoForm = document.getElementById('addTodo');
 
+// addTodoForm.addEventListener('submit', addTodo);
 
 priorityBtn.forEach(el => el.addEventListener('click', changePriority))
 addTagBtn.forEach(el => el.addEventListener('click', toggleTagForm))
+addTagForm.forEach(el => el.addEventListener('submit', addTag))
 deleteTagBtn.forEach(el => el.addEventListener('click', deleteTag))
 
 Array.from(deleteBtn).forEach((el)=>{
@@ -110,6 +114,27 @@ function toggleTagForm() {
     }
     form.style.display = form.style.display === "none" ? "block" : "none";
 
+}
+
+async function addTag(e) {
+    e.preventDefault();
+    const tag = this.querySelector('[name="tag"]').value.trim();
+    const todoId = this.parentNode.parentNode.parentNode.dataset.id;
+    try {
+        const response = await fetch('todos/addTag', {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId,
+                'tag': tag
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function deleteTag() {

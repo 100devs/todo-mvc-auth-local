@@ -2,7 +2,7 @@
 <% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
 
 <div class="row pt-5">
-    <form class="addTodo" action="/todos/createTodo" method='POST'>
+    <form id="addTodo" action="/todos/createTodo" method='POST'>
         <input class="form-control" type="text" placeholder="Enter todo" name='todoItem'>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
@@ -41,7 +41,6 @@
     <i class="fa-solid fa-plus" title="Add tag"></i>
     <form style="display:none" action="/todos/addTag" method="post">
         <input class="form-control" type="text" name="tag" placeholder="Add tag" autocomplete="off" />
-        <input type="hidden" name="id" value="<%=el._id%>" />
     </form>
 </div>
                     <% el.tags.forEach( tag=> { %>
