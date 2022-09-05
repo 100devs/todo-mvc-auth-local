@@ -45,8 +45,8 @@
         <div class="card fit">
           <div class="card fit card_inner">
 
-            <div class="card_face card_face-front" id="<%=cards[i]._id%>">
-              <p><%= cards[i].question %></p>
+            <div class="card_face card_face-front" data-id="<%=cards[i]._id%>">
+              <p><%= stripTags(cards[i].question) %></p>
 
               <a href="cards/edit/<%= cards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
               <a href="#" class="waves-effect waves-light btn-small red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
@@ -55,7 +55,7 @@
           <div class="card_face card_face-back">
             <div class="card_content">
                 <div class="answer">
-                    <p><%= cards[i].answer %></p>
+                    <p><%= stripTags(cards[i].answer) %></p>
                 </div>
             </div>
         </div>
@@ -66,6 +66,34 @@
         
       </div>
       <% } %>
+
+      <% for (let i = 0; i < sampleCards.length; i++) { %>
+        <div class="swiper-slide">
+          
+          <div class="card fit">
+            <div class="card fit card_inner">
+  
+              <div class="card_face card_face-front" data-id="<%=sampleCards[i]._id%>">
+                <p><%= stripTags(sampleCards[i].question) %></p>
+  
+                <a href="cards/edit/<%= sampleCards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
+                <a href="#" class="waves-effect waves-light btn-small red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
+            </div>
+  
+            <div class="card_face card_face-back">
+              <div class="card_content">
+                  <div class="answer">
+                      <p><%= stripTags(sampleCards[i].answer) %></p>
+                  </div>
+              </div>
+          </div>
+              
+              
+            </div>
+          </div>
+          
+        </div>
+        <% } %>
 
     </div>
     <div class="swiper-button-next"></div>

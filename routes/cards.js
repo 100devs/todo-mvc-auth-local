@@ -25,7 +25,7 @@ router.get('/edit/:id', ensureAuth, cardsController.getUpdateCard)
 
 // @description     Process edit form
 // @route           PUT /cards/updateCard
-router.put('/updateCard/', ensureAuth, cardsController.processUpdateCard)
+router.put('/updateCard/:id', ensureAuth, cardsController.processUpdateCard)
 
 // @description     Delete card
 // @route           GET /cards/deleteCard

@@ -18,7 +18,9 @@ require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
 
 connectDB()
-
+app.locals.stripTags = (input) => {
+  return input.replace(/<(?:.|\n)*?>/gm, '')
+}
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))

@@ -32,14 +32,14 @@ card.forEach(element =>{
 //the toggle for flipping the card
     
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteCard)
 })
 
 
-async function deleteTodo(){
+async function deleteCard(){
     const cardId = this.parentNode.dataset.id
     try{
-        const response = await fetch('cards/deleteCard', {
+        const response = await fetch('/cards/deleteCard', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
