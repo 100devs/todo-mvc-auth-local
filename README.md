@@ -15,7 +15,7 @@ Additions by <a href="https://github.com/Antosha9108">Antosha_montana</a>,<a hre
 ---
 
 # Objectives
-DevDays was created by developers for developers.  DevDays gives developers a single location to keep a journal about their day to day work.  Journaling gives users an opportunity to actively recall what they worked on/learned during the day
+DevDays was created by developers for developers.  DevDays gives developers a single location to keep a journal about their day-to-day work.  Journaling gives users an opportunity to actively recall what they worked on/learned during the day
 - 
 
 
