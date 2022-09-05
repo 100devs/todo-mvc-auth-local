@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entry</title>
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <!-- Scripts -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+  
+</head>
+<body>
+
+    <!-- HAMBURGER MENU -->
+    <input type="checkbox" id="navi-toggle" class="checkbox" />
+    <label for="navi-toggle" class="button">
+        <span class="icon">&nbsp;</span>
+    </label>
+    <div class="background">&nbsp;</div>
+
+    <div class="menu">
+        <div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Entry</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- LOGO -->
+    <div class="logo logo-entry">
+        <img src="./image/logo.png">
+    </div>
+
+    <!-- ENTRY STUFF -->
+    <div class="container journalForm">
+
+    <section class="titlebar">
+
+        <h1 class="entryTitle">Journal Entry</h1>
+
+        <div class="emoji">
+
+          <iconify-icon icon="fa6-regular:face-smile"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-meh"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-rolling-eyes"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-angry"></iconify-icon>
+          <iconify-icon icon="fa6-regular:face-frown"></iconify-icon>
+
+        </div>
+
+    </section>
+
+    <section class="journalInputs">
+        
+        <form action="" class="entry" autocomplete="off">
+
+          <label for="date">
+
+            Date:
+            <input type="date" name="date" id="" class="formInputs" required>
+
+          </label>
+
+          <label for="title">
+            
+            Title: 
+            <input type="text" name="title" placeholder="Title (what sticks out from today?)" id="" class="formInputs" size="30">
+
+          </label>
+
+            <div>
+                <textarea id="comment" required rows="10" cols="200" required></textarea>
+            </div>
+            
+            </textarea>
+
+            <a href="http://" target="_blank" rel="noopener noreferrer">Submit</a>
+
+        </form>
+
+    </section>
+  </div>
+
+</body>
+</html>
