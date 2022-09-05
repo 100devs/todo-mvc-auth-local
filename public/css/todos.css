@@ -92,7 +92,7 @@ main {
     color: #f7b733
 }
 .card h2{
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 #create {
@@ -100,6 +100,16 @@ main {
     font-size: 3rem;
 }
 
+.notice{
+    padding-bottom: 2rem;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.not{
+    font-weight: 700;
+    text-decoration: none;
+}
 /* Button Decorations */
 .del, .update{
     border: none;

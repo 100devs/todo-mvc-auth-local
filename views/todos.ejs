@@ -29,6 +29,7 @@
             <section>
                 <h1>To-Dos</h1>
                 <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+                <span class="notice">Click the task to mark complete and incomplete.</span>
                 <ul>
                     <% todos.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
