@@ -9,13 +9,7 @@
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<header>
-    <img id='logo' src="/images/staticlogo.png" onmouseover="animateLogo" onmouseout="stopAnimateLogo">
-    <div id='account'>
-        <h2 id="username">Hi, <%= user.userName %>!</h2>
-        <a href="/logout"><button class='button-18'>Log out</button></a>
-    </div>
-</header>
+<%- include ('partials/header') %>
 <body>
     <a href="/blogPost"><i id='backButton' class="fa fa-arrow-left"></i></a>
     <section>
@@ -23,18 +17,18 @@
     
     <form action="/blogPost/edit/<%=postId%>" method="POST">
         <div id="mainInput">
-            <label for="title">Title</label><input id="title" name="title" placeholder=""
+            <label for="title">Title</label><input class="postInput" id="title" name="title" placeholder=""
             value="<%=blogPost.title%>">
             <h3 id="date">
                 <%= new Date(blogPost.date).toLocaleString('en-us') %></h3>
             <input type="hidden" name="date" value="<%=blogPost.date %>">
-            <label for="area">Your Thoughts:</label><textarea id="postBody" name="postBody" rows="20" cols="50" placeholder="  Write your daily dev journey here!"
+            <label for="area">Your Thoughts:</label><textarea id="postBody" class="postInput" name="postBody" rows="20" cols="50" placeholder="  Write your daily dev journey here!"
             ><%=blogPost.body %></textarea>
         </div>
         <div>
-            <label for="gitHub">GitHub Link</label><input id="gitHub" name="gitHub" placeholder="GitHub Link"
+            <label for="gitHub">GitHub Link</label><input id="gitHub" class="postInput" name="gitHub" placeholder="GitHub Link"
             value="<%=blogPost.gitHub%>">
-            <label for="dueDate">Due Date</label><input id="dueDate" name="dueDate" placeholder="Due Date"
+            <label for="dueDate">Due Date</label><input id="dueDate" class="postInput" name="dueDate" placeholder="Due Date"
             value="<%=blogPost.dueDate%>">
             <label for="mood">Mood: </label><select id="mood" name="mood">
                 <%
@@ -48,12 +42,12 @@
                 <% } %>
                 </select>
         <div id="buttons">
-        <input type="reset" id="clear" class="button-18" value="Clear">
+        <input type="button" id="clear" class="button-18" value="Clear">
         <input type="submit" class="button-18" value="Post">
         </div>
     </form>
     </section>
 
-
-    <script src="../../js/main.js"></script>
+    <script src="/js/clear.js"></script>
+    <script src="/js/main.js"></script>
 </body>
