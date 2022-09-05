@@ -11,18 +11,24 @@
 <body>
     <nav>
         <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img class="responsive-img" src="/assets/bill_tracker_logo_small.png"></a>
             <ul class="right">
                 <li><a class="waves-effect waves-light btn" id="signup-btn" href="/signup">Signup</a></li>
                 <li><a class="waves-effect waves-light btn" href="/login">Login</a></li>
             </ul>
-            <img src="/assets/bill_tracker_logo.png" alt="logo">
         </div>
     </nav>
-    <section>
-        <h1 class="billTracker-header">Welcome to Bill Tracker!</h1>
-        <p class="index-header">Looking to keep track of your bills? 
-            <span class="index-header-span">BillTracker is the app for you!</span>
-        </p>
+    <section class="section container homepage"> 
+        <div class="row">
+            <div class="col s12 l6">
+              <h1 class="billTracker-header">Welcome to <span class="index-header-span">Bill Tracker!</span></h1>
+                <p class="index-header">Looking to keep track of your bills?</p>
+                <p class="index-header">Bill Tracker is the app for you!</p>
+            </div>
+            <div class="col s12 l6 offset-12">
+                <img class="responsive-img" src="/assets/bill_tracker_logo.png" alt="Bill Tracker Logo">
+            </div>
+    </div>
     </section>  
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

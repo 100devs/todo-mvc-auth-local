@@ -12,46 +12,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-
-  
-
 <body>
-
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><img class="img-responsive" src="/assets/bill_tracker_logo.png"></a>
+            <a href="#" class="brand-logo"><img class="responsive-img" src="/assets/bill_tracker_logo_small.png"></a>
             <ul class="right">
                 <li><a class="waves-effect waves-light btn" href="/logout">Logout</a></li>
             </ul>
         </div>
-    </nav>
-      
+    </nav> 
     <h1>Track Your Bills!</h1>
 
-  <table class="highlight responsive-table">
-    <thead>
-      <tr>
-          <th>Company Name</th>
-          <th>Description</th>
-          <th>Amount Due</th>
-          <th>Due Date</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% billtrackers.forEach(el => {%>
+    <table class="highlight responsive-table">
+        <thead>
         <tr>
-            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span></td>
-            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span></td>
-            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
-                {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %></span></td>
-            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span></td>
-            <td class="billtrackerItem" data-id="<%=el._id%>"><span class='fa-solid fa-trash-can del'>  </span></td>
+            <th>Company Name</th>
+            <th>Description</th>
+            <th>Amount Due</th>
+            <th>Due Date</th>
         </tr>
-    <% }) %>
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+        <% billtrackers.forEach(el => {%>
+            <tr>
+                <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.companyName %></span></td>
+                <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.description %></span></td>
+                <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %></span></td>
+                <td class="billtrackerItem" data-id="<%=el._id%>"><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span></td>
+                <td class="billtrackerItem" data-id="<%=el._id%>"><span class='fa-solid fa-trash-can del'>  </span></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
 
-  <div><h2 class='billSum-header'><%= left === 1 ? `${user.userName} has ${left} bill to pay for a total of \$${billSum}` : `${user.userName} has ${left} bills to pay for a total of \$${billSum}` %></h2></div>
+    <div><h2 class='billSum-header'><%= left === 1 ? `${user.userName} has ${left} bill to pay for a total of \$${billSum}` : `${user.userName} has ${left} bills to pay for a total of \$${billSum}` %></h2></div>
 
    <section class="section container form-container">
     <h3 class="form-header">Input your bill information below: </h3>

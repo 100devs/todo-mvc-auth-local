@@ -1,11 +1,15 @@
 body {
     color: #233142;
-    background-color: rgb(227, 227, 227);
+    background-color: rgb(220, 220, 220);
 }  
 
 .brand-logo{
-    width: 150px;
-    height: 10%;
+    margin-left: 1%;
+}
+
+.logo-big {
+    border-radius: 20px;
+    box-shadow: 10px 10px 18px rgb(183, 183, 183);
 }
 
 .completed{
@@ -68,21 +72,30 @@ table {
 }
 
 .billTracker-header {
-    margin-top: 75px;
+    width: 90%;
+    margin-top: 80px;
+    margin-bottom: 75px;
     font-weight: bold;
 }
 
 .index-header {
-    font-size: 2rem;
-    line-height: 4rem;
+    width: 90%;
+    font-size: 1.8rem;
+    line-height: 2rem;
     text-align: center;
-    margin: 50px auto;
+    margin-top: 15px;
 }
 
 .index-header-span {
     display: block;
+    margin-top: 10px;
 }
+
  /* .brand-logo{
     width: 6%;
     margin-left:1%;
 }  */
+
+.homepage{
+    margin-top: 100px;
+}
