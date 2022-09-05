@@ -27,7 +27,7 @@ module.exports = {
       const sendfeedbackArr = await Sendfeedback.find({});
       // const itemsLeft = await Sendfeedback.countDocuments({userId:req.user.id,completed: false})
       // res.render('sendfeedback.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
-      res.render("sendfeedback.ejs", { test: sendfeedbackArr });
+      res.render("sendfeedback.ejs", { sendfeedbackArr: sendfeedbackArr });
       // res.send({Test: "Hello"})
     } catch (err) {
       console.log(err);
