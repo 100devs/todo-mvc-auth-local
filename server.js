@@ -57,10 +57,8 @@ const User = require('./models/User')
 app.get('/getallemails', async (req, res) => {
   const allUsers = await getAllUsers();
   if(allUsers) {
-    let str = ""
     // query by foreign key in mongodb?
-    const x = await getTodosForAllUsers(allUsers);
-    console.log(x);
+    const str = await getTodosForAllUsers(allUsers);
     /*
     allUsers.forEach((user) => {
       const userID = user._id;
@@ -102,18 +100,52 @@ async function getTodosByID(userID) {
 //  }
 // ]
 async function getTodosForAllUsers(users) {
+  
   let queries = []
+  // 
   users.forEach(user => {
-      queries.push(async() => await Todo.find({_id: user._id})
-    )
+      // transform Todo.find() into a promise, then push it onto the stack.
+      const fn = Todo.find({userId: user._id}).exec();
+
+      queries.push(fn)
   })
-  mongoose.Promise.all(queries) 
+  // in theory, order is preserved in Promise.all()
+  // TODO: handle promise rejection. (aka: what happens when we can't read everyone's stuff)
+  Promise.all(queries) 
   .then((results) => {
-    results.forEach(result => {
-      console.log(result);
+    results.forEach((result, index) => {
+      const user = users[index];
+      const username = user.userName;
+      const email = user.email;
+      console.log(mailFormatter(username, email, result));
+
     })
   })
   .catch(function(error) {
     console.log("Error mass reading...", error);
   })
 }
+
+function mailFormatter(username, email, todoList) {
+  let introduction = `Hello, ${username}! This is your current todo list from Listify! Log in to complete!<br><br>`
+  let todolistHTML = `<ul>`;
+  todoList.forEach(todoItem => {
+      todolistHTML += `<li>${todoItem.todo}</li>`
+  })
+  todolistHTML += `</ul>`;
+  todolistHTML += `${email} got this letter.`
+  return introduction + todolistHTML;
+}
+
+function mailFormatterPlainText(username, email, todoList) 
+{
+  let introduction = `Hello, ${username}! This is your current todo list from Listify! Log in to complete!\r\n\r\n`
+  let todolistHTML = ``;
+  todoList.forEach(todoItem => {
+      todolistHTML += `\r\n${todoItem.todo}\r\n`
+  })
+  todolistHTML += `${email} got this letter.`
+  return introduction + todolistHTML;
+
+}
+
