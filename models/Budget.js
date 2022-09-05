@@ -10,11 +10,6 @@ const BudgetSchema = new mongoose.Schema({
     required : true,
     default: Date.now
   },
-  expense: {
-  // true for expense, false for income
-  type: Boolean,
-  required: false,
-  },
   amount: {
     type: String,
     required: false,

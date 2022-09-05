@@ -18,9 +18,18 @@ module.exports = {
     },
     createEntry: async (req, res)=>{
         try{
-            await Entry.create({entry: req.body, userId: req.user.id})
+            const entryItem = req.body;
+            // console.log('hey, this is your request')
+            // console.log(entryItem)           
+            console.log(await Entry.create({date: entryItem.date,
+                                            expense: entryItem.expense,
+                                            amount: entryItem.amount,
+                                            description: entryItem.description,
+                                            company: entryItem.company,
+                                            category: entryItem.category,
+                                            userId: req.user.id}))
             console.log('Entry has been added!')
-            console.log(req.body)
+  
             res.redirect('/entries')
         }catch(err){
             console.log(err)
