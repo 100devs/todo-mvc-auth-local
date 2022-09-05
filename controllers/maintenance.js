@@ -4,7 +4,7 @@ module.exports = {
     getHistory: async (req,res)=>{
         console.log(req.user)
         try{
-            const logHistory = await Maintenance.find({userId: req.user.id})
+            const logHistory = await Maintenance.find({userId: req.user.id}).sort({'date': -1})
             res.render('maintenance.ejs', {logHistory: logHistory, user: req.user})
         }catch(err){
             console.log(err)
