@@ -27,7 +27,7 @@
         <h3 class="text-white center"><%= user.userName %> has <%= left %> thing<%= left === 1 ? '' : 's'%> left to do</h3>
 
         <div class="row">
-            <div class="col s3">
+            <div class="col s12 m3">
                       <div class="card white darken-1">
                         <div class="card-content black-text">
                               <form action="/todos/createTodo" method="POST">
@@ -48,16 +48,16 @@
                       </div>
                   </div>
             </div>
-            <div class="col s9">
+            <div class="col s12 m9">
 
             <ul class="collection">
             <% todos.forEach( el => { %>
                 <li class='todoItem collection-item'>
                     <div class='row'>
-                        <div class='col s6 todoName <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></div>
+                        <div class='col s4 todoName <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></div>
                         <div class='col s3 todoDate <%= el.completed === true ? 'completed' : 'not'%>'><%= !el.deadline ? 'No Deadline Set' : moment(el.deadline).format('YYYY-MM-DD') %></div>
-                        <div class='col s1 compIncomp btn red' data-id='<%=el._id%>'><i class="material-icons">check</i> </div>
-                        <div class='col s1 del btn red' data-id='<%=el._id%>'><i class="material-icons">delete</i> </div>
+                        <div class='col s2 compIncomp btn red' data-id='<%=el._id%>'><i class="material-icons">check</i> </div>
+                        <div class='col s2 del btn red' data-id='<%=el._id%>'><i class="material-icons">delete</i> </div>
                     </div>
                 </li>
             <% }) %>    
