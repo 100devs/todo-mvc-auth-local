@@ -6,18 +6,32 @@ module.exports = {
         try{
             // Looking for all bills matching specific user id
             const billtrackerItems = await BillTracker.find({userId:req.user.id})
-            // Total bill items left for user
-            const itemsLeft = await BillTracker.countDocuments({userId:req.user.id,completed: false})
+            // Finding total bills for the user based on their user id
+            const itemsLeft = await BillTracker.countDocuments({userId:req.user.id, completed: false})
             // Looking for bills that are incomplete 
             const billLeft = await BillTracker.find({userId:req.user.id,completed: false})
             // Loops through outstanding bills to provide total left to pay
-            let billSum = 0
-                for(let i=0; i< billLeft.length; i++){
-                      billSum += billLeft[i].amountDue }
-            
-            console.log(billSum)
+            // let billSum = 0
+            // for (let i=0; i< billLeft.length; i++) {
+            //         billSum += billLeft[i].amountDue
+            //     }
 
-            res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, billSum: billSum.toLocaleString(undefined,
+            // Calculate total bills function based on looping through the billTrackItems array and adding up all the amountDue values
+            let totalBills = function(billItems) {
+                let billSum = 0
+                
+                for (billItem of billItems) {
+                    billSum += billItem.amountDue
+                }
+                // Another way of looping and getting the sum using forEach method
+                // billtrackerItems.forEach( billItem => {
+                //     billSum += billItem.amountDue
+                // })
+
+                return billSum
+            }
+
+            res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, billSum: totalBills(billtrackerItems).toLocaleString(undefined,
                 {'minimumFractionDigits':2,'maximumFractionDigits':2}), user: req.user})
         }catch(err){
             console.log(err)
