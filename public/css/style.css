@@ -1,8 +1,7 @@
 .completed{
     text-decoration: line-through;
-    color: gray;
+    color: #455d7a;
 }
-
 
 h1, h2 {
     text-align: center;
@@ -31,12 +30,6 @@ h1, h2 {
     background-color: #ff9599;
 }
 
-/* .form-submit {
-    background-color: #ee6e73;
-    box-shadow: 0 5px rgb(145, 145, 145);
-    transform: translateY(4px);
-} */
-
 .form-header {
     font-size: 1.5rem;
     text-align: center;
@@ -51,19 +44,18 @@ h1, h2 {
     padding: 30px;
 }
 
-.index-container {
-    display: flex;
-    justify-content: space-evenly;
+.billTracker-header {
+    margin-top: 75px;
 }
 
 .index-header {
-    display: flex;
     width: 50%;
-    flex-direction: column;
+    font-size: 2rem;
+    line-height: 4rem;
+    text-align: center;
+    margin: 50px auto;
 }
 
-.index-login {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
+.index-header-span {
+    display: block;
 }

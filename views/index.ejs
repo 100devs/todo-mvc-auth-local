@@ -9,14 +9,19 @@
     <title>Bill Tracker</title>
 </head>
 <body>
-    <section class="index-container">
-            <h1 class="billTracker-header">Welcome to BillTracker!</h1>
-            <h3 class="index-header">Looking to keep track of your bills? BillTracker is the app for you!</h3>
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="right">
+                <li><a class="waves-effect waves-light btn" id="signup-btn" href="/signup">Signup</a></li>
+                <li><a class="waves-effect waves-light btn" href="/logout">Login</a></li>
+            </ul>
         </div>
-        <div class="card">
-            <a href="/login"> Login</a>
-            <a href="/signup"> Signup</a>
-        </div>
+    </nav>
+    <section>
+        <h1 class="billTracker-header">Welcome to BillTracker!</h1>
+        <p class="index-header">Looking to keep track of your bills? 
+            <span class="index-header-span">BillTracker is the app for you!</span>
+        </p>
     </section>  
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
