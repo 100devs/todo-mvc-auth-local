@@ -15,4 +15,6 @@ router.put('/markUnliked', messageController.markUnliked)
 
 router.delete('/deleteMessage', messageController.deleteMessage)
 
+router.put('/editMessage', messageController.editMessage)
+
 module.exports = router

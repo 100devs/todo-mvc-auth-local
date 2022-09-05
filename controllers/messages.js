@@ -50,11 +50,23 @@ module.exports = {
         }
     },
     deleteMessage: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        console.log(req.body.messageId)
         try{
             await Message.findOneAndDelete({_id:req.body.messageId})
             console.log('Deleted message')
             res.json('Deleted message')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    editMessage: async (req, res)=>{
+        try{
+            const message = await Message.findOne({_id:req.body.messageId})
+            await Message.findOneAndUpdate({_id:req.body.messageId},{
+                message: message.message
+            })
+            console.log('Message edited')
+            res.json('Message edited')
         }catch(err){
             console.log(err)
         }
