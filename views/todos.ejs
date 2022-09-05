@@ -26,9 +26,9 @@
             <li class='todoItem' data-id='<%=items._id%>'>
                 <div class='title'> <h4><%= items.title %></h4>  </div> 
                 <div class='body'> <%= items.body %>  </div>
-                <div class='gitHub'><i class="fa-brands fa-github"></i> <a href="<%= items.gitHub %>" target="_blank"><%= items.gitHub %></a>  </div>
+                <div class='gitHub'><i class="<% if(items.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if(items.gitHub) { %> <%= items.gitHub %> <% } %>"><%= items.gitHub %></a>  </div>
                 <div class='date'> Posted on <%= new Date(items.date).toLocaleString('en-us') %>  </div>
-                <div class='dueDate'> Due <%= items.dueDate %>  </div>
+                <div class='dueDate'><% if(items.dueDate) { %> Due <%= items.dueDate %> <% } %></div>
                 <div class="mood">Mood: <%= items.mood %> </div>
                 <div id="actionsContainer">
                     <form action="/blogPost/edit/<%= items._id %>" action="GET">
