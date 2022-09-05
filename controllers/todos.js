@@ -39,8 +39,9 @@ module.exports = {
           timesDone: req.body.timesDoneFromJSFile,
         }
       );
+      console.log(update);
       console.log('Marked Complete');
-      res.json('Marked Complete');
+      res.json(update);
     } catch (err) {
       console.log(err);
     }
