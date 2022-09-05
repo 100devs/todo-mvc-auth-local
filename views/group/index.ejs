@@ -12,7 +12,11 @@
  <% groupItems.forEach( el=> { %>
 
                 <details>
-                    <summary>    <%= cnt++ %><%= el.createdAt %><%= el.name %>
+                    <summary>
+                        <%= cnt++ %>. <%= el.name %>, Created:
+                                <!-- change the date formatting to whatever you want -->
+                                <%= el.createdAt.toLocaleDateString('en-US', {'month': 'short' , 'day' : 'numeric' , 'year' : 'numeric' } )
+                                    %>
             <i class="fas fa-edit"></i><td>
                 <!-- You were trying to use pro icons, they didn't work -->
                 <i class="fas fa-check"></i>
@@ -27,7 +31,7 @@
 
             </div>
              <% } else { %>
-                <p>You have joined 0 group. <a href="/group/createGroup" title="Create a group">Create a group</a></p>
+                <p>You have joined 0 groups. <a href="/group/createGroup" title="Create a group">Create a group</a></p>
             <% } %>
 
     </div>
