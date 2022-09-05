@@ -1,11 +1,23 @@
-.index{
+.auth-cards{
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   width:inherit;
   height: 100vh;
-  background: url('../images/4.png') center /contain  no-repeat;
+  
+}
+
+.index{
+  background: url('../images/index.png') center /contain  no-repeat;
+}
+
+.login{
+  background: url('../images/login.png') center /contain  no-repeat;
+}
+
+.signup{
+  background: url('../images/signup.png') center /contain  no-repeat;
 }
 
 .index-card{
