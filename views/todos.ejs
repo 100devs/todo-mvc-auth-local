@@ -5,70 +5,100 @@
     <title>LISTIFY | DASHBOARD</title>
   </head>
   <body class="background-img dashboard-screen">
-    <section class="todosmain todos-container container">
-
-      <!--Edit: Tal. Added organizational sections to the Todos page.-->
-      <section class = "createTodosSection">
-        <h2>Create Your Todos!</h2>
-        <form
-          action="/todos/createTodo"
-          method="POST"
-        >
-          <input
-            type="text"
-            placeholder="Create a todo item"
-            name="todoItem"
-          />
-          <input type="submit" />
-        </form>
-      </section>
-      <section class = "taskListSection todosSection">
-        <h2>Todo List</h2>
-        <ul class = "taskList">
-          <!--Edit-Tal. Foreach variables passed in at controller render method.-->
-          <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
-          <% todos.forEach( el => { %> <% if(el.completed === false) {%>
-          <li
-            class="todoItem"
-            data-id="<%=el._id%>"
+    <section class="todosmain todos-container container card d-flex pt-3">
+      <div class="row text-center">
+        <div class="col-xs-12 col-md-6"><%- include('./partials/logo'); %></div>
+        <div class="col-xs-12 col-md-6">
+          <h4>Welcome <%= user.userName %>!</h4>
+          <h6>
+            You have <%= left %> thing<%= left == 1 ? '' : 's'%> left to do.
+          </h6>
+          <a
+            class="btn btn-primary btn-sm"
+            href="/logout"
+            >Logout</a
           >
-            <span class="not"><%= el.todo %></span>
-            <span class="del">Delete</span>
-          </li>
-          <% } %> <% }) %>
-        </ul>
-        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-      </section>
-      <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
-      <section class="todosHistory todosSection">
-        <form class="historyForm">
-          <input
-            type="button"
-            name="show history"
-            value="Hide History"
-            class="showButton"
-          />
-        </form>
-        <ul
-          class="historyList"
-          disabled
-        >
-          <% todos.forEach( el => { %> 
-            <%if(el.completed == true) { %>
-              <li
-                class="todoItem"
-                data-id="<%=el._id%>"
-              >
-                <span class="completed"><%= el.todo %></span>
-                <span class="del"> Delete </span>
-              </li>
-            <% }%> 
-          <% }) %>
-        </ul>
-      </section>
-      <section class = "logoutSection todosSection">
-        <a class="btn btn-primary btn-lg" href="/logout">Logout</a>
-      </section>
+        </div>
+      </div>
+      <div class="row todos-body mt-3 p-2">
+        <!--Edit: Tal. Added organizational sections to the Todos page.-->
+        <div class="createTodosSection m-0 col-sm-12 col-md-4">
+          <h3>Create Your Todos!</h3>
+          <form
+            action="/todos/createTodo"
+            method="POST"
+          >
+            <input
+              type="text"
+              placeholder="Create a todo item"
+              name="todoItem"
+              class="form-control mb-1"
+            />
+            <!-- joe added importance -->
+            <label for="importance">Importance:</label>
+            <select
+              name="importance"
+              id="importance"
+              class="form-select form-select-sm"
+            >
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <input
+              class="btn btn-primary mt-2"
+              type="submit"
+            />
+          </form>
+        </div>
+        <div class="taskListSection todosSection m-0 col-sm-12 col-md-4">
+          <h2>Todo List</h2>
+          <!-- joe -->
+          <a
+            href="todos?sortBy=importance&direction=<%= query.direction === 'asc'?'desc':'asc'%>"
+            class="btn btn-outline-primary btn-sm"
+            >Sort By Importance</a
+          >
+          <ul class="taskList">
+            <!--Edit-Tal. Foreach variables passed in at controller render method.-->
+            <!--Edit-Tal. Added if statement in EJS to populate ul with only items which have a completed property of false.-->
+            <% todos.forEach( el => { %> <% if(el.completed === false) {%>
+            <li
+              class="todoItem"
+              data-id="<%=el._id%>"
+            >
+              <span class="not"><%= el.todo %></span>
+              <span class="del">Delete</span>
+            </li>
+            <% } %> <% }) %>
+          </ul>
+        </div>
+        <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
+        <div class="todosHistory todosSection m-0 col-sm-12 col-md-4">
+          <form class="historyForm">
+            <input
+              type="button"
+              name="show history"
+              value="Hide History"
+              class="showButton btn btn-outline-primary btn-sm"
+            />
+          </form>
+          <ul
+            class="historyList"
+            disabled
+          >
+            <% todos.forEach( el => { %> <%if(el.completed == true) { %>
+            <li
+              class="todoItem"
+              data-id="<%=el._id%>"
+            >
+              <span class="completed"><%= el.todo %></span>
+              <span class="del"> Delete </span>
+            </li>
+            <% }%> <% }) %>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <script src="js/main.js"></script>

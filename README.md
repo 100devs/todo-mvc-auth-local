@@ -50,16 +50,100 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 - Add Alerts - email alerts, a way of tracking time. (Jaz)
 - Try adding another source of authentication. Maybe https://www.passportjs.org/packages/passport-cookie/(Xavier https://www.passportjs.org/packages/)
 
-# Member Information
+# Contributors
 
+<<<<<<< HEAD
+**:point_right: Alex**
+:computer: [Github](https://github.com/aapaine07)
+:e-mail: [aapaine@gmail.com](mailto:aapaine@gmail.com)
+=======
 Jasmine (Jaz): https://github.com/jasmine-9000 // discord: jaz#6833 // wrkerr9@gmail.com 
+>>>>>>> jasminesbranch
 
-Tal: https://github.com/TalThatcher //discord: Naril#9626 // tal.intech@gmail.com
+**:point_right: Jaz**
+:computer: [Github](https://github.com/jasmine-9000)
+:e-mail: [wrkerr9@gmail.com](mailto:wrkerr9@gmail.com)
 
-Alex : https://github.com/aapaine07 // discord: Zacarino#7503 // aapaine@gmail.com
+**:point_right: Joe**
+:computer: [Github](https://github.com/joetraunero)
+:e-mail: [joetraunero@gmail.com](mailto:joetraunero@gmail.com)
 
-John: https://github.com/johnmal-dev // discord: johnmal#1773 // johncmalapit@gmail.com
+**:point_right: John Malapit**
+:computer: [Github](https://github.com/johnmal-dev) | [Portfolio](https://www.johnmal.dev/)
+:e-mail: [contact@johnmal.dev](mailto:contact@johnmal.dev)
 
+**:point_right: Tal**
+:computer: [Github](https://github.com/TalThatcher)
+:e-mail: [tal.intech@gmail.com](mailto:tal.intech@gmail.com)
+
+**:point_right: Zac**
+:computer: [Github](https://github.com/johnmal-dev)
+:e-mail: [contact@johnmal.dev](mailto:contact@johnmal.dev)
+
+# How to setup email server
+
+
+# Gmail
+
+
+Go to https://console.cloud.google.com/getting-started?pli=1
+
+Log in to your google account
+
+Click on "select a project" 
+
+Click on "new project"
+
+Name your project ``` name of project ```
+
+Create project
+
+Wait for project to be created
+
+Select the project
+
+Go to the APIs and Services dashboard for google cloud
+
+## Create an OAuth Consent screen
+
+Go to Oauth Consent Tab on left hand side of screen
+
+Select "External" for user type
+
+Give an App name
+
+Give support email  (suggested: your own email)
+
+DO NOT SUBMIT AN APP LOGO
+
+Give developer contact information (suggested: your own email)
+
+Save and continue
+
+Leave all scopes at default value
+
+Save and continue
+
+Leave optional info blank
+
+Save and continue
+
+Go back to dashboard
+
+
+
+
+# All other mail clients
+
+Use regular STMP client
+
+
+# Sources: 
+
+https://www.youtube.com/watch?v=-rcRf7yswfM
+
+<<<<<<< HEAD
+=======
 Joe: https://github.com/joetraunero // discord: shmoe#3902 // joetraunero@gmail.com
 
 # How to setup email server
@@ -124,3 +208,4 @@ Use regular STMP client
 
 https://www.youtube.com/watch?v=-rcRf7yswfM
 
+>>>>>>> jasminesbranch
