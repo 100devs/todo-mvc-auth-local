@@ -82,21 +82,39 @@ async function updateExpense(){
 }
 
 async function updateBudget(){
-    console.log('updateBudget is running')
-    const id = this.parentNode.dataset.id
-    console.log(id)
-    try{
-        const response = await fetch(`budget/update/${id}`, {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'newInitialAmount': 1000 // THIS SHOULD BE THE AMOUNT GIVEN BY USER
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+    console.log('updateBudget is running');
+
+    const updateBudgetDialog = document.querySelector('#updateBudgetDialog')
+    const newInitialAmount = updateBudgetDialog.querySelector('#newInitialAmount')
+    const saveNewInitialAmountBtn = updateBudgetDialog.querySelector('#saveNewInitialAmountBtn')
+
+    // show modal window
+    updateBudgetDialog.showModal();
+
+    // Save the new amount
+    newInitialAmount.addEventListener('change', () => {
+        saveNewInitialAmountBtn.value = newInitialAmount.value;
+    });
+
+    // create a put request only after the dialog is closed and has a value
+    updateBudgetDialog.addEventListener('close', async () => {
+        const id = this.parentNode.dataset.id // since it's an arrow function, the value of 'this' is borrowed from the nearest outer function - updateBudget
+        // if no value was provided and saved, or cancel button pressed, the dialog returnValue is empty string and the request is not made
+        if (updateBudgetDialog.returnValue) {
+            try {
+                const response = await fetch(`budget/update/${id}`, {
+                    method: 'put',
+                    headers: {'Content-type': 'application/json'},
+                    body: JSON.stringify({
+                        'newInitialAmount': updateBudgetDialog.returnValue
+                    })
+                })
+                const data = await response.json()
+                console.log(data)
+                location.reload()
+            } catch(err) {
+                console.log(err)
+            }
+        }
+    })
 }

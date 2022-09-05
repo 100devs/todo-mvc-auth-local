@@ -16,7 +16,15 @@
             </p>
             <p>Initial: <%= (el.initialAmount / 100).toFixed(2) %>
             </p>
-            <span class="updBudget">edit</span>
+            <button class="updBudget">edit</button>
+            <dialog id="updateBudgetDialog">
+              <form method="dialog">
+                <label for="newInitialAmount"> new amount</label>
+                <input id="newInitialAmount"  type="number" step="0.01">
+                <button>Cancel</button>
+                <button id="saveNewInitialAmountBtn">Save</button>
+              </form>
+            </dialog>
             <span class='delBudget'> <i class="fa fa-trash"></i> </span>
           </li>
           <% }) %>
