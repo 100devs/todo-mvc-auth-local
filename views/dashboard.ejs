@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Dashboard</h1>
+    <a href="/trip/createTrip">Create Trip</a><br><br>
+
+    <h2>Trips Created</h2>
+    <span>When you create a trip, it will show up in your dashboard</span>
+
+    <!-- As a side node, we should have the edit and delete ahref buttons here and tie them to each specific trip.
+    
+    You would need to get the _id of he trip and then edit and delete them
+
+    You will also need to use the method override package to create the editing functionality-->
+    <ul>
+        <!-- Create edit button -->
+
+        <% allUserTrips.forEach(trip => { %>
+        <button>
+            <%- editIcon(user._id, trip.userId, trip._id) %>
+        </button>
+        <li><%=trip.tripTitle%></li>
+        <li><%=trip.option1%></li>
+        <li><%=trip.option2%></li>
+        <li><%=trip.option3%></li>
+        <li><%=trip.dateFrom%></li>
+        <li><%=trip.dateTo%></li>
+        <li><%=trip.tripMembers%></li>
+        <br />
+        <br />
+        <% }) %>
+    </ul>
+
+
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
