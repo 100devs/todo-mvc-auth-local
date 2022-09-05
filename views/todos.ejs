@@ -22,28 +22,35 @@
 
 					<!-- Banner -->
 						<section id="banner">
-							<h1>Todos</h1>
-							<ul>
-							<% todos.forEach( el => { %>
-									<li class='todoItem' data-id='<%=el._id%>'>
-										<span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-										<span class='del'> Delete </span>
-									</li>
-							<% }) %>    
-							</ul>
 
-							<h2 class="toDoPadding"><%= user.userName %> has <%= left %> things left to do.</h2>
-
-							<form action="/todos/createTodo" method='POST' class="textareaWidth">
-								<label>
-								<input type="text" placeholder="Enter Todo Item" name='todoItem' class="button large textColor">
-								</label>
-								<label>
-								<input type="submit" class="button">
-								</label>
-							</form>
-
-							<a href="/logout"><span class="boldFont">Logout</span></a>
+							<header>
+								<!-- injection -->
+								<h1>Todos</h1>
+								<ul>
+								<% todos.forEach( el => { %>
+										<li class='todoItem' data-id='<%=el._id%>'>
+											<span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+											<span><%= el.dueDate.toDateString() %></span>
+											<span class='del'> Delete </span>
+										</li>
+								<% }) %>    
+								</ul>
+							
+								<h2><%= user.userName %> has <%= left %> things left to do.</h2>
+							
+								<form action="/todos/createTodo" method='POST'>
+									<input type="text" placeholder="Enter Todo Item" name='todoItem'>
+									<input type="date" name='todoDueDate'>
+									<input type="submit">
+								</form>
+							
+								<a href="/logout">Logout</a>
+							
+								<script src="js/main.js"></script>
+								<!-- injection  -->
+								<h2>Howdy. This is Dopetrope.</h2>
+								<p>A responsive template by HTML5 UP</p>
+							</header>
 						</section>
 				</section>
 
