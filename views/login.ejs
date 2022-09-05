@@ -4,28 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <title>Login to Your Account</title>
 </head>
 <body>
-    <section class="login">
-        <h1>Log In</h1>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-    </section>
+    <main>
+        <section class="login">
+            <h1>Log In</h1>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+            <section>
+                <form action="/login" method="POST">
+                    <section class="even">
+                        <span>Username: </span>
+                        <input type="email" name="email" placeholder="Email">
+                    </section>
+                    <section class="even">
+                        <span>Password:</span>
+                        <input type="password" name="password" placeholder="Password">
+                    </section>
+                    <input type="submit">
+                </form>
+            </section>
+            <section>
+                <span class="small">If you don't have an account, click <a> here </a> make one.</span>
+            </section>
+        </section>
+    </main>
+    
 </body>
 </html>
