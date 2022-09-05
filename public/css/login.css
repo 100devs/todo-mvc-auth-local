@@ -1,0 +1,11 @@
+body{background: #C1E1C1}
+.card{border: none;height: 320px}
+.forms-inputs{position: relative;}
+.forms-inputs span{position: absolute;top:-18px;left: 10px;background-color: #fff;padding: 5px 10px;font-size: 15px}
+.forms-inputs input{height: 50px;border: 2px solid #eee; width: 530px;}
+.forms-inputs input:focus{box-shadow: none;outline: none;border: 2px solid #000}
+#submit{height: 50px;}
+.submitB{ border:none; background:none; color: #C1E1C1;}
+.success-data{display: flex;flex-direction: column}
+.bxs-badge-check{font-size: 90px}
+a{color: #C1E1C1;}
