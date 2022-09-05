@@ -56,7 +56,13 @@ const User = require('./models/User')
 app.get('/getallemails', async (req, res) => {
   const allEmails = await getAllEmails();
   if(allEmails) {
-    res.send(allEmails);
+    let str = ""
+    // query by foreign key in mongo
+    allEmails.forEach((email) => {
+      const userID = email._id;
+      str += `Email: ${email.email}<br> Username: ${email.userName}<br> Todos: ${userID}<br><br>`
+    });
+    res.send(str);
   }
   else {
     res.status(503).send("An internal server error occured.")
@@ -65,11 +71,15 @@ app.get('/getallemails', async (req, res) => {
 
 async function getAllEmails() {
   try {
-    const allUsers = await User.find({}, {email: 1, _id: 1})
+    const allUsers = await User.find({}, {email: 1, _id: 1, userName: 1})
     return allUsers
   } catch(err) {
     console.log("An error occurred: ");
     console.log(err);
     return null;
   }
+}
+
+async function getTodosByID(userID) {
+  return 'Cartouche';
 }
