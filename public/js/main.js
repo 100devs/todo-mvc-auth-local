@@ -40,21 +40,22 @@ function confirmDelete(event) {
     return dialog
 }
 
-//change to handle deletes
 async function deletePost(){
     const postId = this.parentNode.parentNode.dataset.id
-    try{
-        const response = await fetch('/blogPost/deletePost', {
-            method: 'delete',   
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'postIdFromJSFile': postId
+    if (confirm("Are you sure you want to delete this post? This can't be undone!")) {
+        try{
+            const response = await fetch('/blogPost/deletePost', {
+                method: 'delete',   
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify({
+                    'postIdFromJSFile': postId
+                })
             })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
+            const data = await response.json()
+            console.log(data)
+            location.reload()
+        }catch(err){
+            console.log(err)
+        }
     }
 }
