@@ -10,8 +10,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const gearRoutes = require("./routes/gear");
 const dashboardRoutes = require("./routes/dashboard");
-const path = require("path");
-const browserSync = require("browser-sync");
+
 
 require("dotenv").config({ path: "./config/.env" });
 
