@@ -8,8 +8,12 @@ module.exports = {
             const billtrackerItems = await BillTracker.find({userId:req.user.id})
             // Finding the total number of bills for the user based on their user id
             const itemsLeft = await BillTracker.countDocuments({userId:req.user.id, completed: false})
-            // Looking for bills that are incomplete 
-            const billLeft = await BillTracker.find({userId:req.user.id, completed: false})
+            
+            /* 
+            **No longer needed as the completed property will be checked for in the totalBills function.
+             // Looking for bills that are incomplete
+             const billLeft = await BillTracker.find({userId:req.user.id, completed: false})
+            */
 
             // Loops through outstanding bills to provide total left to pay
             // let billSum = 0
@@ -17,11 +21,12 @@ module.exports = {
             //         billSum += billLeft[i].amountDue
             //     }
 
-            // Calculate total bills function based on looping through the billTrackItems array and adding up all the amountDue values
+            // Calculate total bills left to pay by looping through the billTrackItems array and adding up all the amountDue values
             let totalBills = function(billItems) {
                 let billSum = 0
-            // Only caluclate the bill items if the completed property is false
+
                 for (billItem of billItems) {
+                    // Only calculate the bill items if the completed property is false
                     if (billItem.completed === false) {
                         billSum += billItem.amountDue
                     }
