@@ -3,35 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
+        <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span><%= el.category %></span>
                 <span class='del'> Delete </span>
             </li>
-    <% }) %>    
+        <% }) %>    
     </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <label><input type="radio" name="todoCategory" value="Professional Work">Professional Work</label>
-        <label><input type="radio" name="todoCategory" value="Personal Work">Personal Work</label>
-        <label><input type="radio" name="todoCategory" value="Chores">Chores</label>
-        <label><input type="radio" name="todoCategory" value="Events">Events</label>
-        <label><input type="radio" name="todoCategory" value="Recreation">Recreation</label>
-        <input type="submit">
+  
+    
+    <form class="form__input-field form" action="/todos/createTodo" method='POST'>
+        <div class="form" >
+            <input class="form__input-field" type="text" placeholder="Enter Todo Item" name='todoItem'>
+        </div>
+        <fieldset>
+            <legend>Select Category</legend>
+                <label><input type="radio" name="todoCategory" value="Professional Work">Professional Work</label>
+                <label><input type="radio" name="todoCategory" value="Personal Work">Personal Work</label>
+                <label><input type="radio" name="todoCategory" value="Chores">Chores</label>
+                <label><input type="radio" name="todoCategory" value="Events">Events</label>
+                <label><input type="radio" name="todoCategory" value="Recreation">Recreation</label>
+        </fieldset>
+        <div class="form__submit link form">
+            <input type="submit">
+        </div>
     </form>
-
-    <a href="/logout">Logout</a>
+ 
+        <div class="form form__input-field">
+            <a href="/logout">Logout</a>
+        </div>
+   
 
     <script src="js/main.js"></script>
 </body>
