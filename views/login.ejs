@@ -10,7 +10,15 @@
     
 </head>
 <body>
-    <h1>test</h1>
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="right">
+                <li><a class="waves-effect waves-light btn" id="signup-btn" href="/signup">Signup</a></li>
+            </ul>
+            <img src="/assets/bill_tracker_logo.png" alt="logo">
+        </div>
+    </nav>
+    <h1>Bill Tracker Login</h1>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -21,12 +29,26 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-
+    <section class="form-container">
+        <h3 class="form-header">Login to your account: </h3>
+    <div class="row">
+        <div>
+            <form action="/login" method='POST'>
+                <div class="input-field">
+                    <input type="email"  name='email'>
+                    <label for="text">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password">
+                    <label for="text">Password</label>
+                </div>
+                <div class="input-field center">
+                    <button class="btn login-submit form-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

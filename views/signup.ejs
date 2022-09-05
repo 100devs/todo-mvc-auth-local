@@ -9,19 +9,54 @@
     <title>Bill Tracker</title>
 </head>
 <body>
+     <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img class="img-responsive" src="/assets/bill_tracker_logo.png"></a>
+            <ul class="right">
+                <li><a class="waves-effect waves-light btn" href="/login">login</a></li>
+            </ul>
+        </div>
+    </nav>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
+    <!--<form action="/signup" method="POST">
         <input type="text" name="userName" placeholder="User Name">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="password" name="confirmPassword" placeholder="Confirm Password">
         <input type="submit">
-    </form>
-
+    </form>-->
+<section class="section container form-container">
+    <h3 class="form-header">Create a new account: </h3>
+    <div class="row">
+        <div>
+            <form action="/signup" method='POST'>
+                <div class="input-field">
+                    <input type="text"  name='userName'>
+                    <label for="text">User Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name='email'>
+                    <label for="text">Email</label>
+                </div>
+                <div class="input-field">
+                     <input type="text" name='password'>
+                    <label for="text">Password: minimum of 8 characters</label>
+                </div>
+                <div class="input-field">
+                     <input type="text" name='confirmPassword'>
+                    <label for="date">Confirm Your Password</label>
+                </div>
+                <div class="input-field center">
+                    <button class="btn form-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
