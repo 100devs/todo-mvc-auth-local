@@ -1,7 +1,11 @@
 <%- include('partials/head.ejs', {title:"Home"}) %>
-     <h1>Create Your VERY OWN Todolist!</h1>
-    <% if (loggedIn === false)  { %>
+<% if (loggedIn) {%>
+    <h1>Welcome, <%=user.username%>!</h1>
+    <a href="/todos"> Your Todo List</a>
+    <%} else {%>
+    <h1>Create Your VERY OWN Todolist!</h1>
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
-    <% } %>
+<%}%>
+
 <%- include('partials/footer.ejs') %>
