@@ -1,17 +1,40 @@
-h1{
-    color: black;
-    text-decoration: underline;
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+    box-sizing: border-box;
+  }
+
+html {
+    background: url("https://images.unsplash.com/photo-1647942060371-61d4102c0547?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80"), #111111;
+    color: #f9fcff;
+    font-family: 'DM Sans', sans-serif;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+a {
+    color: #f9fcff;
+    padding-right: 10px;
 }
-.not{
-    text-decoration: underline;
+
+.app-container {
+    border-radius: 8px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 100%;
+    background-color: #10101d;
+    padding: 24px;
+    overflow: auto;
 }
-.del {
-    color: red;
-}
-.dateStyle {
-    font-style: italic;
+  
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+  color: #fff;
 }

@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>myList | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <% if(el.date != "Invalid Date"){ %>
-                    <span class="dateStyle">Due Date: <%=el.date %></span> 
-                <% } %>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="date" name="toDoDate">
-        <input type="submit">
-    </form>
-
-    <h3>Find tasks for a particular date</h3>
-    <form action="/todos/getTask" method="POST">
-        <input type="date" placeholder="Find tasks" name="findTask" class="double">
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+<body id="bg">
+    <div class="app-container" id="taskList">
+        <h1 class="app-header">To Do List</h1>
+        <section>
+            <ul class="task-list">
+            <% todos.forEach( el => { %>
+                    <li class='todoItem task-list-item' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <% if(el.date != "Invalid Date"){ %>
+                            <span class="dateStyle">Due Date: <%=el.date %></span> 
+                        <% } %>
+                        <span class='del fa fa-trash delete-btn'></span>
+                    </li>
+            <% }) %>    
+            </ul>
+        </section>
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        <form action="/todos/createTodo" method='POST' class="add-task">
+            <input type="text" autocomplete="off" placeholder="Add New Task" v-model="tasks.name" @keyup.enter="newItem" class="task-input" name='todoItem'>
+            <input type="date" name="toDoDate">
+            <input type="submit" value="" class="submit-task" @click="newItem" title="Add Task">
+        </form>
+        <h3>Find tasks for a particular date:</h3>
+        <form action="/todos/getTask" method="POST">
+            <input type="date" placeholder="Find tasks" name="findTask" class="double">
+            <input type="submit">
+        </form>
+        <div class="logout"><a href="/logout">Logout</a></div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>
