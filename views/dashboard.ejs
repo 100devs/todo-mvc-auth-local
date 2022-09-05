@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <h1>Dashboard</h1>
     <a href="/trip/createTrip">Create Trip</a><br><br>
@@ -20,7 +22,12 @@
 
     You will also need to use the method override package to create the editing functionality-->
     <ul>
+        <!-- Create edit button -->
+
         <% allUserTrips.forEach(trip => { %>
+        <button>
+            <%- editIcon(user._id, trip.userId, trip._id) %>
+        </button>
         <li><%=trip.tripTitle%></li>
         <li><%=trip.option1%></li>
         <li><%=trip.option2%></li>
@@ -31,7 +38,7 @@
         <br />
         <br />
         <% }) %>
-</ul>
+    </ul>
 
 
 
@@ -39,9 +46,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
-
-
-
- 
- 
