@@ -4,21 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="/output.css" rel="stylesheet" />
     <title>RockWish Dashboard</title>
   </head>
   <body>
-    <!-- todo: Put a nice welcome to the user name -->
-<h1>Your Dashboard</h1>
-    <!-- Display User Wishlist Button -->
-    <a href="/dashboard/privateWishlist">My Wishlist</a>
-    <!-- Display Public Wishlist Button -->
-    <a href="/dashboard/publicWishlist">Public Wishlists</a>
-    <!-- Display Add Gear Button -->
-    <a href="/gear">Add Gear</a>
-    <!-- Logout Button -->
-    <a href="/logout">Logout</a>
 
+    <!-- NAVBAR COMPONENT -->
+    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-bold text-xl">GearWish</span>
+      </div>
+    
+      <div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
+        <div class="text-sm sm:flex-grow">
+          <a href="/dashboard" class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
+            Dashboard
+          </a>
+          <a href="/dashboard/privateWishlist" class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
+            Private wishList
+          </a>
+          <a href="/dashboard/publicWishlist" class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white">
+            Public Wishlist
+          </a>
+        </div>
+        <div>
+          <a href="/logout"
+            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0">LogOut</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- todo: Put a nice welcome to the user name -->
+
+    <main class="container">
+      <h1>Your Dashboard</h1>
+      <ul>
+        <!-- Display User Wishlist Button -->
+        <li><a href="/dashboard/privateWishlist">My Wishlist</a></li>
+        <!-- Display Public Wishlist Button -->
+        <li><a href="/dashboard/publicWishlist">Public Wishlists</a></li>
+        <!-- Display Add Gear Button -->
+        <li><a href="/gear">Add Gear</a></li>
+        <!-- Logout Button -->
+       
+      </ul>
+    </main>
     <script src="/js/main.js"></script>
   </body>
 </html>

@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/login.css">
     <title>Document</title>
   </head>
   <body>
+
+      <!-- NAVBAR COMPONENT -->
+      <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+          <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-bold text-xl">GearWish</span>
+          </div>
+          <div class="text-sm sm:flex-grow">
+            <a href="/signup" class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
+              Create Account
+            </a>
+      </nav>
+
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
     <div class="alert alert-danger"><%= el.msg %></div>
     <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
