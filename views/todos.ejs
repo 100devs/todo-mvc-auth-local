@@ -6,9 +6,9 @@
   </head>
   <body class="background-img dashboard-screen">
     <section class="todosmain todos-container container card d-flex pt-3">
-      <div class="todos-header d-flex flex-row justify-content-evenly">
-        <div class="left"><%- include('./partials/logo'); %></div>
-        <div class="right">
+      <div class="row text-center">
+        <div class="col-xs-12 col-md-6"><%- include('./partials/logo'); %></div>
+        <div class="col-xs-12 col-md-6">
           <h4>Welcome <%= user.userName %>!</h4>
           <h6>
             You have <%= left %> thing<%= left == 1 ? '' : 's'%> left to do.
@@ -20,11 +20,9 @@
           >
         </div>
       </div>
-      <div
-        class="container-fluid todos-body d-flex justify-content-around mt-3"
-      >
+      <div class="row todos-body mt-3 p-2">
         <!--Edit: Tal. Added organizational sections to the Todos page.-->
-        <section class="createTodosSection">
+        <div class="createTodosSection m-0 col-sm-12 col-md-4">
           <h3>Create Your Todos!</h3>
           <form
             action="/todos/createTodo"
@@ -52,8 +50,8 @@
               type="submit"
             />
           </form>
-        </section>
-        <section class="taskListSection todosSection">
+        </div>
+        <div class="taskListSection todosSection m-0 col-sm-12 col-md-4">
           <h2>Todo List</h2>
           <!-- joe -->
           <a
@@ -74,9 +72,9 @@
             </li>
             <% } %> <% }) %>
           </ul>
-        </section>
+        </div>
         <!--Edit: Tal. Added new section for Todos history. copy/pasted from Leon's UL above. Included an if statement in the EJS to populate with only completed items-->
-        <section class="todosHistory todosSection">
+        <div class="todosHistory todosSection m-0 col-sm-12 col-md-4">
           <form class="historyForm">
             <input
               type="button"
@@ -99,7 +97,7 @@
             </li>
             <% }%> <% }) %>
           </ul>
-        </section>
+        </div>
       </div>
     </section>
 
