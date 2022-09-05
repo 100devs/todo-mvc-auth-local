@@ -25,6 +25,7 @@ module.exports = {
           gearPrice: req.body.gearPrice,
           gearCondition: req.body.gearCondition,
           gearNote: req.body.gearNote,
+          gearImage: req.body.gearImage,
           visibility: req.body.visibility.toLowerCase(),
           userId: req.user.id,
         });
@@ -32,7 +33,7 @@ module.exports = {
         console.log(
           `${req.body.gearName} ${req.body.gearBrand} has been added!`
         );
-        res.redirect("/gear");
+        res.redirect("/dashboard");
       } catch (err) {
         console.log(err);
       }

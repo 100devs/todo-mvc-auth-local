@@ -22,6 +22,11 @@ const GearSchema = new mongoose.Schema({
   gearNote: {
     type: String,
   },
+  gearImage: {
+    type: String,
+    default:
+      "https://w7.pngwing.com/pngs/111/313/png-transparent-heavy-metal-rock-music-sign-of-the-horns-others-text-hand-logo.png",
+  },
   dateAdded: {
     type: Date,
     default: Date.now,
