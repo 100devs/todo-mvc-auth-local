@@ -12,6 +12,13 @@ const WatchListSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  showImg: {
+    type: String,
+  },
+  showSum: {
+    type: String,
+    required: true
   }
 })
 

@@ -28,7 +28,7 @@ module.exports = {
     addToWatchList: async(req,res)=>{
         console.log(req.user)
         try{
-            await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id})
+            await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id,showImg: req.body.showPic, showSum: req.body.showSummary})
             // stops the browser from constantly loading.
             res.status(204).send()
         } catch(error){

@@ -28,6 +28,11 @@
                     <span><%= data[i].show.name %></a></span>
                     <span class="genres"><%= data[i].show.genres[0] %>, <%= data[i].show.genres[1] %></span> 
                     <form action="/todos/addToWatchList" method="post">
+                        <input type="hidden" value="<% if(data[i].show.image === null) 
+                        {%>https://static.tvmaze.com/images/no-img/no-img-portrait-text.png
+                        <% } else{ 
+                            %><%= data[i].show.image.medium %><% } %>" name="showPic">
+                        <input type="hidden" value="<%=data[i].show.summary%>" name="showSummary">
                         <input type="hidden" value="<%=data[i].show.name%>" name="showName">
                         <input type="hidden" value="<%=data[i].show.id%>" name="showId">
                         <input type="submit" value="Add to Watchlist">
