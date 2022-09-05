@@ -2,7 +2,18 @@
 module.exports = {
 	content: ["./views/*.ejs"],
 	theme: {
-		extend: {},
+		fontFamily: {
+			krona: ["Krona One", "sans-serif"],
+			londrina: ["Londrina Shadow", "cursive"],
+			long: ["Long Cang", "cursive"],
+			love: ["Love Light", "cursive"],
+		},
+		extend: {
+			backgroundImage: {
+				guitar:
+					"url('/img/guitar.webp')",
+			},
+		},
 	},
 	plugins: [],
 };
