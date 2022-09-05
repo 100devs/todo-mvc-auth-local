@@ -6,7 +6,7 @@ DevDays is built using the MVC Architecture, we have also implemented "authoriza
 
 Dev Days was created to understand how MVC concept and logins are added as well as building experience working in a team!
 
-Additions by <a href="https://github.com/Antosha9108">Antosha_montana</a>,<a href= "https://github.com/Johnaius"> Johnaius</a>,<a href= "https://github.com/madeleinebelanger">  madeleineofrivia</a>,<a href= "https://github.com/JoeDukes">S1oop<a>,<a href="https://github.com/scamelot">Scamm</a> & <a href= "https://github.com/StevDev88">Stinkerton</a>
+Additions by <a href="https://github.com/Antosha9108">Antosha_montana</a>,<a href= "https://github.com/Johnaius"> Johnaius</a>,<a href= "https://github.com/madeleinebelanger">  madeleineofrivia</a>,<a href= "https://github.com/JoeDukes"> S1oop<a>,<a href="https://github.com/scamelot"> Scamm</a> & <a href= "https://github.com/StevDev88">Stinkerton</a>
 
 ---
 
