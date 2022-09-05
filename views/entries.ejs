@@ -13,9 +13,9 @@
     <% entries.forEach( el => { %>
             <li class='entryItem' data-id='<%=el._id%>'>
                 <span><%= el.description %></span>
-                <!-- <span><%= el.company %></span> -->
-                <!-- <span><%= el.amount %></span> -->
-              <!-- <span><%= el.category %></span> -->
+                <span><%= el.company %></span>
+                <span><%= el.amount %></span>
+              <span><%= el.category %></span>
 
                 
                 
@@ -30,7 +30,24 @@
     <h2><%= user.userName %> has <%= total %> expenses.</h2>
 
     <form action="/entries/createEntry" method='POST'>
-        <input type="text" placeholder="Enter Entry Item" name='entryItem'>
+        <input type="date" name="date">
+
+        <input type="radio" id="exp" name="expense" value="true">
+            <label for="exp">Expense</label>
+        <input type="radio" id="inc" name="expense" value="false">
+            <label for="inc">Income</label>
+        
+            <label for="amount">Amount</label>
+        <input type="text" placeholder="0.00" name="amount">
+        
+        <label for="description">Item Purchased</label>
+        <input type="text" placeholder="item purchased" name="description">
+           
+
+        <input type="text" placeholder="company" name="company">
+        
+        <input type="text" placeholder="category" name="category">
+
         <input type="submit">
     </form>
 

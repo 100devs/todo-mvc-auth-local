@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
-const EntrySchema = new mongoose.Schema({
-  date: {
+const BudgetSchema = new mongoose.Schema({
+  description: {
+    type: String,
+    required: true,
+  },
+    dateCreated: {
     type: Date,
     required : true,
     default: Date.now
@@ -15,10 +19,7 @@ const EntrySchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  description: {
-    type: String,
-    required: true,
-  },
+
   company: {
     type: String,
     required: false,
@@ -33,4 +34,4 @@ const EntrySchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Entry', EntrySchema)
+module.exports = mongoose.model('Budget', BudgetSchema)

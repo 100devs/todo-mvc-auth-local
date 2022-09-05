@@ -18,8 +18,9 @@ module.exports = {
     },
     createEntry: async (req, res)=>{
         try{
-            await Entry.create({description: req.body.entryItem, userId: req.user.id})
+            await Entry.create({entry: req.body, userId: req.user.id})
             console.log('Entry has been added!')
+            console.log(req.body)
             res.redirect('/entries')
         }catch(err){
             console.log(err)
