@@ -18,7 +18,7 @@
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `$${el.amountDue.toLocaleString(undefined,
                 {'minimumFractionDigits':2,'maximumFractionDigits':2})}` %>
             </span>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.dueDate %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= `${el.dueDate.split('').slice(5,7).join('')}/${el.dueDate.split('').slice(8,10).join('')}/${el.dueDate.split('').slice(0,4).join('')}` %></span>
             <span class='fa-solid fa-trash-can del'>  </span>
 
         </li>
