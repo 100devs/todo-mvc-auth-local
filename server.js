@@ -8,8 +8,10 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const dashboardRoutes = require("./routes/dashboard");
 const gearRoutes = require("./routes/gear");
+const dashboardRoutes = require("./routes/dashboard");
+const path = require("path");
+const browserSync = require("browser-sync");
 
 require("dotenv").config({ path: "./config/.env" });
 

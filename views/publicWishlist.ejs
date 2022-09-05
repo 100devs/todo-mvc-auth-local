@@ -10,6 +10,7 @@
     <h1>Public Wishlists</h1>
 
     <ul>
+    
       <% gears.forEach( el => { %>
       <li class="gearItem" data-id="<%=el._id%>">
         <% %>
@@ -18,9 +19,10 @@
         <span><%= el.gearPrice %></span>
         <span><%= el.gearCondition %></span>
         <span><%= el.dateAdded %></span>
-        <span><%= el.visibility %></span>
+        <!-- <span><%= el.visibility %></span> Users need to see? -->
       </li>
       <% }) %>
+      
     </ul>
   </body>
 </html>

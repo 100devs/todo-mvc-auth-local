@@ -1,7 +1,7 @@
 const passport = require("passport");
 const validator = require("validator");
 const Gear = require("../models/Gear");
-// const User = require("../models/User");
+const User = require("../models/User");
 
 module.exports = {
   showDashboard: async (req, res) => {
@@ -14,7 +14,7 @@ module.exports = {
   },
   showPublicWishlist: async (req, res) => {
     try {
-      const gearItems = await Gear.find();
+      const gearItems = await Gear.find( {visibility: "public"});
       console.log("This is the Dashboard Controller speaking. Volume to 11!");
       res.render("publicWishlist.ejs", { gears: gearItems, user: req.user });
     } catch (err) {
@@ -23,7 +23,7 @@ module.exports = {
   },
   showPrivateWishlist: async (req, res) => {
     try {
-      const gearItems = await Gear.find({ userId: req.user.id });
+      const gearItems = await Gear.find({ userId: req.user.id, visibility: "private"});
       console.log("This is the Dashboard Controller speaking. Volume to 11!");
       res.render("privateWishlist.ejs", { gears: gearItems, user: req.user });
     } catch (err) {
