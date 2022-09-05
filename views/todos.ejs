@@ -2,75 +2,120 @@
 <% const priorities=['none', 'low' , 'med' , 'high' ] ; %>
 
 <div class="row pt-5">
-  <form class="addTodo" action="/todos/createTodo" method='POST'>
-    <input class="form-control" type="text" placeholder="Enter todo" name='todoItem' />
-    <button type="submit" class="btn btn-primary">Add</button>
-  </form>
-</div>
+    <form id="addTodo" action="/todos/createTodo" method='POST'>
+            <input class="form-control" type="text" placeholder="Enter todo" name='todoItem' autocomplete="off">
+            <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    </div>
+    <% if (filterTags.length) {%>
+        <div class="row">
+            <div id="filtersAddTodo"><strong>Note:</strong> To see your new todo, you must clear the filters or add the
+                currently selected tags.
+                <div>
+                    <input class="form-check-input" id="addTodo-clearFilters" type="radio" name="addTodo"
+                        value="clearFilters" checked>
+                    <label class="form-check-label" for="addTodo-clearFilters">
+                        Clear filters
+                    </label>
+                    <input class="form-check-input" id="addTodo-addTags" type="radio" name="addTodo" value="addTags">
+                    <label class="form-check-label" for="addTodo-addTags">
+                        Add tags
+                    </label>
+                </div>
+            </div>
+        </div>
+        <%} %>
+    <% if (filterTags.length) { %>
+        <div class="row">
+        <div id="tagSummary">
+                Showing <%=complete.length + incomplete.length%> todo <%= filterTags.length===1 ? "item" : "items" %> marked
+                        with the
+                        <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
+                            <% filterTags.forEach( tag=> { %>
+                                    <% const filterParams=filterTags.filter(t=> t!=tag).join(",") %>
+                                        <a href="/todos?tags=<%=filterParams%>" class="removeFilter" title="Remve tag from filter">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </a>
+                                <%=tag %>
+                                    <% }) %> <a href="/todos">Clear filters</a>
+        </div>
+        </div>
+        <% } %>
 <div class="row pb-5">
-  <div class="col-md">
-    <h1 class="my-3">Todos</h1>
-    <div class="list-group mb-3">
-      <% incomplete.forEach( el=> { %>
-      <div class="list-group-item todoItem incomplete" data-id='<%=el._id%>'>
-        <label class="w-75" class="not">
-          <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
-          <%=el.todo %>
-        </label>
-        <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag" title="Change priority"></i>
-        </div>
-        <div class='del'> <i class="fa-solid fa-trash" title="Delete todo"></i> </div>
+    <div class="col-sm">
+        <h1 class="my-3">Todos</h1>
+        <div class="list-group mb-3">
+    <% incomplete.forEach( el=> { %>
+        <div class="list-group-item todoItem incomplete" data-id='<%=el._id%>'>
+            <label class="w-75" class="not">
+                <input class="form-check-input me-1" type="checkbox" value="" autocomplete="off">
+                <%=el.todo %>
+            </label>
+            <div class='priority <%=priorities[el.priority] %>' data-priority="<%=el.priority %>"> <i class="fa-solid fa-flag"
+                    title="Change priority"></i>
+            </div>
+            <div class='del'> <i class="fa-solid fa-trash" title="Delete todo"></i> </div>
 
 
-        <div class="tags mt-1">
-          <div class="addTag">
-            <i class="fa-solid fa-plus" title="Add tag"></i>
-            <form style="display:none" action="/todos/addTag" method="post">
-              <input class="form-control" type="text" name="tag" placeholder="Add tag" autocomplete="off" />
-              <input type="hidden" name="id" value="<%=el._id%>" />
-            </form>
-          </div>
-          <% el.tags.forEach( tag=> { %>
-
-          <div class="tag">
-            <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
-            <%=tag%>
-          </div>
-          <%}) %>
-
-        </div>
-      </div>
-
-      <% }) %>
-    </div>
-
-
-    <h3>
-      You have <%= incomplete.length %>
-      <%= incomplete.length===1 ? "thing" : "things" %> left to do.
-    </h3>
-  </div>
-  <div class="col-sm">
-    <h1 class="my-3">Completed</h1>
-
-
-    <div class="list-group mb-3">
-      <% complete.forEach( el=> { %>
-      <div class="list-group-item todoItem complete" data-id='<%=el._id%>'>
-        <label class="completed">
-          <input class="form-check-input me-1" type="checkbox" value="" checked autocomplete="off">
-          <%=el.todo %>
-        </label>
-      </div>
-
-      <% }) %>
-    </div>
-
-    <h3>
-      You have completed <%= complete.length %>
-      <%= complete.length===1 ? "thing" : "things" %>.
-    </h3>
-
-  </div>
+                <div class="tags mt-1">
+<div class="addTag">
+    <i class="fa-solid fa-plus" title="Add tag"></i>
+    <form style="display:none" action="/todos/addTag" method="post">
+        <input class="form-control" type="text" name="tag" placeholder="Add tag" autocomplete="off" />
+    </form>
 </div>
+                    <% el.tags.forEach( tag=> { %>
+
+                        <div class="tag">
+                            <i class="fa-solid fa-circle-xmark" title="Delete tag"></i>
+                                <% const tempTags=[...filterTags]; if (!tempTags.includes(tag.trim())) { tempTags.push(tag.trim()); } const
+                                    tagParams=tempTags.join(',') %>
+                                    <a href='/todos?tags=<%=tagParams%>'>
+                                    <%=tag%>
+                                </a>
+                        </div>
+                        <%}) %>
+
+                </div>
+
+        </div>
+
+        <% }) %>
+            </div>
+
+
+    <h3>
+        You have <%= incomplete.length %>
+                <%= incomplete.length===1 ? "thing" : "things" %>
+                    <% if (filterTags.length) {%>with the selected
+                        <%= complete.length + incomplete.length===1 ? "tag" : "tags" %>
+                            <%}%> left to do.
+    </h3>
+            </div>
+            <div class="col-sm">
+                <h1 class="my-3">Completed</h1>
+
+
+                <div class="list-group mb-3">
+                    <% complete.forEach( el=> { %>
+                        <div class="list-group-item todoItem complete" data-id='<%=el._id%>'>
+                            <label class="completed">
+                                <input class="form-check-input me-1" type="checkbox" value="" checked autocomplete="off">
+                                <%=el.todo %>
+                            </label>
+                        </div>
+
+                        <% }) %>
+                            </div>
+
+                <h3>
+                    You have completed <%= complete.length %>
+                            <%= complete.length===1 ? "thing" : "things" %>
+                                <% if (filterTags.length) {%>with the selected
+                                    <%= complete.length + incomplete.length===1 ? "tag." : "tags." %>
+                                        <%}%>
+                </h3>
+
+    </div>
+    </div>
 <%- include('partials/footer.ejs') %>

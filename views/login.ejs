@@ -1,44 +1,64 @@
-<%- include('partials/head.ejs', {title:"Log In"}) %>
+<%- include('partials/head.ejs', {title:"Sign Up"}) %>
 
-<%- include('partials/forms/error.ejs') %>
 
-<section class="loginPage">
 
-  <%- include('partials/forms/formHeader.ejs', { action:"login", method: "post" }, title="Log in" ) %>
+<section class="vh-100 signup">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-12 col-xl-11">
+      <div class="card text-black" style="border-radius: 25px;">
+        <div class="card-body p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-  <%- include('partials/forms/input.ejs', {name: 'email' , type: 'email' , label:"Email address" }) %>
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
-  <%- include('partials/forms/input.ejs', { name: 'password' , type: 'password' , label:"Password",
-            parentClass: "mb-3" }) %>
-  <!--
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="remember" name="remember" />
-    <label class="form-check-label" for="remember">Remember me</label>
+              <form class="mx-1 mx-md-4" action="/login" method="POST">
+                <%- include('partials/forms/error.ejs') %>
+
+
+                <%- include('partials/forms/inputWithIcons.ejs', {name: 'email' , type: 'email' ,
+                          label:"Email", faIcon: 'fas fa-envelope' , placeholder: 'Enter your email' ,
+                          parentClass: 'mb-4' }) %>
+
+                <%- include('partials/forms/inputWithIcons.ejs', {name: 'password' , type: 'password' ,
+                          label:"Password", faIcon: 'fas fa-lock' , placeholder: 'Enter your password' ,
+                          parentClass: 'mb-4' }) %>
+
+
+                <div class="mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                </div>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <a href="/signup" title="login">Register</a>
+                </div>
+
+
+              </form>
+
+            </div>
+            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  -->
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <p>
-    <a href="/signup" title="Register">Register</a>
-  </p>
-  </form>
+
 </section>
-
-
 
 <script type="application/javascript" defer>
   /** some controls on client side before sending the form */
   const formEl = document.querySelector('form');
   // select by name.If we add a repeat password field, we don't need to take care of input[type="password"] and change the code
   const formInfo = document.querySelector('#formInfo');
-
-
   formEl.addEventListener('submit', (event) => {
-
     // get element here, so we get the value of the element on submit and not an page load
     const email = document.querySelector('input[name=email]').value.trim();
     const password = document.querySelector('input[name=password]').value.trim();
     const btnSubmit = document.querySelector('button[type=submit]');
-
     // don't send the form as if;
     event.preventDefault();
     btnSubmit.disabled = true;
@@ -47,19 +67,16 @@
       showInformation('alert-danger', 'All fields are required', btnSubmit)
       return false;
     }
-
     // Validate the email address
     if (!validator.isEmail(email)) {
       showInformation('alert-danger', 'Please enter a valid email address.', btnSubmit)
       return false;
     }
-
     // if no passwport
     if (!password) {
       showInformation('alert-danger', 'Password cannot be blank.', btnSubmit);
       return false;
     }
-
     formEl.submit()
   })
 </script>
