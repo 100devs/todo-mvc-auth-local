@@ -2906,3 +2906,25 @@ input, select, textarea {
 			}
 
 	}
+
+	/* LOGIN & SIGNUP PAGE STYLING*/
+	.textColor {
+		color: #000 !important;
+	}
+
+	.textareaWidth {
+		padding: 0 15% 0 15%;
+	}
+
+	#links,li,a {
+		text-decoration: none;
+	}
+
+	/* TO DOS PAGE STYLING */
+	.toDoPadding{
+		padding-bottom: 2%;
+	}
+
+	.boldFont{
+		font-weight: 700;
+	}

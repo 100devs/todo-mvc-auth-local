@@ -11,7 +11,7 @@ node_modules
 */build
 
 # config
-config/
+config
 
 # misc
 .DS_Store
