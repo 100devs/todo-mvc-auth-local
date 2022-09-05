@@ -81,7 +81,7 @@ async function changePriority() {
     const priority = (Number(this.dataset.priority) + 1) % 4;
     try {
         const response = await fetch('todos/priority', {
-            method: 'post',
+            method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId,

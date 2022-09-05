@@ -5,7 +5,7 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getTodos)
 
-router.post('/priority', todosController.changePriority)
+router.put('/priority', todosController.changePriority)
 
 router.post('/addTag', todosController.addTag)
 
