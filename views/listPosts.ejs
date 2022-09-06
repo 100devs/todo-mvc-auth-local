@@ -18,10 +18,17 @@
                     <div class="mood">Mood: <%= items.mood %></div>
                     <div id="actionsContainer">
                         <form action="/blogPost/edit/<%= items._id %>" action="GET">
-                            <input type="submit" class="editButton button-18" value="Edit">
+                            <input type="submit" class="button-18 actionButton editButton" value="Edit">
                         </form>
-                        <button onclick="deletePost" class="button-18 del" id="del">Delete</button>
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" class="twitter-share-button" data-text="Hi everyone, I just published a new project on my DevDays blog. Check it out! " data-show-count="false">Tweet</a>
+                        <button onclick="deletePost" class="button-18 actionButton" id="del">Delete</button>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                            target="_blank"
+                            class="twitter-hashtag-button"
+                            data-text="Hi everyone, I just published a new project on my DevDays blog. Check it out! "
+                            data-size="large"
+                            data-show-count="false">
+                            Tweet
+                        </a>
                     </div>
                 </li> 
             <% }) %>

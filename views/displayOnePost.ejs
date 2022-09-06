@@ -5,23 +5,30 @@
         <%-include ('partials/header') %>
         <ul>
             <a href="/blogPost"><i id='backButton' class="fa fa-arrow-left"></i></a>
-
             <li class='postItem' data-id='<%=blogPost._id%>'>
-                <div class='title'> <h4><%= blogPost.title %></h4>  </div> 
-                <div class='body'> <%= blogPost.body %>  </div>
-                <div class='gitHub'><i class="<% if(blogPost.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if   (blogPost.gitHub) { %> <%= blogPost.gitHub %> <% } %>"><%= blogPost.gitHub %></a>  </div>
-                <div class='date'> Posted on <%= new Date(blogPost.date).toLocaleString('en-us') %>  </div>
-                <div class='dueDate'><% if(blogPost.dueDate) { %> Due <%= blogPost.dueDate %> <% } %></div>
-                <div class="mood">Mood: <%= blogPost.mood %> </div>
-                <div id="actionsContainer">
-                <form action="/blogPost/edit/<%= blogPost._id %>" action="GET">
-                        <input type="submit" class="editButton button-18" value="Edit">
-                </form>
-                    <button onclick="deletePost" class="button-18 del" id="del">Delete</button>
+                <div class='title'><h4><%= blogPost.title %></h4></div>
+                <div class='body'><%= blogPost.body %></div>
+                <div class='gitHub'><i class="<% if(blogPost.gitHub) { %>fa-brands fa-github <% } %>"></i>
+                    <a href="<% if   (blogPost.gitHub) { %> <%= blogPost.gitHub %> <% } %>"><%= blogPost.gitHub %></a>
                 </div>
-        </li>
+                <div class='date'>Posted on <%= new Date(blogPost.date).toLocaleString('en-us') %></div>
+                <div class='dueDate'><% if(blogPost.dueDate) { %> Due <%= blogPost.dueDate %><% } %></div>
+                <div class="mood">Mood: <%= blogPost.mood %></div>
+                <div id="actionsContainer">
+                    <form action="/blogPost/edit/<%= blogPost._id %>" action="GET">
+                        <input type="submit" class="editButton button-18 actionButton" value="Edit">
+                    </form>
+                    <button onclick="deletePost" class="button-18 del actionButton" id="del">Delete</button>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank"
+                        class="twitter-hashtag-button"
+                        data-text="Hi everyone, I just published a new project on my DevDays blog. Check it out! "
+                        data-size="large" data-show-count="false">
+                        Tweet
+                    </a>
+                </div>
+            </li>
         </ul>
-
-        <script src="/js/main.js"></script>    
+        <script src="/js/main.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </body>
 </html>
