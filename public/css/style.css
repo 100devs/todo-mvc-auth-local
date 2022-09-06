@@ -99,3 +99,128 @@ table {
 .homepage{
     margin-top: 100px;
 }
+
+@media only screen and (min-width: 1400px) {
+    .row.inIndex{
+        width: 990px
+    }
+  }
+
+@media only screen and (min-width: 1180px) and (max-width: 1399px) {
+    .row.inIndex{
+        width: 800px;
+    }
+
+    h1.billTracker-header{
+        margin: 40px auto 40px; 
+    }
+
+    h1{
+        font-size:4em;
+    }
+
+    p.index-header {
+        font-size:1.4rem;
+        margin: 1em auto;
+    }
+}
+
+
+@media only screen and (min-width: 800px) and (max-width: 1179px) {
+    .row.inIndex{
+        width: 600px;
+        display: flex;
+    }
+    h1.billTracker-header{
+        margin: 40px auto 40px; 
+    }
+
+    h1{
+        font-size:3em;
+        width:100%;
+    }
+
+    p.index-header {
+        font-size:1.1rem;
+        margin: 1em auto;
+    }
+
+    .form-container{
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
+    .table-headers {
+        margin-left: 22%;
+    }
+}
+
+@media only screen and (max-width: 992px){
+nav .brand-logo {
+        padding-left: 70px;
+        left: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+    .table-headers {
+        margin-left: 10%;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .table-headers {
+        margin-left: 6%;
+        font-size: 10px;
+    }
+    .billSum-header{
+        font-size: 20px;
+    }
+    .indexImage {
+        height: 460px;
+        width: 460px;
+    }
+
+    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+        height: 64px;
+        line-height: 64px;
+    }
+}
+
+
+@media only screen and (max-width: 799px) {
+    .row.inIndex{
+        width: 500px;
+    }
+    h1{
+        font-size:2.5em;
+        margin:.5em auto;
+    }
+    p.index-header {
+        font-size:1.5rem;
+    }
+
+    .billTracker-header {
+        margin-top:0;
+        margin-bottom: 1em;
+    }
+    .index-header {
+        width:100%;
+    }
+    .form-container{
+        width: 70%;
+    }
+    img.responsive-img.indexImage {
+        /* width: 90%; */
+        width: 55%;
+    }
+    .col.s12.l6.offset-12 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
