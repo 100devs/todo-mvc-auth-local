@@ -28,6 +28,7 @@ Array.from(incrementor).forEach((el) => {
 // isItTime()
 
 async function deleteTodo() {
+  const todoElem = this.parentNode;
   const todoId = this.parentNode.dataset.id;
   try {
     const response = await fetch('todos/deleteTodo', {
@@ -38,15 +39,17 @@ async function deleteTodo() {
       }),
     });
     const data = await response.json();
-    location.reload();
+    // location.reload();
   } catch (err) {
     console.log(err);
   }
+  todoElem.remove();
+  confettiShower();
 }
 
 async function addShame() {
   const todoId = this.parentNode.dataset.id;
-  let shameMsg = this.previousElementSibling;
+  const shameMsg = this.previousElementSibling;
   let shame = Number(this.previousElementSibling.textContent);
   const newShame = (shame += 1);
   try {
@@ -132,3 +135,32 @@ function isItTime(toDontAmount = null) {
     placeToShame.textContent = 'Wow.. maybe you should stop doing that.';
   }
 }
+
+// for starting the confetti
+
+const start = () => {
+  setTimeout(function () {
+    confetti.start();
+  }, 0); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+};
+
+//  for stopping the confetti
+
+const stop = () => {
+  setTimeout(function () {
+    confetti.stop();
+  }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+};
+// after this here we are calling both the function so it works
+// start();
+// stop();
+
+function confettiShower() {
+  const placeToShame = document.querySelector('#shaming');
+  placeToShame.textContent =
+    'Congratulations on giving up your bad habit!!!!!!!';
+  start();
+  stop();
+}
+
+// if you dont want to make it stop and make it infinite you can just remove the stop function
