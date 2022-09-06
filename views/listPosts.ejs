@@ -13,7 +13,7 @@
                     <div class='title'> <h4><a href="/blogPost/display/<%=items._id%>"><%= items.title %></a></h4></div> 
                     <div class='body'> <a href="/blogPost/display/<%=items._id%>"><%= items.body %></a></div>
                     <div class='gitHub'><i class="<% if(items.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if(items.gitHub) { %> <%= items.gitHub %> <% } %>"><%= items.gitHub %></a></div>
-                    <div class='date'>Posted on <%= items.createdAt.toLocaleString('en-us') %></div>
+                    <div class='date'>Posted on <%= items.date.toLocaleString('en-us') %></div>
                     <div class='dueDate'><% if(items.dueDate) { %> Due <%= items.dueDate %> <% } %></div>
                     <div class="mood">Mood: <%= items.mood %></div>
                     <div id="actionsContainer">
