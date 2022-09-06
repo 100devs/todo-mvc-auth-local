@@ -1,9 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: #233142;
     background-color: rgb(220, 220, 220);
     width: 100vw;
     height: 100vh;
-}  
+    margin: 0;
+} 
 
 nav, .nav-wrapper {
     width: 100vw;
