@@ -1,6 +1,8 @@
+![billTracker](https://user-images.githubusercontent.com/52755177/188661307-18bf373e-d925-40a2-abc3-e8938fe9051d.gif)
 # Introduction
 
 A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+
 
 ---
 
