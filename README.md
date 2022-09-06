@@ -32,7 +32,7 @@ Security is a key feature of the Happy Notes application. Implementing bcrypt en
  
 ## Optimizations
  
-Happy Notes future optimizations include ongoing improvements to the user interface as the team gathers more feedback from users. The team opted to go with a default dark theme, however future versions of the app may include option for light theme as well. There is room to implement an edit feature for specific study decks and performance improvements as the app continues testing among users.
+Happy Notes future optimizations include ongoing improvements to the user interface as the team gathers more feedback from users. The team opted to go with a default dark theme, however future versions of the app may include option for light theme as well. There is room to implement an edit/delete features for specific study decks and performance improvements as the app continues testing among users. A further optimization would be adding a feature that allows users to hide cards that they are comfortable with from the default view and a toggle option to let them view the hidden cards seperately.
  
 ## Lessons Learned:
 
