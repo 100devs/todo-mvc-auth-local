@@ -1,27 +1,27 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const likeBtn = document.querySelectorAll('.like')
+const dislikeBtn = document.querySelectorAll('.dislike')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteMessage)
 })
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
+Array.from(likeBtn).forEach((el)=>{
+    el.addEventListener('click', markLiked)
 })
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
+Array.from(dislikeBtn).forEach((el)=>{
+    el.addEventListener('click', markUnliked)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteMessage(){
+    const messageId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('messages/deleteMessage', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId,
             })
         })
         const data = await response.json()
@@ -32,14 +32,14 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+async function markLiked(){
+    const messageId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('messages/markLiked', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId,
             })
         })
         const data = await response.json()
@@ -50,14 +50,14 @@ async function markComplete(){
     }
 }
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+async function markUnliked(){
+    const messageId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('messages/markUnliked', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId
             })
         })
         const data = await response.json()
