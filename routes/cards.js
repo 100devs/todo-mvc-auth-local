@@ -7,6 +7,10 @@ const { ensureAuth } = require('../middleware/auth')
 // @route           GET /cards
 router.get('/', ensureAuth, cardsController.getDashboard)
 
+// @description     Show cards from specific decks
+// @route           GET /decks/:id
+router.get('/decks/:id', ensureAuth, cardsController.getDeck)
+
 // @description     Show add page
 // @route           GET /cards/addCard
 router.get('/addCard', ensureAuth, cardsController.getAddCard)
@@ -17,19 +21,11 @@ router.post('/createCard', ensureAuth, cardsController.processAddCard)
 
 // @description     Show update page
 // @route           GET /cards/updateCard/:id
-router.get('/updateCard/:id', ensureAuth, cardsController.getUpdateCard)
+router.get('/edit/:id', ensureAuth, cardsController.getUpdateCard)
 
 // @description     Process edit form
 // @route           PUT /cards/updateCard
-router.put('/updateCard', ensureAuth, cardsController.processUpdateCard)
-
-// @description     Update card to Inactive
-// @route           PUT /cards/markInactive
-router.put('/markInactive', ensureAuth, cardsController.markInactive)
-
-// @description     Update card to Active
-// @route           PUT /cards/markActive
-router.put('/markActive', ensureAuth, cardsController.markActive)
+router.put('/updateCard/:id', ensureAuth, cardsController.processUpdateCard)
 
 // @description     Delete card
 // @route           GET /cards/deleteCard

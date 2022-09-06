@@ -106,12 +106,6 @@ body {
   position: relative;
 }
 /* greenwindbreaker button end */
-/* greenwindbreaker addCard.ejs start */
-/* .addcard-bg{
-  background-image: linear-gradient(to bottom right, #670d10,#092756) !important;
-} */
-
-/* greenwindbreaker addCard.ejs end */
 
 /*  dannynyn flipping animation   */
 
@@ -174,6 +168,15 @@ body {
 
 nav {
   margin-bottom: 7rem;
+}
+
+.decks-link {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.deck-holder {
+  margin: 5%;
 }
 
 /* Deck name input text white */
