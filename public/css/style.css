@@ -1,8 +1,13 @@
-h1{
+h1 {
     color: red;
 }
 
+.container {
+    margin: 50% 50%;
+
+}
+
 /* trip-delete class doesn't seem to be working  */
-.trip-delete{
-   font-size: 10px;
+.trip-delete {
+    font-size: 10px;
 }
