@@ -11,7 +11,7 @@
                 <div class='gitHub'><i class="<% if(blogPost.gitHub) { %>fa-brands fa-github <% } %>"></i>
                     <a href="<% if   (blogPost.gitHub) { %> <%= blogPost.gitHub %> <% } %>"><%= blogPost.gitHub %></a>
                 </div>
-                <div class='date'>Posted on <%= new Date(blogPost.createdAt.toLocaleString('en-us') %></div>
+                <div class='date'>Posted on <%= new Date(blogPost.date).toLocaleString('en-us') %></div>
                 <div class='dueDate'><% if(blogPost.dueDate) { %> Due <%= blogPost.dueDate %><% } %></div>
                 <div class="mood">Mood: <%= blogPost.mood %></div>
                 <div id="actionsContainer">
