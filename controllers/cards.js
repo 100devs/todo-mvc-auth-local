@@ -2,14 +2,30 @@ const { Card, Deck } = require('../models/card')
 
 module.exports = {
   getDashboard: async (req,res) => {
-    console.log(req.user)
     try{
       // get all of the cards the user has
-      const cards = await Card.find({ user: req.user.id }).lean()
+      const cards = await Card.find({ userId: req.user.id }).lean()
       // get all of the decks the user has
-      const decks = await Deck.find({ user: req.user.id }).lean()
+      const decks = await Deck.find({ userId: req.user.id }).lean()
+      // get the sample cards
+      const sampleCards = await Card.find({ deck: '6315d1407a426b973c86f3e8' }).lean()
       // send all information over to the view
-      res.render('cards.ejs', { cards: cards, decks: decks, user: req.user })
+      res.render('cards.ejs', { cards: cards, decks: decks, sampleCards: sampleCards})
+    }catch(err){
+      console.error(err)
+      res.render('error500.ejs')
+    }
+  },
+  getDeck: async (req,res) => {
+    console.log(req.user)
+    try{
+      // get all of the cards in the deck
+      const cards = await Card.find({ deck: req.params.id }).lean()
+      console.log(cards)
+      // get all of the decks the user has
+      const decks = await Deck.find({ userId: req.user._id }).lean()
+      // send all information over to the view
+      res.render('cards.ejs', { cards: cards, decks: decks, sampleCards: [] })
     }catch(err){
       console.error(err)
       res.render('error500.ejs')
@@ -27,10 +43,10 @@ module.exports = {
     try{
       // obtaining a list of all deck names the user has
       const decks = await Deck.distinct('title', { userId: req.user.id })
-
+      
       // setting the value of the title to what's in the DB or what the user entered
-      const deckTitle = decks.filter(deck => !deckTitle.localeCompare(deck, 'en', { sensitivity: base }))[0] || req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
-
+      const deckTitle = /*decks.filter(deck => !req.body.deckTitle.localeCompare(deck, 'en', { sensitivity: 'base' }))[0] ||*/ req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
+      console.log(deckTitle)
       // finding the specific deck
       let deck = await Deck.findOne({ title: deckTitle })
       
@@ -46,7 +62,6 @@ module.exports = {
       const card = await Card.create({ 
         question: req.body.question, 
         answer: req.body.answer,
-        active: true,
         userId: req.user.id,
         deck: deck._id,
       })
@@ -74,11 +89,7 @@ module.exports = {
       }
 
       // ensure that the userId matches userId on card (additional redundency)
-      if(card.userId !== req.user.id){
-        res.redirect('/cards')
-      } else{
-        res.render('cards/edit', { card: card })
-      }
+        res.render('editCard.ejs', { card: card })
       
     } catch(err){
       console.error(err)
@@ -100,8 +111,7 @@ module.exports = {
       } else {
         await Card.findOneAndUpdate({ _id: req.params.id }, {
           question: req.body.question, 
-          answer: req.body.answer, 
-          deck: req.body.deck
+          answer: req.body.answer
         },{
           // ensures updates match model schema
           runValidators: true
@@ -114,29 +124,16 @@ module.exports = {
       res.render('error500.ejs')
     }
   },
-  markInactive: async (req,res) => {
-    try{
-      await Card.findOneAndUpdate({ _id: req.body.cardIdFromJSFile }, { active: false }, { runValidators: true })
-      console.log('Your card has been marked inactive!')
-      res.json('Card has been marked inactive.')
-    } catch(err){
-      console.error(err)
-    }
-  },
-  markActive: async (req,res) => {
-    try{
-      await Card.findOneAndUpdate({ _id: req.body.cardIdFromJSFile }, { active: true }, { runValidators: true })
-      console.log('Your card has been marked active!')
-      res.json('Card has been marked active.')
-    } catch(err){
-      console.error(err)
-    }
-  },
   deleteCard: async (req,res) => {
     try{
-      await Card.remove({ _id: req.body.cardIdFromJSFile })
-      console.log('Card has been deleted!')
-      res.json('Card has been deleted!')
+      const card = await Card.findOne({ _id: req.body.cardToDelete })
+      if(card.userId !== req.user.id){
+        res.redirect('/cards')
+      } else {
+        await Card.remove({ _id: req.body.cardToDelete})
+        console.log('Card has been deleted!')
+        res.json('Card has been deleted!')
+      }
     } catch(err){
       console.error(err)
     }
