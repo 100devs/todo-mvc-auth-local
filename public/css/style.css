@@ -1,1 +1,40 @@
 /* Add Some Styling Here */
+
+/* voting system*/
+.rating {
+    display: inline-block;
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 40px;
+    text-align: center;
+  }
+  
+  .like,
+  .dislike {
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .btn{
+    cursor: pointer;
+    outline: 0;
+    background-color: #aaa;
+  }
+
+  .btn:hover{
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .green{
+    color: green;
+  }
+  
+  .red{
+    color: darkred;
+  }

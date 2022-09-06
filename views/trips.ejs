@@ -4,51 +4,46 @@
 <body>
    <%- include('partials/nav') %>
 
-    
-    
-    
-    <!-- As a side node, we should have the edit and delete ahref buttons here and tie them to each specific trip.
-    
-    You would need to get the _id of he trip and then edit and delete them
-
-    You will also need to use the method override package to create the editing functionality-->
-    
-    <br>
-    
-
-    
-
-   <div class="row">
-      <div class="col s12 m5">
-        <div class="card-panel teal">
-         <ul>
-            <% allUserTrips.forEach(trip => { %>
-                <button>
-                  <%- editIcon(user._id, trip.userId, trip._id) %>
-               </button>
-            <li>
-               <h3><%=trip.tripTitle%><h3>
-            </li>
-            <li>Plan1: <%=trip.option1%></li>
-            <li>Plan2: <%=trip.option2%></li>
-            <li>Plan3: <%=trip.option3%></li>
-            <li>From: <%=trip.dateFrom%></li>
-            <li>To: <%=trip.dateTo%></li>
-            <li>Host Email: <%=trip.tripMembers%></li>
-            <!-- POST form utilizing method override for DELETE request -->
-            <form action="/trips/<%=trip.id%>" method="POST" id="delete-from">
-               <input type="hidden" name="_method" value="DELETE">
-               <button type="submit" class="btn btn-small red">
-                  <i class="fas fa-trash trip-delete"></i>
-               </button>
-            </form>
-            <br />
-            <br />
-            <% }) %>
-       </ul>
-        </div>
-      </div>
-    </div>
+    <ul>
+        <% allUserTrips.forEach(trip => { %>
+        <li>
+           <a href="/trips/<%=trip._id%>">
+              <h3><%=trip.tripTitle%><h3>
+           </a>
+        </li>
+        <li>Plan1: <%=trip.option1%></li>
+        <li>Plan2: <%=trip.option2%></li>
+        <li>Plan3: <%=trip.option3%></li>
+        <li>From: <%=trip.dateFrom%></li>
+        <li>To: <%=trip.dateTo%></li>
+        <li>Host Email: <%=trip.tripMembers%></li>
+        <!-- POST form utilizing method override for DELETE request -->
+        <form action="/trips/<%=trip.id%>" method="POST" id="delete-from">
+           <input type="hidden" name="_method" value="DELETE">
+           <button type="submit" class="btn btn-small red">
+              <i class="fas fa-trash trip-delete"></i>
+           </button>
+        </form>
+    <!--         <p>Vote on your trip here</p> -->
+    <!--  -->
+    <!-- <div class="rating"> -->
+    <!--     <!&#45;&#45; Thumbs up &#45;&#45;> -->
+    <!--     <div class="like grow"> -->
+    <!--       <button class="btn vote" id="green" action="/trips/<%=trip.id%>" method="PUT"><i class="fa fa&#45;thumbs&#45;up fa&#45;lg" aria&#45;hidden="true"></i></button> -->
+    <!--     </div> -->
+    <!--     -->
+    <!--     <!&#45;&#45; Thumbs down &#45;&#45;> -->
+    <!--     <div class="dislike grow"> -->
+    <!--       <button class="btn vote" id="red" action="/trips/<%=trip.id%>" method="PUT"><i class="fa fa&#45;thumbs&#45;down fa&#45;lg" aria&#45;hidden="true"></i></button> -->
+    <!--     </div> -->
+    <!--    -->
+    <!--   </div> -->
+    <!--     <br /> -->
+    <!--     <br /> -->
+        <% }) %>
+   </ul>
+    <!-- <span>Logged in as <%=user%> | </span> -->
+    <!-- <a href="/logout">Logout</a> -->
 
     <script src="js/main.js"></script>
 

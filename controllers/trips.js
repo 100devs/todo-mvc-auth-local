@@ -21,15 +21,37 @@ module.exports = {
          console.log(err)
       }
    },
+   viewTrip: async (req, res) => {
+      // console.log(req);
+      try {
+         let userName = req.user.userName;
+         const user = await User.findOne({
+            _id: req.user._id
+         })
+         const trip = await Trip.findOne({
+            _id: req.params.id,
+         })
+         console.log(`${req.params.id} this is the trip id`); // id of the trip
+         console.log(`${req.user._id} this is the user id`); // user trip
+         res.render('viewTrip', {
+            userName,
+            trip,
+            user
+         })
+      } catch (err) {
+         console.log(err)
+      }
+   },
    createTrip: async (req, res) => {
       try {
          // let user = await User.findOne({
          //    _id: req.user._id,
          // })
          let userName = req.user.userName;
+         userName = userName.toString();
          console.log(req.user._id)
          res.render('createTrip', {
-         userName
+            userName
          })
       } catch (err) {
          console.log(err)
@@ -46,6 +68,8 @@ module.exports = {
             dateTo: req.body.dateTo,
             tripMembers: req.body.tripMembers,
             userId: req.user._id,
+            upVotes: 0,
+            downVotes: 0,
          });
          console.log("Trip created");
          res.redirect("/trips");
@@ -55,7 +79,7 @@ module.exports = {
       }
    },
    edit: async (req, res) => {
-         console.log(req);
+      console.log(req);
       try {
          let userName = req.user.userName;
          const trip = await Trip.findOne({
@@ -101,7 +125,7 @@ module.exports = {
    },
    deleteTrip: async (req, res) => {
       try {
-         await Trip.remove({
+         await Trip.deleteOne({
             _id: req.params.id
          })
          console.log('Trip deleted')
@@ -110,5 +134,35 @@ module.exports = {
          console.error(err)
          res.render("error/500");
       }
+   },
+   vote: async (req, res) => {
+      try {
+         let trip = await Trip.findById(req.params.id)
+         console.log(req)
+         if (req.route.path = '/upvote/:id') {
+            let newUpVotes = trip.upVotes + 1;
+            await Trip.findOneAndUpdate(
+               { _id: req.params.id },
+               { upVotes: newUpVotes },
+               {
+                  new: true,
+                  runValidators: true,
+               })
+         }
+         if (req.route.path = '/downvote/:id') {
+            let newDownVotes = trip.downVotes + 1;
+            await Trip.findOneAndUpdate(
+               { _id: req.params.id },
+               { downVotes: newDownVotes },
+               {
+                  new: true,
+                  runValidators: true,
+               })
+         }
+         console.log(trip)
+         res.redirect(`/trips/${trip._id}`);
+      } catch (err) {
+         console.log(err)
+      }
    }
-}    
+}
