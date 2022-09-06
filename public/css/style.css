@@ -297,6 +297,65 @@ Todo Page
     margin: 8px;
 }
 
+/*************************************************************************************************************************************
+Todo Page buttons
+*************************************************************************************************************************************/
+
+.workingOn,
+.archive,
+.del,
+.done,
+.incomplete {
+    border: 1px solid #483838;
+    padding: .3rem;
+    margin: .3rem;
+    border-radius: .5rem;
+    /* background-color: #A77979; */
+    color: #483838;
+    cursor: pointer;
+}
+
+.archive {
+    background-color: #F1F1F1;
+}
+
+.workingOn,
+.incomplete {
+    background-color: #FFF89C;
+}
+
+.done {
+    background-color: #C4DFAA;
+    color: #133031;
+}
+
+.del {
+    background-color: #FF8B8B;
+    color: 820000;
+}
+
+.add-todo-open-btn,
+a {
+    border: 1px solid #483838;
+        padding: .3rem;
+        margin: .3rem;
+        border-radius: .5rem;
+        background-color: #E9DAC1;
+        color: #483838;
+        cursor: pointer;
+}
+
+.add-todo-open-btn {
+    background-color: #A5BECC;
+}
+
+a {
+    background-color: #CFD2CF;
+}
+
+.out {
+    background-color: var(--white);
+}
 
 
 /* add todos pop-up */

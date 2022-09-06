@@ -25,7 +25,10 @@
                                 <div class="todoItem-btns">
                                    <span class="workingOn">In progress</span>
                                      <span class="archive">Archive</span>  
+                                     <!-- Maye added start -->
+                                    <span class='del'> Delete </span>
                                 </div>
+                                <!-- Maye added end -->
                                
                                 <!-- <span class='del'> Delete </span> -->
                             </li>
@@ -41,9 +44,9 @@
                                 <span  class="todoItem-todo"><%= el.todo %></span>
                                 
                                 <div class="todoItem-btn">
+                                    <span class="completed done">Completed</span>
 
                                      <span class='del'> Delete </span>
-                                    <span class="completed">Completed</span>
                                 </div>
                                
                             </li>
@@ -60,9 +63,9 @@
                                 <span  class="todoItem-todo"><%= el.todo %></span>
                                 <div class="todoItem-btns">
 
-                                    <span class="incomplete"> inComplete</span>
+                                    <span class="incomplete"> In progress</span>
                                     <!-- <span class='del'> Delete </span> -->
-                                    <span class="archive">archive</span>  
+                                    <span class="archive">Archive</span>  
                                     </div>
                                 
                             </li>
@@ -98,7 +101,7 @@
     
     
     <a href="/archive">archied todos</a>
-    <a href="/logout">Logout</a>
+    <a href="/logout" class="out">Logout</a>
 
     <script src="js/main.js"></script>
 </body>
