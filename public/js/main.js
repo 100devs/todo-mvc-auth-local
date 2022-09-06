@@ -19,7 +19,7 @@ Array.from(deleteBtn).forEach((el)=>{
 async function deleteEntry(){
     const entryId = this.parentNode.dataset.id
 
-    try{    console.log('checkpoint2-m' + entryId)
+    try{ 
         const response = await fetch('entries/deleteEntry', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
@@ -31,7 +31,7 @@ async function deleteEntry(){
         console.log(data)
         location.reload()
     }catch(err){
-        console.log(err)
+        console.log('you got an error, sucka!' + err)
     }
 }
 
