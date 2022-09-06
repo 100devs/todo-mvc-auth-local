@@ -28,7 +28,7 @@ module.exports = {
       res.render('cards.ejs', { cards: cards, decks: decks, sampleCards: [] })
     }catch(err){
       console.error(err)
-      res.render('error/500')
+      res.render('error500.ejs')
     }
   },
   getAddCard: (req,res) => {
