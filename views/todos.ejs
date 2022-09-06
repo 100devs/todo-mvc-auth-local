@@ -33,7 +33,9 @@
             >
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span><%= 
-                    `${el.dueDate.getMonth()+1}/${el.dueDate.getDate()}/${el.dueDate.getFullYear()}` 
+                    <!-- the .getMonth()+1 displays the proper date -->
+                    <!-- otherwise these methods get months 0-11, not 1-12 -->
+                    `${el.dueDate.getMonth()+1}/${el.dueDate.getDate()+1}/${el.dueDate.getFullYear()}` 
                     %></span>
                 <span ><%= (el.urgent) ? 'Urgent' : 'Not Urgent' %></span>
                 <span 
