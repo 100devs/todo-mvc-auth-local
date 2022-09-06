@@ -1,17 +1,22 @@
 // Require express
 const express = require("express");
 const app = express();
+
 // Require MongoDB and Connect to Database
 const mongoose = require("mongoose");
-const MongoStore = require("connect-mongo")(session);
-const connectDB = require("./config/database");
-// Require Passport for security
-const passport = require("passport");
+
 // Express session middleware: cookies
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const connectDB = require("./config/database");
+
+// Require Passport for security
+const passport = require("passport");
+
 // Require express-flash, an extension of connect-flash with the ability to define a flash
 // message and render it without redirecting the request.
 const flash = require("express-flash");
+
 // HTTP request logger middleware for node.js
 const logger = require("morgan");
 
@@ -24,6 +29,7 @@ require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
+
 // Actual database connection
 connectDB();
 
@@ -33,8 +39,10 @@ app.set("view engine", "ejs");
 // Tell express to use what is in the public folder
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+
 // Instance of express that can handle JSON
 app.use(express.json());
+
 // Log statements to stdout showing details of: remote ip, request method, http version, response status, user agent etc.
 app.use(logger("dev"));
 // Sessions object
