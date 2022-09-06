@@ -38,33 +38,34 @@ h1{
 }
 
 body {
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  text-shadow: 1px 1px 2px rgba(0,0,0, .5);
-  color: black;
-  background: #fefefe;
-  height: 100vh;
+    padding: 2rem 3rem 0 3rem;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    text-shadow: 1px 1px 2px rgba(0,0,0, .5);
+    color: black;
+    background: #fefefe;
+    height: 100vh;
 }
 
 strong, 
 b {
   font-weight: 700;
 }
-/**************************************************************
-* Index.ejs
-***************************************************************/
+
 .float-right {
     float: right;
 }
 
 .fa-github {
-    padding: 1rem 3rem 0 0;
     color: black;
 }
 .fa-github:hover {
     color: rebeccapurple;
 }
+/**************************************************************
+* Index.ejs
+***************************************************************/
 
 h1 {
     text-align: center;
@@ -101,46 +102,118 @@ a:nth-child(4) {
 }
 
 /**************************************************************
-* Media queries - Index.ejs 
+* login.ejs
+***************************************************************/
+.alert {
+    text-align: center;
+    /* fall-back if linear-gradient not supported */
+    background-color: red;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/tick_1.svg') .75em 1em no-repeat, linear-gradient(red, salmon);
+    border: 2px solid salmon;
+    border-radius: 1.5rem;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    max-width: 20%;
+    margin: 0 auto;
+}
+#login {
+    background-color: #fff;
+    border: 1px solid #c6c7cc;
+    border-radius: 5px;
+    width: 20em;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.account-info {
+    padding: .75em 1.25em;
+}
+
+.account-info label {
+    color: #555;
+}
+
+.account-info input {
+    background: #fff;
+    color: #333;
+    padding: .25em;
+    margin-top: .25em;
+    width: 100%;
+    border: 1px solid #a9b2b9;
+}
+
+.account-action {
+    background: #fff;
+    border-top: 1px solid #c6c7cc;
+    padding: 1em;
+}
+
+.account-action .button {
+    background: linear-gradient(#49708f, #293f50);
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    float: left;
+    padding: .5em 6.75em;
+    margin-left: .2em;
+    width: 98%;
+}
+
+.account-action label {
+    color: #333;
+    font-size: .8rem;
+    float: left;
+    margin: .25em 1em;
+}
+.account-action .button:hover{
+    color: #333;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .75);
+}
+.account-action .button:active {
+    background: linear-gradient(180deg, #FFC0CB 0%, rgba(254, 195, 167, 0.797368) 38.24%, rgba(252, 198, 115, 0.500622) 70.76%, rgba(248, 205, 26, 0) 112.21%);
+    transform: translateY(3px);
+}
+
+/**************************************************************
+* Media queries
 ***************************************************************/
 
 @media screen and (max-device-width: 1024px) {
 
-    /* body {
-        border: 2px solid fuchsia;
-    }  */
-
+    /* index.ejs */
     a:nth-child(3) {
         position: absolute;
         left: 40%;
     }
     a:nth-child(4) {
         position: absolute;
-        left: 50%;
+        left: 52%;
+    }
+    
+    /* login.ejs */
+    .alert {
+    max-width: 35%;
     }
   
   }
   
   @media screen and (max-device-width: 768px) {
-  
-    /* body {
-        border: 2px solid salmon;
-    }  */
+
+    /* login.ejs */
+    .alert {
+        max-width: 50%;
+    }
 
   }
   
   @media screen and (max-device-width: 565px) {
   
-    /* body {
-        border: 2px solid gold;
-    }  */
-  
+    /* index.ejs */
     h1 {
         display: block;
         line-height: 40px;
-        padding-top: 2.5rem;
     }
-
     a:nth-child(3) {
         position: absolute;
         left: 40%;
@@ -152,20 +225,27 @@ a:nth-child(4) {
         top: 25%;
     }
 
+    /* login.ejs */
+    #login {
+        margin-top: 3rem;
+    }
+    div:first-of-type {
+        margin-top: 3rem;
+    }
+    .alert {
+        min-width: 90%;
+    }
+
   }
 
-  @media screen and (max-device-width: 200px) {
+  @media screen and (max-device-width: 250px) {
   
-    /* body {
-        border: 2px solid gold;
-    }  */
-  
+    /* index.ejs */
     h1 {
         display: block;
         line-height: 40px;
         padding-top: 2.5rem;
     }
-
     a:nth-child(3) {
         position: absolute;
         left: 40%;
@@ -175,6 +255,10 @@ a:nth-child(4) {
         position: absolute;
         left: 40%;
         top: 35%;
+    }
+    /* login.ejs */
+    .alert {
+        min-width: 100%;
     }
 
   }
