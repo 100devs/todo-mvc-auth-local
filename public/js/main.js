@@ -25,11 +25,12 @@ Array.from(incrementor).forEach((el) => {
   el.addEventListener('click', addShame);
 });
 
-// isItTime()
+isItTime();
 
 async function deleteTodo() {
   const todoElem = this.parentNode;
   const todoId = this.parentNode.dataset.id;
+  let left = Number(document.querySelector('#left').textContent);
   try {
     const response = await fetch('todos/deleteTodo', {
       method: 'delete',
@@ -41,7 +42,7 @@ async function deleteTodo() {
     const data = await response.json();
     // location.reload();
     todoElem.remove();
-    confettiShower();
+    confettiShower((left -= 1));
   } catch (err) {
     console.log(err);
   }
@@ -68,7 +69,7 @@ async function addShame() {
     // const placeToShame = document.querySelector('#shaming');
     // placeToShame.textContent = 'test';
     shameMsg.textContent = newShame;
-    isItTime(newShame);
+    isItTime();
   } catch (err) {
     console.log(err);
   }
@@ -110,26 +111,25 @@ async function addShame() {
 //   }
 // }
 
-function isItTime(toDontAmount = null) {
-  // const toDontAmount = document.querySelectorAll('#shame').length;
+function isItTime() {
+  const toDontAmount = document.querySelectorAll('#shame').length;
   const placeToShame = document.querySelector('#shaming');
-  // let timesDoneAmount = 0;
+  let timesDoneAmount = 0;
   for (let i = 0; i < toDontAmount; i++) {
-    // took out timesDoneAmount and turned into toDontAmount
-    // timesDoneAmount += Number(
-    //   document.querySelectorAll('#shame')[i].textContent
-    // );
+    timesDoneAmount += Number(
+      document.querySelectorAll('#shame')[i].textContent
+    );
   }
-  if (toDontAmount >= 20) {
+  if (timesDoneAmount >= 20) {
     placeToShame.textContent =
       "Yup, now you have really done it. Forget that specialist, they clearly won't have any power here.";
-  } else if (toDontAmount >= 15) {
+  } else if (timesDoneAmount >= 15) {
     placeToShame.textContent =
       "And here I thought I had no self-control.. I think it might be time to see a specialist before it's too late.";
-  } else if (toDontAmount >= 10) {
+  } else if (timesDoneAmount >= 10) {
     placeToShame.textContent =
       "I mean, really? You decided to just go at it today, didn't you?";
-  } else if (toDontAmount >= 5) {
+  } else if (timesDoneAmount >= 5) {
     placeToShame.textContent = 'Wow.. maybe you should stop doing that.';
   }
 }
@@ -153,10 +153,12 @@ function stop() {
 // start();
 // stop();
 
-function confettiShower() {
+function confettiShower(left) {
   const placeToShame = document.querySelector('#shaming');
+  const habitsLeft = document.querySelector('#left');
   placeToShame.textContent =
     'Congratulations on giving up your bad habit!!!!!!!';
+  habitsLeft.textContent = `${left}`;
   start();
   stop();
 }
