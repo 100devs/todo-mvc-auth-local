@@ -1,10 +1,10 @@
 const passport = require('passport')
 const validator = require('validator')
-const User = require('../models/carlog')
+const User = require('../models/Carlog')
 
  exports.getLogin = (req, res) => {
     if (req.user) {
-      return res.redirect('/carlog')
+      return res.redirect('/Carlog')
     }
     res.render('login', {
       title: 'Login'
@@ -31,7 +31,7 @@ const User = require('../models/carlog')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/carlog')
+        res.redirect(req.session.returnTo || '/Carlog')
       })
     })(req, res, next)
   }
@@ -49,7 +49,7 @@ const User = require('../models/carlog')
   
   exports.getSignup = (req, res) => {
     if (req.user) {
-      return res.redirect('/carlog')
+      return res.redirect('/Carlog')
     }
     res.render('signup', {
       title: 'Create Account'
@@ -89,7 +89,7 @@ const User = require('../models/carlog')
           if (err) {
             return next(err)
           }
-          res.redirect('/carlog')
+          res.redirect('/Carlog')
         })
       })
     })
