@@ -7,8 +7,17 @@
     <title>My Watchlist</title>
     <script src="https://kit.fontawesome.com/b180e6371d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="/">ShowMe</a></li>
+            <li class="menu-item"><a href="#">Watchlist</a></li>
+            <li class="menu-item button"><a href="/logout">Log Out</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
     <h1>Search for a TV Show!</h1>
     <form action="/todos/searchShows" method="post">
         <input name="name" type="text" placeholder="Type the name of the show">
