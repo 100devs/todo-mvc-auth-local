@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
+    <title>RockWish Dashboard</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar') %>
+
+    <!-- todo: Put a nice welcome to the user name -->
+
+    <main class="container">
+      <h1>Your Dashboard</h1>
+      <ul>
+        <!-- Display User Wishlist Button -->
+        <li><a href="/dashboard/privateWishlist">My Wishlist</a></li>
+        <!-- Display Public Wishlist Button -->
+        <li><a href="/dashboard/publicWishlist">Public Wishlists</a></li>
+        <!-- Display Add Gear Button -->
+        <li><a href="/gear">Add Gear</a><i class="text-emerald-100" >    use this to add to either a public or private wishlist. You can include the brand, condition, even a picture!</i> </li>
+        <!-- Logout Button -->
+      </ul>
+
+      <!-- Footer -->
+      <%- include('./partials/footer') %>
+    </main>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

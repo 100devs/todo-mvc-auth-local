@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
     <title>Document</title>
-</head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
+  </head>
+  <body>
+
+      <!-- NAVBAR COMPONENT -->
+      <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <span class="font-bold text-xl">GearWish</span>
+        </div>
+        <div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
+          <div class="text-sm sm:flex-grow">
+            <a href="/login" class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
+              Log in
+            </a>
+      </nav>
+
+    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %>
     <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
+      <input type="text" name="userName" placeholder="User Name" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+      />
+      <input type="submit" />
     </form>
-</body>
+        <!-- Footer -->
+        <%- include('./partials/footer') %>
+  </body>
 </html>

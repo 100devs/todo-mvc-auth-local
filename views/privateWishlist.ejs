@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar') %>
+
+    <h1 class="text-center mt-4">Yes, this is the Personal Wishlist page.</h1>
+    
+      <div class="container mt-5 mx-auto px-2">
+        <div class="lg:grid grid-cols-2 md:flex"">
+                  <% gears.forEach( el=> { %>
+                    <div class=" flex-1 text-gray-700 text-center bg-gray-400 px-5 py-5 m-2 rounded">
+          <div class="lg:flex h-full">
+            <div class="lg:flex-shrink-0">
+              <img class="object-contain items-center rounded-lg lg:w-48" src="<%= el.gearImage %>" alt="" />
+            </div>
+            <div class="lg:flex-shrink-1 mx-auto px-1 h-auto">
+              <p>
+                <%= el.gearName %>
+              </p>
+              <p>
+                <%= el.gearBrand %>
+              </p>
+              <p>
+                <%= el.gearPrice %>
+              </p>
+            </div>
+            <div class="mt-4 lg:mt-0 lg:ml-6 ">
+              <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold px-1">
+              </div>
+              <p>
+                <%= el.gearNote %>
+              </p>
+              <p>
+                <%= el.gearCondition %>
+              </p>
+              <button
+                class='delete inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white md:mt-0'>Delete
+                Gear</button>
+            </div>
+          </div>
+        </div>
+        <!-- <span><%= el.visibility %></span>     User need to see? -->
+      
+        <% }) %>
+      </div>
+      </div>
+    <script src="/js/main.js"></script>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>

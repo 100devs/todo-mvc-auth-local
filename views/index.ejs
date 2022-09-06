@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <!-- <link href="/output.css" rel="stylesheet" /> -->
     <title>Document</title>
-</head>
-<body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
-</body>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar') %>
+    <div class="main">
+      <div class="container">
+        <h1 class="underline text-black text-2xl font-medium">
+          Rockband Title Here
+        </h1>
+        <hr />
+        <div class="linkContainer">
+          <a href="/login"> Login</a>
+          <a href="/signup"> Signup</a>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
 </html>

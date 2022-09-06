@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
+    <title>Get yo gear</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar') %>
+
+    <h1>Gear creation Test</h1>
+    <br /><br />
+    <!-- Insert Gear -->
+    <form action="/gear/createGear" method="POST">
+      <input type="text" placeholder="Gear Name" name="gearName" />
+      <input type="text" placeholder="Brand" name="gearBrand" />
+      <input type="text" placeholder="Optional Image URL" name="gearImage" />
+      <input type="number" placeholder="$$$" name="gearPrice" />
+      <select name="gearCondition" id="gearCondition">
+        <option value="fair">Fair</option>
+        <option value="good">Good</option>
+        <option value="excellent">Excellent</option>
+        <option value="mint">Mint</option>
+      </select>
+      <input
+        type="text"
+        placeholder="Add any relevant information about the gear in here..."
+        name="gearNote"
+      />
+      <select name="visibility">
+        <option value="Private">Private</option>
+        <option value="Public">Public</option>
+      </select>
+
+      <input type="submit" />
+    </form>
+
+    <a href="/dashboard">return to dashboard</a>
+
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>
