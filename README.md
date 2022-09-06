@@ -17,7 +17,7 @@ HTML for content and structure, CSS and materialize for styling, JavaScript for 
 Packages and Dependencies
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
-Our Team
+## Our Team
 |Name	| Website	| GitHub
 |-----|----------|-------|
 |Lauren Doughty|	[Lauren's website](laurendoughty.netlify.app/)|	[Lauren's GitHub](https://github.com/LaurenDoughty)|
