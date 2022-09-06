@@ -30,7 +30,14 @@
 								<% todos.forEach( el => { %>
 										<li class='todoItem' data-id='<%=el._id%>'>
 											<span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-											<span><%= el.dueDate.toDateString() %></span>
+											<span><%= el.dueDate %></span> 
+											<form action="/todos" method="put" class="edit hidden">
+												<textarea class="task-description">
+								  				<%= el.todo %></textarea>
+												  <button class="btn edit" type="submit" >Edit</button>
+											
+											  </form>
+											 <span class="editbtn"> Edit</span>
 											<span class='del'> Delete </span>
 										</li>
 								<% }) %>    

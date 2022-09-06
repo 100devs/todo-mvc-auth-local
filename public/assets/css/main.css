@@ -2928,3 +2928,10 @@ input, select, textarea {
 	.boldFont{
 		font-weight: 700;
 	}
+	.hidden {
+		display: none;
+	  }
+
+	.active textarea {
+		outline: 1px solid rgba(255, 255, 255, 0.75);
+	  }

@@ -51,5 +51,18 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    editTodo: async (req, res)=>{
+        console.log(req.body)
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                todo: req.body.newTask
+            })
+            console.log('Task updated')
+            res.json('Task Updated')
+        }catch(err){
+            console.log(err)
+        }
     }
+
 }    
