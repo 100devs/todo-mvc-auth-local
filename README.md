@@ -1,6 +1,7 @@
 # Introduction
-
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+Bill Tracking App
+A simple app to track your bills due dates, paid and unpaid bill indicator, your own personal bill tracker like your google calender.
+It is built with NodeJs using the MVC Architecture, we have also implemented "authorization" using Passport so folx can sign up, customize & personalize the app 
 
 ---
 
@@ -8,9 +9,8 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
 
 ---
 
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
+Tech Stack Used
+bcrypt, connect-mongo, ejs, express, express-flash, express-session, mongodb, mongoose, passport, passport-local, validator
 
 ---
 
