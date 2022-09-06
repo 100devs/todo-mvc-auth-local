@@ -17,6 +17,13 @@ require('./config/passport')(passport)
 
 connectDB()
 
+// // Ejs Helpers
+// const {stripTags} = require('./helpers/ejs')
+// // Ejs
+// app.use(express.stripTags('views'))
+
+
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
