@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/b180e6371d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="/">ShowMe</a></li>
+            <li class="menu-item"><a href="/todos">Watchlist</a></li>
+            <li class="menu-item button"><a href="/logout">Log Out</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+    <div class="wrapper">  
+        <section class="resultSection" data-position="shows">
+            <h2>Results</h2>
+
+            <ul class="results">
+                <li class="results list-header">
+                    <span>Name</span>
+                    <span>Genres</span>
+                    <span>Summary</span>
+                </li>
+                <% for(var i = 0; i < data.length; i++) {%>
+                <li class="results" data-id='<%=data[i].show.id%>'>
+                    <% if(data[i].show.image === null) {%>
+                        <span><img src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt=""></span>
+                    <% } else{ %>  
+                        <span><img src="<%= data[i].show.image.medium %>" alt=""></span>
+                    <% } %>       
+
+                    <span><%= data[i].show.name %></a></span>
+                    <span class="genres"><%= data[i].show.genres[0] %>, <%= data[i].show.genres[1] %></span> 
+                    <form action="/todos/addToWatchList" method="post">
+                        <input type="hidden" value="<% if(data[i].show.image === null) 
+                        {%>https://static.tvmaze.com/images/no-img/no-img-portrait-text.png
+                        <% } else{ 
+                            %><%= data[i].show.image.medium %><% } %>" name="showPic">
+                        <input type="hidden" value="<%=data[i].show.summary%>" name="showSummary">
+                        <input type="hidden" value="<%=data[i].show.name%>" name="showName">
+                        <input type="hidden" value="<%=data[i].show.id%>" name="showId">
+                        <input type="submit" value="Add to Watchlist">
+                    </form>
+                    
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </div>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>

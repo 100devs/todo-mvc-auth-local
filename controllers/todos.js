@@ -1,14 +1,38 @@
 const Todo = require('../models/Todo')
 
 module.exports = {
-    getTodos: async (req,res)=>{
+    getWatchList: async (req,res)=>{
         console.log(req.user)
         try{
-            const todoItems = await Todo.find({userId:req.user.id})
-            const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+            const watchListItems = await Todo.find({userId:req.user.id})
+            const itemsLeft = await Todo.countDocuments({userId:req.user.id})
+            res.render('todos.ejs', {watchList: watchListItems, left: itemsLeft, user: req.user,})
+            console.log(watchListItems)
         }catch(err){
             console.log(err)
+        }
+    },
+    searchShows: async(req,res)=>{
+        console.log(req.user)
+        try{
+            const name = req.body.name
+            console.log(name)
+            const abc = await fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
+            const data = await abc.json()
+            console.log(data)
+            res.render('results.ejs',{data})
+        } catch(error){
+            console.error(error)
+        }
+    },
+    addToWatchList: async(req,res)=>{
+        console.log(req.user)
+        try{
+            await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id,showImg: req.body.showPic, showSum: req.body.showSummary})
+            // stops the browser from constantly loading.
+            res.status(204).send()
+        } catch(error){
+            console.error(error)
         }
     },
     createTodo: async (req, res)=>{
@@ -42,7 +66,7 @@ module.exports = {
             console.log(err)
         }
     },
-    deleteTodo: async (req, res)=>{
+    deleteShow: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
