@@ -33,7 +33,6 @@ module.exports = {
             })
             console.log('Like added')
             res.json('Like added')
-            res.redirect('/messages')
         }catch(err){
             console.log(err)
         }
@@ -46,7 +45,6 @@ module.exports = {
             })
             console.log('Like removed')
             res.json('Like removed')
-            res.redirect('/messages')
         }catch(err){
             console.log(err)
         }
@@ -57,7 +55,6 @@ module.exports = {
             await Message.findOneAndDelete({_id:req.body.messageId})
             console.log('Deleted message')
             res.json('Deleted message')
-            res.redirect('/messages')
         }catch(err){
             console.log(err)
         }
