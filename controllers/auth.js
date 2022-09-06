@@ -99,6 +99,7 @@ exports.postSignup = (req, res, next) => {
 }
 
 exports.sendEmail = (req, res) => {
+  let userName = req.user.userName
   const output = `
     <p> New Contact Email
     <h3> Contact Details </h3>
@@ -115,8 +116,8 @@ exports.sendEmail = (req, res) => {
     port: 587,
     secure: false,
     auth: {
-      user: 'canastratest@hotmail.com',
-      pass: 'Test143!',
+      user: process.env.user,
+      pass: process.env.pass,
     },
     tls: {
       rejectUnauthorized: false
@@ -142,5 +143,7 @@ exports.sendEmail = (req, res) => {
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
   })
 
-  res.render('contact', { msg: 'Email Sent' })
+  res.render('contact', {
+    userName
+  })
 }
