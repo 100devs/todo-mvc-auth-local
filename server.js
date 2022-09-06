@@ -11,7 +11,6 @@ const mainRoutes = require("./routes/main");
 const gearRoutes = require("./routes/gear");
 const dashboardRoutes = require("./routes/dashboard");
 
-
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
@@ -19,22 +18,25 @@ require("./config/passport")(passport);
 
 connectDB();
 
+// Set templating engine
 app.set("view engine", "ejs");
+
+// Static files
 app.use(express.static(__dirname + "/views"));
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
+
 // Sessions
 app.use(
-	session({
-		secret: "keyboard cat",
-		resave: false,
-		saveUninitialized: false,
-		store: new MongoStore({ mongooseConnection: mongoose.connection }),
-	})
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
 );
-
 
 // Passport middleware
 app.use(passport.initialize());
@@ -47,7 +49,7 @@ app.use("/dashboard", dashboardRoutes);
 app.use("/gear", gearRoutes);
 
 app.listen(process.env.PORT, () => {
-	console.log(`
+  console.log(`
     o
     |    o
     |   /
