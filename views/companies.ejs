@@ -3,6 +3,7 @@
 
 <head>
 <%- include('partials/head') %>
+
 </head>
 
 <!-- Header / Navbar -->
@@ -33,7 +34,10 @@
                 <h5 class="card-title">Company Name: <%= company.companyName %></h5>
                 <h6 class="card-subtitle mb-2 text-muted">Point of Contact Name: <%= company.pointOfContact.name %></h6>
                 <p class="card-text">Point of Contact Email: <%= company.pointOfContact.email %></p>
-                <a href="/companies/<%= company._id %>" class="card-link">View</a>
+                <a href="#<%= company._id %>" class="card-link" data-toggle="collapse">View</a>
+                <div id="#<%= company._id %>" class="collapse">
+                  Howdy
+                </div>
                 <a href="/companies/edit/<%= company._id %>" class="card-link">Edit</a>
                 <button class='del-company btn btn-danger'>Delete</button>
               </div>
@@ -43,6 +47,32 @@
         </ul>
       </div>
   </div>
+
+  
+  <div class="accordion">
+    <% companies.forEach(company => { %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="<%= company.companyName %>head">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= company.companyName %>" aria-expanded="false" aria-controls="<%= company.companyName %>">
+            <div data-id='<%=company._id%>'>
+              <h5 class="card-title">Company Name: <%= company.companyName %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Point of Contact Name: <%= company.pointOfContact.name %></h6>
+                <p class="card-text">Point of Contact Email: <%= company.pointOfContact.email %></p>
+            </div>
+        </button>
+      </h2>
+      <a href="/companies/edit/<%= company._id %>" class="card-link">Edit</a>
+      <button class='del-company btn btn-danger'>Delete</button>
+      <div id="<%= company.companyName %>" class="accordion-collapse collapse" aria-labelledby="headingOne">
+        <div class="accordion-body">
+          Company Info Here
+        </div>
+      </div>
+    </div>
+    <% }) %>
+
+  </div>
+
 
 
 
