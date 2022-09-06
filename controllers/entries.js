@@ -17,6 +17,9 @@ module.exports = {
     try {
       await Entries.create({
         entry: req.body.entryItem,
+        date: req.body.date,
+        title: req.body.title,
+        mood: req.body.mood,
         userId: req.user.id,
       });
       console.log("Entry has been added!");

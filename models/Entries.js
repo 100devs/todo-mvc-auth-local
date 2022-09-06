@@ -15,7 +15,7 @@ const EntriesSchema = new mongoose.Schema({
   },
   mood: {
     type: String,
-    required: true,
+    required: false,
   },
   userId: {
     type: String,

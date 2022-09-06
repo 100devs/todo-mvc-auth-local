@@ -11,5 +11,10 @@ router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
-
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard')
+})
+router.get('/entry', (req, res) => {
+    res.render('entry')
+})
 module.exports = router;
