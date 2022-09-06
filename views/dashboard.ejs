@@ -12,18 +12,16 @@
     <!-- Navbar -->
     <%- include('./partials/navbar') %>
 
-    <!-- todo: Put a nice welcome to the user name -->
-    <div class="container px-5 mt-5">
       <h1
-        class="mb-4 text-4xl text-center font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        class="mb-4 text-4xl  mt-5 text-center font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
         Welcome back, <span class="text-blue-600 dark:text-blue-500"><%= user.userName %></span></h1>
-      <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus deserunt impedit veniam. Odit maxime veniam voluptatem voluptate aliquam dolores, reiciendis ipsum laboriosam commodi optio quia ab itaque ad debitis ducimus!</p>
+      <p class="mb-6 text-lg  mt-8 font-normal text-gray-500 lg:text-xl px-5 sm:px-16 xl:px-48 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus deserunt impedit veniam. Odit maxime veniam voluptatem voluptate aliquam dolores, reiciendis ipsum laboriosam commodi optio quia ab itaque ad debitis ducimus!</p>
       <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
         <a href="/gear"
           class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">Add Gear
         </a>
       </div>
-    </div>
+   
       <!-- Footer -->
       <%- include('./partials/footer') %>
     </main>
