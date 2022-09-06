@@ -152,3 +152,16 @@ a {
     font-style: italic;
     color: #b20009;
 }
+
+.important{
+  color: yellow;
+}
+
+.fa-star {
+  padding: .8rem;
+}
+ 
+.draggable.dragging {
+  opacity: .5;
+ 
+}

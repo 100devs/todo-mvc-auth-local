@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style2.css">
 </head>
+
 <body id="bg">
     <div class="app-container" id="taskList">
         <h1 class="app-header">To Do List</h1>
         <section>
             <ul class="task-list">
-            <% todos.forEach( el => { %>
-                    <li class='todoItem task-list-item' data-id='<%=el._id%>'>
-                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                        <% if(el.date != "Invalid Date"){ %>
-                            <span class="dateStyle">due: <%=el.date %></span>
-                        <% } %>
-                        <span class='del fa fa-trash delete-btn'></span>
-                    </li>
-            <% }) %>    
+
+                <% todos.forEach( el=> { %>
+
+                    <div class="container" >
+                        <li class="todoItem task-list-item draggable" draggable="true" data-id='<%=el._id%>'>
+                            <span class="<%= el.completed === true ? 'completed' : 'not' %>"><%= el.todo %></span>
+                            
+                            <% if(el.date !="Invalid Date" ){ %>
+                                <span class="dateStyle">due: <%=el.date %></span>
+                            <% } %>
+
+                            <span class="fa fa-star <%=el.important === true ? 'important' : '' %>"> </span>
+                            <span class='del fa fa-trash delete-btn'></span>
+                        </li>
+                    </div>
+                <% }) %>
+
             </ul>
         </section>
-        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        <h2>
+            <%= user.userName %> has <%= left %> things left to do.
+        </h2>
         <form action="/todos/createTodo" method='POST' class="add-task">
-            <input type="text" autocomplete="off" placeholder="Add new task" v-model="tasks.name" @keyup.enter="newItem" class="task-input" name='todoItem'>
+            <input type="text" autocomplete="off" placeholder="Add new task" v-model="tasks.name" @keyup.enter="newItem"
+                class="task-input" name='todoItem'>
             <input type="date" name="toDoDate" class="input-date">
             <input type="submit" value="" class="submit-task" @click="newItem" title="Add Task">
         </form>
@@ -38,5 +51,7 @@
         <div class="logout"><a href="/logout">Logout</a></div>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/drag.js"></script>
 </body>
+
 </html>
