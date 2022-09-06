@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>To Don'ts</title>
+  </head>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+  <body>
+    <section class="todont__container">
+      <h1 class="todont__title">To Don't List</h1>
+      <div class="list__grid group" id="todontList">
+        <div class="grid__header">
+          <div class="col span_1_of_5 sort" data-sort="todont">To Don't</div>
+          <div class="col span_1_of_5">Reason</div>
+          <div class="col span_1_of_5 sort" data-sort="timesDone">
+            # of Times Done
+          </div>
+          <div class="col span_1_of_5">Shame</div>
+          <div class="col span_1_of_5">Delete</div>
+        </div>
+        <div class="list">
+          <% todos.forEach( el=> { %>
+          <div class="todoItem" data-id="<%=el._id%>">
+            <div class="col span_1_of_5 todont"><%= el.todo %></div>
+            <div class="col span_1_of_5"><%= el.reasonWhy %></div>
+            <div class="col span_1_of_5 timesDone" id="shame">
+              <%= el.timesDone %>
+            </div>
+            <div
+              class="col span_1_of_5 addShame sad"
+              alt="Click for Shame!"
+            ></div>
+            <div class="col span_1_of_5 del" alt="Delete"></div>
+          </div>
+          <% }) %>
+        </div>
+        <h2 class="total">
+          <%= user.userName %> has <span id="left"> <%= left %> </span> bad
+          habits that they are working on.
+        </h2>
+      </div>
+      <div id="shaming" class="total text_shadows"></div>
+      <div class="todont__form">
+        <form action="/todos/createTodo " method="POST">
+          <input
+            type="text"
+            placeholder="Enter To Don't Item"
+            name="todoItem"
+          />
+          <textarea placeholder="Enter Reason Why" name="reasonWhy"></textarea>
+          <div class="submit__flex">
+            <input type="submit" class="submit__button" value="Add To Don't" />
+          </div>
+        </form>
+      </div>
+      <footer>
+        <a href="/logout">Logout</a>
+      </footer>
+    </section>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
