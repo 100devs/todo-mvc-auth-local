@@ -1,10 +1,152 @@
-h1{
-    color: red;
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+body{
+    font-family: 'KoPub Batang', serif;
+    font-weight: 700;
 }
-.not{
-    text-decoration: underline;
+
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 1px 8px #ddd;
+    background-color: #2B2525;
+    width: 100%;
 }
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+ a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    line-height: 22px;
+    font-size: 20px;
+    /* font-size: 1.2500em; */
+    text-align: center;
+}
+
+ li > a:hover {
+    color: #aca799;
+
+}
+section > a:hover {
+    /* color: #b2dfdb; */
+    background: #aca799;
+
+}
+i {
+    color: #fff;
+}
+
+.flex-container {
+
+    margin: 30px auto;
+    /* border: 1px solid black; */
+    width: 30%;
+    text-align: center;
+}
+
+.logo{
+    width: 100%;
+    margin-bottom: 0;
+}
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 0;
+    /* font-size: 55px; */
+    font-size:  3.4375em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+p, .sign-up{
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sign-up {
+    margin-top: 20px;
+    display: inline-block;
+    background: #9E9169;
+    color: #FFF;
+    border: none;
+    padding: 20px;
+    width: 100%;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+
+ /* @media screen and (min-width: 350px) {
+    .sign-up {
+        display: block;
+        border: 1px solid black;
+        width: 100%;
+        padding: 15px;
+      }
+    
+  }
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* @media screen and (min-width: 350px) {
+    
+    body{
+        border: 1px green solid;
+        width: 350px;
+    }
+    header, nav, main{
+        width: 100%;
+        background: green;
+        display: block;
+    }
+    main{
+        border: 1px solid red;
+    }
+    .logo{
+        width: 70%;
+    }
+
+    main > section{
+        background: blue;
+        border: 1px solid black;
+        width: 300px;
+      }
+  } */
+  /* @media (min-width: 601px) and (max-width: 900px){
+    section{
+      background: blue;
+      width: 33.3333%;
+    }
+    .thiccOne{
+      display: none;
+    }
+  } */
