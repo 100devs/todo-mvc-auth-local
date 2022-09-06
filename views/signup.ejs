@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Bill Tracker</title>
 </head>
-<body>
+<body class="col s12 m12 l8" style="overflow:hidden">
      <nav>
         <div class="nav-wrapper">
             <a href="/" class="brand-logo logo-topleft"><img class="responsive-img" src="/assets/bill_tracker_logo_small.png"></a>
@@ -22,14 +22,7 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <!--<form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>-->
-<section class="section container form-container">
+<section class="section container form-container z-depth-3">
     <h3 class="form-header">Create a new account: </h3>
     <div class="row">
         <div>
@@ -51,7 +44,7 @@
                     <label for="date">Confirm Your Password</label>
                 </div>
                 <div class="input-field center">
-                    <button class="btn form-submit">Submit</button>
+                    <button class="btn form-submit z-depth-3">Submit</button>
                 </div>
             </form>
         </div>
