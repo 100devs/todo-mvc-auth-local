@@ -106,12 +106,6 @@ body {
   position: relative;
 }
 /* greenwindbreaker button end */
-/* greenwindbreaker addCard.ejs start */
-.addcard-bg{
-  background-image: linear-gradient(to bottom right, #670d10,#092756) !important;
-}
-
-/* greenwindbreaker addCard.ejs end */
 
 /*  dannynyn flipping animation   */
 
@@ -174,4 +168,53 @@ body {
 
 nav {
   margin-bottom: 7rem;
+}
+
+.decks-link {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.deck-holder {
+  margin: 5%;
+}
+
+/* Deck name input text white */
+
+#first_name {
+  color: #FFFFFF;
+}
+
+/* Error pages styles */
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  background: -webkit-linear-gradient(#0d84f4, #689fe4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return2-dash > a {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+
+/* addcard illustration */
+
+section > img {
+  width: 35%;
+  position: absolute;
+  top: 10rem;
+  right: 12rem;
 }

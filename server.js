@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 //const todoRoutes = require('./routes/todos') // Commenting out since we're using cards
 const cardRoutes = require('./routes/cards')
+const methodOverride = require('method-override')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -17,12 +18,15 @@ require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
 
 connectDB()
-
+app.locals.stripTags = (input) => {
+  return input.replace(/<(?:.|\n)*?>/gm, '')
+}
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+app.use(methodOverride('_method'))
 // Sessions
 app.use(
     session({
@@ -44,6 +48,6 @@ app.use('/', mainRoutes)
 //app.use('/todos', todoRoutes) // Commenting out since we're using cards
 app.use('/cards', cardRoutes) // added card routes
  
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server is running on port: ${process.env.PORT}; you better catch it!`)
 })    

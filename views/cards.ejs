@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <title>Swiper demo</title>
+  <title>Happy Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
-
-    <!-- Compiled and minified CSS (materialize) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<link rel="stylesheet" href="css/style.css">
-
-
+  <!-- Compiled and minified CSS (materialize) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
-
 <body>
   <!-- header -->
   <nav class="blue-grey darken-4" role="navigation">
@@ -33,26 +25,37 @@
       <!-- <a href="/logout" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">Logout</i></a> -->
     </div>
   </nav>
+  <!-- greenwindbreaker button start -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col s6"><a href="/cards/addCard" class="waves-effect waves-light btn-small  blue-grey lighten-3">ADD NEW CARD<i class="material-icons right">add</i></a></div>
+      <div class="col s3"></div>
+    </div>
+  </div>
+
+<!-- greenwindbreaker button end -->
+
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-
+      <% for (let i = 0; i < cards.length; i++) { %>
       <div class="swiper-slide">
         
         <div class="card fit">
           <div class="card fit card_inner">
 
-            <div class="card_face card_face-front">
-              <p>Question</p>
+            <div class="card_face card_face-front" data-id="<%=cards[i]._id%>">
+              <p><%= stripTags(cards[i].question) %></p>
 
-              <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
+              <a href="cards/edit/<%= cards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
+              <a href="#" class="waves-effect waves-light btn-small red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
           </div>
 
           <div class="card_face card_face-back">
             <div class="card_content">
                 <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
+                    <p><%= stripTags(cards[i].answer) %></p>
                 </div>
             </div>
         </div>
@@ -62,230 +65,51 @@
         </div>
         
       </div>
-      <div class="swiper-slide">
+      <% } %>
 
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
-
-            
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
-            </div>
-        </div>
+      <% for (let i = 0; i < sampleCards.length; i++) { %>
+        <div class="swiper-slide">
           
-            
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
+          <div class="card fit">
+            <div class="card fit card_inner">
+  
+              <div class="card_face card_face-front" data-id="<%=sampleCards[i]._id%>">
+                <p><%= stripTags(sampleCards[i].question) %></p>
+  
+                <a href="cards/edit/<%= sampleCards[i]._id %>" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
+                <a href="#" class="waves-effect waves-light btn-small red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
             </div>
-        </div>  
-            
+  
+            <div class="card_face card_face-back">
+              <div class="card_content">
+                  <div class="answer">
+                      <p><%= stripTags(sampleCards[i].answer) %></p>
+                  </div>
+              </div>
           </div>
-        </div>
-
-      </div>
-      <div class="swiper-slide">
-
-        <div class="card fit">
-          <div class="card fit card_inner">
-            <div class="card_face card_face-front">
-              <p>Question</p>
-
-                 <a href="#" class="waves-effect waves-light btn-small  blue lighten-3 edit right-button-place"><i class="material-icons">edit</i></a>
-              <a href="#" class="waves-effect waves-light btn-small  red lighten-3 delete left-button-place"><i class="material-icons">delete</i></a>
-          </div>
-
-          <div class="card_face card_face-back">
-            <div class="card_content">
-                <div class="answer">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, obcaecati.</p>
-                </div>
+              
+              
             </div>
-        </div>
-
-                  
           </div>
+          
         </div>
+        <% } %>
 
-      </div>
     </div>
-
     <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
   </div>
-
-  <!-- greenwindbreaker button start -->
-  <!-- <div class="container">
-    <a href="#" class="waves-effect waves-light btn-small  blue lighten-3"><i class="material-icons">edit</i></a>
-    <a href="#" class="waves-effect waves-light btn-small  red lighten-3"><i class="material-icons">delete</i></a>
-  </div> -->
-  <div class="container">
-    <div class="row">
-      <div class="col s6"><a href="/cards/addCard" class="waves-effect waves-light btn-small  blue-grey lighten-3">ADD NEW CARD<i class="material-icons right">add</i></a></div>
-      <div class="col s3"></div>
-      <div class="col s3"><a href="/addDeck" class="waves-effect waves-light btn-small  blue-grey lighten-3">MAKE A NEW DECK<i class="material-icons right">layers</i></a></div>
-    </div>
-  </div>
   
-
-  <!-- greenwindbreaker button end -->
-    <!-- <h1>Todos</h1> -->
-
-
-   
-
-
-    
-
-
-
-    <!-- <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form> -->
+  <div class="blue-grey darken-4 container nav-wrapper">
+    <ul id="nav-mobile" class="center deck-holder">
+      <a href="/cards" class="decks-link"">All</a>
+      <%for (let i = 0; i < decks.length; i++) {%>
+      <a href="/cards/decks/<%=decks[i]._id%>" class="decks-link"><%=decks[i].title%></a>
+      <% } %>
+  </ul>
+  </div>
 
 
 
@@ -298,7 +122,7 @@
 
 
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     
 </body>
 </html>

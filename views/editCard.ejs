@@ -26,14 +26,10 @@
         </div>
       </nav>
     <section class="container addcard-bg">
-        <h3>Add A Card</h3>
-        <div class="row">
-        <form class="col s12" action="/cards/createCard" method="POST">
+        <h3>Edit A Card</h3>
+    <div class="row">
+        <form class="col s12" action="/cards/updateCard/<%=card._id%>?_method=PUT" method="POST">
           <div class="row">
-            <div class="input-field col s4">
-              <input placeholder="DECK NAME" id="first_name" type="text" class="validate" name="deckTitle" required="">
-              <label for="deckTitle">Deck Name</label>
-            </div>
             <div class="input-field col s8">
               <!-- <input id="last_name" type="text" class="validate">
               <label for="last_name"></label> -->
@@ -49,7 +45,7 @@
             <div class="col s5">
                 <div class="input-field" required="">
                     <h5>Question:</h5>
-                    <textarea name="question" id="body" required=""></textarea>
+                    <textarea name="question" id="body" required=""><%= card.question %></textarea>
                 </div>
             </div>
             <div class="col s7"></div>
@@ -59,7 +55,7 @@
             <div class="col s5">
                 <div class="input-field" required="">
                     <h5>Answer:</h5>
-                    <textarea name="answer" id="body" required=""></textarea>
+                    <textarea name="answer" id="body" required=""><%= card.answer %></textarea>
                 </div>
             </div>
             <div class="col s7"></div>
@@ -88,12 +84,13 @@
           </div> -->
           <div class="row">
             <a href="/cards" class="btn orange lighten-2">Cancel</a>
-            <input type="submit" class="btn  indigo lighten-3">
+          <input type="submit" class="btn  indigo lighten-3">
+          
           </div>
         </form>
-        </div>
-
+      </div>
       <img src="/static/cta-illustration.svg" alt="">
+
     </section>
     
 
