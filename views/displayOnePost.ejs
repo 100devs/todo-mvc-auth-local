@@ -6,22 +6,20 @@
     <a href="/blogPost"><i id='backButton' class="fa fa-arrow-left"></i></a>
 
     <ul>
-        <% BlogPost.forEach( items => { %>
-                <li class='postItem' data-id='<%=items._id%>'>
-                    <div class='title'> <h4><%= items.title %></h4>  </div> 
-                    <div class='body'> <%= items.body %>  </div>
-                    <div class='gitHub'><i class="<% if(items.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if(items.gitHub) { %> <%= items.gitHub %> <% } %>"><%= items.gitHub %></a>  </div>
-                    <div class='date'> Posted on <%= new Date(items.date).toLocaleString('en-us') %>  </div>
-                    <div class='dueDate'><% if(items.dueDate) { %> Due <%= items.dueDate %> <% } %></div>
-                    <div class="mood">Mood: <%= items.mood %> </div>
+                <li class='postItem' data-id='<%=blogPost._id%>'>
+                    <div class='title'> <h4><%= blogPost.title %></h4>  </div> 
+                    <div class='body'> <%= blogPost.body %>  </div>
+                    <div class='gitHub'><i class="<% if(blogPost.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if(blogPost.gitHub) { %> <%= blogPost.gitHub %> <% } %>"><%= blogPost.gitHub %></a>  </div>
+                    <div class='date'> Posted on <%= new Date(blogPost.date).toLocaleString('en-us') %>  </div>
+                    <div class='dueDate'><% if(blogPost.dueDate) { %> Due <%= blogPost.dueDate %> <% } %></div>
+                    <div class="mood">Mood: <%= blogPost.mood %> </div>
                     <div id="actionsContainer">
-                        <form action="/blogPost/edit/<%= items._id %>" action="GET">
+                        <form action="/blogPost/edit/<%= blogPost._id %>" action="GET">
                             <input type="submit" class="editButton button-18" value="Edit">
                         </form>
                             <button onclick="deletePost" class="button-18 del" id="del">Delete</button>
                     </div>
                 </li>
-        <% }) %>    
         </ul>
     
 </body>
