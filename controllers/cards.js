@@ -1,4 +1,4 @@
-const { Card, Deck } = require('../models/card')
+const { Card, Deck } = require('../models/Card')
 
 module.exports = {
   getDashboard: async (req,res) => {

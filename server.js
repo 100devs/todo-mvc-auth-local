@@ -48,6 +48,6 @@ app.use('/', mainRoutes)
 //app.use('/todos', todoRoutes) // Commenting out since we're using cards
 app.use('/cards', cardRoutes) // added card routes
  
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server is running on port: ${process.env.PORT}; you better catch it!`)
 })    
