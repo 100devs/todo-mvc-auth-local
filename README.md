@@ -1,7 +1,7 @@
 # Happy Notes
 A study note taking application in the style of flash cards. A new user can sign up with Happy Notes to help them study for their next big interview or exam. Login takes the user to their dashboard, where they can create a new deck specific to their study topic and add new flash cards. At the dashboard, a user can navigate through their collection of flash cards and click on the card to reveal the answer. A user also has the option to edit and/or delete a specific card if they wish. Happy Notes is complete with passport and user authentication so users can rest assure that their flash card collections are private to them and cannot be accessed by any other user.
  
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://happy-notes-app.herokuapp.com/
  
 ![Happy notes frontpage](https://github.com/jericashall/happy-notes/blob/main/happynotes.png)
  
