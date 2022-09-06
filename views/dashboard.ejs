@@ -8,8 +8,8 @@
     <title>Squish</title>
 
     <!-- LINKS -->
-    <link rel="stylesheet" href="public/css/reset.css">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
@@ -55,14 +55,7 @@
                 </div>
                 <!-- DASHBOARD BODY -->
 
-                      <ul>
-                            <% todos.forEach( el => { %> 
-                              <li class='todoItem' data-id='<%=el._id%>'>
-                                  <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                                  <span class='del'> Delete </span>
-                              </li>
-                      <% }) %>    
-                      </ul> -->
+
                 <ul>
                 <div class="dash-title">
                     <h2>Dashboard</h2>
@@ -87,6 +80,14 @@
                 <div>
                     <div class="dash-images">
                         <div class="dash-row">
+                            <ul>
+                                <% Entries.forEach( el => { %> 
+                                  <li class='todoItem' data-id='<%=el._id%>'>
+                                      <span><%= el.Entries %></span>
+                                      <span class='del'> Delete </span>
+                                  </li>
+                          <% }) %>    
+                          </ul> -->
                             <img src="./image/Group 3.png">
                             <img src="./image/Group 3.png">
                             <img src="./image/Group 3.png">

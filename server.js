@@ -37,7 +37,8 @@ connectDB();
 app.set("view engine", "ejs");
 
 // Tell express to use what is in the public folder
-app.use(express.static("public"));
+app.use(express.static('public'))
+app.use(express.static('image'))
 app.use(express.urlencoded({ extended: true }));
 
 // Instance of express that can handle JSON
