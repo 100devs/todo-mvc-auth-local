@@ -27,6 +27,7 @@
                             <% } %>
 
                             <span class="fa fa-star <%=el.important === true ? 'important' : '' %>" title="Star Task"></span>
+                            <span class="fa fa-check <%= el.completed === true ? 'completed' : 'not' %>" title = "Uncomplete"></span>
                             <span class='del fa fa-trash delete-btn' title="Delete Task"></span>
                         </li>
                     </div>
