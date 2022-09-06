@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQUAKER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/output.css">
+</head>
+<body>
+    <h1 class="text-3xl font-bold underline">SQUAWKER</h1>
+    <ul>
+    <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <h3>
+                    <%= user.userName %>
+                    <button>Reply</button>
+                </h3>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del'> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
+
+    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+
+    <div class="bg-gray-500 h-20 w-1/2">
+        <form action="/todos/createTodo" method='POST'>
+            <span><%= user.userName %></span>
+            <input type="text" placeholder="Squawk here... " name='todoItem' class="border border-slate-300 bg-white py-2 px-4 w-1/2">
+            <input type="submit" value="SEND" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        </form>
+    </div>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

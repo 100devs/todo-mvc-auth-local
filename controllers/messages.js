@@ -10,7 +10,7 @@ module.exports = {
             } else {
                 messages = await Message.find({})
             }
-            res.render('todos.ejs', {messages: messages, user: req.user})
+            res.render('messages.ejs', {messages: messages, user: req.user})
         }catch(err){
             console.log(err)
         }
