@@ -13,7 +13,8 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id, 
+                estimatedTimeToCompletion: req.body.estimatedTimeToCompletion, timeMarkedStarted: 0, timeMarkedComplete: 0})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -23,7 +24,7 @@ module.exports = {
     markComplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: true
+                completed: true, timeMarkedComplete: Date.now()
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
@@ -51,5 +52,16 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
+    markStarted: async (req, res)=>{
+        console.log(req.body.todoIdFromJSFile)
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                timeMarkedStarted: Date.now()})
+            console.log('We started it!')
+            res.json('We started it!')
+        }catch(err){
+            console.log(err)
+        }
+    },
 }    

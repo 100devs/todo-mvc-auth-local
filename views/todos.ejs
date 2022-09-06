@@ -6,27 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1 class="container">Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+            <li class='todoItem background' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                <span class="estimatedTime"><%= el.estimatedTimeToCompletion %></span>
+                <!--<button class="start" type="button">
+                    START
+                </button>
+                AW testing new format-->
+                <input class= "styled" type="button" value="Reset" id="sw-rst" disabled/>
+                <input class= "styled" type="button" value="Start" id="sw-go" disabled/>
+
+                <!-- <span class="start">Start Todo</span> -->
+                <span class="del delete-styled"> Delete </span>
+                <!--how to make a button? oh well-->
+            </li>
+            <li>
+                <span id="onTime" class="hidden">You completed the task in a timely manner!</span>
+                <span id="tooSlow" class="hidden">You needed to schedule more time</span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2 class="container"><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+    <form class="container" action="/todos/createTodo" method='POST'>
+        <input type="input text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="input text" placeholder="Enter Seconds to Complete" name="estimatedTimeToCompletion">
+        <input class="styled" type="submit">
     </form>
 
-    <a href="/logout">Logout</a>
+    <a class="container delete-styled" href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+    <script src="js/stopwatch.js"></script>
 </body>
 </html>

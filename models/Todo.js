@@ -12,6 +12,18 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  estimatedTimeToCompletion: {
+    type: Number,
+    required: true
+  },
+  timeMarkedStarted: {
+    type: Number,
+    required: false
+  },
+  timeMarkedComplete: {
+    type: Number,
+    required: false
   }
 })
 

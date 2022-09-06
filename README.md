@@ -41,4 +41,23 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+# Group Additions
+We are planning to add...
 
+1. Time estimated to complete task
+  ~~- alter the schema/object stored in our collections~~
+  ~~- alter the todos.ejs to add input field for estimated time to complete task~~
+
+2.  Start button to 'start' task, should log current time
+  ~~- alter the schema/object stored in our collections~~
+  - alter the todos.ejs to add a button
+  - add a smurf which also listens for that button and adds the current to db
+
+3.  Alter the way we mark something complete
+  - alter the schema to track the time todo was marked as complete
+  - alter the smurf for marking complete to also get the current time
+  * optionally display the time marked complete to the user, which would mean altering the ejs
+
+4. Compute the delta between estimated completion time vs. actual completion time
+  - alter the ejs to show this
+  - alter the css if we want to change the display for the user
