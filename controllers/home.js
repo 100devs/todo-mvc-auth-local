@@ -17,7 +17,10 @@ module.exports = {
    },
    getContact: (req, res) => {
       try {
-         res.render('contact')
+         let userName = req.user.userName;
+         res.render('contact', {
+            userName
+         })
       } catch (err) {
          console.log(err)
       }
