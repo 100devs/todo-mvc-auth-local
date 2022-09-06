@@ -12,13 +12,12 @@ router.post("/createGear", gearController.createGear);
 //  @route  GET /
 router.get("/", ensureAuth, gearController.getGear);
 
-//  @desc   Display test page to display gear
-//  @route  GET /show
-router.get("/show", gearController.showGear);
+//  @desc   Update gear in the database with user input
+//  @route  PUT /updateGear
+router.get("/updateGear/:id", ensureAuth, gearController.updateGear);
 
 //  @desc   Delete gear in your list
 //  @route  DELETE /gear
-router.delete('/deleteGear', gearController.deleteGear)
-
+router.delete("/deleteGear", gearController.deleteGear);
 
 module.exports = router;
