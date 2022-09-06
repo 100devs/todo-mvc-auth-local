@@ -130,7 +130,7 @@ Login
     font-size: 2.5rem;
 }
 
-.submitInput{
+.submitInput,.submit-todo{
     font-size: 2rem;
     border: 1px solid rgb(177, 177, 177);
     color: white;
@@ -216,26 +216,78 @@ Todo Page
 
 
 .todos-container{
-    padding:2rem 3rem;
+    padding:4rem 5rem;
+    
 }
 
-.todos-inner-container{
-    display:flex;
-    gap:3rem;
-}
-
-.added-todos, .working-on{
-    display:flex;
-    flex-direction: column;
-}
-
-.todoItem{
+.todos-lists-container{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1rem;
+    margin:2rem 0;
+    width:90%;
+    background: #F8F8F8;
+    border-radius: .75rem;
+
+}
+
+.todo-title{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #212121;
+}
+
+.todos-lists-container section h2{
+    padding: .5rem 1rem;
+    background: #F0E7F6;
+    border-radius: 1.25rem;
+
+}
+
+.todos-lists-container section{
+    width:33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .75rem 0;
+    gap: 1.4rem;
+    border-radius: .75rem;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.todo-container{
+
+    display: flex;
+    flex-direction: column;
     gap:1rem;
 }
 
+.todoItem{
+    padding:1rem;
+    width:20rem;
+    height:10rem;
+    background-color: white;
+    border:1px solid #DDDDDD;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+    border-radius: .5rem;
+    
+}
+.todoItem{
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+}
 
+.todoItem-todo{
+    font-weight: 600;
+    font-size: 1.3rem;
+
+
+}
 .formInput {
     border: 1px solid rgb(177, 177, 177);
     border-radius: 7px;
@@ -245,6 +297,52 @@ Todo Page
     margin: 8px;
 }
 
-.submitInput {
+
+
+/* add todos pop-up */
+.hidden {
+    display: none;
+}
+.add-todo--container{
+    
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index:5
     
 }
+
+
+.add-todo--inner-container{
+    
+    padding:2rem 5rem;
+    background: #fff;
+    border-radius: .5rem;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.add-todo--title{
+    font-size:2.5rem;
+}
+
+.add-todo--inner-contaner .add-todo--text{
+    width:100%;
+    height:4rem;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+
+}
+
+.add-todo--inner-container .submit-todo{
+    width:50%;
+}
+

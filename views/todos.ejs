@@ -11,18 +11,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="todos-container">
-    <h1>Todos</h1>
-    <div class="todos-inner-container">
+    <h1 class="todo-title">Todos</h1>
+    <div class="todos-lists-container">
 
         
             <section class="added-todos">
-                <h2>Recently Added</h2>
-                <ul>
+                <h2 >Not started</h2>
+                <ul class="todo-container">
                     <% todos.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
-                                <span><%= el.todo %></span>
-                                <span class="workingOn"> + working-on</span>
-                                <span class="archive">+ archive</span>
+                                <span class="todoItem-todo"><%= el.todo %></span>
+
+                                <div class="todoItem-btns">
+                                   <span class="workingOn"> + working-on</span>
+                                     <span class="archive">+ archive</span>  
+                                </div>
+                               
                                 <!-- <span class='del'> Delete </span> -->
                             </li>
                     <% }) %>    
@@ -30,14 +34,18 @@
             </section>
 
             <section class="working-on">
-                <h2>working On</h2>
-                <ul>
+                <h2>In progess</h2>
+                <ul class="todo-container">
                     <% workingOn.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
-                                <span><%= el.todo %></span>
+                                <span  class="todoItem-todo"><%= el.todo %></span>
                                 
-                                <span class='del'> Delete </span>
-                                <span class="completed">completed</span>
+                                <div class="todoItem-btn">
+
+                                     <span class='del'> Delete </span>
+                                    <span class="completed">completed</span>
+                                </div>
+                               
                             </li>
                     <% }) %>    
                     </ul>
@@ -46,13 +54,17 @@
 
             <section class="completed">
                 <h2>Completed</h2>
-                <ul>
+                <ul class="todo--container">
                     <% completed.forEach( el => { %>
                             <li class='todoItem' data-id='<%=el._id%>'>
-                                <span><%= el.todo %></span>
-                                <span class="incomplete"> inComplete</span>
-                                <!-- <span class='del'> Delete </span> -->
-                                <span class="archive">archive</span>
+                                <span  class="todoItem-todo"><%= el.todo %></span>
+                                <div class="todoItem-btns">
+
+                                    <span class="incomplete"> inComplete</span>
+                                    <!-- <span class='del'> Delete </span> -->
+                                    <span class="archive">archive</span>  
+                                    </div>
+                                
                             </li>
                     <% }) %>    
                     </ul>
@@ -63,12 +75,27 @@
     </div>
    
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <!-- <h2><%= user.userName %> has <%= left %> things left to do.</h2> -->
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+
+    <button type="button" class='add-todo-open-btn'>Add Todo</button>  
+  
+
+
+    <div class="add-todo--container hidden">
+
+    
+        <div class="add-todo--inner-container ">
+
+            <h3 class="add-todo--title">Add todo</h3>
+            <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem' class="add-todo--text">
+            <input type="submit" class="submit-todo">
+            </form>  
+        </div>
+  
+    </div>
+    
     
     <a href="/archive">archied todos</a>
     <a href="/logout">Logout</a>

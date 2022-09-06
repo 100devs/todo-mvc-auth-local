@@ -34,7 +34,7 @@ Array.from(todoComplete).forEach((el)=>{
 // })
 
 async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('todos/deleteTodo', {
             method: 'delete',
@@ -52,7 +52,7 @@ async function deleteTodo(){
 }
 
 async function markWorkingOn(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('todos/markWorkingOn', {
             method: 'put',
@@ -71,7 +71,7 @@ async function markWorkingOn(){
 
 
 async function unmarkComplete(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('todos/unmarkComplete', {
             method: 'put',
@@ -89,7 +89,7 @@ async function unmarkComplete(){
 }
 
 async function markArchive(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('todos/markArchive', {
             method: 'put',
@@ -107,7 +107,7 @@ async function markArchive(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     console.log(todoId)
     try{
         const response = await fetch('todos/markComplete', {
@@ -142,3 +142,19 @@ async function markComplete(){
 //         console.log(err)
 //     }
 // }
+
+
+
+const openAddTodo = document.querySelector('.add-todo-open-btn')
+const submitTodoBtn = document.querySelector('.submit-todo')
+const addTodoContainer = document.querySelector('.add-todo--container')
+
+openAddTodo.addEventListener('click', () =>{
+    addTodoContainer.style.display = 'flex'
+    addTodoContainer.classList.remove('hidden')
+})
+
+
+submitTodoBtn.addEventListener('click', () =>{
+    addTodoContainer.style.display = 'none'
+})
