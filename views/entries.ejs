@@ -43,42 +43,89 @@
 
 							<!-- Content -->
 								<article>
+                                    <h1>Bean Tracker</h1>
+                                    <h2>Income</h2>
+                                    
+                                    <table class="entry-table">
+                                        <thead>
+                                            <th>Date</th>
+                                            <th>Item</th>
+                                            <th>Company</th>
+                                            <th>Category</th>
+                                            <th>Amount</th>
+                                            <th></th>
+                                        </thead>
 
+                                        <tbody>
+                                            <% income.forEach( el => { %>
+                                                <tr <tr class="incomeItem" data-id='<%=el._id%>'></tr>>
+                                                    <td><%= el.date %></td>
+                                                    <td><%= el.description %></td>
+                                                    <td><%= el.company %></td>
+                                                    <td><%= el.category %></td>
+                                                    <td><%= el.amount %></td>
+                                                    <td ><span class="del">delete</span></td>
+                                                </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
 									<h2>Expenses</h2>
 
-									<ul>
+									<!-- <ul>
 										<% entries.forEach( el => { %>
 												<li class='entryItem' data-id='<%=el._id%>'>
 													<span><%= el.description %></span>
 													<span><%= el.company %></span>
 													<span><%= el.amount %></span>
 												  <span><%= el.category %></span>
-									
-													
-													
-													<!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span> -->
-													
-													
+												<span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.company %></span>
 													<span class='del'> Delete </span>
 												</li>
 										<% }) %>    
-										</ul>
+										</ul> -->
+
+
+                                    <table class="entry-table">
+                                        <thead>
+                                            <th>Date</th>
+                                            <th>Item</th>
+                                            <th>Company</th>
+                                            <th>Category</th>
+                                            <th>Amount</th>
+                                            <th></th>
+                                        </thead>
+
+                                        <tbody>
+                                            <% expenses.forEach( el => { %>
+                                                <tr class="expenseItem" data-id='<%=el._id%>'>
+                                                    <td><%= el.date %></td>
+                                                    <td><%= el.description %></td>
+                                                    <td><%= el.company %></td>
+                                                    <td><%= el.category %></td>
+                                                    <td><%= el.amount %></td>
+                                                    <td ><span class="del">delete</span></td>
+                                                </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+
+                                    
 									
 										<h3><%= user.userName %> has <%= total %> entries.</h3>
 									
 										<form action="/entries/createEntry" method='POST'>
 											<input type="date" name="date">
-									
+         
+                                                <label for="exp">Expense</label>
 											<input type="radio" id="exp" name="expense" value="true">
-												<label for="exp">Expense</label>
-											<input type="radio" id="inc" name="expense" value="false">
+
 												<label for="inc">Income</label>
-											
-												<label for="amount">Amount</label>
+                                            <input type="radio" id="inc" name="expense" value="false">
+					
 											<input type="text" placeholder="0.00" name="amount">
 											
-											<label for="description">Item Purchased</label>
-											<input type="text" placeholder="item purchased" name="description">
+
+											<input type="text" placeholder="description" name="description">
 											   
 									
 											<input type="text" placeholder="company" name="company">

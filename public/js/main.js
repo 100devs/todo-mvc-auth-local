@@ -7,9 +7,9 @@ Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteEntry)
 })
 
-Array.from(entryItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
-})
+// Array.from(entryItem).forEach((el)=>{
+//     el.addEventListener('click', markComplete)
+// })
 
 //Array.from(todoComplete).forEach((el)=>{
 //    el.addEventListener('click', markIncomplete)
@@ -18,7 +18,8 @@ Array.from(entryItem).forEach((el)=>{
 //async function deleteTodo(){
 async function deleteEntry(){
     const entryId = this.parentNode.dataset.id
-    try{
+
+    try{    console.log('checkpoint2-m' + entryId)
         const response = await fetch('entries/deleteEntry', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
