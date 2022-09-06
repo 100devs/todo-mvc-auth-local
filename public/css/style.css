@@ -2,70 +2,124 @@
 
 html {
     font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
-    background-color: rgb(33	35	38	);
-    color: rgb(110,220,200);
+    background-color: rgb(33 35 38);
+    color: rgb(110, 220, 200);
     font-size: 1.5em;
 }
- a {
-    color: rgb(110,220,200);
+
+a {
+    color: rgb(110, 220, 200);
     text-decoration: none;
- }
- body {
+}
+
+body {
     display: flex;
     flex-direction: column;
- }
+}
+
 textarea {
     height: 50%;
 }
- section {
-    align-self: center;
- }
- a:hover {
-    color: goldenrod;
- }
 
- /* account header */
- #account {
+section {
+    align-self: center;
+}
+
+a:hover {
+    color: goldenrod;
+}
+
+label {
+    margin: 0;
+}
+
+/* account header */
+#account {
     display: flex;
     flex-direction: row;
     width: 100vw;
     justify-content: end;
- }
-.editButton {
-    width: 5em;
 }
- #backButton {
+
+#backButton {
     top: .8em;
     left: .5em;
     position: absolute;
     margin: 1em .5em;
     font-size: 2em;
- }
+}
 
- #actionsContainer {
+/* button base */
+.button-18 {
+    align-items: center;
+    background-color: rgb(110, 220, 200);
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+.button-18:hover, .button-18:focus {
+    background-color: gold;
+    color: #ffffff;
+}
+
+.button-18:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+}
+
+/* ListPosts Buttons */
+#actionsContainer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     position: relative;
- }
+}
 
- #actionsContainer input {
-    max-width: 50%;
-    width: 15em;
- }
-
- #actionsContainer #del {
-    right: 0;
-    position: absolute;
+#actionsContainer .actionButton {
+    width: 5em;
+    height: 1.8em;
+    min-height: 20px;
+    margin-right: 20px;
+}
+#actionsContainer #del {
     background-color: gray;
-    width: 6em;
-
- }
- #actionsContainer #del:hover {
+}
+#actionsContainer #del:hover {
     background-color: red;
- }
+}
+/* #actionsContainer .twitter-share-button {
+    height: ;
+} */
 
- input, textarea {
+input, textarea {
     background-color: rgb(92,92,92);
     color: white;
     border-color: none;
@@ -73,7 +127,7 @@ textarea {
     box-sizing: border-box;
     border-radius: 20px;
     padding: .2em;
- }
+}
  textarea {
     padding: .6em;
  }
@@ -153,55 +207,7 @@ textarea {
     text-shadow: 0 0 5px rgba(255,255,255,0.5);
  }
 
-/* button base */
-.button-18 {
-  align-items: center;
-  background-color: rgb(110,220,200);
-  border: 0;
-  border-radius: 100px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 20px;
-  max-width: 480px;
-  min-height: 40px;
-  min-width: 0px;
-  overflow: hidden;
-  padding: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-}
 
-.button-18:hover,
-.button-18:focus { 
-  background-color: gold;
-  color: #ffffff;
-}
-
-.button-18:active {
-  background: #09223b;
-  color: rgb(255, 255, 255, .7);
-}
-label {
-    margin: 0;
-}
-
-.button-18:disabled { 
-  cursor: not-allowed;
-  background: rgba(0, 0, 0, .08);
-  color: rgba(0, 0, 0, .3);
-}
 
 /*  post titles */
 h4 {
