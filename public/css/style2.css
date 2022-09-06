@@ -96,7 +96,14 @@ a {
 }
 
 .fa-star {
-  margin-left: auto;
+  margin-left:auto;
+}
+
+
+.fa-check{
+  text-decoration: none;
+  color:white;
+  padding-left: 10px;
   padding-right: 10px;
 }
 
