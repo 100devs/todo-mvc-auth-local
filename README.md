@@ -7,7 +7,7 @@ A study note taking application in the style of flash cards. A new user can sign
  
 ## How It's Made:
  
-**Tech used:**
+**Packages/Dependencies used:**
  
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, materialize, swiper.js
  
@@ -17,6 +17,17 @@ The selected tech used by the app is with the intention to provide the best user
 ![alt tag](http://placecorgi.com/1200/650)
  
 Security is a key feature of the Happy Notes application. Implementing bcrypt ensures the user's sign up passwords remain private by passing it through hashing algorithm to increase their complexity before it is stored in the database. Passport sessions allow the user to securely remain logged in to their account and return to their study session as they need. MongoDB provides a robust storage system for housing all the associated information from the users collections, to their sessions and credentials. Mongoose is used to provide structure to our schemas when being passed into our Mongo database.
+
+**Install all the dependencies or node packages used for development via Terminal:**
+
+`npm install`
+
+**Things to add**
+
+- Create a `.env` file and add the following as `key: value` 
+  - PORT: 2121 (can be any port example: 3000) 
+  - DB_STRING: `your database URI` 
+ ---
  
  
 ## Optimizations
@@ -25,9 +36,9 @@ Security is a key feature of the Happy Notes application. Implementing bcrypt en
 You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
  
 ## Lessons Learned:
- 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
- 
+
+Happy Notes is a collaborative effort between a group of developers working together for the first time, and growing their skills as developers in a team environment. The team of Happy Notes had to get more comfortable with many technologies while creating a full stack web app that incorporates a node.js MVC structure. The devs wanted a friendly and robust UI that involved learning how to manipulate elements through various CSS properties and incorporating font end frameworks like Materialize. A good portion involved using package libraries' respective documentation to troubleshoot issues encountered along the way. Our devs also required a deep dive into understanding relationships in a non-relational database like for implementing subdocuments within the schema using mongoose. The use of MVC structure for this project allowed the devs to more easily work sections of the program logic at the same time while using git.
+
 ## Happy Notes Team:
  
 - <a href="https://github.com/degenerating">Christian L.</a>

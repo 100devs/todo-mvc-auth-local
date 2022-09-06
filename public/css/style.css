@@ -205,3 +205,13 @@ h1 {
   color: #f3f3f3;
   text-decoration: none;
 }
+
+
+/* addcard illustration */
+
+section > img {
+  width: 35%;
+  position: absolute;
+  top: 10rem;
+  right: 12rem;
+}
