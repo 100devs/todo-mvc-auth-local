@@ -91,17 +91,14 @@ a {
   border-radius: 4px;
   margin-bottom: 12px;
   display: flex;
-  align-items: center;
   padding: 8px;
   cursor: pointer;
 }
 
-.delete-btn {
+.fa-star {
   margin-left: auto;
-  cursor: pointer;
+  padding-right: 10px;
 }
-
-/*************************************/
 
 .submit-task {
   width: 32px;
@@ -139,29 +136,24 @@ a {
   border-radius: 0;
 }
 
-.logout{
+.logout {
   margin-top: 10px;
 }
 
 .input-date {
-    width: 150px;
+  width: 150px;
 }
 
-.dateStyle{
-    margin-left: 15px;
-    font-style: italic;
-    color: #b20009;
+.dateStyle {
+  margin-left: 15px;
+  font-style: italic;
+  color: #b20009;
 }
 
-.important{
+.important {
   color: yellow;
-}
-
-.fa-star {
-  padding: .8rem;
 }
  
 .draggable.dragging {
   opacity: .5;
- 
 }

@@ -12,7 +12,7 @@
 
 <body id="bg">
     <div class="app-container" id="taskList">
-        <h1 class="app-header">To Do List</h1>
+        <h1 class="app-header">myList</h1>
         <section>
             <ul class="task-list">
 
@@ -26,8 +26,8 @@
                                 <span class="dateStyle">due: <%=el.date %></span>
                             <% } %>
 
-                            <span class="fa fa-star <%=el.important === true ? 'important' : '' %>"> </span>
-                            <span class='del fa fa-trash delete-btn'></span>
+                            <span class="fa fa-star <%=el.important === true ? 'important' : '' %>" title="Star Task"></span>
+                            <span class='del fa fa-trash delete-btn' title="Delete Task"></span>
                         </li>
                     </div>
                 <% }) %>
@@ -48,7 +48,7 @@
             <input type="date" placeholder="Find tasks" name="findTask" class="double">
             <input type="submit">
         </form>
-        <div class="logout"><a href="/logout">Logout</a></div>
+        <div class="logout"><a href="/logout">Log out</a></div>
     </div>
     <script src="js/main.js"></script>
     <script src="js/drag.js"></script>
