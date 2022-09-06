@@ -53,7 +53,7 @@ async function deletePost(){
             })
             const data = await response.json()
             console.log(data)
-            location.reload()
+            location.assign('/')
         }catch(err){
             console.log(err)
         }
