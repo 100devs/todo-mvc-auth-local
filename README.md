@@ -13,8 +13,8 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
 The selected tech used by the app is with the intention to provide the best user experience and security of information. Happy Notes is created by developers who use and are familiar with study apps, but wanted a more personalized approach to their study applications. It was important to our team of developers to provide users with the option to make changes to their studying material without having to navigate through a complex system, so the entire team consulted with each other to design a dashboard for their collection where they had access to all the features of the app in one place. Materialize components were used to streamline the buttons and user interface, and swiper.js provided the smoothness and functionality of swiping through the collection. Express is king in providing our team of developers the abstraction to implement features more easily on the backend using node.js, as well as the capability to include many devs tools to build the Happy Notes app. 
 
-[insert pic here]
-![alt tag](http://placecorgi.com/1200/650)
+
+![Happy Notes app in use](https://github.com/yiremorlans/happy-notes/blob/main/happynotes.gif)
  
 Security is a key feature of the Happy Notes application. Implementing bcrypt ensures the user's sign up passwords remain private by passing it through hashing algorithm to increase their complexity before it is stored in the database. Passport sessions allow the user to securely remain logged in to their account and return to their study session as they need. MongoDB provides a robust storage system for housing all the associated information from the users collections, to their sessions and credentials. Mongoose is used to provide structure to our schemas when being passed into our Mongo database.
 
@@ -31,13 +31,12 @@ Security is a key feature of the Happy Notes application. Implementing bcrypt en
  
  
 ## Optimizations
-*(optional)*
  
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+Happy Notes future optimizations include ongoing improvements to the user interface as the team gathers more feedback from users. The team opted to go with a default dark theme, however future versions of the app may include option for light theme as well. There is room to implement an edit feature for specific study decks and performance improvements as the app continues testing among users.
  
 ## Lessons Learned:
 
-Happy Notes is a collaborative effort between a group of developers working together for the first time, and growing their skills as developers in a team environment. The team of Happy Notes had to get more comfortable with many technologies while creating a full stack web app that incorporates a node.js MVC structure. The devs wanted a friendly and robust UI that involved learning how to manipulate elements through various CSS properties and incorporating font end frameworks like Materialize. A good portion involved using package libraries' respective documentation to troubleshoot issues encountered along the way. Our devs also required a deep dive into understanding relationships in a non-relational database like for implementing subdocuments within the schema using mongoose. The use of MVC structure for this project allowed the devs to more easily work sections of the program logic at the same time while using git.
+Happy Notes is a collaborative effort between a group of developers working together for the first time, and growing their skills as developers in a team environment. The team of Happy Notes had to get more comfortable with many technologies while creating a full stack web app that incorporates a node.js MVC structure. The devs wanted a friendly and robust UI that involved learning how to manipulate elements through various CSS properties and incorporating front end frameworks and components like Materialize and Swiper.js. A good portion involved using package libraries' respective documentation to troubleshoot issues encountered along the way. The team incorporated method-override to send put requests through forms making Happy Notes a RESTful application. Our devs also required a deep dive into understanding relationships in a non-relational database like for implementing subdocuments within the schema using mongoose and one-to-many relationships data model. The use of the MVC structure for this project allowed the devs to work on sections of the program logic at the same time while using git, making collaboration easier.
 
 ## Happy Notes Team:
  
