@@ -31,16 +31,16 @@
 
       <ul class="menu-list accordion">
         <li class="accordion-toggle nav1">
-          <a class="menu-link" href="#">Home</a>
+          <a class="menu-link" href="/">Home</a>
         </li>
         <li class="accordion-toggle nav2">
-          <a class="menu-link" href="#">Dashboard</a>
+          <a class="menu-link" href="/views/dashboard.ejs">Dashboard</a>
         </li>
         <li class="toggle accordion-toggle nav3">
-          <a class="menu-link" href="#">Journal</a>
+          <a class="menu-link" href="/views/entry.ejs">Journal</a>
         </li>
         <li class="toggle accordion-toggle nav4">
-          <a class="menu-link" href="#">Logout</a>
+          <a class="menu-link" href="/logout">Logout</a>
         </li>
         <li class="toggle accordion-toggle nav5">
           <a class="menu-link" href="#">Logout</a>
@@ -76,7 +76,6 @@
               <input
                 type="email"
                 name="email"
-                id=""
                 placeholder="Your Email"
                 class="homeFormBox"
               />
@@ -88,9 +87,13 @@
               <input
                 type="password"
                 name="password"
-                id=""
                 placeholder="Your Password"
                 class="homeFormBox"
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
               />
             </div>
 
