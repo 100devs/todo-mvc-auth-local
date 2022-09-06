@@ -5,29 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <title>Dashboard</title>
     <title>Your Dashboard</title>
   </head>
   <body>
     <!-- Navbar -->
     <%- include('./partials/navbar') %>
 
-    <!-- todo: Put a nice welcome to the user name -->
-
-    <main class="container">
-      <h1>Your Dashboard</h1>
-      <ul>
-        <!-- Display User Wishlist Button -->
-        <li><a href="/dashboard/privateWishlist">My Wishlist</a></li>
-        <!-- Display Public Wishlist Button -->
-        <li><a href="/dashboard/publicWishlist">Public Wishlists</a></li>
-        <!-- Display Add Gear Button -->
-        <li><a href="/gear">Add Gear</a></li>
-        <!-- Logout Button -->
-      </ul>
-
+      <h1
+        class="mb-4 text-4xl  mt-5 text-center font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Welcome back, <span class="text-blue-600 dark:text-blue-500"><%= user.userName %></span></h1>
+      <p class="mb-6 text-lg  mt-8 font-normal text-gray-500 lg:text-xl px-5 sm:px-16 xl:px-48 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus deserunt impedit veniam. Odit maxime veniam voluptatem voluptate aliquam dolores, reiciendis ipsum laboriosam commodi optio quia ab itaque ad debitis ducimus!</p>
+      <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+        <a href="/gear"
+          class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">Add Gear
+        </a>
+      </div>
+   
       <!-- Footer -->
       <%- include('./partials/footer') %>
     </main>
     <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
   </body>
 </html>
