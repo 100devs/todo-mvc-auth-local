@@ -1520,6 +1520,10 @@ input, select, textarea {
 		line-height: 3em;
 		padding: 0 1em;
 	}
+	#exp, #inc{
+		-webkit-appearance: radio,
+
+	}
 
 	form select {
 		line-height: 3em;
