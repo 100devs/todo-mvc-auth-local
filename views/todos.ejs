@@ -7,8 +7,17 @@
     <title>My Watchlist</title>
     <script src="https://kit.fontawesome.com/b180e6371d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="/">ShowMe</a></li>
+            <li class="menu-item"><a href="#">Watchlist</a></li>
+            <li class="menu-item button"><a href="/logout">Log Out</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
     <h1>Search for a TV Show!</h1>
     <form action="/todos/searchShows" method="post">
         <input name="name" type="text" placeholder="Type the name of the show">
@@ -16,29 +25,29 @@
     </form>
 
     <h2><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
-<div class="main">
+    <div class="main">
 
 
-<div class="showList">
-    <% watchList.forEach( el => { %>
-        <li class='watchListItem' data-id='<%=el.id%>'>
-            <span class="showTitle"><%=el.tvShowName%></span>
-            <span class='fa fa-trash del'></span>
-        </li>
-<% }) %>  
-</div>
-    
-
-    <div class="summaryDisplay">
-        <% watchList.forEach( el => { %>
-            <li class='watchListItem' data-id='<%=el.id%>'>
-                <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
-                <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
-            </li>
-    <% }) %>
+        <div class="showList">
+            <% watchList.forEach( el => { %>
+                <li class='watchListItem' data-id='<%=el.id%>'>
+                    <span class="showTitle"><%=el.tvShowName%></span>
+                    <span class='fa fa-trash del'></span>
+                </li>
+            <% }) %>  
+        </div>
         
+
+        <div class="summaryDisplay">
+            <% watchList.forEach( el => { %>
+                <li class='watchListItem' data-id='<%=el.id%>'>
+                    <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
+                    <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
+                </li>
+            <% }) %>
+            
+        </div>
     </div>
-</div>
 
 
     <a href="/logout">Logout</a>
