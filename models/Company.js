@@ -22,8 +22,9 @@ const CompanySchema = new mongoose.Schema({
     email: String,
   },
   application: {
+    // The Boolean type accepts 'yes' and 'no' values and casts them to true and false
     applied: Boolean,
-    date: Date,
+    applyDate: Date,
     coffeeChat: Boolean,
     coffeeChatDate: Date,
     saidThanks: Boolean,
@@ -36,9 +37,5 @@ const CompanySchema = new mongoose.Schema({
     ref: 'User',
   },
 })
-
-// Should there be a way to add multiple points of contacts to the same company? For example: 1 Document per company (Amazon) with 3 contacts (with a separate contact schema) nested within it. <-- Complicated feature
-
-// otherwise the user will have to make new Company document for Amazon each time they find a new contact at that company <-- Easy feature MVP
 
 module.exports = mongoose.model('Company', CompanySchema)
