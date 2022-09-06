@@ -8,3 +8,7 @@ h1{
 .not{
     text-decoration: underline;
 }
+body{
+    background-color: rgb(244, 244, 249);
+    text-align: center;
+}
