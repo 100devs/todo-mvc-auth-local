@@ -5,8 +5,8 @@ module.exports = {
         console.log(req.user)
         try{
             const postItems = await BlogPost.find({userId:req.user.id}).sort({date: -1})
-            const itemsLeft = await BlogPost.countDocuments({userId:req.user.id})
-            res.render('listPosts.ejs', {BlogPost: postItems, left: itemsLeft, user: req.user})
+            const numberOfPosts = await BlogPost.countDocuments({userId:req.user.id})
+            res.render('listPosts.ejs', {BlogPost: postItems, postCount: numberOfPosts, user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -25,6 +25,15 @@ module.exports = {
             res.render('createPost.ejs', {user: req.user})
         }
         catch(err) {
+            console.log(err)
+        }
+    },
+    getDisplayPostPage: async (req,res)=>{
+        console.log(req.params.id)
+        try{
+            const postToDisplay = await BlogPost.findById(req.params.id)
+            res.render('displayOnePost.ejs', {blogPost: postToDisplay, postId:req.params.id, user: req.user})
+        }catch(err){
             console.log(err)
         }
     },
