@@ -19,6 +19,10 @@ const WatchListSchema = new mongoose.Schema({
   showSum: {
     type: String,
     required: true
+  },
+  watched:{
+    type: Boolean,
+    required: true
   }
 })
 

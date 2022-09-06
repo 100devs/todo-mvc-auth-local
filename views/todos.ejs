@@ -33,8 +33,8 @@
 <div class="showList">
     <% watchList.forEach( el => { %>
         <li class='watchListItem' data-id='<%=el.id%>'>
-            <span class="showTitle"><%=el.tvShowName%></span>
-            <span class='fa-solid fa-tv not completed'></span>
+            <span class="showTitle <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
+            <span class="fa-solid fa-tv <%= el.watched === true ? 'completed' : 'not'%>"></span>
             <span class='fa fa-trash del'></span>
         </li>
 <% }) %>  

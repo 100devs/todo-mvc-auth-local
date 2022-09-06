@@ -7,7 +7,7 @@ h1{
 }
 .completed{
     text-decoration: line-through;
-    color: gray;
+    color: rgb(0, 0, 0);
 }
 .not{
     text-decoration: underline;

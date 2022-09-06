@@ -28,7 +28,7 @@ module.exports = {
     addToWatchList: async(req,res)=>{
         console.log(req.user)
         try{
-            await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id,showImg: req.body.showPic, showSum: req.body.showSummary})
+            await Todo.create({tvShowName: req.body.showName,tvShowId: req.body.showId, userId: req.user.id,showImg: req.body.showPic, showSum: req.body.showSummary, watched: false})
             // stops the browser from constantly loading.
             res.status(204).send()
         } catch(error){
@@ -47,7 +47,7 @@ module.exports = {
     markComplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: true
+                watched: true
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
@@ -58,7 +58,7 @@ module.exports = {
     markIncomplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: false
+                watched: false
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')
