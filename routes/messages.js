@@ -9,9 +9,9 @@ router.get('/:own?', ensureAuth, messageController.getMessages)
 
 router.post('/createMessage', messageController.createMessage)
 
-router.put('/markLiked', messageController.markLiked)
+router.put('/like', messageController.markLiked)
 
-router.put('/markUnliked', messageController.markUnliked)
+router.put('/dislike', messageController.markUnliked)
 
 router.delete('/deleteMessage', messageController.deleteMessage)
 
