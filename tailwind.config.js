@@ -7,6 +7,7 @@ module.exports = {
 			londrina: ["Londrina Shadow", "cursive"],
 			long: ["Long Cang", "cursive"],
 			love: ["Love Light", "cursive"],
+			source: ["Source Sans Pro", "sans-serif"],
 		},
 		extend: {
 			backgroundImage: {

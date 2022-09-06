@@ -1,29 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/index.css" />
-    <!-- <link href="/output.css" rel="stylesheet" /> -->
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <%- include('./partials/navbar') %>
-    <div class="main">
-      <div class="container">
-        <h1 class="underline text-black text-2xl font-medium">
-          Rockband Title Here
-        </h1>
-        <hr />
-        <div class="linkContainer">
-          <a href="/login"> Login</a>
-          <a href="/signup"> Signup</a>
-        </div>
-      </div>
-    </div>
-    <!-- Footer -->
-    <%- include('./partials/footer') %>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/login.css" />
+		<title>Welcome to the Jungle</title>
+	</head>
+	<body>
+		<!-- Main container - no touchy -->
+		<div class="container">
+			<div
+				class="bg-guitar w-screen h-screen bg-no-repeat bg-center bg-cover flex items-center justify-center"
+			>
+				<div
+					class="flex flex-col lg:flex-row justify-center items-center lg:w-1/3 w-full"
+				>
+					<div
+						class="flex flex-col items-center justify-center lg:p-4 lg:mb-20"
+					>
+						<div
+							class="flex no-click flex-row max-w-[200px] justify-center blur-[.03em] mb-12 lg:mb-0 translate-x-8"
+						>
+							<span
+								class="text-9xl md:text-[11em] uppercase font-londrina font-bold text-white -rotate-[20deg] translate-x-10"
+								>Gear</span
+							>
+							<span
+								class="text-9xl md:text-[11em] font-love text-white font-bold -rotate-[20deg] -translate-x-28 translate-y-10"
+								>wish</span
+							>
+						</div>
+						<div
+							class="bg-[rgb(0,0,0,.8)] lg:w-2/3 lg:h-[388px] lg:min-w-[500px] lg:rounded-[50px] hidden lg:flex lg:items-center lg:justify-center"
+						>
+							<p class="w-2/3 text-white">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+								maxime quis unde iusto ipsum suscipit obcaecati numquam animi
+								soluta, illum in ea hic ipsa recusandae. Nostrum error minima
+								voluptatum accusamus, dolore dolorem vitae fuga molestias esse
+								quod eveniet accusantium eius tenetur provident necessitatibus
+								maiores tempore corrupti aliquam modi non inventore.
+							</p>
+						</div>
+					</div>
+
+					<div class="container">
+						<div class="flex flex-col items-center lg:p-4 lg:mt-32">
+							<div
+								class="bg-[rgb(0,0,0,.7)] flex flex-col rounded-[50px] items-center justify-center w-5/6 max-w-md lg:min-w-[300px] h-96 px-1 py-10"
+							>
+								<form
+									action="/login"
+									method="POST"
+									class="flex flex-col items-center h-2/3 w-5/6"
+								>
+									<input
+										type="email"
+										name="email"
+										placeholder="Email"
+										autocomplete="off"
+										class="placeholder:text-lg text-center placeholder:text-gray-300 placeholder:text-center h-10 min-h-max w-full rounded-[13px] mb-3 font-krona uppercase cursor-pointer"
+									/>
+									<input
+										type="password"
+										name="password"
+										placeholder="Password"
+										autocomplete="off"
+										class="placeholder:text-lg text-center placeholder:text-gray-300 placeholder:text-center h-10 min-h-max w-full rounded-[13px] mb-6 font-krona uppercase cursor-pointer"
+									/>
+									<div
+										class="w-[300px] lg:absolute lg:translate-y-20 lg:translate-x-10 mb-3"
+									>
+										<% if (locals.messages.errors) { %> <%
+										messages.errors.forEach( el => { %>
+										<div
+											class="alert alert-danger text-red-500 font-long text-xl"
+										>
+											<%= el.msg %>
+										</div>
+										<% }) %> <% } %> <% if (locals.messages.info) { %> <%
+										messages.info.forEach( el => { %>
+										<div class="alert alert-danger"><%= el.msg %></div>
+										<% }) %> <% } %>
+									</div>
+									<input
+										type="submit"
+										value="Login"
+										class="submit cursor-pointer text-gray-400 text-lg font-krona bg-black w-full h-12 rounded-[13px] flex flex-col items-center justify-center"
+									/>
+								</form>
+								<!--Sign up section -->
+								<div class="flex flex-col items-center">
+									<h3 class="text-white text-sm font-krona mb-3 cursor-default">
+										Don't have an account?
+									</h3>
+									<div
+										class="text-white text-4xl font-long w-full h-12 bg-[#420000] rounded-[13px] flex items-center justify-center"
+									>
+										<a href="/signup" class="uppercase"> Sign up </a>
+									</div>
+								</div>
+							</div>
+							<!-- Footer -->
+							<div
+								class="bg-inherit relative mt-4 text-xl blur-[.02em] cursor-default"
+							>
+								<%- include('./partials/footer') %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
