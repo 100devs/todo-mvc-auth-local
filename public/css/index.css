@@ -6,9 +6,11 @@
 
     font-family: 'Love Light', cursive;
 
+    font-family: 'Source Sans Pro', sans-serif;
+
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Londrina+Shadow&family=Long+Cang&family=Love+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Londrina+Shadow&family=Long+Cang&family=Love+Light&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 body {
     width: 100vw;
@@ -24,4 +26,8 @@ a {
     text-decoration: none;
     color: inherit;
     font-style: inherit;
+}
+
+.no-click {
+    pointer-events: none;
 }
