@@ -1,15 +1,20 @@
 body {
     color: #233142;
     background-color: rgb(220, 220, 220);
+    width: 100vw;
+    height: 100vh;
 }  
+
+nav, .nav-wrapper {
+    width: 100vw;
+}
 
 .brand-logo{
     margin-left: 1%;
 }
 
-.logo-big {
+.indexImage {
     border-radius: 20px;
-    box-shadow: 10px 10px 18px rgb(183, 183, 183);
 }
 
 .completed{
@@ -48,7 +53,6 @@ table {
     background-color: #ee6e73;
     width: 100%;
     border: 1px solid transparent;
-    box-shadow: 5px 5px 10px rgb(183, 183, 183);
 }
 
 .form-submit:hover {
@@ -67,7 +71,6 @@ table {
     border: 2px solid transparent;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 10px 10px 18px rgb(183, 183, 183);
     padding: 30px;
 }
 
@@ -91,10 +94,10 @@ table {
     margin-top: 10px;
 }
 
- /* .brand-logo{
-    width: 6%;
-    margin-left:1%;
-}  */
+.paid-text {
+    font-size: 0.8rem;
+    color: #455d7a;
+}
 
 .homepage{
     margin-top: 100px;
@@ -161,6 +164,9 @@ nav .brand-logo {
         padding-left: 70px;
         left: 0;
     }
+    table {
+        width: 90%;
+    }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 700px) {
@@ -214,13 +220,11 @@ nav .brand-logo {
         width: 70%;
     }
     img.responsive-img.indexImage {
-        /* width: 90%; */
         width: 55%;
+        margin-top: 5%;
     }
     .col.s12.l6.offset-12 {
         display: flex;
         justify-content: center;
     }
 }
-
-
