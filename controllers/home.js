@@ -7,9 +7,9 @@ module.exports = {
    },
    dashboard: async (req, res) => {
       try {
-         let user = req.user.userName;
+         let userName = req.user.userName;
          res.render('dashboard', {
-            user
+            userName
          })
       } catch (err) {
          console.log(err)

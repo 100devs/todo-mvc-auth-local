@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/head') %>
+   <body>
+
+       <%- include('partials/nav') %>
+
+   <div class="container">
+      <h1>Edit Your Trip</h1>
+
+      <form class="edit-form" action="/trips/<%=trip._id%>" method='POST'>
+           <input type="hidden" name="_method" value="PUT">
+           <textarea type="text" name='tripTitle' placeholder="<%=trip.tripTitle%>" rows="1" cols="40"><%=trip.tripTitle%></textarea> <br><br>
+           <textarea type="text" rows="4" cols="40" placeholder="<%=trip.option1%>" name='option1'><%=trip.option1%></textarea><br><br>
+           <textarea type="text" placeholder="<%=trip.option2%>" name='option2' rows="4" cols="40"><%=trip.option2%></textarea><br><br>
+           <textarea type="text" placeholder="<%=trip.option3%>" name='option3' rows="4" cols="40"><%=trip.option3%></textarea><br><br>
+
+           <input type="text" value="<%=formatDateFrom%>" name="dateFrom" onfocus="(this.type='date')" onblur="(this.type='text')"><br><br>
+           <input type="text" value="<%=formatDateTo%>" name="dateTo" onfocus="(this.type='date')" onblur="(this.type='text')"><br><br>
+
+           <textarea type="text" placeholder="<%=trip.tripMembers%>" name='tripMembers' rows="6" cols="40"><%=trip.tripMembers%></textarea><br><br>
+
+           <input type="submit"><br><br>
+      </form>
+   </div>
+
+       <script src="js/main.js"></script>
+   </body>
+
+</html>

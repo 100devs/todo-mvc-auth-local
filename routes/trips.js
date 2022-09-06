@@ -17,6 +17,14 @@ router.get('/createTrip', ensureAuth, tripsController.createTrip)
 // @route   POST /trip/createPostTrip
 router.post('/createPostTrip', ensureAuth, tripsController.createPostTrip)
 
+// @desc    Show Trip Edit Form
+// @route   get /show trip edit form for current trip
+router.get('/edit/:id', ensureAuth, tripsController.edit)
+
+// @desc    Update Trip
+// @route   PUT /trip/edit
+router.put('/:id', ensureAuth, tripsController.editPut)
+
 // @desc    Delete Trip
 // @route   DELETE /trip/:id
 router.delete('/:id', ensureAuth, tripsController.deleteTrip)
