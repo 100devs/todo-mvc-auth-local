@@ -1,4 +1,99 @@
-h1{
+.body{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(157, 113, 232);
+    font-family: 'Poppins', sans-serif;
+}
+
+.body-section{
+    width:35vw;
+    height:65vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(245, 239, 255, 0.2);
+    border:rgb(245, 239, 255) 1px solid;
+    border-radius:30px;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+    text-transform: capitalize;
+}
+
+
+/* ---------------------------------INDEX.EJS--------------------------------- */
+
+.index-header{
+    color:Black;
+    text-align: center;
+}
+
+.login-signup{
+    width:50%;
+    height:3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-signup a{
+    display:block;
+    font-weight: 600;
+    color:rgb(245, 239, 255) ;
+    border:rgb(245, 239, 255) 2px dashed;
+    border-radius: 20px;
+    width:50%;
+    height:100%;
+    background-color: rgba(30, 0, 78, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2%;
+}
+
+.login-signup a:hover{
+    background-color: rgba(245, 239, 255, 1);
+    color:rgb(115, 113, 252)
+}
+
+
+/* ---------------------------------LOGIN EJS--------------------------------- */
+
+.login-button{
+    background-color: rgba(30, 0, 78, 0.2);
+    border:rgb(245, 239, 255) 2px dashed;
+    border-radius: 20px;
+    padding:10px;
+    width:20%;
+    height:10%;
+    font-size: 1rem;
+    font-weight: 600;
+    color:rgb(245, 239, 255);
+}
+
+.login-button:hover{
+    background-color: rgba(245, 239, 255, 1);
+    color:rgb(115, 113, 252);
+    border:rgb(245, 239, 255) 2px solid;
+}
+
+.email-login-label, .password-login-label{
+    display:inline-block;
+    width:100px;
+}
+
+input[type="email"], input[type="password"]{
+    height:2rem;
+}
+
+/* ---------------------------------TODOS EJS--------------------------------- */
+.todos-header{
     color: red;
 }
 .completed{
