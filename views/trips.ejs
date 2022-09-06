@@ -23,6 +23,9 @@
         <div class="card-panel teal">
          <ul>
             <% allUserTrips.forEach(trip => { %>
+                <button>
+                  <%- editIcon(user._id, trip.userId, trip._id) %>
+               </button>
             <li>
                <h3><%=trip.tripTitle%><h3>
             </li>
@@ -46,9 +49,6 @@
         </div>
       </div>
     </div>
-
-    <span>Logged in as <%=user%> | </span>
-    <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
 

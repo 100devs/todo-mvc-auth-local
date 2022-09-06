@@ -1,7 +1,8 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const app = express()
 const mongoose = require('mongoose')
-const methodOverride = require('method-override');
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -10,6 +11,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const tripRoutes = require('./routes/trips')
+const helpers = require('./helpers/helper')
 
 require('dotenv').config({ path: './config/.env' })
 
@@ -26,7 +28,7 @@ app.use(express.json())
 // Method Override
 app.use(methodOverride((req, res) => {
    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies and delete it to replace with another Method
+      // look in urlencoded POST bodies and replaces it with another method
       let method = req.body._method;
       delete req.body._method;
       return method;
@@ -41,14 +43,16 @@ app.use(
       saveUninitialized: false,
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
    })
-)
+);
+
+// Locals Object
+helpers(app)
 
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-
 
 // Route Links
 app.use('/', homeRoutes)
