@@ -1,33 +1,29 @@
-# Introduction
+# Recipe Books
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
-
+A simple recipe app built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+[Link to project](#)
 
----
-
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
-
+![Anime-Gen](https://github.com/specialyas/recipebooks/blob/main/story.png?raw=true)
 ---
 
 # Who is this for? 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- It's for people who are looking for a place to store their recipes or just view recipes stored by others.
+
+---
+# How it's Made
+
+**Tech used:** HTML, CSS, JavaScript, Express, Node and MongoDB
+
 
 ---
 
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
+# Optimizations
+The app can be optimized by adding a sub category to allow for grouping of recipes.
 
 # Development Setup
-
 1. Clone repo to your machine
 2. Run `npm install` in terminal to install all project dependencies
 3. Create a .env file in the config folder with the following info:
