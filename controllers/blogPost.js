@@ -28,6 +28,15 @@ module.exports = {
             console.log(err)
         }
     },
+    getDisplayPostPage: async (req,res)=>{
+        console.log(req.params.id)
+        try{
+            const postToDisplay = await BlogPost.findById(req.params.id)
+            res.render('displayOnePost.ejs', {blogPost: postToDisplay, postId:req.params.id, user: req.user})
+        }catch(err){
+            console.log(err)
+        }
+    },
     createBlogPost: async (req, res)=>{
         try{
             await BlogPost.create({
