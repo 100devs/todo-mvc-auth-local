@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-test
 
 const TripSchema = new mongoose.Schema({
 

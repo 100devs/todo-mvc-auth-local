@@ -16,7 +16,11 @@ module.exports = {
       }
    },
    getContact: (req, res) => {
-      res.render('contact.ejs')
+      try {
+         res.render('contact')
+      } catch (err) {
+         console.log(err)
+      }
    },
 
 }

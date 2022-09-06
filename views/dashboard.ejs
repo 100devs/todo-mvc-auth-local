@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Font Awesome fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="css/style.css">
-</head>
+  <%- include('partials/head') %>
 <body>
-   <a href="/contact">Contact</a>
-    <h1><a href="/dashboard">Dashboard</a></h1>
-    <p>This is your profile view</p>
-    <h2><a href="/trips">Trips</a></h2>
+     
+  <%- include('partials/nav') %>
+        
+  
+    <p>This is your profile view, <%=user%> </p>
 
 
-    <a href="/trips/createTrip">Create Trip</a>
-    <br>
-    <br>
-    <span>Logged in as <%=user%> | </span>
-    <a href="/logout">Logout</a>
+    
+    
+
+  
+    
+    
+
+
 
     <script src="js/main.js"></script>
 
