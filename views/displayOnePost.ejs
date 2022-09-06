@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ('partials/head') %>
+    <%- include ('partials/header') %>
+<body>
+    <a href="/blogPost"><i id='backButton' class="fa fa-arrow-left"></i></a>
+
+    <ul>
+        <% BlogPost.forEach( items => { %>
+                <li class='postItem' data-id='<%=items._id%>'>
+                    <div class='title'> <h4><%= items.title %></h4>  </div> 
+                    <div class='body'> <%= items.body %>  </div>
+                    <div class='gitHub'><i class="<% if(items.gitHub) { %>fa-brands fa-github <% } %>"></i> <a href="<% if(items.gitHub) { %> <%= items.gitHub %> <% } %>"><%= items.gitHub %></a>  </div>
+                    <div class='date'> Posted on <%= new Date(items.date).toLocaleString('en-us') %>  </div>
+                    <div class='dueDate'><% if(items.dueDate) { %> Due <%= items.dueDate %> <% } %></div>
+                    <div class="mood">Mood: <%= items.mood %> </div>
+                    <div id="actionsContainer">
+                        <form action="/blogPost/edit/<%= items._id %>" action="GET">
+                            <input type="submit" class="editButton button-18" value="Edit">
+                        </form>
+                            <button onclick="deletePost" class="button-18 del" id="del">Delete</button>
+                    </div>
+                </li>
+        <% }) %>    
+        </ul>
+    
+</body>
+</html>
