@@ -7,14 +7,14 @@ module.exports = {
   showDashboard: async (req, res) => {
     try {
       console.log("This is the Dashboard Controller speaking. Volume to 11!");
-      res.render("dashboard.ejs");
+      res.render("dashboard.ejs", { user: req.user });
     } catch (err) {
       console.error(err);
     }
   },
   showPublicWishlist: async (req, res) => {
     try {
-      const gearItems = await Gear.find( {visibility: "public"});
+      const gearItems = await Gear.find({ visibility: "public" });
       console.log("This is the Dashboard Controller speaking. Volume to 11!");
       res.render("publicWishlist.ejs", { gears: gearItems, user: req.user });
     } catch (err) {
@@ -23,7 +23,10 @@ module.exports = {
   },
   showPrivateWishlist: async (req, res) => {
     try {
-      const gearItems = await Gear.find({ userId: req.user.id, visibility: "private"});
+      const gearItems = await Gear.find({
+        userId: req.user.id,
+        visibility: "private",
+      });
       console.log("This is the Dashboard Controller speaking. Volume to 11!");
       res.render("privateWishlist.ejs", { gears: gearItems, user: req.user });
     } catch (err) {
