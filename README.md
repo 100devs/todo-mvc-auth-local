@@ -1,16 +1,14 @@
 # Introduction
 Bill Tracking App
+
 A simple app to track your bills due dates, paid and unpaid bill indicator, your own personal bill tracker like your google calender.
 It is built with NodeJs using the MVC Architecture, we have also implemented "authorization" using Passport so folx can sign up, customize & personalize the app 
 
 ---
-
-> Be sure to add that lovely star 😀 and fork it for your own copy
-
----
-
 Tech Stack Used
-bcrypt, connect-mongo, ejs, express, express-flash, express-session, mongodb, mongoose, passport, passport-local, validator
+Nodejs, ejs, express, express-flash, express-session, mongodb, mongoose, passport, passport-local, validator
+
+Nodejs and Express for a simpler app server,  Mongodb database, Ejs template enging for the front-end. 
 
 ---
 
