@@ -102,10 +102,12 @@ label {
     justify-content: flex-end;
     position: relative;
 }
+#twitter-widget-0 {
 
+}
 #actionsContainer .actionButton {
     width: 5em;
-    height: 1.8em;
+    height: 30px;
     min-height: 20px;
     margin-right: 20px;
 }
@@ -115,9 +117,9 @@ label {
 #actionsContainer #del:hover {
     background-color: red;
 }
-/* #actionsContainer .twitter-share-button {
-    height: ;
-} */
+ #actionsContainer #twitter-widget-0 {
+    height: 30px ;
+} 
 
 input, textarea {
     background-color: rgb(92,92,92);
