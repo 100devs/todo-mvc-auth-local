@@ -18,11 +18,6 @@
 				<div class="alert alert-danger"><%= el.msg %></div>
 			<% }) %>    
 		<% } %>
-		<% if (locals.messages.info) { %>
-			<% messages.info.forEach( el => { %>
-				<div class="alert alert-danger"><%= el.msg %></div>
-			<% }) %>    
-		<% } %>
 
 		<div id="page-wrapper">
 
@@ -40,8 +35,8 @@
 								<nav id="nav">
 									<ul>
 										<li><a href="/">Welcome</a></li>
-										<li class="current"><a href="/login">Log In</a></li>
-										<li><a href="/signup">Sign Up</a></li>
+										<li ><a href="/login">Log In</a></li>
+										<li class="current"><a href="/signup">Sign Up</a></li>
 									</ul>
 								</nav>
 	
@@ -58,11 +53,13 @@
 
 									<!-- Sidebar -->
 										<section>
-											<h3>Log in</h3>
-											<p> <form action="/login" method="POST">
+											<h3>Sign Up</h3>
+											<p>     <form action="/signup" method="POST">
+												<input type="text" name="userName" placeholder="User Name">
 												<input type="email" name="email" placeholder="Email">
 												<input type="password" name="password" placeholder="Password">
-												<input  type="submit">
+												<input type="password" name="confirmPassword" placeholder="Confirm Password">
+												<input type="submit">
 											</form></p>
 										</section>
 
@@ -74,9 +71,9 @@
 									<!-- Content -->
 										<article>
 
-											<h2>Hello again!</h2>
+											<h2>Hello!</h2>
 
-											<p>We're glad that you're a part of the Cent Sense community!</p>
+											<p>We're glad that you're joining the Cent Sense community!</p>
 
 										</article>
 
