@@ -1,5 +1,7 @@
 const cron = require("node-cron");
 const nodemailer = require("nodemailer"); // node mailer 
+const { createMailForAllUsers} = require("./newsletter"); // create newsletters and addresses from database.
+
 
 const mongoose = require('mongoose')
 const User = require('./models/User')
@@ -14,6 +16,14 @@ module.exports = {
         cron.schedule("0 10 12 * * *", () => {
             sendMail();
             console.log("Mail sent.");
+        })
+
+        // send newsletter at 7:00am server's local time. 
+        cron.schedule("0 0 7 * * * ", () => {
+            const mailbag = createMailForAllUsers();
+            mailbag.forEach(mail => {
+                sendNewsletter(mail.email, mail.emailHTML, mail.emailText);
+            })
         })
     }
 }
@@ -92,11 +102,35 @@ async function sendGmail() {
     
 }
 
-function retreiveEmails() {
-    const a = '';
-}
-
-function uhoh()
-{
-    return;
+function sendNewsletter(address, emailHTML, emailText ) {
+    transporter = nodemailer.createTransport({
+        service: 'OUTLOOK365',
+        port:587,
+        secure:false,
+        auth:{
+            user: process.env.NODEMAILER_USER,
+            pass: process.env.NODEMAILER_PASS,
+        }
+    })
+    transporter.verify(function (error, success) {
+        if (error) {
+        console.log(error);
+        } else {
+        console.log("Server is ready to take our messages");
+        }
+    });
+    let mailDetails = {
+        from: `Listify <${process.env.NODEMAILER_USER}>`,
+        to: address,
+        subject: "Your Listify Newsletter",
+        text: emailText,
+        html: emailHTML
+    };
+    transporter.sendMail(mailDetails, (err, data) => {
+        if(err) {
+        console.log("An Error occurred. ", err)
+        } else {
+        console.log("Email sent successfully.")
+        }
+    })    
 }

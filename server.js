@@ -69,6 +69,5 @@ app.get('/getallemails', async (req, res) => {
   } catch {
     res.status(503).send("An internal server error occurred.");
   }
-  
 })
 
