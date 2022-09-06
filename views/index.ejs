@@ -33,7 +33,7 @@
 							>
 						</div>
 						<div
-							class="bg-[rgb(0,0,0,.8)] lg:w-2/3 lg:h-[388px] lg:min-w-[500px] lg:rounded-[50px] hidden lg:flex lg:items-center lg:justify-center"
+							class="bg-[rgb(0,0,0,.8)] lg:w-2/3 lg:h-[388px] lg:min-w-[500px] lg:mx-4 lg:rounded-[50px] hidden lg:flex lg:items-center lg:justify-center"
 						>
 							<p class="w-2/3 text-white">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
@@ -47,9 +47,9 @@
 					</div>
 
 					<div class="container">
-						<div class="flex flex-col items-center lg:p-4 lg:mt-32">
+						<div class="flex flex-col items-center lg:mx-4 lg:mt-32">
 							<div
-								class="bg-[rgb(0,0,0,.7)] flex flex-col rounded-[50px] items-center justify-center w-5/6 max-w-md lg:min-w-[300px] h-96 px-1 py-10"
+								class="bg-[rgb(0,0,0,.7)] flex flex-col rounded-[50px] items-center justify-center w-5/6 max-w-md lg:min-w-[400px] h-full px-1 py-10"
 							>
 								<form
 									action="/login"
@@ -68,15 +68,15 @@
 										name="password"
 										placeholder="Password"
 										autocomplete="off"
-										class="placeholder:text-lg text-center placeholder:text-gray-300 placeholder:text-center h-10 min-h-max w-full rounded-[13px] mb-6 font-krona uppercase cursor-pointer"
+										class="placeholder:text-lg text-center placeholder:text-gray-300 placeholder:text-center h-10 min-h-max w-full rounded-[13px] mb-16 font-krona uppercase cursor-pointer"
 									/>
 									<div
-										class="w-[300px] lg:absolute lg:translate-y-20 lg:translate-x-10 mb-3"
+										class="w-[300px] absolute translate-y-24 lg:translate-y-24 lg:translate-x-1"
 									>
 										<% if (locals.messages.errors) { %> <%
 										messages.errors.forEach( el => { %>
 										<div
-											class="alert alert-danger text-red-500 font-long text-xl"
+											class="alert alert-danger text-red-500 font-long text-xl relative"
 										>
 											<%= el.msg %>
 										</div>
@@ -88,7 +88,7 @@
 									<input
 										type="submit"
 										value="Login"
-										class="submit cursor-pointer text-gray-400 text-lg font-krona bg-black w-full h-12 rounded-[13px] flex flex-col items-center justify-center"
+										class="submit cursor-pointer text-gray-400 hover:text-black text-lg font-krona bg-slate-900 hover:bg-red-900 w-full h-16 mb-3 rounded-[13px] flex flex-col items-center justify-center"
 									/>
 								</form>
 								<!--Sign up section -->
@@ -97,7 +97,7 @@
 										Don't have an account?
 									</h3>
 									<div
-										class="text-white text-4xl font-long w-full h-12 bg-[#420000] rounded-[13px] flex items-center justify-center"
+										class="text-white hover:text-black text-4xl font-long w-full h-12 bg-[#420000]  hover:bg-slate-600 rounded-[13px] flex items-center justify-center"
 									>
 										<a href="/signup" class="uppercase"> Sign up </a>
 									</div>
