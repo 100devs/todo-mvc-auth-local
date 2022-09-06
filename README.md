@@ -1,44 +1,59 @@
-# Introduction
+# 🙅‍♀️Introduction🙅‍♂️
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
-
----
-
-> Be sure to add that lovely star 😀 and fork it for your own copy
+The ❌TODON'T LIST❌ is a play on the normal Todo List intended to help the user be mindful of poor habits. It is built using MVC architecture and the passport-local authentication strategy inherited from the 100Devs Todo List.
 
 ---
 
 # Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+Working from a provided template, our goal was to conceptualize, extend, and execute new functionality within an existing codebase.
 
 ---
 
-# Who is this for? 
+# What does it do?
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+The Todon't List was made as a tongue-in-cheek way for folx to be mindful of poor habits by enumerating each habit, supplying a reason why it should be broken, a Shame😢 counter for how many times the behavior was performed, and a delete button for when the user deems the poor habit "broken".
 
----
+The table is able to sorted by the todon't title and the times done.
 
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+There is no decrement on the shame counter -- once it's been done, you can't take it back. Violate a poor habit too many times, and you may get _gently warned_ by the app.
 
 ---
 
-# Install all the dependencies or node packages used for development via Terminal
+# Packages/Dependencies used
 
-`npm install` 
+bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, list.js
 
 ---
 
-# Things to add
+# Installation
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
+`npm install`
 
+- Create a `.env` file and add the following as `key: value`
+  - PORT: 2121 (can be any port example: 3000)
+  - DB_STRING: `your database URI`
 
+---
+
+# Optimizations
+
+Future additions may include:
+
+- Tracking progress of each user's habit violations-per-day (which can then be visualized by a chart),
+- Implementing the Google authentication strategy,
+- A diary feature for the user to keep track of their moods and feelings as they try to break these habits.
+
+---
+
+**Thanks for checking out our app!**
+
+Andy Yu [(andy-git985)](https://github.com/Andy-git985)
+
+Eboni E. [(ebonidev)](https://github.com/ebonidev)
+
+Irina Petrova [(Hopeah)](https://github.com/Hopeah)
+
+Maribel Gallegos [(ggmaribel)](https://github.com/ggmaribel)
+
+Steven Moses Ilagan [(moses-codes)](https://github.com/moses-codes)

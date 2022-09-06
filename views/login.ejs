@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>To Don't List : Login</title>
 </head>
+
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <section class="container">
+        <h1 class="signup__title">Login</h1>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger">
+                    <%= el.msg %>
+                </div>
+                <% }) %>
+                    <% } %>
+                        <% if (locals.messages.info) { %>
+                            <% messages.info.forEach( el => { %>
+                                <div class="alert alert-danger">
+                                    <%= el.msg %>
+                                </div>
+                                <% }) %>
+                                    <% } %>
+                                        <div class="form__box">
+                                            <form action="/login" method="POST">
+                                                <label for="email">Email:</label>
+                                                <input type="email" name="email">
+                                                <label for="password">Password:</label>
+                                                <input type="password" name="password">
+                                                <div class="submit__flex">
+                                                    <input type="Submit" value="Login" class="submit__button">
+                                                </div>
+                                            </form>
+                                        </div>
+    </section>
 </body>
+
 </html>
