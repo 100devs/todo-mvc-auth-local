@@ -23,8 +23,14 @@ module.exports = {
    },
    createTrip: async (req, res) => {
       try {
+         // let user = await User.findOne({
+         //    _id: req.user._id,
+         // })
+         let userName = req.user.userName;
          console.log(req.user._id)
-         res.render('createTrip')
+         res.render('createTrip', {
+         userName
+         })
       } catch (err) {
          console.log(err)
       }
