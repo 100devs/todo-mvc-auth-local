@@ -25,3 +25,7 @@ a {
     color: inherit;
     font-style: inherit;
 }
+
+.no-click {
+    pointer-events: none;
+}
