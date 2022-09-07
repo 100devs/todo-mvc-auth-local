@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQUAKER</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+          <!-- Navbar -->
+       <nav class="relative container mx-auto p-6">
+        <!-- Flex container -->
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="pt-2">
+            <img src="img/squawker.png" alt="SQUAWKER" />
+          </div>
+          <!-- Menu Items -->
+          <div class="space-x-6 md:flex">
+
+            <a href="#" class="hover:text-blue-500">About Us</a>
+            <a href="#" class="hover:text-blue-500">Careers</a>
+            <a href="#" class="hover:text-blue-500">Community</a>
+          </div>
+ <!-- Button -->
+ <a
+ href="/logout"
+ class="p-3 px-6 pt-2 text-white bg-blue-500 rounded-full baseline hover:bg-blue-300 md:block"
+ >Log Out</a>
+</div>
+
+    <ul class="bg-white inline h-32 w-full max-w-xs">
+        <% messages.forEach( el => { %>
+                <li class='todoItem border flex justify-center space-x-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 my-0 mx-auto w-3/4 relative' data-id='<%=el._id%>'>
+                    <div class="bg-indigo-50 text-indigo-600 rounded p-3"> 
+                        <i class="fa-solid fa-arrow-up w-full like"></i>
+                        <%= el.likes %>
+                        <i class="fa-solid fa-arrow-down w-full dislike"></i>
+                    </div>
+                    <h3 class="">
+                        <%= el.userName %>
+                        <!-- <button class="text-indigo-600">Reply</button> -->
+                    </h3>
+                    <span class="grow w-full md:w-full p-10 border"><%= el.message %></span>
+                    <% if (el.owned) { %>
+                        <span class='edit text-indigo-600'> Edit </span>
+                        <span class='del text-red-500'> Delete </span>
+                    <% } %>
+                </li>
+        <% }) %>    
+    </ul>
+
+    <div class="bg-white inline h-32 w-full max-w-xs">
+        <form class="flex justify-center border space-x-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 my-0 mx-auto w-3/4" action="/messages/createMessage" method='POST'>
+            <span><%= user.userName %></span>
+            <input type="text" placeholder="Squawk here... " name='message' class="border border-slate-300 bg-white pb-20 py-2 px-4 rounded w-3/4 h-32">
+            <input type="submit" value="SEND" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline max-h-12">
+        </form>
+    </div>
+    <a href="/messages/own">My Squawks</a>
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
