@@ -10,6 +10,8 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 // const todoRoutes = require('./routes/todos')
 const entryRoutes = require('./routes/entries')
+// const budgetRoutes = require('./routes/budgets')
+// const compareRoutes = require('./routes/compare')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -41,6 +43,8 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/entries', entryRoutes)
+// app.use('/budgets', budgetRoutes)
+// app.use('/compare', compareRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

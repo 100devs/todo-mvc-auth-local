@@ -8,9 +8,11 @@ module.exports = {
         console.log(req.user)
         try{
             // Get individual entry item
-            const expenseItems = await Entry.find({expense:true})
-            const incomeItems = await Entry.find({expense:false})
+            // const expenseItems = await Entry.find({userId:req.user.id, expense:true})
+            // const incomeItems = await Entry.find({userId:req.user.id, expense:false})
             const entryItems = await Entry.find({userId:req.user.id})
+            const expenseItems = await entryItems.find({expense: true})
+            const incomeItems = await entryItems.find({expense: false})
             const totalEntries = await Entry.countDocuments({userId:req.user.id,})
 
             res.render('entries.ejs', {entries: entryItems, expenses: expenseItems, income: incomeItems, total: totalEntries, user: req.user})

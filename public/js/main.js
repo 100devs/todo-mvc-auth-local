@@ -17,21 +17,20 @@ Array.from(deleteBtn).forEach((el)=>{
 
 //async function deleteTodo(){
 async function deleteEntry(){
-    const entryId = this.parentNode.dataset.id
-
+    const entryId = this.parentNode.parentNode.dataset.id
     try{ 
         const response = await fetch('entries/deleteEntry', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'entryIdFromJSFile': entryId
+                'entryIdFromJSFile': entryId,
             })
         })
         const data = await response.json()
         console.log(data)
         location.reload()
     }catch(err){
-        console.log('you got an error, sucka!' + err)
+        console.log(err)
     }
 }
 

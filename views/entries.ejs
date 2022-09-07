@@ -28,9 +28,11 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="/">Welcome</a></li>
-								<li><a href="/logout">Log Out</a></li>
+								<li><a href="'/login">Log In</a></li>
+								<li><a href="/signup">Sign Up</a></li>
+								<!-- <li><a href="/logout">Log Out</a></li>
 								<li><a href="/budgets">Budgets</a></li>
-                                <li><a href="/compare">Compare</a></li>
+                                <li><a href="/compare">Compare</a></li> -->
 							</ul>
 						</nav>
 					</header>
@@ -58,7 +60,7 @@
 
                                         <tbody>
                                             <% income.forEach( el => { %>
-                                                <tr <tr class="incomeItem" data-id='<%=el._id%>'></tr>>
+                                                <tr class="incomeItem" data-id='<%=el._id%>'>
                                                     <td><%= el.date %></td>
                                                     <td><%= el.description %></td>
                                                     <td><%= el.company %></td>
