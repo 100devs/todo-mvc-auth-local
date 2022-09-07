@@ -10,7 +10,7 @@ const connectDB = require('./config/database') //adds database in config folder 
 const mainRoutes = require('./routes/main')
 // const todoRoutes = require('./routes/todos')
 
-require('dotenv').config({path: './config/.env'}) //adds dotenv
+require('dotenv').config({path: './config/config.env'}) //adds dotenv
 
 // Passport config
 require('./config/passport')(passport)
