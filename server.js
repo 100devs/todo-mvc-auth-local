@@ -46,20 +46,20 @@ app.use('/todos', todoRoutes)
 
 // Scheduler
 
-// cron.schedule('5 * * * * *', () => {
-//   Todo.find({}, function(err, todos) {
+cron.schedule('0 0 0 * * *', () => {
+  Todo.find({}, function(err, todos) {
 
     
-//     if (err) throw err;
-//     console.log(todos)
+    if (err) throw err;
     
-//     todos.forEach(function(todo) {
-//       if(Math.ceil((new Date(todo.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) == 5){
-//         mailing.sendMail(todo.email)
-//       }
-//     });
-//   });
-// })
+    
+    todos.forEach(function(todo) {
+      if(Math.ceil((new Date(todo.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) == 5){
+        mailing.sendMail(todo.email, todo.todo)
+      }
+    });
+  });
+})
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
