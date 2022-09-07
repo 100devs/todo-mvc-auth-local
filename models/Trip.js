@@ -37,18 +37,33 @@ const TripSchema = new mongoose.Schema({
     required: true,    
   },
 
-vote: [],
+  upVotes: {
+    type: Number,
+    // required: true, // vote shouldn't be required
+  },
 
-tripMembers: {
-  type: String,
-  required: true,
-},
+  downVotes: {
+    type: Number,
+    // required: true, // vote shouldn't be required
+  },
+  tripHost: {
+    type: String,
+    required: true,
+  },
 
-createdAt: {
-  type: Date,
-  default: Date.now,
-},
+  tripMembers: {
+    type: String,
+    required: true,
+  },
+   membersWhoVoted: {
+      type: [],
+   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 
-})
+  },
+  {collection: 'trips'})
 
 module.exports = mongoose.model('Trip', TripSchema)

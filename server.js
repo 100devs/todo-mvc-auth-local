@@ -8,6 +8,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
 const logger = require('morgan')
+const path = require('path')
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const tripRoutes = require('./routes/trips')
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 // Method Override
 app.use(methodOverride((req, res) => {
@@ -57,7 +59,6 @@ app.use(flash())
 // Route Links
 app.use('/', homeRoutes)
 app.use('/trips', tripRoutes)
-
 
 const PORT = process.env.PORT || 5000 // run on environment variable or 5000 if not available
 

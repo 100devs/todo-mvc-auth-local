@@ -1,5 +1,5 @@
 const helpers = require('./ejs_helpers')
 
 module.exports = (app) => {
-	app.locals.editIcon = helpers.editIcon
+	app.locals.editIcon = helpers.editIcon;
 }

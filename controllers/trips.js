@@ -1,4 +1,5 @@
 //Trips Controller
+// const mongoose = require('mongoose')
 const Trip = require('../models/Trip')
 const User = require('../models/User')
 
@@ -12,7 +13,8 @@ module.exports = {
          let allUserTrips = await Trip.find({
             userId: req.user._id,
          });
-         res.render('trips', {
+         // console.log(req.params);
+        res.render('trips', {
             user,
             allUserTrips,
             userName,
@@ -22,14 +24,13 @@ module.exports = {
       }
    },
    createTrip: async (req, res) => {
+      // if( !mongoose.Types.ObjectId.isValid(id) ) return false;
+      // console.log(req.params)
       try {
-         // let user = await User.findOne({
-         //    _id: req.user._id,
-         // })
-         let userName = req.user.userName;
-         console.log(req.user._id)
+         let user = await User.findById(req.user._id);
+         let userName = user.userName;
          res.render('createTrip', {
-         userName
+            userName
          })
       } catch (err) {
          console.log(err)
@@ -45,7 +46,11 @@ module.exports = {
             dateFrom: req.body.dateFrom,
             dateTo: req.body.dateTo,
             tripMembers: req.body.tripMembers,
+            tripHost: req.user.userName,
+            membersWhoVoted: [],
             userId: req.user._id,
+            upVotes: 0,
+            downVotes: 0,
          });
          console.log("Trip created");
          res.redirect("/trips");
@@ -55,19 +60,18 @@ module.exports = {
       }
    },
    edit: async (req, res) => {
-         console.log(req);
+      console.log(req.params)
       try {
          let userName = req.user.userName;
-         const trip = await Trip.findOne({
+         let trip = await Trip.findOne({
             _id: req.params.id,
          })
-         const formatDateFrom = trip.dateFrom.toLocaleDateString()
-         const formatDateTo = trip.dateTo.toLocaleDateString()
+         let formatDateFrom = trip.dateFrom.toLocaleDateString()
+         let formatDateTo = trip.dateTo.toLocaleDateString()
          if (!trip) return res.render('error/404')
          if (req.user.id != trip.userId) {
             res.redirect('/dashboard', trip)
          } else {
-            console.log(trip)
             res.render('edit', {
                trip,
                formatDateFrom,
@@ -94,14 +98,41 @@ module.exports = {
                runValidators: true,
             })
          }
-         res.redirect('/trips') // going to redirect this to a singleTripView soon
+
+         // restart voting system everytime trip is edited for now
+         let freshVoters = [];
+         let freshUpVotes = 0;
+         let freshDownVotes = 0;
+         await Trip.findOneAndUpdate(
+            { _id: req.params.id },
+            { membersWhoVoted: freshUpVotes },
+            {
+               new: true,
+               runValidators: true,
+            })
+         await Trip.findOneAndUpdate(
+            { _id: req.params.id },
+            { upVotes: freshUpVotes },
+            {
+               new: true,
+               runValidators: true,
+            })
+         await Trip.findOneAndUpdate(
+            { _id: req.params.id },
+            { downVotes: freshDownVotes },
+            {
+               new: true,
+               runValidators: true,
+            })
+
+         res.redirect(`/trips/${trip._id}`);
       } catch (err) {
          console.log(err)
       }
    },
    deleteTrip: async (req, res) => {
       try {
-         await Trip.remove({
+         await Trip.deleteOne({
             _id: req.params.id
          })
          console.log('Trip deleted')
@@ -110,5 +141,68 @@ module.exports = {
          console.error(err)
          res.render("error/500");
       }
+   },
+   viewTrip: async (req, res) => {
+      // console.log(req.params)
+      // console.log(req.query)
+      // console.log(req);
+      // ObjectId(req);
+      try {
+         let userName = req.user.userName;
+         let user = await User.findById(req.user._id);
+         let trip = await Trip.findOne({
+            _id: req.params.id,
+         });
+         res.render('viewTrip', {
+            userName,
+            trip,
+            user
+         })
+      } catch (err) {
+         console.log(err)
+      }
+   },
+   vote: async (req, res) => {
+      try {
+         let trip = await Trip.findById(req.params.id)
+
+         if (trip.membersWhoVoted.includes(req.user.id)) {
+            console.log(`User ${req.user.userName}, :id ${req.user.id} already voted`)
+            res.redirect(`/trips/${trip._id}`);
+         } else {
+            if (req.route.path === '/upvote/:id') {
+               let newUpVotes = trip.upVotes + 1;
+               await Trip.findOneAndUpdate(
+                  { _id: req.params.id },
+                  { upVotes: newUpVotes },
+                  {
+                     new: true,
+                     runValidators: true,
+                  })
+            }
+            if (req.route.path === '/downvote/:id') {
+               let newDownVotes = trip.downVotes + 1;
+               await Trip.findOneAndUpdate(
+                  { _id: req.params.id },
+                  { downVotes: newDownVotes },
+                  {
+                     new: true,
+                     runValidators: true,
+                  })
+            }
+            trip.membersWhoVoted.push(req.user.id);
+            let newMemberPolls = trip.membersWhoVoted
+            await Trip.findOneAndUpdate(
+               { _id: req.params.id },
+               { membersWhoVoted: newMemberPolls },
+               {
+                  new: true,
+                  runValidators: true,
+               })
+            res.redirect(`/trips/${trip._id}`);
+         }
+      } catch (err) {
+         console.log(err)
+      }
    }
-}    
+}
