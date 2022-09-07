@@ -1,9 +1,135 @@
-h1{
-    color: red;
+/* Home page */
+html {
+    background-image: url("/images/home3.jpg");
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+.h1{
+    color: rgb(236, 233, 60);
+    text-align: right;
+    padding-top: 8%;
+    padding-right: 13%;
+}
+.login {
+    text-align: right;
+    padding-top: 10rem;
+    padding-right: 23%;
+}
+
+.login button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(130, 222, 219);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border-color: transparent;
+}
+.login-button {
+    padding: 6px;
+    text-decoration: none;
+    color: rgb(241, 237, 238);
+
+}
+
+.button-left {
+    margin-right: 4rem;
+}
+
+/* Login page */
+
+.login-page {
+    text-align: right;
+    padding-right: 10rem;
+    padding-top: 3rem;
+}
+
+.login-form {
+    font-size: 20px;
+}
+
+/* Singup page */
+
+.signup{
+    padding-top: 12rem;
+    padding-left: 56rem;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    gap: 35px;
+}
+.signup-input {
+    font-size: 20px;
+}
+.alert {
+    text-align: right;
+    color: rgb(222, 46, 46);
+}
+
+/* Todos page */
+
+.todos-page {
+    display: flex;
+    flex-direction: column;
+    padding-left: 56rem;
+    padding-top: -5rem;
+}
+.notes1 {
+    text-align: right;
+    color: rgb(236, 233, 60);
+    padding-right: 23rem;
+    font-weight: bold;
+}
+
+.todo-list{
+    padding-left: 0;
+    font-size: 20px;
+}
+.todoItem {
+    padding: 10px;
+    margin-top: 10px;
+    background: rgb(130, 222, 219);
+    list-style: none;
+    width: 21rem;
+    text-decoration: none;
+    font-size: 16px;
+}
+.todo-list span {
+    color: black;
+}
+
+.todo-list .del {
+    color: rgb(222, 46, 46);
+}
+
+.left-to-do {
+    color: rgb(222, 46, 46);
+}
+
+textarea, br {
+    font-size: 16px;
+}
+textarea {
+    width: 22rem;
+    background-color:  rgb(236, 233, 60);
+}
+.input3 {
+    background-color: rgb(241, 237, 238);
+}
+
+.logout {
+    top: 40rem;
+    text-decoration: none;
+    color: black;
+    position: fixed;
+    
+
 }
 .completed{
     text-decoration: line-through;
-    color: gray;
 }
 .not{
     text-decoration: underline;

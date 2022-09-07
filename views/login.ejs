@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="login-page">
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -18,9 +19,9 @@
         <% }) %>    
     <% } %>
     <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
+        <input type="email" name="email" placeholder="Email" class="login-form">
+        <input type="password" name="password" placeholder="Password" class="login-form">
+        <input type="submit" class="login-form">
     </form>
 </body>
 </html>

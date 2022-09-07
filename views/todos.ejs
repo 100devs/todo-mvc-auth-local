@@ -5,27 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
+<body class="todos-page">
+    <h1 class="notes1">Lists & Notes</h1>
+    <form action="/todos/createTodo" method='POST'>
+        <textarea rows="6" cols="45" type="text" placeholder="Enter Todo Item" name='todoItem'></textarea>
+        <br><input type="submit" class="input3"></br></form>
+    </form>
+
+    <ul class="todo-list">
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                <span class='del fas fa-times'></span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2 class="left-to-do"><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
+    <!-- <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
-    </form>
+    </form> -->
 
-    <a href="/logout">Logout</a>
+    <a href="logout" class="logout">Logout</a>
 
     <script src="js/main.js"></script>
 </body>
