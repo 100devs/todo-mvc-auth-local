@@ -45,4 +45,4 @@ Happy Notes is a collaborative effort between a group of developers working toge
 - <a href="https://github.com/hlsamuel00">Harvey S.</a>
 - <a href="https://github.com/jericashall">Jerica H.</a>
 - <a href="https://github.com/leandro-alba">Leandro A.</a>
-- <a href="https://github.com/hlsamuel00">Yire M.</a>
+- <a href="https://github.com/yiremorlans">Yire M.</a>
