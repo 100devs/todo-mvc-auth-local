@@ -1,27 +1,24 @@
-const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const delBtn = document.querySelectorAll('.del')
+const editBtn = document.querySelectorAll('.edit')
+const likeBtn = document.querySelectorAll('.like')
+const dislikeBtn = document.querySelectorAll('.dislike')
 
-Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
-})
+Array.from(delBtn).forEach((el) => {el.addEventListener('click', deleteMessage)})
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
-})
+Array.from(editBtn).forEach((el) => {el.addEventListener('click', editMessage)})
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
-})
+Array.from(likeBtn).forEach((el) => {el.addEventListener('click', like)})
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+Array.from(dislikeBtn).forEach((el) => {el.addEventListener('click', dislike)})
+
+async function deleteMessage(){
+    const messageId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('messages/deleteMessage', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId
             })
         })
         const data = await response.json()
@@ -32,14 +29,16 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+async function editMessage(){
+    const messageId = this.parentNode.dataset.id
+    const message = document.getElementById('#message')
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('messages/editMessage', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId,
+                'message': message
             })
         })
         const data = await response.json()
@@ -50,14 +49,33 @@ async function markComplete(){
     }
 }
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+async function like(){
+    const messageId = this.parentNode.parentNode.dataset.id
+    console.log(messageId)
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('messages/like', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'messageId': messageId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function dislike(){
+    const messageId = this.parentNode.parentNode.dataset.id
+    try{
+        const response = await fetch('messages/dislike', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'messageId': messageId
             })
         })
         const data = await response.json()
