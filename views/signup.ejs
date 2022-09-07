@@ -8,11 +8,33 @@
     <link rel="stylesheet" href="/css/output.css">
 </head>
 <body>
+         <!-- Navbar -->
+     <nav class="relative container mx-auto p-6">
+        <!-- Flex container -->
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="pt-2">
+            <img src="img/squawker.png" alt="SQUAWKER">
+          </div>
+          <!-- Menu Items -->
+          <div class="space-x-6 md:flex">
+
+            <a href="#" class="hover:text-blue-500">About Us</a>
+            <a href="#" class="hover:text-blue-500">Careers</a>
+            <a href="#" class="hover:text-blue-500">Community</a>
+          </div>
+ <!-- Button -->
+ <a
+ href="/login"
+ class="p-3 px-6 pt-2 text-white bg-blue-500 rounded-full baseline hover:bg-blue-300 md:block"
+ >Login</a>
+</div>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
+    <div class="container mx-auto w-1/2 bg-blue-300 rounded-xl p-4 shadow-xl content-center justify-center flex items-baseline my-10">
     <form action="/signup" method="POST">
         <input type="text" name="userName" placeholder="User Name">
         <input type="email" name="email" placeholder="Email">
@@ -20,5 +42,6 @@
         <input type="password" name="confirmPassword" placeholder="Confirm Password">
         <input type="submit">
     </form>
+    </div>
 </body>
 </html>
