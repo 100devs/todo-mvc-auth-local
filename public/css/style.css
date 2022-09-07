@@ -203,9 +203,7 @@ nav .brand-logo {
 
 
 @media only screen and (max-width: 799px) {
-    .row.inIndex{
-        width: 500px;
-    }
+    
     h1{
         font-size:2.5em;
         margin:.5em auto;
