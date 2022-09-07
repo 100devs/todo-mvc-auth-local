@@ -5,17 +5,13 @@ const tripsController = require('../controllers/trips')
 const { ensureAuth } = require('../middleware/auth')
 
 
-// @desc    Show List of Trips
-// @route   GET /trips
-router.get('/', ensureAuth, tripsController.showTrips)
-
-// // @desc    View Single Trip
-// // @route   GET /trips/:id
-router.get('/:id', ensureAuth, tripsController.viewTrip)
-
 // @desc    Show Trip Form
 // @route   GET /trip/createTrip
 router.get('/createTrip', ensureAuth, tripsController.createTrip)
+
+// @desc    Show List of Trips
+// @route   GET /trips
+router.get('/', ensureAuth, tripsController.showTrips)
 
 // @desc    Process Trip Form
 // @route   POST /trip/createPostTrip
@@ -40,5 +36,10 @@ router.put('/downvote/:id', ensureAuth, tripsController.vote)
 // @desc    Delete Trip
 // @route   DELETE /trip/:id
 router.delete('/:id', ensureAuth, tripsController.deleteTrip)
+
+// @desc    View Single Trip
+// @route   GET /trips/:id
+router.get('/:id', ensureAuth, tripsController.viewTrip) // This route HAS to go on the bottom!
+
 
 module.exports = router

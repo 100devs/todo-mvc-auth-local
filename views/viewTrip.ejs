@@ -4,104 +4,74 @@
 <body>
    <%- include('partials/nav') %>
     <br>
+
    <div class="row container">
-     <h2><%=trip.tripTitle%></h2>
-      <div class="col m5">
-        <div class="card-panel teal">
-                <button>
-                  <%- editIcon(user._id, trip.userId, trip._id) %>
-               </button>
+
+     <h5 class="center">Vote on your trip plans here</h5>
+     <section class="rating">
+        <span class="inline like grow left">
+         <form action="/trips/<%=trip.id%>" method="POST" id="upvote">
+            <input type="hidden" name="_method" value="PUT">
+          <button class="btn" method="PUT" id="green" type="submit">
+             <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+          </button>
+          <%=trip.upVotes == 0 ? trip.upVotes : `+${trip.upVotes}`%>
+         </form>
+        </span>
+        <span class="dislike grow right">
+         <form action="/trips/downvote/<%=trip.id%>" method="POST" id="upvote">
+            <input type="hidden" name="_method" value="PUT">
+          <button class="btn red" method="PUT" id="green" type="submit">
+             <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+          </button>
+         <%=-Math.abs(trip.downVotes)%>
+         </form>
+        </span>
+     </section>
+
+     <h2 class="center"><%=trip.tripTitle%></h2>
+
+
+      <div class="">
+        <div class="card-panel">
+             <button>
+               <%- editIcon(user._id, trip.userId, trip._id) %>
+            </button>
             <ul>
                
+               <section>
+                  <h4>Travel Group</h4>
+                  <p>Host: <%=trip.tripHost%></p>
+                  <p>Members: <%=trip.tripMembers%></p>
+               </section>
 
-
-
-
-
-    <h1><a href="/trips/createTrip">Vote</a></h1>
-    <p>Vote on your trip here</p>
-
-    <div class="rating">
-        <!-- Thumbs up -->
-        <!-- <div class="like grow"> -->
-        <!--   <button class="btn" action="/trips/trip.id%>" method="PUT" id="green"><i class="fa fa&#45;thumbs&#45;up fa&#45;lg" aria&#45;hidden="true"></i></button> -->
-        <!-- </div> -->
-
-        <!-- Thumbs down -->
-      <!--   <div class="dislike grow"> -->
-      <!--     <button class="btn" action="/trips/trip.id%>" method="PUT" id="red"><i class="fa fa&#45;thumbs&#45;down fa&#45;lg" aria&#45;hidden="true"></i></button> -->
-      <!--   </div> -->
-      <!-- </div> -->
+             <div class="rating">
                <li>
                   Plan1: <%=trip.option1%>
-                  <!-- this one should work  -->
-                    <span class="like grow">
-                     <form action="/trips/upvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
-
-                    <span class="dislike grow">
-                     <form action="/trips/downvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn btn-small red" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
+                  <details>
+                     Information on plans
+                  </details>
                </li>
                <br>
                <br>
                <li>Plan2: <%=trip.option2%>
-                    <span class="like grow">
-                     <form action="/trips/upvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
-
-                    <span class="dislike grow">
-                     <form action="/trips/downvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn btn-small red" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
-
+                  <details>
+                     Information on plans
+                  </details>
                </li>
                <br>
                <br>
                <li>Plan3: <%=trip.option3%>
-                    <span class="like grow">
-                     <form action="/trips/upvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
-
-                    <span class="dislike grow">
-                     <form action="/trips/downvote/<%=trip.id%>" method="POST" id="upvote">
-                        <input type="hidden" name="_method" value="PUT">
-                      <button class="btn btn-small red" method="PUT" id="green" type="submit">
-                         <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
-                      </button>
-                     </form>
-                    </span>
+                  <details>
+                     Information on plans
+                  </details>
                </li>
                <br>
                <br>
                <li>From: <%=trip.dateFrom%></li>
                <li>To: <%=trip.dateTo%></li>
-               <li>Host Email: <%=trip.tripMembers%></li>
-
+               <br>
+               <br>
                <!-- POST form utilizing method override for DELETE request -->
                <form action="/trips/<%=trip.id%>" method="POST" id="delete-from">
                   <input type="hidden" name="_method" value="DELETE">
@@ -109,8 +79,7 @@
                      <i class="fas fa-trash trip-delete"></i>
                   </button>
                </form>
-               <br />
-               <br />
+               <p>Delete your trip</p>
           </ul>
         </div>
       </div>
