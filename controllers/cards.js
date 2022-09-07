@@ -45,8 +45,9 @@ module.exports = {
       const decks = await Deck.distinct('title', { userId: req.user.id })
       
       // setting the value of the title to what's in the DB or what the user entered
-      const deckTitle = /*decks.filter(deck => !req.body.deckTitle.localeCompare(deck, 'en', { sensitivity: 'base' }))[0] ||*/ req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
+      const deckTitle = decks.filter(deck => !req.body.deckTitle.localeCompare(deck, 'en', { sensitivity: 'base' }))[0] || req.body.deckTitle.replace(/\s\s+/g, ' ').trim()
       console.log(deckTitle)
+      
       // finding the specific deck
       let deck = await Deck.findOne({ title: deckTitle })
       
