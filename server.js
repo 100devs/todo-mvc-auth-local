@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+//flash helps with login errors when trying to sign in
 const flash = require('express-flash')
+//morgan helps show requests in terminal
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
@@ -42,5 +44,5 @@ app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log('Hello master Alex, how can I assist?')
 })    
