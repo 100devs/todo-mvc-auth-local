@@ -4,29 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/todos.css">
+    <script src="https://kit.fontawesome.com/854239efb5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+    <header>
+        <section class="small"><img src="/images/To-Do white.png" ></section>
+        <section class="large">
+            <h2 class="title">Your To-Do Dashboard</h2>
+        </section>
+        <section class="logProfile small">
+            <h4 class="userName">Welcome <%= user.userName %></h4>
+            <a href="/logout">Logout</a>
+        </section>
+    </header>
+    <main>
+        <section class="card">
+            <section>
+                <h1>To-Dos</h1>
+                <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+                <span class="notice">Click the task to mark complete and incomplete.</span>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <span><%=el.date%></span>
+                                <span><%=el.time%></span>
+                                <button class="del fa-solid fa-trash-can"></button>
+                                <button class="update fa-regular fa-pen-to-square"></button>
+                            </li>
+                    <% }) %>    
+                 </ul>
+            </section>
+            <section class="bottom">
+                <h2 id="create">Create a New To-Do:</h2>
+                <form class="input-group container d-flex align-items-center" action="/todos/createTodo" method='POST'>
+                    <div>
+                        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                    </div>
+                    <div>
+                        <input type="date" placeholeer="Enter date" name ='date'> 
+                        <input type="time" placeholder="Enter time" name="time">
+                    </div>
+                    <div> <input type="submit" class="submit"> </div>
+                </form>
+            </section>    
+        </section>
+    </main>
     <script src="js/main.js"></script>
 </body>
 </html>

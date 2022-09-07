@@ -1,5 +1,6 @@
 h1{
-    color: red;
+    color: white;
+    font-size: 5rem;
 }
 .completed{
     text-decoration: line-through;
@@ -7,4 +8,107 @@ h1{
 }
 .not{
     text-decoration: underline;
+}
+
+h4{
+    padding: none;
+    margin: none;
+}
+
+.logProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: .25rem solid #000000;
+    border-radius: 40px;
+    margin-top: 3%;
+    box-shadow: 5px 7px 26px 3px rgba(0,0,0,0.48);
+    padding: 2rem 5rem 5rem 5rem;
+    color:#4abdac;
+    background-color: white;
+}
+
+.login-img{
+    min-width: 100px;
+    width: 25rem;
+    height: 25rem
+}
+
+.login h1 {
+    color:#4abdac;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    margin-top: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    height: 100%
+}
+
+.even{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+}
+
+.even span{
+    width:30%
+}
+
+.even input{
+    width: 60%;
+}
+
+.small{
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.small a{
+    padding: 0 .25rem;
+    color: #f7b733 !important
+}
+
+.small a:hover{
+    text-decoration: underline !important;
+}
+.index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body{
+    background-color: #4abdac;
 }

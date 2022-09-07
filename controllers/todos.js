@@ -13,7 +13,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, date: req.body.date, time: req.body.time, completed: false, userId: req.user.id}) // re-adding date/time
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -38,6 +38,20 @@ module.exports = {
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    updateTodo: async(req, res)=>{
+        console.log(req.body.todoIdFromJSFile)
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile}, {
+                $set: {
+                    todo: req.body.newNote,
+                },
+            })
+            console.log('Updated todo')
+            res.json('Updated Todo')
         }catch(err){
             console.log(err)
         }

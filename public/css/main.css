@@ -1,0 +1,31 @@
+h1 {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    /* background-color:azure; */
+    padding-bottom: 20px ;
+ 
+}
+body{
+    background-color: #4abdac;
+}
+
+a.login  {
+    color:beige;
+    border-style:solid;
+
+}
+a.signup {
+  color: beige;  
+  border-style: solid;
+  /* padding: 10px solid; */
+}
+
+.buttons{
+    justify-content: center;
+    display: flex;
+}
+
+/* .buttons #login{
+
+} */

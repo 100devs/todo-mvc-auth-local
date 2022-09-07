@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="logProfile">
+        <h4 class="userName"><%= user.userName %></h4>
+        <a href="/logout">Logout</a>
+    </section>
+
+    <section class="card">
+        <h1>Todos</h1>
+
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="date" placeholeer="Enter date" name ='date'> 
+            <input type="time" placeholder="Enter time" name="time"> <!-- Testing -->
+            <input type="submit">
+        </form>
+
+        <ul>
+        <% todos.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <span><%=el.date%></span>
+                    <span><%=el.time%></span>
+                    <button class="del">Delete</button>
+                    <button class="update">Update</button>
+                </li>
+        <% }) %>    
+        </ul>
+
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    </section>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
