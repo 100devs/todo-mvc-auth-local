@@ -8,6 +8,10 @@ const DiarySchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  private: {
+    type: Boolean,
+    required: true
   }
 })
 

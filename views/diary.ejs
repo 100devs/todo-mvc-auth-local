@@ -14,11 +14,12 @@
             <li class='diaryEntry' data-id='<%=el._id%>'>
                 <span><%= el.diary %></span>
                 <button class='del'> Delete </button>
+                <span>This entry is <%= el.private ? 'private' : 'public' %></span>
                 
-                <form action="/diary/updateDiary" method='PUT'>
+                <!-- <form action="/diary/updateDiary" method='POST'>
                     <input type="text" placeholder="Update diary entry" name='diaryEntry'>
                     <input type="submit" class="update" value="Update">
-                </form>
+                </form> -->
             </li>
     <% }) %>    
     </ul>
@@ -27,6 +28,10 @@
 
     <form action="/diary/createDiary" method='POST'>
         <input type="text" placeholder="Add a new diary Entry" name='diaryEntry'>
+        <input type="radio" id="false" name="private" value="false" checked="true">
+        <label for="public">Public</label>
+        <input type="radio" id="true" name="private" value="true">
+        <label for="private">Private</label>
         <input type="submit">
     </form>
 

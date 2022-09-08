@@ -13,24 +13,22 @@ module.exports = {
     },
     createDiary: async (req, res)=>{
         try{
-            await Diary.create({diary: req.body.diaryEntry, userId: req.user.id})
-            console.log('Diary entry has been added!')
+            await Diary.create({diary: req.body.diaryEntry, userId: req.user.id, private: req.body.private})
+            console.log(req.body)
             res.redirect('/diary')
         }catch(err){
             console.log(err)
         }
     },
-    updateDiary: async (req, res)=>{
-        try{
-            await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{
-                diary: req.body.diaryEntry
-            })
-            console.log('Updated Diary')
-            res.json('Updated Diary')
-        }catch(err){
-            console.log(err)
-        }
-    },
+    // updateDiary: async (req, res)=>{
+    //     try{
+    //         await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{diary: 'something'})
+    //         console.log('Updated Diary')
+    //         res.json('Updated Diary')
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // },
     deleteDiary: async (req, res)=>{
         console.log(req.body.diaryIdFromJSFile)
         try{
