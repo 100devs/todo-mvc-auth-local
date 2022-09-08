@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>List of companies</h1>
+    
+    
+        <!-- previous leon example
+            <ul>
+        <% companies.forEach( el => { %>
+                <li class='todoItem PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %> <%= el.PhoneNumber %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul> -->
+
+        <!-- creating a table for our list -->
+        <table>
+            <tr>
+               <th>Company Name</th><th>Phone Number</th><th>Action </th><th>Edit </th>
+            </tr>
+            <tr >
+               <td>
+                <% companies.forEach( el => { %>
+                    <li style="list-style: none;" class='companyItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.name %> </span>
+                        
+                    </li><% }) %>    
+                </td>   
+                
+                
+               <td><% companies.forEach( el => { %>
+                <li style="list-style: none;"" class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.phone %></span>
+                <!-- <span class='del'> Delete </span> -->
+                    
+                </li><% }) %></td>
+
+                <!-- delete button -->
+                <td> 
+                    <% companies.forEach( el => { %> 
+
+                        <li style="list-style: none;">
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                                <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
+                                
+                                <span class='del <%= el.completed === true ? 'completed' : 'not'%>'> Delete </span>
+
+                                </button>
+                        </li>
+
+                    <% }) %>
+                </td>
+
+                <!-- edit button: Edit button will need work on the backend, a new page or pop up to edit any info we put in -->
+                <td> 
+                    <% companies.forEach( el => { %> 
+
+                        <li style="list-style: none;">
+                            <button class='PhoneNumber' class='companyItem' data-id='<%=el._id%>'>
+                                <!-- <span class='<%= el.completed === true ? 'completed' : 'not'%>'> -->
+                                
+                                <span class='edit <%= el.completed === true ? 'completed' : 'not'%>'> Edit </span>
+
+                                </button>
+                        </li>
+
+                    <% }) %>
+                </td>
+
+
+
+
+            </tr>
+            
+         </table>
+   
+
+    <h2><%= user.userName %> has <%= left %> companies left to contact</h2>
+
+    <form action="/companies/createCompany" method='POST'>
+        <input type="text" placeholder="Company Name" name='companyName' required>
+        <input type="text" placeholder="Phone Number" name='phoneNumber' required>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
