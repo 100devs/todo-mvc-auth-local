@@ -34,7 +34,7 @@ exports.createCompany = async (req, res) => {
         coffeeChatDate: req.body.coffeeChatDate,
         saidThanks: req.body.saidThanks || 'no',
         interviewDate: req.body.interviewDate,
-        followUp: req.body.followUp,
+        followUpDate: req.body.followUpDate,
       },
       comments: req.body.comments,
     });
