@@ -20,15 +20,16 @@ module.exports = {
             console.log(err)
         }
     },
-    // updateDiary: async (req, res)=>{
-    //     try{
-    //         await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{diary: 'something'})
-    //         console.log('Updated Diary')
-    //         res.json('Updated Diary')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
+    changePrivacy: async (req, res)=>{
+        try{
+            await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{private: req.body.private})
+            console.log('Updated Diary')
+            console.log(req.body.private)
+            res.json('Updated Diary')
+        }catch(err){
+            console.log(err)
+        }
+    },
     deleteDiary: async (req, res)=>{
         console.log(req.body.diaryIdFromJSFile)
         try{

@@ -11,23 +11,27 @@
     <h1>Diary</h1>
     <ul>
     <% diary.forEach( el => { %>
-            <li class='diaryEntry' data-id='<%=el._id%>'>
+            <li class='diaryEntry' data-id='<%=el._id%>' data-private='<%=el.private%>'>
                 <span><%= el.diary %></span>
+                <br>
+                <p>This entry is <%= el.private ? 'Private ' : 'Public ' %></p>
                 <button class='del'> Delete </button>
-                <span>This entry is <%= el.private ? 'private' : 'public' %></span>
+                <button class='changePrivacy'>Make <%= !el.private ? 'Private ' : 'Public ' %></button>
+                <br>
                 
                 <!-- <form action="/diary/updateDiary" method='POST'>
                     <input type="text" placeholder="Update diary entry" name='diaryEntry'>
                     <input type="submit" class="update" value="Update">
                 </form> -->
             </li>
+            <br>
     <% }) %>    
     </ul>
 
     <h2><%= user.userName %> has <%= total %> total diary entries.</h2>
 
     <form action="/diary/createDiary" method='POST'>
-        <input type="text" placeholder="Add a new diary Entry" name='diaryEntry'>
+        <textarea placeholder="Add a new diary Entry" name="diaryEntry"></textarea>
         <input type="radio" id="false" name="private" value="false" checked="true">
         <label for="public">Public</label>
         <input type="radio" id="true" name="private" value="true">

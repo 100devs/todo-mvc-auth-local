@@ -1,14 +1,17 @@
 const deleteBtn = document.querySelectorAll('.del')
-// const updateBtn = document.querySelectorAll('.update')
+const changePrivacyBtn = document.querySelectorAll('.changePrivacy')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteDiary)
 })
 
+Array.from(changePrivacyBtn).forEach((el)=>{
+    el.addEventListener('click', changePrivacy)
+})
+
 
 async function deleteDiary(){
     const diaryId = this.parentNode.dataset.id
-    console.log(`id is ${diaryId}`)
     try{
         const response = await fetch('diary/deleteDiary', {
             method: 'delete',
@@ -25,22 +28,24 @@ async function deleteDiary(){
     }
 }
 
-// async function updateDiary(){
-//     const diaryId = this.parentNode.parentNode.dataset.id
-//     console.log(`value is ${this.parentNode}`)
-//     try{
-//         const response = await fetch('diary/updateDiary', {
-//             method: 'put',
-//             headers: {'Content-type': 'application/json'},
-//             body: JSON.stringify({
-//                 'diaryIdFromJSFile': diaryId,
-//                 'diary': ''
-//             })
-//         })
-//         const data = await response.json()
-//         console.log(data)
-//         location.reload()
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
+async function changePrivacy(){
+    const diaryId = this.parentNode.dataset.id
+    const private = this.parentNode.dataset.private === "true"
+    console.log(`private value is ${private}`)
+    console.log(`pirvate is a ${typeof(private)}`)
+    try{
+        const response = await fetch('diary/changePrivacy', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'diaryIdFromJSFile': diaryId,
+                'private': !private,
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}

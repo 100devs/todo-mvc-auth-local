@@ -7,7 +7,7 @@ router.get('/', ensureAuth, diaryController.getDiary)
 
 router.post('/createDiary', diaryController.createDiary)
 
-// router.put('/updateDiary', diaryController.updateDiary)
+router.put('/changePrivacy', diaryController.changePrivacy)
 
 router.delete('/deleteDiary', diaryController.deleteDiary)
 
