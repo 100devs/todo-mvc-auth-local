@@ -43,8 +43,10 @@
     <!-- button to add a company -->
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <a href="companies/add" class="btn btn-primary">Add Company</a>
+        <div class="col col-12 text-center">
+          <a href="companies/add" class="btn btn-primary btn-lg text-center"
+            >Add Company</a
+          >
         </div>
       </div>
 
@@ -91,7 +93,7 @@
           <!-- Accordion View Content Goes Here -->
           <div class="accordion">
             <% companies.forEach(company => { %>
-            <div class="accordion-item">
+            <div class="accordion-item m-4">
               <h2 class="accordion-header" id="<%= company.companyName %>head">
                 <button
                   class="accordion-button collapsed"
@@ -116,18 +118,23 @@
                 </button>
               </h2>
 
-              <a
-                href="/companies/edit/<%= company._id %>"
-                class="card-link btn btn-secondary"
-                >Edit</a
-              >
-              <button class="del-company btn btn-danger">Delete</button>
+              <!-- Collapse Toggle Button -->
               <div
                 id="<%= company.companyName %>"
                 class="accordion-collapse collapse"
                 aria-labelledby="headingOne"
               >
                 <div class="accordion-body">
+                  <!-- EDIT and DELETE Buttons -->
+                  <div class="text-center m-2">
+                    <a
+                      href="/companies/edit/<%= company._id %>"
+                      class="card-link btn btn-secondary"
+                      >Edit</a
+                    >
+                    <button class="del-company btn btn-danger">Delete</button>
+                  </div>
+
                   Company Info:
                   <!-- Job Description Table -->
 
@@ -135,29 +142,24 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Company Website</th>
+                        <th scope="col">Role/Position</th>
+                        <th scope="col">Role/Position URL</th>
+                        <th scope="col">Position Type</th>
+                        <th scope="col">Source</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <th scope="row"><%= company.companyName%></th>
+                        <td><%= company.dateAdded%></td>
+                        <td><%= company.url%></td>
+                        <td>@<%= company.role%></td>
+                        <td>@<%= company.roleURL%></td>
+                        <td>@<%= company.position%></td>
+                        <td>@<%= company.source%></td>
                       </tr>
                     </tbody>
                   </table>
@@ -167,29 +169,16 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Position at Company</th>
+                        <th scope="col">Email</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <th scope="row"><%= company.pointOfContact.name %></th>
+                        <td><%= company.pointOfContact.position %></td>
+                        <td><%= company.pointOfContact.email %></td>
                       </tr>
                     </tbody>
                   </table>
@@ -199,32 +188,29 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Applied</th>
+                        <th scope="col">Apply Date</th>
+                        <th scope="col">Coffee Chat</th>
+                        <th scope="col">Coffee Chat Date</th>
+                        <th scope="col">Said Thanks</th>
+                        <th scope="col">Interview Date</th>
+                        <th scope="col">Follow Up Date</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <th scope="row"><%= company.application.applied %></th>
+                        <td><%= company.application.applyDate %></td>
+                        <td><%= company.application.coffeeChat %></td>
+                        <td><%= company.application.coffeeChatDate %></td>
+                        <td><%= company.application.saidThanks %></td>
+                        <td><%= company.application.interviewDate %></td>
+                        <td><%= company.application.followUp %></td>
                       </tr>
                     </tbody>
                   </table>
+
+                  <!-- End of Tables -->
                 </div>
               </div>
             </div>
