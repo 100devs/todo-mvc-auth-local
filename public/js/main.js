@@ -31,8 +31,6 @@ async function deleteDiary(){
 async function changePrivacy(){
     const diaryId = this.parentNode.dataset.id
     const private = this.parentNode.dataset.private === "true"
-    console.log(`private value is ${private}`)
-    console.log(`pirvate is a ${typeof(private)}`)
     try{
         const response = await fetch('diary/changePrivacy', {
             method: 'put',

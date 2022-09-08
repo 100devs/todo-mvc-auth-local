@@ -24,7 +24,6 @@ module.exports = {
         try{
             await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{private: req.body.private})
             console.log('Updated Diary')
-            console.log(req.body.private)
             res.json('Updated Diary')
         }catch(err){
             console.log(err)
