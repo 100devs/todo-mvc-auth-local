@@ -2,7 +2,7 @@
 
 Contactr is a contact tracking App for job seekers that helps you create, keep track of, and grow your personal network. It is built using the MVC Architecture and implements authorization so people can sign up & add their personal list of contacts to the app.
 
-**Link to project:** http://www.google.com/
+**Link to project:** [Contactr](https://contactr.onrender.com/)
 
 ![alt tag](http://placecorgi.com/1200/650)
 
