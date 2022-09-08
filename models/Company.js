@@ -29,7 +29,7 @@ const CompanySchema = new mongoose.Schema({
     coffeeChatDate: Date,
     saidThanks: Boolean,
     interviewDate: Date,
-    followUp: Date,
+    followUpDate: Date,
   },
   comments: String,
   userId: {
