@@ -10,12 +10,13 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const todoRoutes = require("./routes/todos");
 const companyRoutes = require("./routes/companies");
+const authRoutes = require("./routes/auth");
 const sendfeedbackRoutes = require("./routes/sendfeedback");
 
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
-require("./config/passport")(passport);
+require("./config/passport");
 
 connectDB();
 
@@ -43,6 +44,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/todos", todoRoutes);
 app.use("/companies", companyRoutes);
+app.use("/auth", authRoutes);
 app.use("/sendfeedback", sendfeedbackRoutes);
 
 app.listen(process.env.PORT, () => {
