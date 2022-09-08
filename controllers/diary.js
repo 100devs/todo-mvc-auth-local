@@ -20,21 +20,10 @@ module.exports = {
             console.log(err)
         }
     },
-    markComplete: async (req, res)=>{
-        try{
-            await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{
-                completed: true
-            })
-            console.log('Marked Complete')
-            res.json('Marked Complete')
-        }catch(err){
-            console.log(err)
-        }
-    },
     updateDiary: async (req, res)=>{
         try{
             await Diary.findOneAndUpdate({_id:req.body.diaryIdFromJSFile},{
-                completed: false
+                diary: req.body.diaryEntry
             })
             console.log('Updated Diary')
             res.json('Updated Diary')

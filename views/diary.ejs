@@ -13,7 +13,12 @@
     <% diary.forEach( el => { %>
             <li class='diaryEntry' data-id='<%=el._id%>'>
                 <span><%= el.diary %></span>
-                <span class='del'> Delete </span>
+                <button class='del'> Delete </button>
+                
+                <form action="/diary/updateDiary" method='PUT'>
+                    <input type="text" placeholder="Update diary entry" name='diaryEntry'>
+                    <input type="submit" class="update" value="Update">
+                </form>
             </li>
     <% }) %>    
     </ul>

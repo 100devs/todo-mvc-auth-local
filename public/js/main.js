@@ -1,17 +1,12 @@
 const deleteBtn = document.querySelectorAll('.del')
-const diaryEntry = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const updateBtn = document.querySelectorAll('.update')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteDiary)
 })
 
-Array.from(diaryEntry).forEach((el)=>{
+Array.from(updateBtn).forEach((el)=>{
     el.addEventListener('click', updateDiary)
-})
-
-Array.from(diaryComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
 })
 
 async function deleteDiary(){
@@ -35,6 +30,7 @@ async function deleteDiary(){
 async function updateDiary(){
     const diaryId = this.parentNode.dataset.id
     try{
+        console.log(`id is ${diaryId}`)
         const response = await fetch('diary/updateDiary', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
