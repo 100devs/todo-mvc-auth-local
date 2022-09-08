@@ -54,7 +54,7 @@
   </header>
 
   <body class="">
-    <div class="fb-box-shadow rounded-corners p-4 m-4 ">
+    <div class="fb-box-shadow rounded-corners p-4 m-4">
       <!-- button to add a company -->
       <div class="container">
         <div class="row">
@@ -153,81 +153,83 @@
                       >
                       <button class="del-company btn btn-danger">Delete</button>
                     </div>
-                    Company Info:
-                    <!-- Job Description Table -->
-                    <h3>Job Description</h3>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Company Name</th>
-                          <th scope="col">Date Added</th>
-                          <th scope="col">Company Website</th>
-                          <th scope="col">Role/Position</th>
-                          <th scope="col">Role/Position URL</th>
-                          <th scope="col">Position Type</th>
-                          <th scope="col">Source</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row"><%= company.companyName%></th>
-                          <td><%= company.dateAdded%></td>
-                          <td><%= company.url%></td>
-                          <td><%= company.role%></td>
-                          <td><%= company.roleURL%></td>
-                          <td><%= company.position%></td>
-                          <td><%= company.source%></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!--  Point of Contact Table -->
-                    <h3>Point of Contact</h3>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Name</th>
-                          <th scope="col">Position at Company</th>
-                          <th scope="col">Email</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">
-                            <%= company.pointOfContact.name %>
-                          </th>
-                          <td><%= company.pointOfContact.position %></td>
-                          <td><%= company.pointOfContact.email %></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!-- Application Table -->
-                    <h3>Application</h3>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Applied</th>
-                          <th scope="col">Apply Date</th>
-                          <th scope="col">Coffee Chat</th>
-                          <th scope="col">Coffee Chat Date</th>
-                          <th scope="col">Said Thanks</th>
-                          <th scope="col">Interview Date</th>
-                          <th scope="col">Follow Up Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">
-                            <%= company.application.applied %>
-                          </th>
-                          <td><%= company.application.applyDate %></td>
-                          <td><%= company.application.coffeeChat %></td>
-                          <td><%= company.application.coffeeChatDate %></td>
-                          <td><%= company.application.saidThanks %></td>
-                          <td><%= company.application.interviewDate %></td>
-                          <td><%= company.application.followUp %></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div class="">
+                      Company Info:
+                      <!-- Job Description Table -->
+                      <h3>Job Description</h3>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Date Added</th>
+                            <th scope="col">Company Website</th>
+                            <th scope="col">Role/Position</th>
+                            <th scope="col">Role/Position URL</th>
+                            <th scope="col">Position Type</th>
+                            <th scope="col">Source</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row"><%= company.companyName%></th>
+                            <td><%= company.dateAdded%></td>
+                            <td><%= company.url%></td>
+                            <td><%= company.role%></td>
+                            <td><%= company.roleURL%></td>
+                            <td><%= company.position%></td>
+                            <td><%= company.source%></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--  Point of Contact Table -->
+                      <h3>Point of Contact</h3>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position at Company</th>
+                            <th scope="col">Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              <%= company.pointOfContact.name %>
+                            </th>
+                            <td><%= company.pointOfContact.position %></td>
+                            <td><%= company.pointOfContact.email %></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- Application Table -->
+                      <h3>Application</h3>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Applied</th>
+                            <th scope="col">Apply Date</th>
+                            <th scope="col">Coffee Chat</th>
+                            <th scope="col">Coffee Chat Date</th>
+                            <th scope="col">Said Thanks</th>
+                            <th scope="col">Interview Date</th>
+                            <th scope="col">Follow Up Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              <%= company.application.applied %>
+                            </th>
+                            <td><%= company.application.applyDate %></td>
+                            <td><%= company.application.coffeeChat %></td>
+                            <td><%= company.application.coffeeChatDate %></td>
+                            <td><%= company.application.saidThanks %></td>
+                            <td><%= company.application.interviewDate %></td>
+                            <td><%= company.application.followUp %></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <!-- End of Tables -->
                   </div>
                 </div>
@@ -235,52 +237,57 @@
               <% }) %>
             </div>
           </div>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="card-tab-pane"
-          role="tabpanel"
-          aria-labelledby="card-tab"
-          tabindex="0"
-        >
-          <!-- MODBILE Card View Content Goes Here -->
-          <!-- list of companies in card format -->
-          <div class="row">
-            <div class="col-12">
-              <ul class="list-group">
-                <% companies.forEach(company => { %>
-                <li class="list-group-item">
-                  <div class="card">
-                    <div class="card-body" data-id="<%=company._id%>">
-                      <h5 class="card-title">
-                        Company Name: <%= company.companyName %>
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        Point of Contact Name: <%= company.pointOfContact.name
-                        %>
-                      </h6>
-                      <p class="card-text">
-                        Point of Contact Email: <%= company.pointOfContact.email
-                        %>
-                      </p>
-                      <a
-                        href="#<%= company._id %>"
-                        class="card-link"
-                        data-toggle="collapse"
-                        >View</a
-                      >
-                      <div id="#<%= company._id %>" class="collapse">Howdy</div>
-                      <a
-                        href="/companies/edit/<%= company._id %>"
-                        class="card-link"
-                        >Edit</a
-                      >
-                      <button class="del-company btn btn-danger">Delete</button>
+
+          <div
+            class="tab-pane fade"
+            id="card-tab-pane"
+            role="tabpanel"
+            aria-labelledby="card-tab"
+            tabindex="0"
+          >
+            <!-- MODBILE Card View Content Goes Here -->
+            <!-- list of companies in card format -->
+            <div class="row">
+              <div class="col-12">
+                <ul class="list-group">
+                  <% companies.forEach(company => { %>
+                  <li class="list-group-item">
+                    <div class="card">
+                      <div class="card-body" data-id="<%=company._id%>">
+                        <h5 class="card-title">
+                          Company Name: <%= company.companyName %>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                          Point of Contact Name: <%= company.pointOfContact.name
+                          %>
+                        </h6>
+                        <p class="card-text">
+                          Point of Contact Email: <%=
+                          company.pointOfContact.email %>
+                        </p>
+                        <a
+                          href="#<%= company._id %>"
+                          class="card-link"
+                          data-toggle="collapse"
+                          >View</a
+                        >
+                        <div id="#<%= company._id %>" class="collapse">
+                          Howdy
+                        </div>
+                        <a
+                          href="/companies/edit/<%= company._id %>"
+                          class="card-link"
+                          >Edit</a
+                        >
+                        <button class="del-company btn btn-danger">
+                          Delete
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <% }) %>
-              </ul>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
