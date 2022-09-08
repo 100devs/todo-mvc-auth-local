@@ -105,6 +105,7 @@ input {
 }
 
 .loginFormInput {
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,13 +124,15 @@ input.homeFormBox {
   width: 15rem;
 }
 
-input.homeFormBtn {
+input.homeFormBtn,
+a.homeFormBtn {
   border: 0.2rem solid rgba(110, 92, 157, 1);
   border-radius: 2rem;
   width: 9rem;
 }
 
-input.homeFormBtn:hover {
+input.homeFormBtn:hover,
+a.homeFormBtn:hover {
   background-color: #a88beb;
   color: white;
 }
@@ -137,6 +140,17 @@ input.homeFormBtn:hover {
 .loginBtns {
   display: flex;
   justify-content: center;
+}
+
+a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 0px 15px 0;
+  background-color: rgba(197, 197, 197, 0.535);
 }
 
 /******************************************
@@ -165,6 +179,15 @@ input.homeFormBtn:hover {
 
 label {
   font-size: 1.3rem;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  padding: 0 2em 1.2em 2em;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #512aa9;
+  text-align: center;
 }
 
 .titlebar {

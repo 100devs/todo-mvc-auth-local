@@ -60,7 +60,7 @@ exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect("/dashboard");
   }
-  res.render("/", {
+  res.render("signup", {
     title: "Create Account",
   });
 };
@@ -90,29 +90,26 @@ exports.postSignup = (req, res, next) => {
     password: req.body.password,
   });
   // , { userName: req.body.userName }
-  User.findOne(
-    { $or: [{ email: req.body.email }] },
-    (err, existingUser) => {
+  User.findOne({ $or: [{ email: req.body.email }] }, (err, existingUser) => {
+    if (err) {
+      return next(err);
+    }
+    if (existingUser) {
+      req.flash("errors", {
+        msg: "Account with that email address already exists.",
+      });
+      return res.redirect("../");
+    }
+    user.save((err) => {
       if (err) {
         return next(err);
       }
-      if (existingUser) {
-        req.flash("errors", {
-          msg: "Account with that email address already exists.",
-        });
-        return res.redirect("../");
-      }
-      user.save((err) => {
+      req.logIn(user, (err) => {
         if (err) {
           return next(err);
         }
-        req.logIn(user, (err) => {
-          if (err) {
-            return next(err);
-          }
-          res.redirect("/dashboard");
-        });
+        res.redirect("/dashboard");
       });
-    }
-  );
+    });
+  });
 };

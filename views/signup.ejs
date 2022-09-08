@@ -60,6 +60,10 @@
     <div class="cardContainer">
       <div class="card">
         <div class="cardFront flip" id="cardFront">
+          <div class="formTitle">
+            <h2>Sign Up</h2>
+          </div>
+
           <form
             action="/signup"
             method="POST"
@@ -67,17 +71,38 @@
             class="loginForm"
           >
             <div class="loginFormInput">
-              <h2>Welcome to Squish</h2>
-              <p class="welcome">
-                A place to unwind and reflect on your day and how it made you
-                feel
-              </p>
+              <iconify-icon icon="bx:at"></iconify-icon>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                class="homeFormBox"
+              />
             </div>
-            <div class="btnsContainer">
-              <div class="loginBtns">
-                <a class="homeFormBtn" href="/signup">Signup</a>
-                <a class="homeFormBtn" href="/login">login</a>
-              </div>
+
+            <div class="loginFormInput">
+              <iconify-icon icon="bx:lock"></iconify-icon>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Your Password"
+                class="homeFormBox"
+              />
+            </div>
+            <div class="loginFormInput">
+              <iconify-icon icon="bx:lock"></iconify-icon>
+
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+              />
+            </div>
+
+            <div class="loginBtns">
+              <input type="submit" value="Signup" class="homeFormBtn" />
             </div>
           </form>
         </div>

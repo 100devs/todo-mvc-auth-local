@@ -11,8 +11,8 @@
 
     <!-- LINKS -->
 
-    <link rel="stylesheet" href="/public/css/reset.css" />
-    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 
     <!-- SCRIPTS -->
 
@@ -56,7 +56,7 @@
 
     <!--ICON-->
     <div class="icon">
-      <img src="/images/Default.png" alt="squish-icon" />
+      <img src="logo.png" alt="squish-icon" />
     </div>
 
     <!-- LOGIN -->
@@ -68,7 +68,12 @@
             <h2>Login</h2>
           </div>
 
-          <form action="" autocomplete="off" class="loginForm">
+          <form
+            action="/login"
+            method="POST"
+            autocomplete="off"
+            class="loginForm"
+          >
             <div class="loginFormInput">
               <iconify-icon icon="bx:at"></iconify-icon>
 
@@ -94,7 +99,7 @@
             </div>
 
             <div class="loginBtns">
-              <input type="submit" value="Signup" class="homeFormBtn" />
+              <a class="homeFormBtn" href="/signup">Signup</a>
               <input type="submit" value="Login" class="homeFormBtn" />
             </div>
           </form>
