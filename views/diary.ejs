@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Diary</h1>
+    <ul>
+    <% diary.forEach( el => { %>
+            <li class='diaryEntry' data-id='<%=el._id%>' data-private='<%=el.private%>'>
+                <span><%= el.diary %></span>
+                <br>
+                <p>This entry is <%= el.private ? 'Private ' : 'Public ' %></p>
+                <button class='del'> Delete </button>
+                <button class='changePrivacy'>Make <%= !el.private ? 'Private ' : 'Public ' %></button>
+                <br>
+                
+                <!-- <form action="/diary/updateDiary" method='POST'>
+                    <input type="text" placeholder="Update diary entry" name='diaryEntry'>
+                    <input type="submit" class="update" value="Update">
+                </form> -->
+            </li>
+            <br>
+    <% }) %>    
+    </ul>
+
+    <h2><%= user.userName %> has <%= total %> total diary entries.</h2>
+
+    <form action="/diary/createDiary" method='POST'>
+        <textarea placeholder="Add a new diary Entry" name="diaryEntry"></textarea>
+        <input type="radio" id="false" name="private" value="false" checked="true">
+        <label for="public">Public</label>
+        <input type="radio" id="true" name="private" value="true">
+        <label for="private">Private</label>
+        <input type="submit">
+    </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
