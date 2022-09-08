@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const Grocerieschema = new mongoose.Schema({
+  grocery: {
     type: String,
     required: true,
   },
@@ -12,7 +12,12 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-  }
+  },
+  quantity: {
+    type: Number,
+    required: true,
+    min: 1,
+  },
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Grocery', Grocerieschema)
