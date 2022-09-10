@@ -157,33 +157,71 @@
                       <button class="del-company btn btn-danger">Delete</button>
                     </div>
                     <div class="">
-                      Company Info:
+                      <!-- Company Info: -->
                       <!-- Job Description Table -->
                       <h3>Job Description</h3>
-                      <table class="table">
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
                         <thead>
                           <tr>
                             <th scope="col">Company Name</th>
                             <th scope="col">Date Added</th>
-                            <th scope="col">Company Website</th>
-                            <th scope="col">Role/Position</th>
-                            <th scope="col">Role/Position URL</th>
-                            <th scope="col">Position Type</th>
-                            <th scope="col">Source</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row"><%= company.companyName%></th>
+                            <td><%= company.companyName%></td>
                             <td>
                               <%=
                               company.dateAdded?.toLocaleDateString("en-US")%>
                             </td>
-                            <td><%= company.url%></td>
-                            <td><%= company.role%></td>
-                            <td><%= company.roleURL%></td>
-                            <td><%= company.position%></td>
-                            <td><%= company.source%></td>
+                            <table
+                              class="table table-sm table-striped table-borderless"
+                            >
+                              <thead>
+                                <tr>
+                                  <th scope="col">Company Website</th>
+                                  <th scope="col">Role/Position</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><%= company.url%></td>
+                                  <td><%= company.role%></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table
+                              class="table table-sm table-striped table-borderless"
+                            >
+                              <thead>
+                                <tr>
+                                  <th scope="col">Role/Position URL</th>
+                                  <th scope="col">Position Type</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><%= company.roleURL%></td>
+                                  <td><%= company.position%></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table
+                              class="table table-sm table-striped table-borderless"
+                            >
+                              <thead>
+                                <tr>
+                                  <th scope="col">Source</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><%= company.source%></td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </tr>
                         </tbody>
                       </table>
