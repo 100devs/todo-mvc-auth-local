@@ -1,24 +1,24 @@
+
 .body{
+    margin:0;
     height:100vh;
     width:100vw;
-    display:flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(157, 113, 232);
     font-family: 'Poppins', sans-serif;
 }
 
-.body-section{
-    width:35vw;
-    height:65vh;
+.login-signup-section, .login-form-section, .signup-form-section{
+    width:40vw;
+    height:70vh;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgba(245, 239, 255, 0.2);
+    background-color: rgba(245, 239, 255, 0.1);
     border:rgb(245, 239, 255) 1px solid;
     border-radius:30px;
 }
+
 
 a{
     text-decoration: none;
@@ -26,16 +26,47 @@ a{
     text-transform: capitalize;
 }
 
+.github-link{
+    color:rgb(245, 239, 255);
+}
+
+fieldset{
+    border:none;
+}
+
+/* ---------------------------------------- H1 HEADERS -------------------------------- */
+.index-header, .login-header, .signup-header, .todos-heading{
+    color:rgb(245, 239, 255);
+    text-align: center;
+    padding:10px;
+    font-size: 1.8rem;
+    font-family: 'Major Mono Display', monospace;
+}
+
+/* ------------------------------------LABELS---------------------------- */
+.login-email-label, .login-password-label,.signup-email-label, .signup-username-label{
+    width:100px;
+    display: inline-block;
+}
+
+
+/* ------------------------------------INPUTS---------------------------- */
+input[type="email"], input[type="password"], input[type="text"], input[type="date"]{
+    width:300px;
+    height:2rem;
+    font-size: 1.1rem;
+}
 
 /* ---------------------------------INDEX.EJS--------------------------------- */
-
-.index-header{
-    color:Black;
-    text-align: center;
+.index-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .login-signup{
-    width:50%;
+    width:70%;
     height:3rem;
     display: flex;
     align-items: center;
@@ -48,7 +79,7 @@ a{
     color:rgb(245, 239, 255) ;
     border:rgb(245, 239, 255) 2px dashed;
     border-radius: 20px;
-    width:50%;
+    width:40%;
     height:100%;
     background-color: rgba(30, 0, 78, 0.2);
     display: flex;
@@ -62,16 +93,23 @@ a{
     color:rgb(115, 113, 252)
 }
 
-
+.github-link i{
+    font-size:4rem;
+}
 /* ---------------------------------LOGIN EJS--------------------------------- */
-
-.login-button{
+.login-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.login-button, .signup-submit-button{
     background-color: rgba(30, 0, 78, 0.2);
     border:rgb(245, 239, 255) 2px dashed;
     border-radius: 20px;
     padding:10px;
-    width:20%;
-    height:10%;
+    width:30%;
+    height:3rem;
     font-size: 1rem;
     font-weight: 600;
     color:rgb(245, 239, 255);
@@ -83,23 +121,274 @@ a{
     border:rgb(245, 239, 255) 2px solid;
 }
 
-.email-login-label, .password-login-label{
-    display:inline-block;
-    width:100px;
+
+
+
+/* ---------------------------------SIGNUP EJS--------------------------------- */
+
+.alert{
+    color:rgb(182, 2, 2);
+    margin:10px;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
-input[type="email"], input[type="password"]{
-    height:2rem;
+.signup-body{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-password-field{
+    display: flex;
+    flex-direction: column;
+    width:100px;
+    text-align: center;
+    height: 35%;
+    justify-content: space-evenly;
 }
 
 /* ---------------------------------TODOS EJS--------------------------------- */
+
+
 .todos-header{
-    color: red;
+    display:flex;
+    height:15%;
+    align-items: center;
+    justify-content: flex-end;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+
+.todos-left-form{
+   display:flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
 }
-.not{
-    text-decoration: underline;
+
+.logout-button {
+    padding:20px;
+    display:block;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border:rgb(245, 239, 255) 2px dashed;
+    margin-right:50px;
+    color:rgb(245, 239, 255);
+    font-weight: 800;
+}
+
+.logout-button:hover, .todo-form input[type="submit"]:hover {
+    background-color: rgba(245, 239, 255, 1);
+    color:rgb(115, 113, 252);
+    border:rgb(245, 239, 255) 2px solid;
+}
+
+.todos-main{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.todos-section{
+    width:40vw;
+    aspect-ratio: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(245, 239, 255, 0.1);
+    border:rgb(245, 239, 255) 1px solid;
+    border-radius:30px;    
+    margin-bottom: 50px;
+}
+
+.todo-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todos-list, .todos-counter{
+    color:rgb(245, 239, 255);
+}
+
+.todos-list li{
+    list-style-type: circle;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.eachTodo{
+    display: flex;
+    flex-direction: column
+}
+
+.todos-list li .dueDate{
+    color:blue;
+}
+
+.todos-list li .del{
+    color:rgb(182, 2, 2);
+}
+
+.todo-form input[type="submit"]{
+    background-color: rgba(30, 0, 78, 0.2);
+    border:rgb(245, 239, 255) 2px dashed;
+    border-radius: 20px;
+    padding:10px;
+    width:30%;
+    height:3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color:rgb(245, 239, 255);
+    margin: 20px 0;
+}
+
+/* ---------------------------LARGE SCREENS--------------------------- */   
+
+
+@media (max-width:1100px){
+/* -----------INDEX----------- */   
+.login-signup-section, .login-form-section, .signup-form-section, .todos-section {
+    width:50vw;
+}
+
+/* -----------LOGIN-----------*/
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*-----------SIGNUP-----------*/
+
+
+    .signup-email-label, .signup-username-label{
+        width:100%;
+        display: inline-block;
+        text-align: center;
+    }    
+
+    .signup-email-field input[type="email"], .signup-password-field input[type="password"], .signup-username-field input[type="text"] {
+        width:300px;
+    }
+
+    .signup-email-field, .signup-username-field{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+}
+
+
+
+/* ---------------------------MEDIUM SCREENS--------------------------- */
+@media (max-width:760px){
+    .login-signup-section, .login-form-section, .signup-form-section, .todos-section {
+        width: 60vw;
+    }
+
+
+/*-----------LOGIN----------- */
+.login-email-section input[type="email"], .login-password-section input[type="password"]{
+    width:280px;
+}
+
+}
+
+
+
+/* ---------------------------SMALL SCREENS--------------------------- */
+@media (max-width:550px){
+    .login-signup-section, .login-form-section, .signup-form-section, .todos-section {
+        width: 75vw;
+    }
+
+/*-----------LOGIN----------- */
+.login-email-section input[type="email"], .login-password-section input[type="password"]{
+        max-width:250px;
+    }
+
+/*-----------TODOS----------- */
+.todo-form input[type="text"], .todo-form input[type="date"]{
+    max-width:230px;
+}
+
+.todo-form input[type="submit"] {
+    width:45%;
+}
+
+.todos-header {
+    justify-content: center;
+}
+
+/*-----------SIGNUP-----------*/
+.signup-email-field input[type="email"], .signup-password-field input[type="password"], .signup-username-field input[type="text"] {
+    width:200px;
+}
+}
+
+/* ---------------------------EXTRA SMALL SCREENS--------------------------- */
+
+@media (max-width:350px){
+
+.index-header, .login-header, .signup-header, .todos-heading{
+        font-size: 1.1rem;
+
+    }
+
+/*-----------INDEX----------- */
+
+
+.login-signup{
+    height: 8rem;
+    flex-direction: column;
+}
+
+.login-signup a {
+    width: 80%;
+}
+
+/*----------- LOGIN----------- */
+.login-email-section input[type="email"], .login-password-section input[type="password"]{
+    width:90%;
+}
+
+.login-button{
+    width: 70%;
+}
+
+/*-----------TODOS----------- */
+.todo-form input[type="text"], .todo-form input[type="date"]{
+    width:150px;
+}
+
+.todos-list, .todos-counter {
+    font-size:1rem;
+}
+
+.logout-button{
+    margin:0;
+}
+
+.todo-form input[type="submit"] {
+    width: 60%;
+}
+/*-----------SIGNUP-----------*/
+.signup-email-field input[type="email"], .signup-password-field input[type="password"], .signup-username-field input[type="text"] {
+    width:120px;
+}
+
+.signup-submit-button{
+    width:50%;
+}
 }

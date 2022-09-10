@@ -4,20 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sign Up!</title>
 </head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
+<body class="body signup-body">
+    <h1 class="signup-header">Sign Up</h1>
+    <div>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>  
+    </div>
+    <form action="/signup" method="POST" class="signup-form-section">
+        <fieldset class="signup-email-field"> 
+            <label for="email" class="signup-email-label">Email:</label>
+            <input type="email" name="email" placeholder="Email">
+        </fieldset>
+
+        <fieldset class="signup-username-field">
+            <label for="userName" class="signup-username-label">Username:</label>
+            <input type="text" name="userName" placeholder="User Name">
+        </fieldset>
+
+        <fieldset class="signup-password-field">
+            <div class="signup-password-label">
+                <label for="password" >Password:</label>
+            </div>
+            <div class="signup-passwords">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirmPassword" placeholder="Confirm Password"> 
+            </div>
+        </fieldset>
+
+        <input type="submit" class="signup-submit-button">
     </form>
 </body>
 </html>

@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
-<body class="body">
+<body class="body login-body">
 
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
@@ -22,18 +22,17 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST" class="body-section">
-        <h1>Login</h1>
-        <div class="email-section">
-            <label for="email" class="email-login-label">Email:</label>
+    <form action="/login" method="POST" class="login-form-section">
+        <h1 class="login-header">Login</h1>
+        <fieldset class="login-email-section">
+            <label for="email" class="login-email-label">Email:</label>
             <input type="email" name="email" placeholder="Email">            
-        </div>
-        <div class="password-section">
-            <label for="password" class="password-login-label">Password:</label>
+        </fieldset>
+        <fieldset class="login-password-section">
+            <label for="password" class="login-password-label">Password:</label>
             <input type="password" name="password" placeholder="Password">            
-        </div>
+        </fieldset>
 
         <input type="submit" class="login-button">
     </form>
 </body>
-</html>
