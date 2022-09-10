@@ -121,7 +121,7 @@
                     class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#<%= company.companyName %>"
+                    data-bs-target="#collapseTarget<%= company._id %>"
                     aria-expanded="false"
                     aria-controls="<%= company.companyName %>"
                   >
@@ -142,7 +142,7 @@
                 </h2>
                 <!-- Collapse Toggle Button -->
                 <div
-                  id="<%= company.companyName %>"
+                  id="collapseTarget<%= company._id %>"
                   class="accordion-collapse collapse"
                   aria-labelledby="headingOne"
                 >
