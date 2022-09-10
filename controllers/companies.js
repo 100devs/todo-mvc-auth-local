@@ -15,7 +15,7 @@ exports.createCompany = async (req, res) => {
     const company = await Company.create({
       userId: uniqID,
       companyName: req.body.companyName,
-      dateAdded: req.body.dateAdded,
+      dateAdded: req.body.dateAdded || new Date(),
       url: req.body.url,
       role: req.body.role,
       roleURL: req.body.roleURL,
@@ -28,18 +28,18 @@ exports.createCompany = async (req, res) => {
       },
       application: {
         // If the property value is undefined, set the value to 'no' instead
-        applied: req.body.applied || 'no',
-        applyDate: req.body.applyDate,
-        coffeeChat: req.body.coffeeChat || 'no',
-        coffeeChatDate: req.body.coffeeChatDate,
-        saidThanks: req.body.saidThanks || 'no',
-        interviewDate: req.body.interviewDate,
-        followUpDate: req.body.followUpDate,
+        applied: req.body.applied || "no",
+        applyDate: req.body.applyDate || new Date(),
+        coffeeChat: req.body.coffeeChat || "no",
+        coffeeChatDate: req.body.coffeeChatDate || new Date(),
+        saidThanks: req.body.saidThanks || "no",
+        interviewDate: req.body.interviewDate || new Date(),
+        followUpDate: req.body.followUpDate || new Date(),
       },
       comments: req.body.comments,
     });
     console.log("Company Data has been added!");
-    console.log(company)
+    console.log(company);
     res.redirect("/companies");
   } catch (err) {
     console.log(err);
