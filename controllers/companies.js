@@ -15,6 +15,7 @@ exports.createCompany = async (req, res) => {
     const company = await Company.create({
       userId: uniqID,
       companyName: req.body.companyName,
+      // Added a default date for current date
       dateAdded: req.body.dateAdded || new Date(),
       url: req.body.url,
       role: req.body.role,
@@ -29,12 +30,12 @@ exports.createCompany = async (req, res) => {
       application: {
         // If the property value is undefined, set the value to 'no' instead
         applied: req.body.applied || "no",
-        applyDate: req.body.applyDate || new Date(),
+        applyDate: req.body.applyDate,
         coffeeChat: req.body.coffeeChat || "no",
-        coffeeChatDate: req.body.coffeeChatDate || new Date(),
+        coffeeChatDate: req.body.coffeeChatDate,
         saidThanks: req.body.saidThanks || "no",
-        interviewDate: req.body.interviewDate || new Date(),
-        followUpDate: req.body.followUpDate || new Date(),
+        interviewDate: req.body.interviewDate,
+        followUpDate: req.body.followUpDate,
       },
       comments: req.body.comments,
     });
