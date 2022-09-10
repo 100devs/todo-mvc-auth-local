@@ -17,6 +17,9 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <!-- Work around Fix for MIME issue, it seemed to originate from possible render / redirect issues from back end -->
+    <!-- Notice the below href value does NOT have a slash (/) where as the addCompany.ejs includes a slash (/) -->
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -118,7 +121,7 @@
                     class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#<%= company.companyName %>"
+                    data-bs-target="#collapseTarget<%= company._id %>"
                     aria-expanded="false"
                     aria-controls="<%= company.companyName %>"
                   >
@@ -139,7 +142,7 @@
                 </h2>
                 <!-- Collapse Toggle Button -->
                 <div
-                  id="<%= company.companyName %>"
+                  id="collapseTarget<%= company._id %>"
                   class="accordion-collapse collapse"
                   aria-labelledby="headingOne"
                 >
@@ -172,7 +175,10 @@
                         <tbody>
                           <tr>
                             <th scope="row"><%= company.companyName%></th>
-                            <td><%= company.dateAdded%></td>
+                            <td>
+                              <%=
+                              company.dateAdded?.toLocaleDateString("en-US")%>
+                            </td>
                             <td><%= company.url%></td>
                             <td><%= company.role%></td>
                             <td><%= company.roleURL%></td>
@@ -217,15 +223,35 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">
-                              <%= company.application.applied %>
-                            </th>
-                            <td><%= company.application.applyDate %></td>
-                            <td><%= company.application.coffeeChat %></td>
-                            <td><%= company.application.coffeeChatDate %></td>
-                            <td><%= company.application.saidThanks %></td>
-                            <td><%= company.application.interviewDate %></td>
-                            <td><%= company.application.followUp %></td>
+                            <td>
+                              <%= company.application.applied?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.applyDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%= company.application.coffeeChat?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.coffeeChatDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%= company.application.saidThanks?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.interviewDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.followUpDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
