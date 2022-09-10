@@ -176,55 +176,56 @@
                               <%=
                               company.dateAdded?.toLocaleDateString("en-US")%>
                             </td>
-                            <table
-                              class="table table-sm table-striped table-borderless"
-                            >
-                              <thead>
-                                <tr>
-                                  <th scope="col">Company Website</th>
-                                  <th scope="col">Role/Position</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td><%= company.url%></td>
-                                  <td><%= company.role%></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <table
-                              class="table table-sm table-striped table-borderless"
-                            >
-                              <thead>
-                                <tr>
-                                  <th scope="col">Role/Position URL</th>
-                                  <th scope="col">Position Type</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td><%= company.roleURL%></td>
-                                  <td><%= company.position%></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <table
-                              class="table table-sm table-striped table-borderless"
-                            >
-                              <thead>
-                                <tr>
-                                  <th scope="col">Source</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td><%= company.source%></td>
-                                </tr>
-                              </tbody>
-                            </table>
                           </tr>
                         </tbody>
                       </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Company Website</th>
+                            <th scope="col">Role/Position</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><%= company.url%></td>
+                            <td><%= company.role%></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Role/Position URL</th>
+                            <th scope="col">Position Type</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><%= company.roleURL%></td>
+                            <td><%= company.position%></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Source</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><%= company.source%></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
                       <!--  Point of Contact Table -->
                       <h3>Point of Contact</h3>
                       <table
