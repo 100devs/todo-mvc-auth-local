@@ -175,7 +175,10 @@
                         <tbody>
                           <tr>
                             <th scope="row"><%= company.companyName%></th>
-                            <td><%= company.dateAdded%></td>
+                            <td>
+                              <%=
+                              company.dateAdded?.toLocaleDateString("en-US")%>
+                            </td>
                             <td><%= company.url%></td>
                             <td><%= company.role%></td>
                             <td><%= company.roleURL%></td>
@@ -220,15 +223,35 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">
-                              <%= company.application.applied %>
-                            </th>
-                            <td><%= company.application.applyDate %></td>
-                            <td><%= company.application.coffeeChat %></td>
-                            <td><%= company.application.coffeeChatDate %></td>
-                            <td><%= company.application.saidThanks %></td>
-                            <td><%= company.application.interviewDate %></td>
-                            <td><%= company.application.followUpDate %></td>
+                            <td>
+                              <%= company.application.applied?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.applyDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%= company.application.coffeeChat?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.coffeeChatDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%= company.application.saidThanks?"Yes":"No" %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.interviewDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
+                            <td>
+                              <%=
+                              company.application.followUpDate?.toLocaleDateString("en-US")
+                              %>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
