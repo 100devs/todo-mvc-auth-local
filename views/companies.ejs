@@ -227,36 +227,46 @@
                       </table>
                       <!--  Point of Contact Table -->
                       <h3>Point of Contact</h3>
-                      <table class="table">
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
                         <thead>
                           <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Position at Company</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><%= company.pointOfContact.name %></td>
+                            <td><%= company.pointOfContact.position %></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
                             <th scope="col">Email</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">
-                              <%= company.pointOfContact.name %>
-                            </th>
-                            <td><%= company.pointOfContact.position %></td>
                             <td><%= company.pointOfContact.email %></td>
                           </tr>
                         </tbody>
                       </table>
+
                       <!-- Application Table -->
                       <h3>Application</h3>
-                      <table class="table">
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
                         <thead>
                           <tr>
                             <th scope="col">Applied</th>
                             <th scope="col">Apply Date</th>
-                            <th scope="col">Coffee Chat</th>
-                            <th scope="col">Coffee Chat Date</th>
-                            <th scope="col">Said Thanks</th>
-                            <th scope="col">Interview Date</th>
-                            <th scope="col">Follow Up Date</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -269,6 +279,20 @@
                               company.application.applyDate?.toLocaleDateString("en-US")
                               %>
                             </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Coffee Chat</th>
+                            <th scope="col">Coffee Chat Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
                             <td>
                               <%= company.application.coffeeChat?"Yes":"No" %>
                             </td>
@@ -277,6 +301,20 @@
                               company.application.coffeeChatDate?.toLocaleDateString("en-US")
                               %>
                             </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Said Thanks</th>
+                            <th scope="col">Interview Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
                             <td>
                               <%= company.application.saidThanks?"Yes":"No" %>
                             </td>
@@ -285,6 +323,19 @@
                               company.application.interviewDate?.toLocaleDateString("en-US")
                               %>
                             </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table
+                        class="table table-sm table-striped table-borderless"
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Follow Up Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
                             <td>
                               <%=
                               company.application.followUpDate?.toLocaleDateString("en-US")
