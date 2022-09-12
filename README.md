@@ -1,44 +1,35 @@
-# Introduction
+# Recipe Books
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
-
+A simple recipe app built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 ---
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+[Link to project](#)
 
----
-
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
-
+![Anime-Gen](https://github.com/specialyas/recipebooks/blob/main/story.png?raw=true)
 ---
 
 # Who is this for? 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- It's for people who are looking for a place to store their recipes or just view recipes stored by others.
+
+---
+# How it's Made
+
+**Tech used:** HTML, CSS, JavaScript, Express, Node and MongoDB
+
 
 ---
 
-# Packages/Dependencies used 
+# Optimizations
+The app can be optimized by adding a sub category to allow for grouping of recipes.
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
-
+# Development Setup
+1. Clone repo to your machine
+2. Run `npm install` in terminal to install all project dependencies
+3. Create a .env file in the config folder with the following info:
+```
+PORT = 3000
+DB_STRING = database string here
+```
+4. Type ```npm run start``` in terminal and press enter
+5. Visit ```http://localhost:3000``` in your browser
