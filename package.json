@@ -28,10 +28,12 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "eslint": "^8.23.1",
     "install": "^0.13.0",
     "nodemon": "^2.0.19",
     "nonpm": "^0.1.0",
-    "npm": "^8.19.1"
+    "npm": "^8.19.1",
+    "prettier": "^2.7.1"
   },
   "repository": {
     "type": "git",
