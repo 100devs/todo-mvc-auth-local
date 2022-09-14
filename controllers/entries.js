@@ -16,7 +16,7 @@ module.exports = {
   createEntry: async (req, res) => {
     try {
       await Entries.create({
-        entry: req.body.entryItem,
+        entry: req.body.entry,
         date: req.body.date,
         title: req.body.title,
         mood: req.body.mood,

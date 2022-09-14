@@ -20,10 +20,6 @@ const flash = require("express-flash");
 // HTTP request logger middleware for node.js
 const logger = require("morgan");
 
-// Routes
-const mainRoutes = require("./routes/main");
-const entryRoutes = require("./routes/entries");
-
 // .env file support
 require("dotenv").config({ path: "./config/.env" });
 
@@ -66,7 +62,11 @@ app.use(passport.session());
 // to the next page that is to be rendered.
 app.use(flash());
 
+// Routes
+const mainRoutes = require("./routes/main");
 app.use("/", mainRoutes);
+
+const entryRoutes = require("./routes/entries");
 app.use("/entries", entryRoutes);
 
 app.listen(process.env.PORT, () => {

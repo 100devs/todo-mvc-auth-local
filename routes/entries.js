@@ -5,8 +5,8 @@ const { ensureAuth } = require("../middleware/auth");
 
 router.get("/", ensureAuth, EntriesController.getEntries);
 
-router.post("/createEntry", EntriesController.createEntry);
+router.post("/", ensureAuth, EntriesController.createEntry);
 
-// router.delete("/deleteTodo", EntriesController.deleteTodo);
+// router.delete("/", EntriesController.deleteTodo);
 
-module.exports = router;
+module.exports = router; 
