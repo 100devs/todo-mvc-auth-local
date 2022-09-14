@@ -65,7 +65,7 @@
             </div>
 
             <div class="dash-content-bkgrnd">
-                <div class="dash-filter">
+                <!-- <div class="dash-filter">
                     <span>Filter:</span>
                     <div class="emoji">
 
@@ -92,29 +92,17 @@
                         </label>
 
                     </div>
-                </div>
-
+                </div> -->
                 <div>
-                    <div class="dash-images">
-                        <div class="dash-row">
-
-                            </ul>
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                        </div>
-                        <div class="dash-row">
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                        </div>
-                        <div class="dash-row">
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                            <img src="./image/Group 3.png">
-                        </div>
-                    </div>
-                    <div class="dash-all-buttons">
+                    <br>
+                    <br>
+                    <% entryItems.forEach(function(entryItem){ %>
+                        <%=entryItem.date  %> <br>
+                        <%=entryItem.title %> <br>
+                        <%=entryItem.mood %> <br>
+                        <%=entryItem.entry %> <br>
+                    <% }); %>
+                    <!-- <div class="dash-all-buttons">
                         <div class="dash-buttons">
                             <div class="dash-button">
                                 <button type="submit">Previous</button>
@@ -126,7 +114,7 @@
                         <div class="dash-add-entry">
                             <img src="/Vector.png">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
         </section>
     </div>
