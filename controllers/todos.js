@@ -2,9 +2,9 @@ const Todo = require('../models/Todo')
 
 module.exports = {
     getTodos: async (req,res)=>{
-        console.log(req.user)
+        console.log(req.user)// gets the todos of the just the user logged in. The .user property comes from passport
         try{
-            const todoItems = await Todo.find({userId:req.user.id})
+            const todoItems = await Todo.find({userId:req.user.id})//This goes to the database and finds the todos that matches the user id of the logged in user. Todo is capitalized because thats the name of the model file.
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
         }catch(err){

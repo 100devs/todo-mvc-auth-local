@@ -4,28 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO List</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+<body class="body todos-body">
+    <header class="todos-header">
+        <a class="logout-button" href="/logout">Logout</a>
+    </header>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
+    <main class="todos-main">
+        <div class="todos-section">
+            <h1 class="todos-heading">Todos</h1>
+            <div class="todos-list-section">
+                <ul class="todos-list">
+                <% todos.forEach( el => { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <div class="eachTodo">
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <div class="due-delete">
+                                    <span class="dueDate">Due Date: <%= el.dueDate %></span>
+                                    <span class='del'> Delete </span>
+                                </div>
+                            </div>
+                        </li>
+                <% }) %>    
+                </ul>
+            </div>
+            <div class="todos-left-form">
+                <h2 class="todos-counter"><%= user.userName %> has <%= left %> things left to do </h2>
+                <form action="/todos/createTodo" method='POST' class="todo-form">
+                    <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                    <input type="date" name="dueDate">
+                    <input type="submit">
+                </form> 
+            </div>
+        </div>        
+    </main>
+    
+    
 
     <script src="js/main.js"></script>
 </body>

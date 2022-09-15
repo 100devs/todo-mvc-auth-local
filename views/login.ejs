@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Login</title>
 </head>
-<body>
+<body class="body login-body">
+
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -17,10 +22,17 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
+    <form action="/login" method="POST" class="login-form-section">
+        <h1 class="login-header">Login</h1>
+        <fieldset class="login-email-section">
+            <label for="email" class="login-email-label">Email:</label>
+            <input type="email" name="email" placeholder="Email">            
+        </fieldset>
+        <fieldset class="login-password-section">
+            <label for="password" class="login-password-label">Password:</label>
+            <input type="password" name="password" placeholder="Password">            
+        </fieldset>
+
+        <input type="submit" class="login-button">
     </form>
 </body>
-</html>
