@@ -10,13 +10,17 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
+const {cronJob} = require('./email');
+
+cronJob(); // start all cronjobs
+
 require('dotenv').config({path: './config/.env'})
 
 // Passport config
 require('./config/passport')(passport)
 
 connectDB()
-
+//test
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
@@ -40,7 +44,30 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
- 
+
+
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
-})    
+})
+
+
+const {createMailForAllUsers} = require('./newsletter')
+// get all things
+app.get('/getallemails', async (req, res) => {
+  try {
+    // query by foreign key in mongodb
+    const allMail = await createMailForAllUsers();
+    console.log("Finished creating email.");
+    console.log(str);
+    /*
+    allUsers.forEach((user) => {
+      const userID = user._id;
+      str += `Email: ${user.email}<br> Username: ${user.userName}<br> Todos: ${userID}<br><br>`
+    });
+    */
+    res.send();
+  } catch {
+    res.status(503).send("An internal server error occurred.");
+  }
+})
+
