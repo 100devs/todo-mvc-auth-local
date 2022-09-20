@@ -1,4 +1,5 @@
 const Diary = require('../models/Diary')
+const User = require('../models/User')
 
 module.exports = {
     getDiary: async (req,res)=>{
@@ -6,7 +7,8 @@ module.exports = {
         try{
             const diaryEntries = await Diary.find({userId:req.user.id}) //find the Diary in database with matching from models
             const totalEntries = await Diary.countDocuments({userId:req.user.id})
-            res.render('diary.ejs', {diary: diaryEntries, total: totalEntries, user: req.user})
+            const allUsers = await User.find();
+            res.render('diary.ejs', {diary: diaryEntries, total: totalEntries, user: req.user, allUsers: allUsers})
         }catch(err){
             console.log(err)
         }

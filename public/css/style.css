@@ -1,5 +1,25 @@
+* {
+    color: gainsboro;
+}
 h1{
-    color: red;
+    color: teal;
+}
+ul {
+    list-style-type: none;
+    border: 1px solid gainsboro;
+}
+li {
+    border: 1px solid gainsboro;
+}
+form textarea{
+    width: 97vw;
+    background: black;
+}
+input[type="submit"], button {
+    background: teal;
+    color: gainsboro;
+    border-top-right-radius: 35%;
+    border-bottom-right-radius: 35%;
 }
 .completed{
     text-decoration: line-through;
@@ -7,4 +27,7 @@ h1{
 }
 .not{
     text-decoration: underline;
+}
+body {
+    background: black;
 }
