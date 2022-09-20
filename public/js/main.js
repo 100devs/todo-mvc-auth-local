@@ -1,27 +1,23 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const changePrivacyBtn = document.querySelectorAll('.changePrivacy')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteDiary)
 })
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
+Array.from(changePrivacyBtn).forEach((el)=>{
+    el.addEventListener('click', changePrivacy)
 })
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
-})
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteDiary(){
+    const diaryId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('diary/deleteDiary', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'diaryIdFromJSFile': diaryId
             })
         })
         const data = await response.json()
@@ -32,32 +28,16 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+async function changePrivacy(){
+    const diaryId = this.parentNode.dataset.id
+    const private = this.parentNode.dataset.private === "true"
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('diary/changePrivacy', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
-}
-
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markIncomplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'diaryIdFromJSFile': diaryId,
+                'private': !private,
             })
         })
         const data = await response.json()

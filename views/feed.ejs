@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<diary.length; i++) {%> 
+          <!--get posts from our server db pulling from our controller-->
+                    <!--controller works with view, view doesnt communicate with others-->
+
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/diary/<%= diary[i]._id%>">
+            <!--grabbing unique post id-->
+            </a>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>
