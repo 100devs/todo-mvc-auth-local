@@ -1,0 +1,61 @@
+Possible sec qs {
+    First car make / colour
+    Teacher name
+    Childhood best friend
+    (First) Pet name
+    Fav show / film / book
+
+Modified User Schema to include the security question: -- models/Users, from line 9
+const UserSchema = new mongoose.Schema({
+  userName: { type: String, unique: true },
+  email: { type: String, unique: true },
+  password: String,
+  secQuestion: { type: String },
+  qAnswer: {type: String}
+})
+
+Added/copied hashing to include the sec answer:       -- models/Users, from line 33
+UserSchema.pre('save', function save(next) {
+  const user = this
+  if (!user.isModified('qAnswer')) { return next() }
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) { return next(err) }
+    bcrypt.hash(user.qAnswer, salt, (err, hash) => {
+      if (err) { return next(err) }
+      user.qAnswer = hash
+      next()
+    })
+  })
+})
+
+Modified user creation to include sec q/answer          -- controller/auth, from line 78
+  const user = new User({
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password,
+      secQuestion: req.body.secQuestion,
+      qAnswer: req.body.qAnswer
+    })
+
+Modified sign-up to include drop down of sec questions:     --views/singup, from line 20 (submit input lowered beneath this section)
+<label>Security Question
+			<select name="secQuestion">
+				<option value="" selected>Please Select a Question</option>
+				<option value="What is the name of your first pet?">What is the name of your first pet?</option>
+				<option value="Who was your childhood best friend?">Who was your childhood best friend?</option>
+				<option value="What is your favourite film/show/book">What is your favourite film/show/book</option>
+			</select>
+		</label>
+        <input type="text" name="qAnswer" placeholder="answer">
+
+Modified signup verification to include sec question:       -- controller/auth, from line 62
+  exports.postSignup = (req, res, next) => {
+    const validationErrors = []
+    if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
+    if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
+    // if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
+    if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
+    if (validator.isEmpty(req.body.secQuestion)) validationErrors.push({ msg: 'Must select a security question.' })
+    if (validator.isEmpty(req.body.qAnswer)) validationErrors.push({ msg: 'Security answer cannot be blank.' })
+    // if (!req.body.qAnswer) validationErrors.push({msg: 'Please enter a valid answer'})
+
