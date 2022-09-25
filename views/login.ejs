@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <% if (locals.messages.errors) { %>
@@ -17,10 +19,28 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <a href="/login"><h2 class="active"> Sign In </h2></a>
+            <a href="/signup"><h2 class="inactive underlineHover">Sign Up </h2></a>
+            <form action="/login" method="POST">
+                <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+                <input type="submit" class="fadeIn fourth" value="Submit">
+            </form>
+            <!-- <form action="/login" method="POST">       --Mahad
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+                <input type="submit" class="fadeIn fourth" value="Submit">
+            </form> -->
+            <!-- <form action="/login" method="POST">       --Working
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit">
+            </form> -->
+            <a href="/signup">New User?</a>
+        </div>
+    </div>
+
 </body>
 </html>

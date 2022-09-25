@@ -1,0 +1,11 @@
+<h1>Edit your tasks</h1>
+
+<form action="/todos/editTodo/<%=todoById._id%>" method="POST">
+    <div>
+        <label for="todo" class="form-label">Task</label>
+        <input type="text" name="todo" id="todo" value="<%=todoById.todo %>" class="form-control">
+    </div>
+    <div>
+        <button type="submit">Edit Task</button>
+    </div> 
+</form> 

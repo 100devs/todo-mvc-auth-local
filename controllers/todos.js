@@ -51,5 +51,30 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+
+    editTodo: async(req, res) => {
+        try {
+            let todoId = req.params.id
+            let todoById = await Todo.findById({_id: todoId})
+            res.render('editTodo.ejs', {title: 'Todo Manager', todoById})
+            console.log(todoById)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    editTodoOnPost: async(req,res) =>{
+        try {
+            req.body.user = req.body._id
+            let todoId = req.params.id
+            let todoById = await Todo.findByIdAndUpdate({_id: todoId}, {$set: {
+                todo: req.body.todo
+            }})
+            res.redirect('/todos')
+            console.log(todoById)
+        } catch (error) {
+            res.status(500).send({message:error.message || 'error occurred'})
+        }
     }
 }    
