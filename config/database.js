@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+console.log(process.env.PORT)
 
 const connectDB = async () => {
   try {

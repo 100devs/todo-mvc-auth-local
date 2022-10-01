@@ -1,10 +1,66 @@
-h1{
-    color: red;
-}
+
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
     text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid  rgb(64, 109, 12);
+    min-width: 50%;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.button {
+    width: 120px;
+    height: 40px;
+    color: white;
+    background: rgba(64, 109, 12, 0.5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btn-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.form input {
+    width: 100%;
+    height: 10%;
+}
+
+.register {
+    padding: 20px;
 }
