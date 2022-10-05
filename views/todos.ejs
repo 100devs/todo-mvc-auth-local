@@ -6,32 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <div class="px-4 py-5 text-center">
-        <h1 class="display-5 fw-bold">Todos</h1>
-        <div class="col-lg-6 mx-auto">
-          <div class="d-grid gap-5 justify-content-sm-center">
+    
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="g-lg-5 py-5">
+          <div class=" my-5">
+            <h1 class="display-4 fw-bold lh-1 mb-5">My Todos</h1>
             
-            <ul>
+            <ul class="mb-5">
                 <% todos.forEach( el => { %>
                         <li class='todoItem' data-id='<%=el._id%>'>
-                            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                            <span class='del'> Delete </span>
+                            <span class='fs-4 <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" title="delete" width="30" height="30" fill="currentColor" class="bi bi-trash del mx-3 mb-2" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                              </svg>
                         </li>
                 <% }) %>    
             </ul>
             
-            <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-        
-            <form action="/todos/createTodo" method='POST'>
-                <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-                <input type="submit">
+            <form action="/todos/createTodo" method='POST' class="mb-5 col-6">
+                <input type="text" placeholder="Enter Todo Item" name='todoItem' class="form-control col-3 mb-3">
+                <input type="submit" class="btn btn-primary btn-lg px-4 p-1 gap-3"></a>
             </form>
+
+            <h3 class="mb-5 fw-bold"><%= user.userName %> has <%= left %> things left to do.</h3>
         
-            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/logout">Logout</a>
+            <a type="button" class="btn btn-danger btn-lg px-4 gap-3" href="/logout">Logout</a>
 
           </div>
         </div>
