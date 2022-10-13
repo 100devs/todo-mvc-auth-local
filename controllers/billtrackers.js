@@ -37,7 +37,7 @@ module.exports = {
                 // })
                 return billSum
             }
-
+console
             res.render('billtracker.ejs', {billtrackers: billtrackerItems, left: itemsLeft, billSum: totalBills(billtrackerItems).toLocaleString(undefined,
                 {'minimumFractionDigits':2,'maximumFractionDigits':2}), user: req.user})
         }catch(err){
