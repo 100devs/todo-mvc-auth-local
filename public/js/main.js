@@ -1,4 +1,5 @@
 const deleteBtn = document.querySelectorAll('.del')
+// const deleteBtn = document.getElementById('deleteToDo')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 
