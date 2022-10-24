@@ -6,26 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
+    <div class="container">
+        <h1>Todos</h1>
+        <ul>
+        <!-- Added current date to each item -->
+        <% todos.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <% let d = new Date() %>
+                    <span><%= d.toString() %></span>
+                    <span class='btn btn-outline-danger m-1 del'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul>
+    
+        <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    
+    
+        
+        <form action="/todos/createTodo" class="input-group" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" class="input-group-text" name='todoItem'>
+            <!-- <input type="submit" class="input-group-btn"> -->
+            <button class="btn btn-outline-success" type="submit" id="button-addon1">Button</button>
+          
+        </form>
+    
+        <a href="/logout">Logout</a>
+    </div>
+    
 
     <script src="js/main.js"></script>
 </body>
