@@ -15,12 +15,8 @@ nav {
     margin: 10vh 0;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     gap: 50px;
 }
-/* a[href="/logout"] {
-    align-self: center;
-} */
 
 .completed{
     text-decoration: line-through;
