@@ -4,29 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= user.userName %>'s Tasks</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <nav>
+        <h1>Todos</h1>
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit">
+        </form>
+        <a href="/logout">Logout</a>
+    </nav>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <!-- Tasks -->
+    <section class="tasksBox">
+        <section class="uncompetedBox">
+            <h3><%= left === 1 ? left + ' task to do' : left + ' tasks to do' %></h3>
+            <ul>
+                <% todos.forEach( el => { %>
+                    <% if (!el.completed) { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class="not"><%= el.todo %></span>
+                            <span class='del'> X </span> 
+                        </li>
+                    <% } %>
+                <% }) %>    
+            </ul>
+        </section>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
+        <section class="completedBox">
+            <h3><%= todos.length - left === 1 ? todos.length - left + ' task completed' : todos.length - left + ' tasks completed'%></h3>
+            <ul>
+                <% todos.forEach( el => { %>
+                    <% if (el.completed) { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class="completed"><%= el.todo %></span>
+                            <span class='del'> X </span> 
+                        </li>
+                    <% } %>
+                <% }) %>    
+            </ul>
+        </section>
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>

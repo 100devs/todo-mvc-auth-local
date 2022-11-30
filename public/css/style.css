@@ -1,6 +1,27 @@
+
+
 h1{
     color: red;
 }
+
+nav {
+    margin: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasksBox {
+    margin: 10vh 0;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 50px;
+}
+/* a[href="/logout"] {
+    align-self: center;
+} */
+
 .completed{
     text-decoration: line-through;
     color: gray;
