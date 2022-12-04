@@ -1,14 +1,33 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>Todo Web App - Home</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/auth.css">
+    <script src="https://kit.fontawesome.com/17060f3eb1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form action="/signup" method="POST">
+        <i class="fa-solid fa-check-double fa-2xl fa-beat-fade"></i>
+        <h3>Create Your VERY OWN Todolist!</h3>
+        <a class="primary" href="/login">Log In</button>
+        <a class="secondary" href="/signup">Sign up</a>
+    </form>
 </body>
+
 </html>

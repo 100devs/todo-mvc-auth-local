@@ -1,52 +1,112 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= user.userName %>'s Tasks</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/17060f3eb1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <nav>
-        <h1>Todos</h1>
-        <form action="/todos/createTodo" method='POST'>
-            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-            <input type="submit">
-        </form>
-        <a href="/logout">Logout</a>
+        <h1>
+            <i class="fa-solid fa-circle-check"></i>
+            <%= user.userName %>'s todos
+        </h1>
+
+        <input class="c-checkbox" type="checkbox" id="checkbox">
+        <div class="c-formContainer">
+            <form class="c-form" action="/todos/createTodo" method='POST'>
+                <input class="c-form__input" placeholder="What will you accomplish today?" type="text" name='todoItem'>
+                <label class="c-form__buttonLabel" for="checkbox">
+                <button class="c-form__button">Add</button>
+                </label>
+                <label class="c-form__toggle" for="checkbox" data-title="New task"></label>
+            </form>
+        </div>
+
+        <a class="btn" href="/logout">Logout</a>
     </nav>
 
-    <!-- Tasks -->
+    <!-- Backlog -->
     <section class="tasksBox">
-        <section class="uncompetedBox">
-            <h3><%= left === 1 ? left + ' task to do' : left + ' tasks to do' %></h3>
-            <ul>
+        <section class="uncompletedBox backlog">
+            <h3><%= 'Backlog: ' + (leftBacklog === 1 ? leftBacklog + ' task' : leftBacklog + ' tasks') %></h3>
+            <ul class="fa-ul">
                 <% todos.forEach( el => { %>
-                    <% if (!el.completed) { %>
+                    <% if (el.backlog) { %>
                         <li class='todoItem' data-id='<%=el._id%>'>
-                            <span class="not"><%= el.todo %></span>
-                            <span class='del'> X </span> 
+                            <input type="checkbox" name="taskCheckbox">
+                            <span class="not"><%= el.todoName %></span>
+                            <i class="fa-solid fa-square-xmark"></i>
                         </li>
                     <% } %>
                 <% }) %>    
             </ul>
         </section>
 
+        <!-- To Do Tasks -->
+            <section class="uncompletedBox todo">
+                <h3><%= 'To Do: ' + (leftTodo === 1 ? leftTodo + ' task' : leftTodo + ' tasks') %></h3>
+                <ul class="fa-ul">
+                    <% todos.forEach( el => { %>
+                        <% if (el.toDo) { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <input type="checkbox" name="taskCheckbox">
+                                <span class="not"><%= el.todoName %></span>
+                                <i class="fa-solid fa-square-xmark"></i>
+                            </li>
+                        <% } %>
+                    <% }) %>    
+                </ul>
+            </section>
+
+        <!-- Doing -->
+            <section class="uncompletedBox doing">
+                <h3><%= 'Doing: ' + (leftDoing === 1 ? leftDoing + ' task' : leftDoing + ' tasks') %></h3>
+                <ul class="fa-ul">
+                    <% todos.forEach( el => { %>
+                        <% if (el.doing) { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <input type="checkbox" name="taskCheckbox">
+                                <span class="not"><%= el.todoName %></span>
+                                <i class="fa-solid fa-square-xmark"></i>
+                            </li>
+                        <% } %>
+                    <% }) %>    
+                </ul>
+            </section>
+
+        <!-- Completed -->
         <section class="completedBox">
-            <h3><%= todos.length - left === 1 ? todos.length - left + ' task completed' : todos.length - left + ' tasks completed'%></h3>
-            <ul>
+            <h3><%= 'Done: ' + (leftCompleted === 1 ? leftCompleted + ' task' : leftCompleted + ' tasks') %></h3>
+            <ul class="fa-ul">
                 <% todos.forEach( el => { %>
                     <% if (el.completed) { %>
                         <li class='todoItem' data-id='<%=el._id%>'>
-                            <span class="completed"><%= el.todo %></span>
-                            <span class='del'> X </span> 
+                            <input type="checkbox" name="taskCheckbox" checked>
+                            <span class="completed"><%= el.todoName %></span>
+                            <i class="fa-solid fa-square-xmark"></i>
                         </li>
                     <% } %>
                 <% }) %>    
             </ul>
         </section>
     </section>
+
     <script src="js/main.js"></script>
 </body>
+
 </html>
