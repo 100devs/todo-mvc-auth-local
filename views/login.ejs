@@ -7,13 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
+    <% if (locals.messages.errors) { %>  //email or pass not valid
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <% if (locals.messages.info) { %>
+    <% if (locals.messages.info) { %> //not found email
         <% messages.info.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    <% if (locals.messages.success) { %> //not found email
+        <% messages.success .forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>

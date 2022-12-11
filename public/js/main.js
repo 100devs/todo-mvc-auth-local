@@ -33,7 +33,7 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.dataset.id //takes id from the li
     try{
         const response = await fetch('todos/markComplete', {
             method: 'put',
@@ -44,7 +44,7 @@ async function markComplete(){
         })
         const data = await response.json()
         console.log(data)
-        location.reload()
+        location.reload() // reloads page
     }catch(err){
         console.log(err)
     }
