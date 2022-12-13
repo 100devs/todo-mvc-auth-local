@@ -42,7 +42,7 @@ const User = require('../models/User')
       console.log('User has logged out.')
     }) 
   //logouts ( not really sure what this does probably change the req body or res body) does nothing if taken out
-    req.session.destroy((err) => { //destroys sessions 
+    req.session.destroy((err) => { //destroys sessions i think this does something to the cookies 
       if (err) console.log('Error : Failed to destroy the session during logout.', err)
       req.user = null
       res.redirect('/')

@@ -5,8 +5,8 @@ const app = express()
 //dependencies
 const mongoose = require('mongoose') // db connection
 const passport = require('passport') // auth
-const session = require('express-session') //sessions
-const MongoStore = require('connect-mongo')(session) //
+const session = require('express-session') // allows you to store the session
+const MongoStore = require('connect-mongo')(session) // allows you to store the session
 const flash = require('express-flash') 
 const logger = require('morgan') // logs every request
 const connectDB = require('./config/database') // connectDB function
@@ -29,6 +29,7 @@ app.use(express.static('public')) //public folder
 app.use(express.urlencoded({ extended: true })) //parses request
 app.use(express.json()) //json parser
 app.use(logger('dev')) // uses morgan
+
 // Sessions
 app.use(
     session({
