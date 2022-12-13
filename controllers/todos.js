@@ -13,7 +13,12 @@ module.exports = {
     },
     createTodo: async (req, res)=>{ //creates a new document  and redirects
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create(
+                {todo: req.body.todoItem, 
+                completed: false,
+                userId: req.user.id,
+                priority: req.body.todoPriority
+            })
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
