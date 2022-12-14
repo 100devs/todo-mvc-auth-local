@@ -1,7 +1,7 @@
 const Todo = require('../models/Todo')
 
 module.exports = {
-    getTodos: async (req,res)=>{
+    getTodos: async (req,res)=>{ //gets the info and renders de dashboard
         console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
@@ -11,9 +11,14 @@ module.exports = {
             console.log(err)
         }
     },
-    createTodo: async (req, res)=>{
+    createTodo: async (req, res)=>{ //creates a new document  and redirects
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create(
+                {todo: req.body.todoItem, 
+                completed: false,
+                userId: req.user.id,
+                priority: req.body.todoPriority
+            })
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){

@@ -12,7 +12,9 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.todo %>
+                </span>
+                <span> <%= !el.priority ? '' : el.priority %>     </span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -22,6 +24,7 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="number" placeholder="0" name='todoPriority'>
         <input type="submit">
     </form>
 

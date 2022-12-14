@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
 
 
 // Password hash middleware.
- 
+//hashes the password before saving it
+// I suspect this runs before saving the password
  UserSchema.pre('save', function save(next) {
   const user = this
   if (!user.isModified('password')) { return next() }
