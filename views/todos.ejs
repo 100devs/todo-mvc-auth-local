@@ -6,27 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+    <ul class="list-group">
+    <% todos.forEach( (el) => { %>
+            <li class='todoItem list-group-item' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+               
+                <% switch(el.priority) {
+                    case 1 : %>
+                        <span class="urgent">Urgent</span>
+                        <% break;
+                    case 2 : %>
+                        <span class="high">High</span>
+                        <% break; 
+                    case 3 : %>
+                         <span class="normal">Normal</span>
+                        <% break;
+                    case 4 : %>
+                         <span class="low">Low</span>
+                        <% break; 
+                    case 5 : %>
+                        <span class="backlog">Backlogged</span>
+                        <% break; 
+            } %>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary edit" data-bs-toggle="modal" data-bs-target="#<%='modal'+ el.id%>">Edit</button>
+    
+
+                    <!-- modal variables to programmatically created modal -->
+                    <!-- modal -->
+                    <div class="modal fade" id="<%='modal'+ el.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Update To Do Item : ID:<%=el.id%></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                            <form action="/todos/updateTodo" method='POST'>
+                                <input name="taskID" style="display:none" value="<%=el.id%>">>
+                                <input type="text" value="<%=el.todo%>" name="todoTaskEdit">          
+                                    <label for="todoPriorityEdit">Priority:</label>
+                                    <select id="todoPriorityEdit" name="todoPriorityEdit">
+                                       
+                                        <% switch(el.priority) {
+                                            case 1 : %>
+                                                <option value=1 selected>Urgent</option>
+                                                <option value=2>High</option>
+                                                <option value=3>Normal</option>
+                                                <option value=4>Low</option>
+                                                <option value=5>Backlog</option>
+                                                <% break;
+                                            case 2 : %>
+                                                <option value=1>Urgent</option>
+                                                <option value=2 selected>High</option>
+                                                <option value=3>Normal</option>
+                                                <option value=4>Low</option>
+                                                <option value=5>Backlog</option>
+                                                <% break; 
+                                            case 3 : %>
+                                                <option value=1>Urgent</option>
+                                                <option value=2>High</option>
+                                                <option value=3 selected>Normal</option>
+                                                <option value=4>Low</option>
+                                                <option value=5>Backlog</option>
+                                                <% break;
+                                            case 4 : %>
+                                                <option value=1>Urgent</option>
+                                                <option value=2>High</option>
+                                                <option value=3>Normal</option>
+                                                <option value=4 selected>Low</option>
+                                                <option value=5>Backlog</option>
+                                                <% break; 
+                                            case 5 : %>
+                                                <option value=1>Urgent</option>
+                                                <option value=2>High</option>
+                                                <option value=3>Normal</option>
+                                                <option value=4>Low</option>
+                                                <option value=5 selected>Backlog</option>
+
+                                                <% break; 
+                                    } %>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" id="submit" class="btn btn-primary">Understood</button>
+                                </div>
+                            </form>   <!--end form -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end modal -->
+
+
+               <span class='del'> Delete </span>
             </li>
-    <% }) %>    
+    <% }) %>    <!-- end foreach loop -->
     </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+
+        <label for="todoPriority">Priority:</label>
+            <select id="todoPriority" name="todoPriority">
+                <option value=1>Urgent</option>
+                <option value=2>High</option>
+                <option value=3 selected>Normal</option>
+                <option value=4>Low</option>
+                <option value=5>Backlog</option>
+        </select>
+
         <input type="submit">
     </form>
 
     <a href="/logout">Logout</a>
 
+
+
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

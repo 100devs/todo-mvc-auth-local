@@ -8,3 +8,37 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.delete:hover{
+    background-color: red;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid black;
+}
+
+.urgent{
+    background-color: red;
+    font-weight: bold;
+}
+.urgent:hover{
+    background-color: pink;
+    font-weight: bold;
+}
+
+.high{
+    background-color: yellow;
+    font-weight: bold;
+}
+.normal{
+    background-color: yellowgreen;
+    font-weight: bold;
+}
+.low{
+    background-color: lightblue;
+    font-weight: bold;
+}
+.backlog{
+    background-color: grey;
+    font-weight: bold;
+
+}
