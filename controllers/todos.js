@@ -13,7 +13,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, completed: false, priority: req.body.todoPriority, userId: req.user.id})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -51,5 +51,21 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
+    
+    updateTodo: async (req, res)=>{
+        console.log(req.body.taskID)
+        
+         try{
+            await Todo.findOneAndUpdate({_id:req.body.taskID},{
+                todo: req.body.todoTaskEdit,
+                priority: req.body.todoPriorityEdit,
+            })
+            console.log("updated to information")
+            res.redirect('/todos')
+         }catch(err){
+             console.log(err)
+         }
+    },
+
 }    
