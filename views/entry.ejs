@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- META TAGS -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Journal Entry</title>
+
+  <!-- LINKS -->
+
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Scripts -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+  <script src="./public/js/menu.js"></script>
+
+</head>
+
+<body>
+
+  <!-- HAMBURGER MENU -->
+  <input type="checkbox" id="navi-toggle" class="checkbox" />
+  <label for="navi-toggle" class="button">
+    <span class="icon">&nbsp;</span>
+  </label>
+  <div class="background">&nbsp;</div>
+
+  <div class="menu">
+    <div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Entry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu-container">
+
+    <div class="menu-wrapper">
+      <div id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- hamburger-menu -->
+    </div>
+
+    <div class="formPage">
+
+
+      <!--LOGO-->
+      <div class="entryIcon">
+        <img src="/logo.png" alt="squish-icon">
+      </div>
+
+      <!-- ENTRY BODY -->
+      <div class="container journalForm">
+
+        <form action="/entries" class="entry" autocomplete="off" method="post">
+
+          <section class="titlebar">
+
+            <h1 class="entryTitle">Journal Entry</h1>
+
+            <div class="emoji">
+
+              <label class="moodContainer">
+                <input type="radio" name="mood" value="happy">
+                <iconify-icon class="selectState" icon="fa6-regular:face-smile"></iconify-icon>
+              </label>
+              <label class="moodContainer">
+                <input type="radio" name="mood" value="content">
+                <iconify-icon class="selectState" icon="fa6-regular:face-meh"></iconify-icon>
+              </label>
+              <label class="moodContainer">
+                <input type="radio" name="mood" value="indifferent">
+                <iconify-icon class="selectState" icon="fa6-regular:face-rolling-eyes"></iconify-icon>
+              </label>
+              <label class="moodContainer">
+                <input type="radio" name="mood" value="angry">
+                <iconify-icon class="selectState" icon="fa6-regular:face-angry"></iconify-icon>
+              </label>
+              <label class="moodContainer">
+                <input type="radio" name="mood" value="sad">
+                <iconify-icon class="selectState" icon="fa6-regular:face-frown"></iconify-icon>
+              </label>
+
+            </div>
+
+          </section>
+
+          <section class="journalInputs">
+
+            <label for="date">
+
+              Date:
+              <input type="date" name="date" id="date" class="formInputs" required>
+
+            </label>
+
+            <label for="title">
+
+              Title:
+              <input type="text" name="title" placeholder="Title (what sticks out from today?)" id="title"
+                class="formInputs" size="30">
+
+            </label>
+
+            <div>
+              <textarea name="entry" id="entry" required rows="10" cols="200" required></textarea>
+            </div>
+
+
+            <input type="submit" value="Submit" class="submit">
+
+          </section>
+        </form>
+      </div>
+    </div>
+
+</body>
+
+</html>

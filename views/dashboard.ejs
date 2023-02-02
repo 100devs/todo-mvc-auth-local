@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squish</title>
+
+    <!-- LINKS -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- SCRIPTS -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/public/js/menu.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <section class="dash-body">
+            <div class="dash-nav">
+                <div class="menu-container dash-menu-container">
+
+                    <div class="menu-wrapper">
+                        <div id="hamburger-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <!-- hamburger-menu -->
+                    </div>
+                    <!-- menu-wrapper -->
+
+                    <ul class="menu-list accordion">
+                        <li class="accordion-toggle nav1">
+                            <a class="menu-link" href="#">Home</a>
+                        </li>
+                        <li class="accordion-toggle nav2">
+                            <a class="menu-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="toggle accordion-toggle nav3">
+                            <a class="menu-link" href="#">Journal</a>
+                        </li>
+                        <li class="toggle accordion-toggle nav4">
+                            <a class="menu-link" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- DASHBOARD BODY -->
+
+
+                <ul>
+                    <div class="dash-title">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="dash-logo">
+                        <img src="/logo.png" alt="logo">
+                    </div>
+            </div>
+
+            <div class="dash-content-bkgrnd">
+                <!-- <div class="dash-filter">
+                    <span>Filter:</span>
+                    <div class="emoji">
+
+                        <label class="moodContainer">
+                            <input type="checkbox" name="mood">
+                            <iconify-icon Id="happy" class="selectState" icon="fa6-regular:face-smile"></iconify-icon>
+                        </label>
+                        <label class="moodContainer">
+                            <input type="checkbox" name="mood">
+                            <iconify-icon id="content" class="selectState" icon="fa6-regular:face-meh"></iconify-icon>
+                        </label>
+                        <label class="moodContainer">
+                            <input type="checkbox" name="mood">
+                            <iconify-icon id="indifferent" class="selectState" icon="fa6-regular:face-rolling-eyes">
+                            </iconify-icon>
+                        </label>
+                        <label class="moodContainer">
+                            <input type="checkbox" name="mood">
+                            <iconify-icon id="angry" class="selectState" icon="fa6-regular:face-angry"></iconify-icon>
+                        </label>
+                        <label class="moodContainer">
+                            <input type="checkbox" name="mood">
+                            <iconify-icon id="sad" class="selectState" icon="fa6-regular:face-frown"></iconify-icon>
+                        </label>
+
+                    </div>
+                </div> -->
+                <div>
+                    <br>
+                    <br>
+                    <% entryItems.forEach(function(entryItem){ %>
+                        <%=entryItem.date  %> <br>
+                        <%=entryItem.title %> <br>
+                        <%=entryItem.mood %> <br>
+                        <%=entryItem.entry %> <br>
+                    <% }); %>
+                    <div class="dash-all-buttons">
+                        <!-- <div class="dash-buttons">
+                            <div class="dash-button">
+                                <button type="submit">Previous</button>
+                            </div>
+                            <div class="dash-button">
+                                <button type="submit">Next</button>
+                            </div>
+                        </div> -->
+                        <a href="/entry">
+                            Create Entry
+                        </a>
+                    </div>
+                </div>
+        </section>
+    </div>
+</body>
