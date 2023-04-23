@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/head') %>
+<body>
+   <%- include('partials/nav') %>
+
+    <ul>
+        <% allUserTrips.forEach(trip => { %>
+        <li>
+           <a href="/trips/<%=trip._id%>">
+              <h3><%=trip.tripTitle%><h3>
+           </a>
+        </li>
+        <li>Plan1: <%=trip.option1%></li>
+        <li>Plan2: <%=trip.option2%></li>
+        <li>Plan3: <%=trip.option3%></li>
+        <li>From: <%=trip.dateFrom%></li>
+        <li>To: <%=trip.dateTo%></li>
+        <li>Host Email: <%=trip.tripMembers%></li>
+        <!-- POST form utilizing method override for DELETE request -->
+        <form action="/trips/<%=trip.id%>" method="POST" id="delete-from">
+           <input type="hidden" name="_method" value="DELETE">
+           <button type="submit" class="btn btn-small red">
+              <i class="fas fa-trash trip-delete"></i>
+           </button>
+        </form>
+        <% }) %>
+   </ul>
+    <script src="js/main.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
