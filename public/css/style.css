@@ -1,4 +1,4 @@
-h1{
+/* h1{
     color: red;
 }
 .completed{
@@ -7,4 +7,214 @@ h1{
 }
 .not{
     text-decoration: underline;
+} */
+
+
+/* * {
+    background-color: #121212;
+    color: white;
+} */
+
+/* #app { height: 100% } */
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #121212;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #e1e1e1;
+  /* color: red; */
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 80%;
+  height: 50%;
+}
+
+/* .swiper {
+    width: 600px;
+    height: 300px;
+  } */
+
+.swiper-slide{
+  text-align: center;
+  font-size: 18px;
+  background: #1d1d1d;
+
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* greenwindbreaker button start */
+.fit{
+  /* margin: 0.5rem 1rem 2rem -4.65rem;
+  width: 390px; */
+  width: 100%;
+   background-color: #1D1D1D ; 
+  /* background-color: #20217D; */
+  height: 100%;
+}
+#border-override{
+  /* top:45%; */
+  border-top: 2px solid #1D1D1D;
+}
+.right-button-place{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 2px;
+}
+.left-button-place{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 70px;
+}
+.corner-right-buttons{
+  position: relative;
+  left: 165px;
+  top: 185px;
+}
+.button-off-card{
+  position: relative;
+}
+/* greenwindbreaker button end */
+
+/*  dannynyn flipping animation   */
+
+.card{
+  width: 490px;
+  height: 500px;
+} 
+
+.card_inner{
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card_inner.is-flipped{
+  transform: rotateY(180deg);
+}
+
+.card_face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16;
+}
+
+.card_face-front{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_face-back{
+  transform: rotateY(180deg);
+}
+
+.card_content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.answer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*  dannynyn flipping animation end  */
+
+/* Navigation bottom margin */
+
+nav {
+  margin-bottom: 7rem;
+}
+
+.decks-link {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.deck-holder {
+  margin: 5%;
+}
+
+/* Deck name input text white */
+
+#first_name {
+  color: #FFFFFF;
+}
+
+/* Error pages styles */
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  background: -webkit-linear-gradient(#0d84f4, #689fe4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return2-dash > a {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+
+/* addcard illustration */
+
+section > img {
+  width: 35%;
+  position: absolute;
+  top: 10rem;
+  right: 12rem;
 }
