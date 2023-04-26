@@ -1,5 +1,6 @@
 module.exports = {
-    getIndex: (req,res)=>{
-        res.render('index.ejs')
-    }
-}
+  getIndex: (req, res) => {
+    console.log("This is the Home controller.");
+    res.render("index.ejs");
+  },
+};

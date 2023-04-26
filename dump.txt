@@ -1,0 +1,10 @@
+npx tailwindcss -i ./public/input.css -o ./public/output.css --watch
+
+postcss public/input.css -o public/output.css
+
+
+<div class=" w-2/3 flex flex-col justify-evenly">
+							<p class="w-2/3 text-white text-3xl flex">
+								Welcome to GearWish. A dedicated site where music lovers can exhange or sell their gear. </p> 
+								<p class="w-2/3 text-white text-3xl flex mt-4">Log in, post stuff, rock on. </p>
+							</div>
