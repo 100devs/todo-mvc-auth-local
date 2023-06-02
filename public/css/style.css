@@ -1,10 +1,92 @@
-h1{
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+li,
+a,
+button {
+    font-family: "Montiserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+button {
+    padding: 9px 15px;
+    /* Adjust the padding values as per your preference */
+    background: #fccbf4;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: black;
+}
+
+h1 {
+    color: #fccbf4;
+}
+
+.form-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-container h2 {
+    margin-bottom: 10px;
+    color: #fccbf4;
+}
+
+.form-container input,
+.form-container textarea {
+    align-items: center;
+    width: 70%;
+    border: 0;
+    outline: none;
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    color: black;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+form .btn2 {
+    cursor: pointer;
+    background-color: #fccbf4;
+    color: black;
+}
+
+.alert-danger:first-child {
+    margin-top: 50px;
+    text-align: center;
     color: red;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
-}
-.not{
-    text-decoration: underline;
+
+.alert-danger:nth-of-type(2) {
+    text-align: center;
+    color: red;
 }
