@@ -17,11 +17,13 @@ module.exports = function (passport) {
           });
         }
 
-        const isMatch = await user.comparePassword(password);
-        if (isMatch) {
-          return done(null, user);
-        }
-        return done(null, false, { msg: 'Invalid email or password.' });
+        user.comparePassword(password, (err, isMatch) => {
+          if (err) { return done(err) }
+          if (isMatch) {
+            return done(null, user)
+          }
+          return done(null, false, { msg: 'Invalid email or password.' })
+        })
       } catch (err) {
         return done(err);
       }
