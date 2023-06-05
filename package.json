@@ -1,28 +1,28 @@
 {
-  "name": "todo-mvc-auth-local",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "connect-mongo": "^3.2.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^5.0.0",
+    "dotenv": "^16.1.4",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "express-flash": "^0.0.2",
-    "express-session": "^1.17.1",
-    "mongodb": "^3.6.5",
-    "mongoose": "^5.12.3",
+    "express-session": "^1.17.3",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.2.2",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.22",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "validator": "^13.6.0"
-  }
+    "validator": "^13.9.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "todo-mvc-auth-local",
+  "description": "A Simple ToDo App is built using the MVC Architecture, we have also implemented \"authorization\" so folx can sign up, customize & personalize the app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
