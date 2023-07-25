@@ -9,22 +9,40 @@
 </head>
 <body>
     <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <br><br>
+    <% todoLists.forEach(el => { %>
+        <h2><%= el.name %></h2>
+        <form
+          action="/todos/deleteList/<%= el.id %>?_method=DELETE"
+          method="POST"
+          class="col-3">
+          <button type="submit">Delete List</button>
+        </form>
+        <ul>
+        <% for(let i = 0; i < todos.length; i++ ) {%>
+            <% if(todos[i].todoListId.equals(el._id)) {%>
+                <li class='todoItem' data-id='<%=todos[i]._id%>'>
+                    <span class='<%= todos[i].completed === true ? 'completed' : 'not'%>'><%= todos[i].todo %></span>
+                    <span class='del'> Delete </span>
+                </li>
+            <% } %>
+        <% } %>
+        </ul>
+        <form action="/todos/createTodo/<%=el._id%>" method='POST'>
+            <input type="text" placeholder="New List Item" name='todoItem'>
+            <input type="submit">
+        </form>
+        <br><hr><br>
+    <% }) %> 
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <!-- <h2><%= user.userName %> has <%= left %> things left to do.</h2> -->
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+    <h2>Create New Todo List</h2>
+    <form action="/todos/createList/" method='POST'>
+        <input type="text" placeholder="Enter New List Name" name='todoList'>
         <input type="submit">
     </form>
-
+    <br>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>

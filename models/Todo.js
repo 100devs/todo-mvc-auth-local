@@ -12,7 +12,11 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  todoListId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "TodoList",
   }
-})
+});
 
 module.exports = mongoose.model('Todo', TodoSchema)
