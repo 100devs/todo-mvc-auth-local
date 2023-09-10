@@ -7,10 +7,9 @@ const UserSchema = new mongoose.Schema({
   password: String
 })
 
-
 // Password hash middleware.
- 
- UserSchema.pre('save', function save(next) {
+
+UserSchema.pre('save', function save (next) {
   const user = this
   if (!user.isModified('password')) { return next() }
   bcrypt.genSalt(10, (err, salt) => {
@@ -23,14 +22,12 @@ const UserSchema = new mongoose.Schema({
   })
 })
 
-
 // Helper method for validating user's password.
 
-UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
+UserSchema.methods.comparePassword = function comparePassword (candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     cb(err, isMatch)
   })
 }
-
 
 module.exports = mongoose.model('User', UserSchema)
