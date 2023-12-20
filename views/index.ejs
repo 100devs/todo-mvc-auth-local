@@ -14,7 +14,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- Bootstrap end -->
-    <link href="style.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,28 +22,131 @@
   <body class="bg-dark">
     <section class="pt-5 container">
       <div class="p-3 pt-5">
-        <div class="container d-flex flex-column align-items-center modal-header pb-3">
-          <h1 class="text-warning display-5 text-center">
-            The Coolest To-Do
-          </h1>
-          <span class="text-center text-light ">
-            For all your cool tasks.
-          </span>
+        <div
+          class="container d-flex flex-column align-items-center modal-header pb-3"
+        >
+          <h1 class="text-warning display-5 text-center">The Coolest To-Do</h1>
+          <span class="text-center text-light"> For all your cool tasks. </span>
         </div>
-        
+
         <div
           class="d-flex flex-column align-items-center justify-content-center g-2 pt-2"
         >
           <a
-            href="/login"
             class="btn btn-primary btn-lg w-75 rounded-pill mb-3 mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#LoginModal"
             >Login</a
           >
-          <a href="/signup" class="btn btn-primary btn-lg w-75 rounded-pill"
+          <a
+            class="btn btn-primary btn-lg w-75 rounded-pill"
+            data-bs-toggle="modal"
+            data-bs-target="#SignupModal"
             >Signup</a
           >
         </div>
       </div>
     </section>
+    <!-- LoginModal -->
+    <div
+      class="modal fade"
+      id="LoginModal"
+      tabindex="-1"
+      aria-labelledby="LoginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="LoginModalLabel">
+              Login to the COOLEST To-Do
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="LoginModalBody">
+            <% if (messages.errors) { %> <% messages.errors.forEach(el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %> <% } %> <% if (messages.info) { %> <%
+            messages.info.forEach(el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %> <% } %>
+            <form action="/login" method="POST" id="#loginForm">
+              <input type="email" name="email" placeholder="Email" />
+              <input type="password" name="password" placeholder="Password" />
+              <input type="submit" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LoginModal END -->
+
+    <!-- SignupModal -->
+    <div
+      class="modal fade"
+      id="SignupModal"
+      tabindex="-1"
+      aria-labelledby="SignupModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="SignupModalLabel">
+              Signup for the COOLEST To-Do
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="SignupModalBody">
+            <% if (messages.errors) { %> <% messages.errors.forEach(el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %> <% } %> <% if (messages.info) { %> <%
+            messages.info.forEach(el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %> <% } %>
+            <form action="/signup" method="POST" id="#signupForm">
+              <input type="text" name="userName" placeholder="User Name" />
+              <input type="email" name="email" placeholder="Email" />
+              <input type="password" name="password" placeholder="Password" />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+              />
+              <input type="submit" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SignupModal END -->
   </body>
 </html>
