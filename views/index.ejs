@@ -14,14 +14,37 @@
       crossorigin="anonymous"
     ></script>
     <!-- Bootstrap end -->
+    <link href="style.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+  <body class="bg-dark">
+    <section class="pt-5 container">
+      <div class="p-3 pt-5">
+        <div class="container d-flex flex-column align-items-center modal-header pb-3">
+          <h1 class="text-warning display-5 text-center">
+            The Coolest To-Do
+          </h1>
+          <span class="text-center text-light ">
+            For all your cool tasks.
+          </span>
+        </div>
+        
+        <div
+          class="d-flex flex-column align-items-center justify-content-center g-2 pt-2"
+        >
+          <a
+            href="/login"
+            class="btn btn-primary btn-lg w-75 rounded-pill mb-3 mt-2"
+            >Login</a
+          >
+          <a href="/signup" class="btn btn-primary btn-lg w-75 rounded-pill"
+            >Signup</a
+          >
+        </div>
+      </div>
+    </section>
   </body>
 </html>
