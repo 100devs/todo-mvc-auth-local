@@ -20,26 +20,38 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
+<body class="bg-dark">
+    <section class="pt-5 container">
+      <div class="p-3 pt-5">
+        <div
+        class="container d-flex flex-column align-items-center modal-header pb-3"
+      >
+        <h1 class="text-warning display-5 text-center">Cool To-dos</h1>
+      </div>
+
+    <ul class="container-fluid d-flex flex-column">
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+            <li class='todoItem text-light lead m-3 ' data-id='<%=el._id%>'>
+                <span class='del btn btn-primary mx-3'> Delete </span>
+                <span class=' <%= el.completed === true ? 'completed text-success' : 'not'%>'><%= el.todo %></span>
+                
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2 class="text-warning display-6 text-center modal-header justify-content-center">You have <%= left %> To-Do left to do.</h2>
 
+<div class="d-flex flex-column align-items-center justify-content-center g-2 pt-2 my-5">
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+    <input type="text" placeholder="Enter Todo Item to add" name='todoItem' class="form-label">
+    <input type="submit" class="form-control btn-primary">
+</form>
+</div>
+    
 
-    <a href="/logout">Logout</a>
-
+    <a href="/logout" class="btn btn-primary m-3">Logout</a>
+    </div>
+</section>
     <script src="js/main.js"></script>
 </body>
 </html>
