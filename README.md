@@ -44,4 +44,4 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 # Things I've Learned
 Further explored EJS and got more experience with it. Getting more comfortable with the syntax and delimiters. Learned how to redefine schemas and be able to update all existing documents to fit that schema. 
 Got experience working in an unfamiliar codebase and be able to explore it and add new features to it.
-Getting used to styling with bootstrap
+Getting used to styling with bootstrap, it's pretty fun so far! I can see how this can be conveinient once you get used to all the components and classes. I think I'm gonna really like tailwind! :D 
