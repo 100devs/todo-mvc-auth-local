@@ -1,13 +1,8 @@
 <%- include('./partials/header') -%>
     <h1 class="text-center">Todos</h1>
-    <a href="/logout">Logout</a>
-    <h2><%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-    <section class="list mx-auto shadow my-2 p-2">
+    <a href="/logout" class="position-fixed top-0 start-0 p-2">Logout</a>
+    <h2 class="position-fixed top-0 end-0 p-2"><%= left %> things left to do</h2>
+    <section class="list mx-auto shadow my-5 p-2 rounded-2">
         <h2>DO IT NOW!!!</h2>
         <ul class="list-group list-group-flush">
         <% todos.forEach( el => { %>
@@ -23,7 +18,7 @@
         <% }) %>    
         </ul>
     </section>
-    <section class="list mx-auto shadow my-5 p-2">
+    <section class="list mx-auto shadow my-5 p-2 rounded-2">
         <h2>Eh maybe later...</h2>
         <ul class="list-group list-group-flush">
             <% todos.forEach( el => { %>
@@ -39,5 +34,9 @@
             <% }) %>    
             </ul>
     </section>
+    <form action="/todos/createTodo" method='POST'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="submit">
+    </form>
     <script src="js/main.js"></script>
 <%- include('./partials/footer') -%>
