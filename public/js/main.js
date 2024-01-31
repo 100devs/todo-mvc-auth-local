@@ -72,5 +72,19 @@ async function markIncomplete(){
 }
 
 async function markProcrastinate() {
-    
+    const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('todos/markProcrastinated', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
 }
