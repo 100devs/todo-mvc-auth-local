@@ -1,4 +1,4 @@
-const procrastinateBtn = document.querySelector('.procrastinate');
+const procrastinateBtn = document.querySelectorAll('span.procrastinate');
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
@@ -16,6 +16,7 @@ Array.from(todoComplete).forEach((el)=>{
 })
 
 Array.from(procrastinateBtn).forEach(el => el.addEventListener('click', markProcrastinated))
+console.log(procrastinateBtn);
 
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
@@ -72,6 +73,7 @@ async function markIncomplete(){
 }
 
 async function markProcrastinated() {
+    console.log(this);
     const todoId = this.parentNode.dataset.id
     try{
         const response = await fetch('todos/markProcrastinated', {
