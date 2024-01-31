@@ -2,13 +2,28 @@
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
+        <% if(!el.procrastinated) { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'><i class="fas fa-trash"></i></span>
                 <span class="procrastinate">🥱</span>
             </li>
+        <% } %>
     <% }) %>    
     </ul>
+
+    <h2>Eh maybe later...</h2>
+    <ul>
+        <% todos.forEach( el => { %>
+            <% if(el.procrastinated) { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <span class='del'><i class="fas fa-trash"></i></span>
+                    <span class="procrastinate">🥱</span>
+                </li>
+            <% } %>
+        <% }) %>    
+        </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
