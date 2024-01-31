@@ -1,6 +1,6 @@
 <%- include('./partials/header') -%>
     <h1 class="text-center">Todos</h1>
-    <a href="/logout" class="position-fixed top-0 start-0 p-2">Logout</a>
+    <a href="/logout" class="position-fixed top-0 start-0 p-2 text-primary link-opacity-50 link-opacity-100-hover link-offset-1 link-offset-2-hover">Logout</a>
     <h2 class="position-fixed top-0 end-0 p-2"><%= left %> LEFT</h2>
     <section class="list mx-auto shadow my-5 p-2 rounded-2">
         <h2>DO IT NOW!!!</h2>
@@ -34,7 +34,7 @@
             <% }) %>    
             </ul>
     </section>
-    <form action="/todos/createTodo" method='POST' class="mx-auto d-flex gap-2">
+    <form action="/todos/createTodo" method='POST' class="todo-form | mx-auto d-flex gap-2">
         <div class="input-group">
             <input type="text" placeholder="Enter Todo Item" name='todoItem' class="rounded-2 form-control w-75">
         </div>

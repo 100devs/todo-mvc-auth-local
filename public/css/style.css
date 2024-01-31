@@ -30,8 +30,6 @@ form {
     width: 60%;
 }
 
-@media (width > 767px) {
-    form > input {
-        max-width: 50px;
-    }
+.link-offset-1 {
+    transition: text-underline-offset 350ms ease;
 }
