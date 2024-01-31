@@ -15,7 +15,7 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-Array.from(procrastinateBtn).forEach(el => el.addEventListener('click', markProcrastinate))
+Array.from(procrastinateBtn).forEach(el => el.addEventListener('click', markProcrastinated))
 
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
@@ -71,7 +71,7 @@ async function markIncomplete(){
     }
 }
 
-async function markProcrastinate() {
+async function markProcrastinated() {
     const todoId = this.parentNode.dataset.id
     try{
         const response = await fetch('todos/markProcrastinated', {

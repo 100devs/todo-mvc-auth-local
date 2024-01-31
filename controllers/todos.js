@@ -42,6 +42,17 @@ module.exports = {
             console.log(err)
         }
     },
+    markProcrastinated: async (req, res) => {
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                procrastinated: false
+            })
+            console.log('Marked procrastinated')
+            res.json('Marked procrastinated')
+        }catch(err){
+            console.log(err)
+        }
+    },
     deleteTodo: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
