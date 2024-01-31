@@ -1,10 +1,94 @@
+body{
+    background-color: #c0e6e6;
+}
+
 h1{
-    color: red;
+    border: 2px solid 3fd8d8;
+    border-radius: 10px;
+    padding: 15px 200px;
+    color: white;
+    background-color: #18d4d4;
+    margin-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
 }
 .completed{
     text-decoration: line-through;
     color: gray;
 }
-.not{
-    text-decoration: underline;
+.completed:hover{
+    cursor: pointer;
+}
+.not:hover{
+    cursor: pointer;
+}
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.card{
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.ulContainer ul{
+    display: flex;
+    flex-direction: column;
+}
+.liContainer li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.spanMargin{
+    margin: 10px 10px 10px 0px;
+}
+/*Forms*/
+.inputForm{
+
+    padding: 5px 2px;
+    
+}
+/*Buttons*/
+.genericButton{
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #18d4d4;
+    color: #ffffff;
+    border: 2px solid #18d4d4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.genericButton:hover{
+    background-color: #1b5074;
+}
+.delButton{
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #18d4d4;
+    color: #ffffff;
+    border: 2px solid #18d4d4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.delButton:hover{
+    background-color: #1b5074;
 }
