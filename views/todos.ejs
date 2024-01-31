@@ -8,24 +8,43 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <section class="mainContainer">
+        <header class="header">
+            <h1>Todo List</h1>
+        </header>
+        <section class="card">
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+            <section class="userLeft">
+                <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+            </section>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+            <section class="formContainer">
+                <form action="/todos/createTodo" method='POST'>
+                    <input type="text" placeholder="Enter Todo Item" name='todoItem' class="inputForm">
+                    <input type="submit" class="genericButton">
+                </form>
+            </section>
 
-    <a href="/logout">Logout</a>
+            <section class="ulContainer">
+                <ul class="liContainer">
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='spanMargin <%= el.completed === true ?'completed' : 'not'%>'><%= el.todo %></span>
+                                <span class="spanMargin"><%= new Date(el.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                                <span class='del delButton'> Delete </span>
+                                
+                            </li>
+                    <% }) %>    
+                </ul>
+            </section>
+        
+        </section>
+        <footer class="footerContainer">
+            <a href="/logout" class="genericButton">Logout</a>
+        </footer>
+    </section>
+    
+    
 
     <script src="js/main.js"></script>
 </body>
