@@ -9,10 +9,15 @@ const TodoSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  procrastinated: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   userId: {
     type: String,
     required: true
-  }
+  },
 })
 
 module.exports = mongoose.model('Todo', TodoSchema)

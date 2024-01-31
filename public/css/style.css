@@ -8,3 +8,15 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+i {
+    font-size: 2rem;
+}
+
+.procrastinate {
+    font-size: 2rem;
+}
+
+span {
+    cursor: pointer;
+}
