@@ -5,6 +5,12 @@ module.exports = {
       } else {
         res.redirect('/')
       }
-    }
+    },
+    ensureGuest: function (req, res, next) {
+      if (req.isAuthenticated()) {
+        return res.redirect('/todos');
+      };
+      return next();
+    },
   }
   
