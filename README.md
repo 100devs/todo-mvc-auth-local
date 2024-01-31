@@ -41,4 +41,6 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+# Things I've Learned
+Further explored EJS and got more experience with it. Getting more comfortable with the syntax and delimiters. Learned how to redefine schemas and be able to update all existing documents to fit that schema. 
 
