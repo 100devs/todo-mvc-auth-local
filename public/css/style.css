@@ -25,3 +25,13 @@ span {
 .list {
     width: 60%;
 }
+
+form {
+    width: 60%;
+}
+
+@media (width > 767px) {
+    form > input {
+        max-width: 50px;
+    }
+}
