@@ -40,12 +40,20 @@ span {
     width: 40%;
 }
 
+.signup-wrapper {
+    width: min(100% - 2rem, 400px);
+}
+
 form {
     min-width: 30%;
 }
 
 .btn {
-    max-width: 100px;
+    max-width: 110px;
+}
+
+.todo-form {
+    width: 60%;
 }
 
 
@@ -55,11 +63,15 @@ form {
     }
     
     form.d-flex {
+        align-items: flex-start;
         flex-wrap: nowrap !important;
         gap: 1rem; 
     }
     .buttons {
+        margin-block-start: 24px;
         flex-direction: column;
+        max-height: 50px;
+        gap: 1.5rem;
     }
 }
 
@@ -71,4 +83,8 @@ form {
     .btn {
         max-width: 100%;
     }
+}
+
+.signup-wrapper label {
+    width: 100%;
 }

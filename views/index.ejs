@@ -13,14 +13,16 @@
                     <div class="alert alert-danger"><%= el.msg %></div>
                 <% }) %>    
             <% } %>
-            <form action="/login" method="POST" class="d-flex flex-wrap">
+            <form action="/" method="POST" class="d-flex flex-wrap">
                 <div class="inputs d-flex flex-wrap">
-                    <input type="email" name="email" placeholder="Email" class="w-100  my-2">
-                    <input type="password" name="password" placeholder="Password" class="w-100  my-2">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="example@ex.com" class="w-100 my-2 input-group-text">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="billybob" class="w-100  my-2 input-group-text">
                 </div>
                 <div class="buttons d-flex justify-content-between flex-grow-1">
                     <button class="btn btn-primary flex-fill my-2">Login</button>
-                    <a href="/signup" class="btn btn-primary flex-fill my-2"> Signup</a>
+                    <a href="/signup" class="btn btn-info  flex-fill my-2"> Signup</a>
                 </div>
             </form>
         </div>
