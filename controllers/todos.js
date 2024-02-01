@@ -18,6 +18,9 @@ module.exports = {
             res.redirect('/todos')
         }catch(err){
             console.log(err)
+            req.flash('error', [{ msg: 'Input field cannot be empty' }]);
+            console.log()
+            res.redirect('/todos');
         }
     },
     markComplete: async (req, res)=>{
@@ -38,6 +41,28 @@ module.exports = {
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    markProcrastinated: async (req, res) => {
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                procrastinated: true,
+            })
+            console.log('Marked procrastinated')
+            res.json('Marked procrastinated')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    markUnprocrastinated: async (req, res) => {
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                procrastinated: false,
+            })
+            console.log('Marked Unprocrastinated')
+            res.json('Marked Unprocrastinated')
         }catch(err){
             console.log(err)
         }

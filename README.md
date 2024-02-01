@@ -41,4 +41,12 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+# Things I've Learned
+Further explored EJS and got more experience with it. Getting more comfortable with the syntax and delimiters. Learned how to redefine schemas and be able to update all existing documents to fit that schema. 
+Got experience working in an unfamiliar codebase and be able to explore it and add new features to it.
+Getting used to styling with bootstrap, it's pretty fun so far! I can see how this can be conveinient once you get used to all the components and classes. I think I'm gonna really like tailwind! :D 
+Again just by building and trying things out I've learned so much in such a short amount of time and gotten more and more familiar with this code base and how everything connects together the more I worked on it.
+Learned how to use express-flash to be able to store messages as a property on the locals object(Once again, the locals object is accessible globally throughout our templating engine files, we can manually store items to make it accessible throughout all our view engine templates as well! Awesome!)
+Learned that there is a res.locals object that is specific to each individual request as well!!! Might be able to use this to do some cool things like personalized messages to the current user.
+Got more comfortable creating my own middleware.
 

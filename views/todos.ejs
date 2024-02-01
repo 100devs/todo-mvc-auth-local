@@ -1,32 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+<%- include('./partials/header') -%>
+    <h1 class="text-center">To Dos</h1>
+    <a href="/logout" class="position-fixed top-0 start-0 p-2 text-primary link-opacity-50 link-opacity-100-hover link-offset-1 link-offset-2-hover">Logout</a>
+    <h2 class="position-fixed top-0 end-0 p-2"><%= left %> LEFT</h2>
+    <section class="list mx-auto shadow my-5 p-2 rounded-2">
+        <h2>DO IT NOW!!!</h2>
+        <ul class="list-group list-group-flush">
+            <% todos.forEach( el => { %>
+                <% if(!el.procrastinated) { %>
+                    <li class='todoItem list-group-item d-flex justify-content-between' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed text-success' : 'not text-danger'%>'><%= el.todo %></span>
+                        <div class="btns">
+                            <span class='del'><i class="fas fa-trash"></i></span>
+                            <span class="procrastinate">🥱</span>
+                        </div>
+                    </li>
+                    <% } %>
+                    <% }) %>    
+                </ul>
+            </section>
+            <section class="list mx-auto shadow my-5 p-2 rounded-2">
+                <h2>Eh maybe later...</h2>
+                <ul class="list-group list-group-flush">
+                    <% todos.forEach( el => { %>
+                        <% if(el.procrastinated) { %>
+                            <li class='todoItem list-group-item d-flex justify-content-between' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed text-success' : 'not text-danger'%>'><%= el.todo %></span>
+                                <div class="btns">
+                                    <span class='del'><i class="fas fa-trash"></i></span>
+                                    <span class="unprocrastinate">👀</span>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% }) %>    
+                        </ul>
+                    </section>
+                    <form action="/todos/createTodo" method='POST' class="todo-form | mx-auto d-flex gap-2">
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter Todo Item" name='todoItem' class="rounded-2 form-control w-75">
+                        </div>
+                        <button class="btn btn-dark">Submit!</button>
+                    </form>
+                    <% if (locals.messages.error) { %>
+                            <div class="alert alert-danger my-5 w-60 mx-auto"><%= locals.messages.error[0].msg %></div>  
+                    <% } %>
+                    <script src="js/main.js"></script>
+                    <%- include('./partials/footer') -%>
+                    

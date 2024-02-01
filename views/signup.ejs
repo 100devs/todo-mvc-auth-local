@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('./partials/header') -%>
+<div class="wrapper d-flex flex-column justify-content-center align-items-center">
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
+            <div class="alert alert-danger w-min"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-</body>
-</html>
+    <section class="w-min d-inline-block shadow-lg px-3 py-5 rounded-2">
+        <form action="/signup" method="POST" class="signup-form d-flex flex-column align-items-center gap-2">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="billybobthortin" class="input-group-text w-100" id="username">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="example@ex.com" class="input-group-text w-100" id="email">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="input-group-text w-100" id="password">
+            <label for="cPass">Confirm Password</label>
+            <input type="password" name="confirmPassword" class="input-group-text w-100" id="cPass">
+            <button class="btn btn-primary">Signup!</button>
+        </form>
+    </section>
+</div>
+<%- include('./partials/footer') -%>

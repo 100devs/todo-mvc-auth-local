@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
-</body>
-</html>
+<%- include('./partials/header'); -%>
+<div class="wrapper d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mb-3">Create Your VERY OWN Todolist!</h1>
+    <section class="login-wrapper d-inline-block shadow-lg px-3 py-5 rounded-2">
+        <div class="login-form">
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <form action="/" method="POST" class="d-flex flex-wrap">
+                <div class="inputs d-flex flex-wrap">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="example@ex.com" class="w-100 my-2 input-group-text">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="billybob" class="w-100  my-2 input-group-text">
+                </div>
+                <div class="buttons d-flex justify-content-between flex-grow-1">
+                    <button class="btn btn-primary flex-fill my-2">Login</button>
+                    <a href="/signup" class="btn btn-info  flex-fill my-2"> Signup</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<%- include('./partials/footer'); -%>

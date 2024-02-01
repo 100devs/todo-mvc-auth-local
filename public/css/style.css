@@ -1,10 +1,93 @@
-h1{
-    color: red;
-}
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
     text-decoration: underline;
+}
+
+i {
+    font-size: 2rem;
+}
+
+.procrastinate {
+    font-size: 2rem;
+}
+
+.unprocrastinate {
+    font-size: 2rem;
+}
+
+span {
+    cursor: pointer;
+}
+
+.list {
+    width: 60%;
+    min-height: 125px;
+    transition: height 200ms ease;
+}
+
+.link-offset-1 {
+    transition: text-underline-offset 350ms ease;
+}
+
+.wrapper {
+    height: 100svh;
+}
+
+.login-wrapper {
+    width: 40%;
+}
+
+form {
+    min-width: 30%;
+}
+
+.btn {
+    max-width: 110px;
+}
+
+.todo-form {
+    width: 60%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-min {
+    width: min(100% - 2rem, 400px);
+}
+
+@media (width > 991px) {
+    .login-wrapper {
+        max-width: 350px;
+    }
+    
+    form.d-flex {
+        align-items: flex-start;
+        flex-wrap: nowrap !important;
+        gap: 1rem; 
+    }
+    .buttons {
+        margin-block-start: 24px;
+        flex-direction: column;
+        max-height: 50px;
+        gap: 1.5rem;
+    }
+}
+
+@media (width < 768px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        max-width: 100%;
+    }
+}
+
+.signup-wrapper label {
+    width: 100%;
 }
