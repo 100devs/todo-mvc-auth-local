@@ -2,10 +2,10 @@
 <div class="wrapper d-flex flex-column justify-content-center align-items-center">
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
+            <div class="alert alert-danger w-min"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <section class="signup-wrapper d-inline-block shadow-lg px-3 py-5 rounded-2">
+    <section class="w-min d-inline-block shadow-lg px-3 py-5 rounded-2">
         <form action="/signup" method="POST" class="signup-form d-flex flex-column align-items-center gap-2">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="billybobthortin" class="input-group-text w-100" id="username">

@@ -18,6 +18,9 @@ module.exports = {
             res.redirect('/todos')
         }catch(err){
             console.log(err)
+            req.flash('error', [{ msg: 'Input field cannot be empty' }]);
+            console.log()
+            res.redirect('/todos');
         }
     },
     markComplete: async (req, res)=>{

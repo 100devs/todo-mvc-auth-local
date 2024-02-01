@@ -40,10 +40,6 @@ span {
     width: 40%;
 }
 
-.signup-wrapper {
-    width: min(100% - 2rem, 400px);
-}
-
 form {
     min-width: 30%;
 }
@@ -56,6 +52,13 @@ form {
     width: 60%;
 }
 
+.w-60 {
+    width: 60%;
+}
+
+.w-min {
+    width: min(100% - 2rem, 400px);
+}
 
 @media (width > 991px) {
     .login-wrapper {
