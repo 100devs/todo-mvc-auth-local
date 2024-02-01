@@ -1,24 +1,29 @@
 <%- include('./partials/header'); -%>
-<h1 class="text-center">Create Your VERY OWN Todolist!</h1>
-<section class="card shadow-sm">
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
-    <div class="login-form">
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        <% if (locals.messages.info) { %>
-            <% messages.info.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        <form action="/login" method="POST">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit">
-        </form>
-    </div>
-</section>
+<div class="wrapper d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mb-3">Create Your VERY OWN Todolist!</h1>
+    <section class="login-wrapper d-inline-block shadow-lg px-3 py-5 rounded-2">
+        <div class="login-form">
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <form action="/login" method="POST" class="d-flex flex-wrap">
+                <div class="inputs d-flex flex-wrap">
+                    <input type="email" name="email" placeholder="Email" class="w-100  my-2">
+                    <input type="password" name="password" placeholder="Password" class="w-100  my-2">
+                </div>
+                <div class="buttons d-flex justify-content-between flex-grow-1">
+                    <button class="btn btn-primary flex-fill my-2">Login</button>
+                    <a href="/signup" class="btn btn-primary flex-fill my-2"> Signup</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
 <%- include('./partials/footer'); -%>

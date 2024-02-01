@@ -28,10 +28,47 @@ span {
     transition: height 200ms ease;
 }
 
-form {
-    width: 60%;
-}
-
 .link-offset-1 {
     transition: text-underline-offset 350ms ease;
+}
+
+.wrapper {
+    height: 100svh;
+}
+
+.login-wrapper {
+    width: 40%;
+}
+
+form {
+    min-width: 30%;
+}
+
+.btn {
+    max-width: 100px;
+}
+
+
+@media (width > 991px) {
+    .login-wrapper {
+        max-width: 350px;
+    }
+    
+    form.d-flex {
+        flex-wrap: nowrap !important;
+        gap: 1rem; 
+    }
+    .buttons {
+        flex-direction: column;
+    }
+}
+
+@media (width < 768px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        max-width: 100%;
+    }
 }
