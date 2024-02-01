@@ -3,12 +3,7 @@ const validator = require('validator')
 const User = require('../models/User')
 
  exports.getLogin = (req, res) => {
-    if (req.user) {
-      return res.redirect('/todos')
-    }
-    res.render('login', {
-      title: 'Login'
-    })
+    res.render('index');
   }
   
   exports.postLogin = (req, res, next) => {
@@ -26,7 +21,7 @@ const User = require('../models/User')
       if (err) { return next(err) }
       if (!user) {
         req.flash('errors', info)
-        return res.redirect('/login')
+        return res.redirect('/')
       }
       req.logIn(user, (err) => {
         if (err) { return next(err) }

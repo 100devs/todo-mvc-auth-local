@@ -25,6 +25,7 @@ span {
 .list {
     width: 60%;
     min-height: 125px;
+    transition: height 200ms ease;
 }
 
 form {

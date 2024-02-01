@@ -1,5 +1,24 @@
 <%- include('./partials/header'); -%>
-    <h1>Create Your VERY OWN Todolist!</h1>
+<h1 class="text-center">Create Your VERY OWN Todolist!</h1>
+<section class="card shadow-sm">
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
+    <div class="login-form">
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit">
+        </form>
+    </div>
+</section>
 <%- include('./partials/footer'); -%>
