@@ -18,7 +18,7 @@ async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{
         const response = await fetch('todos/deleteTodo', {
-            method: 'delete',
+            method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
