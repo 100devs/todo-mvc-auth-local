@@ -1,10 +1,200 @@
-h1{
-    color: red;
+
+nothing {
+    background-color: rgb(255,145,230);
+    background-color: rgb(16,160,147);
+    background-color: rgb(255,201,46);
+    background-color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+    background-color: rgb(143,168,235);
+    background-color: rgb(255,113,85);
 }
-.completed{
+
+
+.completed {
     text-decoration: line-through;
-    color: gray;
+    color: rgb(255,113,85);
 }
-.not{
-    text-decoration: underline;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: rgb(0,0,0);
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+body { 
+    background-color: rgb(255,255,255);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-body {
+    background-color: rgb(255,201,46);
+}
+
+.login-body input[type="submit"] {
+    background-color: rgb(255,145,230);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.signup-body {
+    background-color: rgb(255,113,85);
+}
+
+.signup-body input[type="submit"] {
+    background-color: rgb(16,160,147);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.todo-body {
+    background-color: rgb(143,168,235);
+}
+
+.todo-body input[type="submit"] {
+    background-color: rgb(255,201,46);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.index-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-container > .top-half {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+}
+
+.todo-container > .top-half > .left-half {
+    flex: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,255,255);
+}
+
+.todo-container > .top-half > .right-half {
+    flex: 1;
+    height: 100%;
+    background-color: rgb(255,145,230);
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-end;
+    font-size: 48px;
+    padding: 20px;
+}
+
+.top-half > .right-half a {
+    text-decoration: none;
+    border: 5px solid rgb(0,0,0);
+    border-radius: 6px;
+    display: inline-block;
+    text-align: center;
+    width: 3.5em;
+    font-size: 32px;
+    background-color: rgb(16,160,147);
+    margin-bottom: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 48px;        
+    margin-bottom: auto;
+}
+
+.top-half {
+    flex: 1;
+    background-color: rgb(255,255,255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 58px;
+}
+
+.top-half span {
+    font-size: 28px;
+}
+
+.bottom-half {
+    flex: 1;
+    display: flex;
+    border-top: 5px solid rgb(0,0,0);
+}
+
+.left-half {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(255,145,230);
+    border-right: 2.5px solid black;
+}
+
+.right-half {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(16,160,147);
+    border-left: 2.5px solid black;
+}
+
+.bottom-half a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: 32px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto; /* This will center the form */
+    justify-content: space-between;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border-radius: 5px; 
+    border: 5px solid rgb(0,0,0);
+    font-size: 22px; 
+}
+input::placeholder {
+    color: rgb(0,0,0);
+}
+
+span.del {
+    border: 5px solid rgb(0,0,0);
+    cursor: pointer;
+    background-color: rgb(16,160,147);
+    color: rgb(255,255,255);
+    display: inline-block;
+    width: 1.2em;
+    text-align: center;
+}
+
+h1, h2, span, p, li {
+    cursor: default;
 }
