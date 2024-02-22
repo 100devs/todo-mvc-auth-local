@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <title>To Do Our To Do List</title>
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+<body class="todo-body">
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
+    <div class="todo-container">
+        <div class="top-half">
+            <div class="left-half">
+                <h1>Todos</h1>
+                <ul>
+                <% todos.forEach( el => { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <span class='del'> X </span>
+                        </li>
+                <% }) %>    
+                </ul>
+            </div>
+            <div class="right-half">
+                <a href="/logout">Logout</a>
+                <h2><%= user.userName %> has <%= left %> thing(s) left to do.</h2>
+            </div>
+        </div>
+        <div class="bottom-half">
+            <form action="/todos/createTodo" method='POST'>
+                <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
