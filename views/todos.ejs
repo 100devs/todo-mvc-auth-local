@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+  <%- include('partials/head.ejs') %>
+  <body>
+    <header><%- include('partials/navbar.ejs') %></header>
+
+    <main>
+      <div class="container">
+        <h1>Todos</h1>
+
+        <h2 class="todosLeft">
+          <% if (left < 1) { %>
+            <span>Congrats on carrying those boats and logs!</span>
+          <% } else { %>
+            <span>
+              <%= user.userName %> has <%= left %> <%= left === 1 ? 'thing' : 'things' %> left to do.
+            </span>
+          <% } %>
+        </h2>
+
+        <div id="todoPaper" class="paperContainer">
+          <ul id="todoContent" class="paperContent">
+            <% todos.forEach( el => { %>
+              <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+                <span class='del fa fa-trash'></span>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        <div class="form-container">
+          <form action="/todos/createTodo" method='POST' class="form">
+            <div class="input-group">
+              <label for="todoItem">What do you need to do?</label>
+              <input
+                type="text"
+                id="todoItem"
+                name="todoItem"
+                placeholder="Enter a todo"
+                required
+              />
+            </div>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+            <button type="submit" class="btn">Add Todo</button>
+          </form>
+        </div>
+      </div>
 
-    <a href="/logout">Logout</a>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <%- include('partials/head.ejs') %>
+  <body>
     <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+      <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %>
     <% } %>
+    
     <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+      <% messages.info.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %>
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-</body>
+
+    <header><%- include('partials/navbar.ejs') %></header>
+
+    <main class="form-container">
+      <form action="/login" method="POST" class="form">
+        <h2>Login</h2>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+        <p class="auth-link">
+          Don't have an account? <a href="/signup">Sign up</a>
+        </p>
+      </form>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>

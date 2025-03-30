@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <%- include('partials/head.ejs') %>
+  <body>
     <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
+      <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %>
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-</body>
+
+    <header><%- include('partials/navbar.ejs') %></header>
+
+    <main class="form-container">
+      <form action="/signup" method="POST" class="form">
+        <h2>Signup</h2>
+
+        <div class="input-group">
+          <label for="userName">Username</label>
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="Enter a username"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Re-enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Signup</button>
+
+        <p class="auth-link">
+          Already have an account? <a href="/login">Log in</a>
+        </p>
+      </form>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>

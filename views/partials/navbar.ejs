@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="img/boatLogLogo.png" alt="Boats & Logs">
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+
+      <% if (user) { %>
+        <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      <% } %>
+
+      <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+    </ul>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
