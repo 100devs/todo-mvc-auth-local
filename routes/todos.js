@@ -9,8 +9,10 @@ router.post('/createTodo', todosController.createTodo)
 
 router.put('/markComplete', todosController.markComplete)
 
-router.put('/markIncomplete', todosController.markIncomplete)
+// router.put('/markIncomplete', todosController.markIncomplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
+
+router.put('/markPriority', todosController.markPriority)
 
 module.exports = router
