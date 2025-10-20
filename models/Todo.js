@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const TodoSchema = new mongoose.Schema({
+  label: {
+    type: String,
+    required: true,
+  },
   todo: {
     type: String,
     required: true,

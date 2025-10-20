@@ -4,29 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Todos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <div class="page-layout">
+        <header><button class="button-4" role="button">
+            <a href="/logout"><span class="btn-text">Logout</span> <svg viewBox="0 0 640 640" fill="currentColor" class="icon translate-up" translate="y">
+            <path
+                                            d="M569 337C578.4 327.6 578.4 312.4 569 303.1L425 159C418.1 152.1 407.8 150.1 398.8 153.8C389.8 157.5 384 166.3 384 176L384 256L272 256C245.5 256 224 277.5 224 304L224 336C224 362.5 245.5 384 272 384L384 384L384 464C384 473.7 389.8 482.5 398.8 486.2C407.8 489.9 418.1 487.9 425 481L569 337zM224 160C241.7 160 256 145.7 256 128C256 110.3 241.7 96 224 96L160 96C107 96 64 139 64 192L64 448C64 501 107 544 160 544L224 544C241.7 544 256 529.7 256 512C256 494.3 241.7 480 224 480L160 480C142.3 480 128 465.7 128 448L128 192C128 174.3 142.3 160 160 160L224 160z"
+            />
+            </svg>
+            </a>
+            </button>
+        </header>
+        <!--Page Title-->
+        <h1 class="todos-title">Todos</h1>
+        <div class="center-column filter-options">
+            <p>
+            <span class="filter-text"> 
+                <% if (filter) { %>
+                    <%= labels[filter] %>
+                <% } else { %>
+                    All todos 
+                <% } %>
+            </span>
+            <span class="clickable label-filter">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="icon translate-down">
+                    <g fill="none" stroke="currentColor" stroke-width="25" stroke-linecap="round">
+                        <!-- Top slider -->
+                        <line x1="96" y1="200" x2="214" y2="200" />
+                        <circle cx="256" cy="200" r="42" />
+                        <line x1="298" y1="200" x2="544" y2="200" />
+                        
+                        <!-- Middle slider -->
+                        <line x1="96" y1="320" x2="374" y2="320" />
+                        <circle cx="416" cy="320" r="42" />
+                        <line x1="458" y1="320" x2="544" y2="320" />
+                        
+                        <!-- Bottom slider -->
+                        <line x1="96" y1="440" x2="182" y2="440" />
+                        <circle cx="224" cy="440" r="42" />
+                        <line x1="266" y1="440" x2="544" y2="440" />
+                    </g>
+                </svg>
+            </span>
+            </p>
+            <!-- Filter drawer - hidden by default -->
+            <ul class="filter-drawer hidden">
+                <li><a href="/todos">-- Show All --</a></li>
+                <% Object.entries(labels).forEach( ([emoji, labelName]) => { %>
+                    <li><a href="/todos?filter=<%= emoji %>"><%= emoji %> <%= labelName %></a></li>
+                <% }) %>
+            </ul>
+        </div>
+        <!--list of todos-->
+        <div class="list-sticky center-column">
+            <ul>
+            <% todos.forEach( el => { %>
+                    <li class='clickable' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.label %> <%= el.todo %></span>
+                        <!--Hidden form for editing todos-->
+                        <form class="inline-form hidden" action="/todos/editTodo" method="POST">
+                            <input type="hidden" name="todoId" value="<%= el._id %>">
+                            <input type="hidden" name="currentFilter" value="<%= filter || '' %>">
+                            <select name="labelEmojiSelect" id="todo-label-edit">
+                                <option value="">--Please choose a label--</option>
+                                <% Object.keys(labels).forEach( emoji => { %>
+                                <option value="<%= emoji %>" <%= el.label ==  emoji ? 'selected' : '' %>><%= emoji %></option>
+                                <% }) %>
+                            </select>
+                            <input class="inline-input" type="text" name="todoItem" value="<%= el.todo %>">
+                            <button type="submit">Save</button>
+                        </form><!-- End of hidden form
+                        --><span class='edit'><svg viewBox="0 0 640 640" fill="currentColor" class="icon translate-down">
+                            <path
+                                            d="M416.9 85.2L372 130.1L509.9 268L554.8 223.1C568.4 209.6 576 191.2 576 172C576 152.8 568.4 134.4 554.8 120.9L519.1 85.2C505.6 71.6 487.2 64 468 64C448.8 64 430.4 71.6 416.9 85.2zM338.1 164L122.9 379.1C112.2 389.8 104.4 403.2 100.3 417.8L64.9 545.6C62.6 553.9 64.9 562.9 71.1 569C77.3 575.1 86.2 577.5 94.5 575.2L222.3 539.7C236.9 535.6 250.2 527.9 261 517.1L476 301.9L338.1 164z"
+                            />
+                        </svg></span><!--
+                        --><span class='del'><svg viewBox="0 0 640 640" fill="currentColor" class="icon translate-down">
+                            <path
+                                            d="M232.7 69.9C237.1 56.8 249.3 48 263.1 48L377 48C390.8 48 403 56.8 407.4 69.9L416 96L512 96C529.7 96 544 110.3 544 128C544 145.7 529.7 160 512 160L128 160C110.3 160 96 145.7 96 128C96 110.3 110.3 96 128 96L224 96L232.7 69.9zM128 208L512 208L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 208zM216 272C202.7 272 192 282.7 192 296L192 488C192 501.3 202.7 512 216 512C229.3 512 240 501.3 240 488L240 296C240 282.7 229.3 272 216 272zM320 272C306.7 272 296 282.7 296 296L296 488C296 501.3 306.7 512 320 512C333.3 512 344 501.3 344 488L344 296C344 282.7 333.3 272 320 272zM424 272C410.7 272 400 282.7 400 296L400 488C400 501.3 410.7 512 424 512C437.3 512 448 501.3 448 488L448 296C448 282.7 437.3 272 424 272z"
+                            />
+                        </svg></span>
+                    </li>
+            <% }) %>    
+            </ul>
+            <div class=' <%= left > 10 ? '' : 'hidden' %> '>
+                <button class="destress" id="delete-all-button">De-stress</button>
+            </div>
+        </div>
+        <!--Main adding todo form-->
+        <div class = "form">
+            <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+            <form action="/todos/createTodo" method='POST'>
+                <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                <select name="labelEmojiSelect" id="todo-label-emoji-select">
+                    <option value="">--Please choose a label--</option>
+                    <% Object.entries(labels).forEach( ([emoji, labelName]) => { %>
+                    <option value="<%= emoji %>"><%= emoji %> <%= labelName %></option>
+                    <% }) %>
+                </select>
+                <button type="submit" class="button-4">Add Todo</button>
+            </form>
+        </div>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
 
-    <a href="/logout">Logout</a>
-
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>
