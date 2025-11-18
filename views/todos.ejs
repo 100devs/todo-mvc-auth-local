@@ -4,28 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+    <h1>Todos</h1>   
+
+    <!-- Container for all todo lists -->
+    <div class="todo-container">
+        <h2>High Priority</h2>
+        <ul id="high">
+            <% highs.forEach(el => { %>
+            <li class='todoItem high' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? "completed" : "not" %>'><%= el.todo %></span>
+                <div class="todo-controls">
+                    <select class="priority-select">
+                        <option value="high" selected>High</option>
+                        <option value="normal">Normal</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <span class='edit'>Edit</span>
+                    <span class='del'>Delete</span>
+                </div>
             </li>
-    <% }) %>    
-    </ul>
+            <% }) %>
+        </ul>
 
+        <h2>Normal Priority</h2>
+        <ul id="normal">
+            <% normals.forEach(el => { %>
+            <li class='todoItem normal' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? "completed" : "not" %>'><%= el.todo %></span>
+                <div class="todo-controls">
+                    <select class="priority-select">
+                        <option value="high">High</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <span class='edit'>Edit</span>
+                    <span class='del'>Delete</span>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+
+        <h2>Low Priority</h2>
+        <ul id="low">
+            <% lows.forEach(el => { %>
+            <li class='todoItem low' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? "completed" : "not" %>'><%= el.todo %></span>
+                <div class="todo-controls">
+                    <select class="priority-select">
+                        <option value="high">High</option>
+                        <option value="normal">Normal</option>
+                        <option value="low" selected>Low</option>
+                    </select>
+                    <span class='edit'>Edit</span>
+                    <span class='del'>Delete</span>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <!-- Todo summary and completed message -->
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h3 id='completedTasks' style='display:none;'>🎉Congratulations <%= user.userName %>! You have completed your tasks today!</h3>
 
+    <!-- Form to add new todo -->
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <select name="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+        </select>
         <input type="submit">
     </form>
 
-    <a href="/logout">Logout</a>
+    <!-- Logout link -->
+    <a href="/logout" class="logout-link">Logout</a>
 
     <script src="js/main.js"></script>
 </body>

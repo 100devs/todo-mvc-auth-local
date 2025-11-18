@@ -1,10 +1,179 @@
-h1{
-    color: red;
+/* Page border */
+body {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f4f4f9;
+    color: #333;
+    border: 3px solid #ccc; 
+    border-radius: 10px;
+    box-sizing: border-box;
 }
-.completed{
+
+/* Todo section container */
+.todo-container {
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    padding: 1rem;
+    height: 500px; 
+    overflow-y: auto;  
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1 {
+    color: #3b3b3b;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+/* Todo items */
+li.todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Todo text */
+li span {
+    flex-grow: 1;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.completed {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
+    opacity: 0.6;
 }
-.not{
-    text-decoration: underline;
+
+.not {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Priority colors with hover variable for buttons */
+li.high {
+    background: #ffe5e5;
+    border-left: 5px solid #ff4d4d;
+    --btn-hover-color: #ffc8c8; 
+}
+
+li.normal {
+    background: #fffbea;
+    border-left: 5px solid #ffd24d;
+    --btn-hover-color: #fff2a8; 
+}
+
+li.low {
+    background: #e8fff0;
+    border-left: 5px solid #4dd18f;
+    --btn-hover-color: #c3f5d5; 
+}
+
+/* Right-side controls */
+.todo-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Edit & Delete buttons */
+li span.edit,
+li span.del {
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+/* Hover uses parent's variable */
+li span.edit:hover,
+li span.del:hover {
+    background-color: var(--btn-hover-color);
+}
+
+/* Priority selector */
+.todo-controls select {
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+form input[type="text"] {
+    padding: 0.5rem;
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form select,
+form input[type="submit"] {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+form input[type="submit"] {
+    background-color: #4dd18f;
+    color: white;
+    border: none;
+    transition: background 0.2s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #42b97c;
+}
+
+/* Completed message */
+#completedTasks {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4dd18f;
+    margin-top: 1rem;
+}
+
+/* Logout Link */
+.logout-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #4dd18f;   
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.logout-link:hover {
+    background-color: #20aa65; 
 }
