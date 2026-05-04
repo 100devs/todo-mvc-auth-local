@@ -1,5 +1,14 @@
 const Todo = require('../models/Todo')
 
+async function markAllIncomplete() {
+    try {
+        await Todo.updateMany({}, { completed: false })
+        console.log('All todos marked incomplete')
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 module.exports = {
     getTodos: async (req,res)=>{
         console.log(req.user)
