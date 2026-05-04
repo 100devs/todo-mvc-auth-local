@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const schedule = require('node-schedule')
 const todosController = require('../controllers/todos') 
 const { ensureAuth } = require('../middleware/auth')
 
@@ -12,5 +13,9 @@ router.put('/markComplete', todosController.markComplete)
 router.put('/markIncomplete', todosController.markIncomplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
+
+schedule.scheduleJob('0 0 * * *', async () => {
+    await todosController.markAllIncomplete()
+})
 
 module.exports = router
