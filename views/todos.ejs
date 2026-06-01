@@ -9,11 +9,23 @@
 </head>
 <body>
     <h1>Todos</h1>
+
+    <h2>High Priority:</h2>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+    <% high.forEach( (el, i) => { %>
+            <li class='todoItem'>
+                <span data-id='<%=el._id%>' class='list<%=i%> <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del<%=i%> del' data-id="<%=el._id%>"> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
+
+    <h2>Low Priority:</h2>
+    <ul>
+    <% low.forEach( (el, i) => { %>
+            <li class='todoItem'>
+                <span data-id='<%=el._id%>' class='list<%=i%> <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del<%=i%> del' data-id="<%=el._id%>"> Delete </span>
             </li>
     <% }) %>    
     </ul>
@@ -22,7 +34,11 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <select name="priority">
+            <option>High</option>
+            <option>Low</option>
+        </select>
+        <input value="Submit" type="submit">
     </form>
 
     <a href="/logout">Logout</a>
