@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "start": "node server.js",
     "test": "node --check server.js"
   },
@@ -28,5 +30,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
   }
 }

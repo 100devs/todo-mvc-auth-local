@@ -11,7 +11,7 @@ const authLimiter = rateLimit({
   limit: 10,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
-  message: 'Too many attempts. Please wait 15 minutes and try again.'
+  message: 'Too many attempts. Please wait 15 minutes and try again.',
 })
 
 router.get('/', getIndex)

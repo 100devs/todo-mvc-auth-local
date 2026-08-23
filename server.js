@@ -1,5 +1,5 @@
-import dotenv from "dotenv"
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import mongoose from 'mongoose'
 import passport from 'passport'
@@ -29,13 +29,13 @@ app.use(express.json())
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 // Sessions
 app.use(
-    session({
-      secret: process.env.SESSION_SECRET || 'development-only-secret-change-me',
-      resave: false,
-      saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    })
-  )
+  session({
+    secret: process.env.SESSION_SECRET || 'development-only-secret-change-me',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+)
 
 // Passport middleware
 app.use(passport.initialize())
