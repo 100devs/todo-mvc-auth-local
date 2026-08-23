@@ -1,8 +1,7 @@
-const Todo = require('../models/Todo')
+import Todo from '../models/Todo.js'
 
-module.exports = {
+const todosController = {
     getTodos: async (req,res)=>{
-        console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
@@ -22,7 +21,7 @@ module.exports = {
     },
     markComplete: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile, userId: req.user.id},{
                 completed: true
             })
             console.log('Marked Complete')
@@ -33,7 +32,7 @@ module.exports = {
     },
     markIncomplete: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile, userId: req.user.id},{
                 completed: false
             })
             console.log('Marked Incomplete')
@@ -43,13 +42,14 @@ module.exports = {
         }
     },
     deleteTodo: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
         try{
-            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile, userId: req.user.id})
             console.log('Deleted Todo')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
         }
     }
-}    
+}
+
+export default todosController

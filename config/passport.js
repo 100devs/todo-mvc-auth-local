@@ -1,8 +1,9 @@
-const LocalStrategy = require('passport-local').Strategy
-const mongoose = require('mongoose')
-const User = require('../models/User')
+import passportLocal from 'passport-local'
+import User from '../models/User.js'
 
-module.exports = function (passport) {
+const { Strategy: LocalStrategy } = passportLocal
+
+export default function configurePassport(passport) {
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email: email.toLowerCase() }, (err, user) => {
       if (err) { return done(err) }

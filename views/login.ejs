@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Log in — Clear</title><link rel="stylesheet" href="/css/style.css"></head>
+<body class="auth-page"><main class="auth-shell"><a class="brand auth-brand" href="/"><span class="brand-mark">✓</span> Clear</a><section class="auth-card"><div class="auth-heading"><p class="eyebrow">Welcome back</p><h1>Log in to Clear</h1><p>Pick up right where you left off.</p></div>
+<% if (locals.messages && messages.errors) { %><div class="alert" role="alert"><% messages.errors.forEach(el => { %><p><%= el.msg %></p><% }) %></div><% } %><% if (locals.messages && messages.info) { %><div class="alert" role="alert"><% messages.info.forEach(el => { %><p><%= el.msg %></p><% }) %></div><% } %>
+<form class="auth-form" action="/login" method="post"><label for="email">Email</label><input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required autofocus><label for="password">Password</label><input id="password" type="password" name="password" placeholder="Your password" autocomplete="current-password" required><button class="button button-primary button-full" type="submit">Log in</button></form><p class="auth-footer">New to Clear? <a href="/signup">Create an account</a></p></section></main></body></html>
