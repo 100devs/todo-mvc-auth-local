@@ -1,2 +1,6 @@
 node_modules
 .vscode/*
+config/.env
+
+.env
+TODO.md

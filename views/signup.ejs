@@ -1,23 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create an account | Clear</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <a class="brand auth-brand" href="/"><span class="brand-mark">✓</span> Clear</a>
+      <section class="auth-card">
+        <div class="auth-heading">
+          <p class="eyebrow">A clearer day</p>
+          <h1>Create your account</h1>
+          <p>Start small. Make meaningful progress.</p>
+        </div>
+        <% if (locals.messages && messages.errors) { %>
+        <div class="alert" role="alert">
+          <% messages.errors.forEach(el => { %>
+          <p><%= el.msg %></p>
+          <% }) %>
+        </div>
+        <% } %>
+        <form class="auth-form" action="/signup" method="post">
+          <label for="userName">Name</label
+          ><input
+            id="userName"
+            type="text"
+            name="userName"
+            placeholder="Your name"
+            autocomplete="username"
+            required
+            autofocus
+          /><label for="email">Email</label
+          ><input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          /><label for="password">Password <span>8 characters minimum</span></label
+          ><input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Create a password"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          /><label for="confirmPassword">Confirm password</label
+          ><input
+            id="confirmPassword"
+            type="password"
+            name="confirmPassword"
+            placeholder="Repeat your password"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          /><button class="button button-primary button-full" type="submit">Create account</button>
+        </form>
+        <p class="auth-footer">Already have an account? <a href="/login">Log in</a></p>
+      </section>
+    </main>
+  </body>
 </html>

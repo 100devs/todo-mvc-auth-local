@@ -1,14 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A calm, focused place for your daily tasks." />
+    <title>Clear | Make space for what matters</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <main class="landing-shell">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="Clear home"
+          ><span class="brand-mark">✓</span> Clear</a
+        >
+        <div class="nav-actions">
+          <% if (user) { %><a class="button button-ghost" href="/todos">My list</a><% } else { %><a
+            class="button button-ghost"
+            href="/login"
+            >Log in</a
+          ><a class="button button-dark button-small" href="/signup">Get started</a><% } %>
+        </div>
+      </nav>
+      <section class="hero">
+        <div class="eyebrow">Simple by design</div>
+        <h1>Make space for<br /><span>what matters.</span></h1>
+        <p>A beautifully simple task list that keeps your day clear, calm, and moving forward.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="<%= user ? '/todos' : '/signup' %>"
+            ><%= user ? 'Open my list' : 'Start your list' %> <span aria-hidden="true">→</span></a
+          ><% if (!user) { %><a class="text-link" href="/login">Already have an account?</a><% } %>
+        </div>
+        <div class="preview-card" aria-hidden="true">
+          <div class="preview-top"><span>Today</span><span class="preview-date">3 tasks</span></div>
+          <div class="preview-item done">
+            <span class="check">✓</span><span>Plan the week</span>
+          </div>
+          <div class="preview-item">
+            <span class="check"></span><span>Finish project proposal</span>
+          </div>
+          <div class="preview-item">
+            <span class="check"></span><span>Take a walk outside</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

@@ -1,32 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
-    <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My list | Clear</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="app-page">
+    <main class="app-shell">
+      <header class="app-header">
+        <a class="brand" href="/"><span class="brand-mark">✓</span> Clear</a>
+        <div class="account"><span><%= user.userName %></span><a href="/logout">Log out</a></div>
+      </header>
+      <section class="list-card">
+        <div class="list-heading">
+          <div>
+            <p class="eyebrow">My list</p>
+            <h1>Today</h1>
+          </div>
+          <p class="items-left">
+            <strong><%= left %></strong> <%= left === 1 ? 'task' : 'tasks' %> left
+          </p>
+        </div>
+        <form class="add-form" action="/todos/createTodo" method="post">
+          <label class="sr-only" for="todoItem">Add a task</label
+          ><input
+            id="todoItem"
+            type="text"
+            placeholder="What needs to be done?"
+            name="todoItem"
+            maxlength="200"
+            required
+            autocomplete="off"
+          /><button class="add-button" type="submit" aria-label="Add task">+</button>
+        </form>
+        <% if (todos.length) { %>
+        <ul class="todo-list">
+          <% todos.forEach(el => { %>
+          <li class="todoItem" data-id="<%= el._id %>">
+            <button
+              class="todo-toggle <%= el.completed ? 'completed' : 'not' %>"
+              type="button"
+              aria-label="Mark task <%= el.completed ? 'incomplete' : 'complete' %>"
+            >
+              <span class="todo-check"><%= el.completed ? '✓' : '' %></span
+              ><span class="todo-text"><%= el.todo %></span></button
+            ><button class="del" type="button" aria-label="Delete <%= el.todo %>">×</button>
+          </li>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <div class="empty-state">
+          <div>✓</div>
+          <h2>All clear</h2>
+          <p>Add a task above and make today count.</p>
+        </div>
+        <% } %>
+      </section>
+    </main>
+    <script src="/js/main.js"></script>
+  </body>
 </html>

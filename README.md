@@ -1,44 +1,117 @@
-# Introduction
+# Clear
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+Clear is a focused, full-stack todo application built with Node.js, Express, MongoDB, and EJS. It follows the MVC pattern and includes local account authentication so every user has a private task list.
 
----
+The interface uses a responsive, minimal design across the landing page, authentication screens, and task dashboard.
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## Features
 
----
+- Create an account and log in with email and password
+- Store sessions in MongoDB
+- Create, complete, reopen, and delete personal tasks
+- Restrict task routes and mutations to authenticated users
+- Ensure users can only modify their own tasks
+- Validate account details and hash passwords with bcrypt
+- Limit repeated login and signup attempts
+- Add common security headers with Helmet
+- Log HTTP requests with Morgan
+- Support mobile, reduced-motion, and accessible form interactions
+- Use modern ECMAScript module (`import`/`export`) syntax
+- Keep source files consistently formatted with Prettier
 
-# Objectives
+## Technology
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+- Node.js and Express
+- MongoDB and Mongoose
+- EJS templates
+- Passport local authentication
+- bcrypt password hashing
+- MongoDB-backed Express sessions
+- Helmet, Express Rate Limit, and Morgan
+- Vanilla CSS and browser JavaScript
+- Prettier for automated code formatting
 
----
+## Getting started
 
-# Who is this for? 
+### 1. Install dependencies
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+```bash
+npm install
+```
 
----
+### 2. Configure the environment
 
-# Packages/Dependencies used 
+Copy the example environment file:
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+```bash
+cp .env.example .env
+```
 
----
+Update `.env` with your settings:
 
-# Install all the dependencies or node packages used for development via Terminal
+```dotenv
+PORT=2121
+DB_STRING=mongodb://127.0.0.1:27017/todos
+SESSION_SECRET=replace-with-a-long-random-value
+```
 
-`npm install` 
+`DB_STRING` may be a local MongoDB address or a MongoDB Atlas connection string. Use a long, random `SESSION_SECRET` outside local development. The `.env` file is ignored by Git and should not be committed.
 
----
+### 3. Start the application
 
-# Things to add
+For development with automatic restarts:
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
+```bash
+npm run dev
+```
 
+For a standard production-style start:
 
+```bash
+npm start
+```
+
+Then open `http://localhost:2121`, or the port selected in `.env`.
+
+## Available scripts
+
+| Command                | Purpose                                                    |
+| ---------------------- | ---------------------------------------------------------- |
+| `npm run dev`          | Run the server with Nodemon and restart after file changes |
+| `npm run format`       | Format the codebase with Prettier                          |
+| `npm run format:check` | Check formatting without changing files                    |
+| `npm start`            | Run the server with Node.js                                |
+| `npm test`             | Check the server entry point for JavaScript syntax errors  |
+
+## Code formatting
+
+Formatting rules are defined in `.prettierrc`. Run the formatter before committing changes:
+
+```bash
+npm run format
+```
+
+To verify formatting in CI or without modifying files, run `npm run format:check`.
+
+## Project structure
+
+```text
+config/       Database and Passport configuration
+controllers/  Authentication, home, and todo request handlers
+middleware/   Authentication guards
+models/       Mongoose user and todo models
+public/       Browser JavaScript and shared styles
+routes/       Express route definitions
+views/        EJS page templates
+server.js     Application entry point and middleware setup
+```
+
+## Security notes
+
+Login and signup requests are limited to 10 attempts per IP address during each 15-minute window. Helmet adds standard HTTP security headers, and all todo-changing endpoints require an authenticated session and filter records by the current user.
+
+For production, run the app over HTTPS, set `NODE_ENV=production`, provide a strong session secret, and keep database credentials outside source control.
+
+## License
+
+MIT
